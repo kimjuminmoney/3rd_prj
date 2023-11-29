@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class InstructorController {
+public class InsMyClassController {
 	
 	@RequestMapping("/insMyCourse.do")
 	public String myCourses() {
