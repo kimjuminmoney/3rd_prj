@@ -900,7 +900,7 @@
                                 심화 advanced 추가
                                 입문은 class 추가 없음 -->
                     
-                        <div class="level basic">
+                        <!-- <div class="level basic">
                             <span class="blind">난이도</span>
                             <div class="icon level2">
                                 <span class="level_bg"></span>
@@ -908,76 +908,58 @@
                                 <span class="level_bg"></span>
                             </div>
                             기본
-                        </div>
+                        </div> -->
                     
                 </div>
                 <!-- [D] 강좌명이 51~90자인 경우 h2 class에 word_max 추가 -->
                 <h2 class="">
-                
-                    <a href="/onlineclass-tutorial/home" class="NPI=a:title" id="_courseName">누구나 쉽게 준비하는 에드위드 온라인클래스!</a>
-                
+                    <a href="/onlineclass-tutorial/home" class="NPI=a:title" id="_courseName">사이드바 강좌명</a>
                 </h2>
-
-                
-                
-                
                     <div class="profile">
-                        
-                            <!-- [D] 이미지 노출시 class="bgnone" 추가 -->
-                            <span class="thumb bgnone"><img src="https://cphinf.pstatic.net/mooc/20200405_5/1586078383558G8DF6_PNG/edwith%28%29.png?type=ff64_64" width="32" height="32" alt="임시 이미지"></span>
-                        
-                        <span class="name">edwith</span>
-
-                        
-                            
-                                <!-- [D] 파트너홈이 없는 경우 -->
-                                <span class="from">edwith</span>
-                            
-                        
+                        <!-- [D] 이미지 노출시 class="bgnone" 추가 -->
+                        <span class="thumb bgnone"><img src="https://cphinf.pstatic.net/mooc/20200405_5/1586078383558G8DF6_PNG/edwith%28%29.png?type=ff64_64" width="32" height="32" alt="임시 이미지"></span>
+                        <span class="name">강사명</span>
+                        <!-- [D] 파트너홈이 없는 경우 -->
+                        <span class="from">소속?</span>
                     </div>
-                
-
             <!-- 공유하기 -->
             <div class="sns_area _sns_area">
-    <button type="button" class="btn sns_share" data-sns-share><span class="sr_only">공유하기</span></button>
-    <div class="sns_layer " data-sns-layer>
-        <div class="inner">
-            <a href="#" class="ico_url" data-type="urlCopy" data-clipboard-text="www.edwith.org/onlineclass-tutorial">URL복사</a>
-            
-            <a href="#" class="ico_band" data-type="band">밴드</a>
-            <a href="#" class="ico_facebook" data-type="facebook">페이스북</a>
-            <a href="#" class="ico_twitter" data-type="twitter">트위터</a>
-            
-        </div>
-        
-    </div>
-</div>
+			    <button type="button" class="btn sns_share" data-sns-share><span class="sr_only">공유하기</span></button>
+			    <div class="sns_layer " data-sns-layer>
+			        <div class="inner">
+			            <a href="#" class="ico_url" data-type="urlCopy" data-clipboard-text="www.edwith.org/onlineclass-tutorial">URL복사</a>
+			            <a href="#" class="ico_band" data-type="band">밴드</a>
+			            <a href="#" class="ico_facebook" data-type="facebook">페이스북</a>
+			            <a href="#" class="ico_twitter" data-type="twitter">트위터</a>
+        			</div>
+    			</div>
+			</div>
     
-<div id="_band_share_content" style="display:none">누구나 쉽게 준비하는 에드위드 온라인클래스!</div>
-<div id="_twitter_share_content" style="display:none">누구나 쉽게 준비하는 에드위드 온라인클래스!</div>
-<div style="width:1px;height:1px;font-size:0;line-height:0;color:transparent"><span id="urlCopy">http://www.edwith.org/onlineclass-tutorial/lecture/65372</span></div>
-<script src="https://www.edwith.org/static/js/src/entries/common/_sns.share.service.entry.browserfied.min.js?231109_47a067d4"></script>
-<script>
-$(document).ready(function(){
-    var courseUrl = 'https://www.edwith.org/onlineclass-tutorial';
-    var entry = require("/entries/common/_sns.share.service.entry.js");
-    var htData = {
-            facebook : [courseUrl, '1441124829481137', 'http://www.edwith.org/popupClose'],
-            twitter : [courseUrl, $("#_twitter_share_content").text(),  '',  ''],
-            googlePlus : [courseUrl],
-            band : [courseUrl, $("#_band_share_content").text()],
-            url: courseUrl
-        };
-    entry.initialize($('._sns_area'), htData);
-});
-</script>
+			<div id="_band_share_content" style="display:none">밴드 공유 컨텐츠 네임</div>
+			<div id="_twitter_share_content" style="display:none">트위터 공유 컨텐츠 네임</div>
+			<div style="width:1px;height:1px;font-size:0;line-height:0;color:transparent"><span id="urlCopy">URL들어갈자리</span></div>
+			<script src="https://www.edwith.org/static/js/src/entries/common/_sns.share.service.entry.browserfied.min.js?231109_47a067d4"></script>
+			<script>
+			$(document).ready(function(){
+			    var courseUrl = 'https://www.edwith.org/onlineclass-tutorial';
+			    var entry = require("/entries/common/_sns.share.service.entry.js");
+			    var htData = {
+			            facebook : [courseUrl, '1441124829481137', 'http://www.edwith.org/popupClose'],
+			            twitter : [courseUrl, $("#_twitter_share_content").text(),  '',  ''],
+			            googlePlus : [courseUrl],
+			            band : [courseUrl, $("#_band_share_content").text()],
+			            url: courseUrl
+			        };
+			    entry.initialize($('._sns_area'), htData);
+			});
+			</script>
             <!-- // 공유하기 -->
             </div>
             <div class="lecture_sub_tool">
                 
                     <div class="count_info">
-                        <span class="count_like"><em>좋아요</em> 87</span>
-                        <span class="count_observe"><em>수강생</em> 9219</span>
+                        <span class="count_like"><em>조회수</em> 87</span>
+                        <span class="count_observe"><em>수료자수</em> 9219</span>
                     </div>
                     <div class="manage_box">
                         
