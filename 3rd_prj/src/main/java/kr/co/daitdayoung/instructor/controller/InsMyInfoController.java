@@ -9,6 +9,6 @@ public class InsMyInfoController {
 	@RequestMapping("/insMyInfo.do")
 	public String insMyInfo() {
 		
-		return "instructor/insMyInfo";
+		return "instructor/MyInfo/insMyInfo";
 	}
 }

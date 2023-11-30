@@ -21,25 +21,20 @@
 	 
  });//ready
  </script>
-  <link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/plugin.css" type="text/css">
+ <link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/plugin.css" type="text/css">
     <link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/common1.css" type="text/css">
     <link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/common2.css" type="text/css">
-
     
     <link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/edwith.css" type="text/css">
     <link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/nanumsquare_webfont.css" type="text/css">
-    
-    
-    
-
     
     <link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/code_editor/prism.css" type="text/css">
     <link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/code_editor/codemirror.css" type="text/css">
 
     <script src="https://connect.facebook.net/en_US/all.js"></script>
-    <script src="/static/js/vendor/html5shiv/dist/html5shiv.min.js?231109_47a067d4"></script>
-    <script src="/static/js/vendor/respond/dest/respond.min.js?231109_47a067d4"></script>
-    <script src="/static/js/plugins/nclktag.js?231109_47a067d4"></script>
+    <script src="https://www.edwith.org/static/js/vendor/html5shiv/dist/html5shiv.min.js?231109_47a067d4"></script>
+    <script src="https://www.edwith.org/static/js/vendor/respond/dest/respond.min.js?231109_47a067d4"></script>
+    <script src="https://www.edwith.org/static/js/plugins/nclktag.js?231109_47a067d4"></script>
     <script>
         var nsc = 'edwith.all';
         var ccsrv = 'cc.naver.com';
@@ -63,14 +58,10 @@
     
     <meta name="layout" content="index"/>
 
+
+
 </head>
 <body class=" w1080 bg_gray win chrome chrome119">
-
-
-
-
-    
-
 
     <!-- Google Tag Manager (noscript) -->
     
@@ -121,8 +112,8 @@
 
     <input type="hidden" id="__MESSAGE_CODE" value="" />
 
-<script src="/static/js/vendor/vendor.compressed.min.js?231109_47a067d4"></script>
-<script src="/static/js/src/entries/common/_head.entry.browserfied.min.js?231109_47a067d4"></script>
+<script src="https://www.edwith.org/static/js/vendor/vendor.compressed.min.js?231109_47a067d4"></script>
+<script src="https://www.edwith.org//static/js/src/entries/common/_head.entry.browserfied.min.js?231109_47a067d4"></script>
 <script type="text/javascript" src="https://wcs.naver.net/wcslog.js"></script>
 <script src="https://vliveplus.pstatic.net/0/mobile/2020/04/standby/f1.1.0.8.js"></script>
 <script>

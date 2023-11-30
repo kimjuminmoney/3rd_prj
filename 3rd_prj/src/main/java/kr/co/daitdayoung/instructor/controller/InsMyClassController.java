@@ -9,19 +9,19 @@ public class InsMyClassController {
 	@RequestMapping("/insMyCourse.do")
 	public String myCourses() {
 		
-		return "instructor/insMyCourses";
+		return "instructor/MyClass/insMyCourses";
 	}
 	
 	@RequestMapping("/insAddCourse.do")
 	public String addCourse() {
 		
-		return "instructor/insAddCourse";
+		return "instructor/MyClass/insAddCourse";
 	}
 
 	@RequestMapping("/insAddCourseList.do")
 	public String addCourseList() {
 		
-		return "instructor/insAddCourseList";
+		return "instructor/MyClass/insAddCourseList";
 	}
 	
 	
