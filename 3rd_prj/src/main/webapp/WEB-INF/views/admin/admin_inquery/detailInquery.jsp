@@ -7,7 +7,7 @@
 
 <head>
 <jsp:include page="../admin_include/include_head.jsp"></jsp:include>
-<title>일반문의</title>
+<title>일반문의 상세</title>
 <style type="text/css">
 
 </style>
@@ -40,10 +40,35 @@ $(function(){
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
+                    <h1 class="h3 mb-4 text-gray-800">일반문의 답변</h1>
+                    <hr style="background-color:#1CC88A; border-width: 2px;">
 
                 </div>
                 <!-- /.container-fluid -->
+                
+                <div id="inqueryDetail" style="width:1000px; margin: 0 auto; margin-top: 100px">
+	                <h6 id="inqueryTitle" class="h3 mb-4 text-gray-800" style="font-size: 20px">제목</h6>
+					<table>
+					<tr>
+						<td style="border-right: 1px solid #DFE0E2; padding-right: 10px">작성자</td>
+						<td style="border-right: 1px solid #DFE0E2; padding-left: 10px; padding-right: 10px">유형</td>
+						<td style="padding-left: 10px">날짜</td>
+					</tr>				
+					</table>
+	                <hr>
+	                <p style="color: #5A5C69;">문의 내용</p>
+                </div>
+                <div id="addInquery" style="width:1000px; margin: 0 auto; margin-top: 50px">
+	                <hr style="background-color:#1CC88A;">
+        		<!--<h6 id="inqueryAdd" class="h3 mb-4 text-gray-800" style="font-size: 20px">답변</h6> -->        	
+        			<div id="addInqueryFrm" class="form-floating">
+					  <textarea class="form-control" placeholder="문의에 대한 답변을 입력해주세요." id="floatingTextarea2" style="height: 200px"></textarea>
+					</div>
+					<div style="margin-top: 50px;">
+					  <button type="button" class="btn btn-outline-success">등록</button>
+					  <button type="button" class="btn btn-outline-danger">취소</button>
+					</div>
+                </div>
 
             </div>
             <!-- End of Main Content -->
