@@ -61,24 +61,37 @@
 <div class="base_layout" data-wrap-all-course="">
 
 <!-- [D] 카테고리 타이틀은 최대 6개 단위로 생성하여 ul 리스트에 뿌려주세요 -->
-	<ul class="all_list">
+   <ul class="all_list">
     
     <li>
-        <dl class="category_list">
-            <dt><a href="/search/index?categoryId=24">소프트웨어 개발</a></dt>
-            
-                <dd><a href="/search/index?categoryId=72">컴퓨터공학 기초</a></dd>
-            
-                <dd><a href="/search/index?categoryId=71">인공지능</a></dd>
-            
-                <dd><a href="/search/index?categoryId=312">데이터 사이언스</a></dd>
-            
-                <dd><a href="/search/index?categoryId=69">웹/ 게임 개발</a></dd>
-            
-                <dd><a href="/search/index?categoryId=70">모바일 개발</a></dd>
-            
-                <dd><a href="/search/index?categoryId=73">소프트웨어 교육</a></dd>
-            
+        <dl class="compulsory_education">
+               <dd><a href="courses_ce.do">성희롱 예방교육</a></dd>
+                <dd><a href="courses_ce.do">개인정보 보호교육</a></dd>
+                <dd><a href="courses_ce.do">산업안전 보건교육</a></dd>
+                <dd><a href="courses_ce.do">장애인 인식 개선교육</a></dd>
+                <dd><a href="courses_ce.do">퇴직연금 교육</a></dd>
+                <dd><a href="courses_ce.do">직장 내 괴롭힘 예방 교육</a></dd>
+        </dl>
+    </li>
+    
+    <li>
+        <dl class="selfdevelopment_education">
+               <dd><a href="courses_ce.do">데이터 분석</a></dd>
+                <dd><a href="courses_ce.do">마케팅 분석</a></dd>
+                <dd><a href="courses_ce.do">비지니스 매너</a></dd>
+                <dd><a href="courses_ce.do">영어</a></dd>
+                <dd><a href="courses_ce.do">제 3 외국어</a></dd>
+                <dd><a href="courses_ce.do">포토샵, 영상 편집</a></dd>
+        </dl>
+    </li>
+    
+    <li>
+        <dl class="occupational_safety_education">
+               <dd><a href="courses_ce.do">보건</a></dd>
+                <dd><a href="courses_ce.do">서비스</a></dd>
+                <dd><a href="courses_ce.do">제조</a></dd>
+                <dd><a href="courses_ce.do">건설</a></dd>
+                <dd><a href="courses_ce.do">유통</a></dd>
         </dl>
     </li>
 
