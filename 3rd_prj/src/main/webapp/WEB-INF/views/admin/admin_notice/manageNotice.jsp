@@ -32,6 +32,10 @@
 <script type="text/javascript">
 $(function(){
    
+	$("#addNoticeBtn").click(function(){
+		location.href="addNotice.do";
+	});//click
+	
 });//ready
 </script>
 
@@ -70,6 +74,7 @@ $(function(){
 							  <button type="button" class="btn btn-outline-primary">일반</button>
 							  <button type="button" class="btn btn-outline-primary">강좌</button>
 							</div>
+							<button type="button" id="addNoticeBtn" class="btn btn-outline-primary" style="margin-left: 1350px;">공지사항 쓰기</button>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -88,7 +93,7 @@ $(function(){
                                         <tr>
                                             <td>1</td>
                                             <td>Edinburgh</td>
-                                            <td><a href="detailCourse.jsp">System Architect</a></td>
+                                            <td><a href="detailNotice.do">System Architect</a></td>
                                             <td>61</td>
                                             <td>2011/04/25</td>
                                         </tr>

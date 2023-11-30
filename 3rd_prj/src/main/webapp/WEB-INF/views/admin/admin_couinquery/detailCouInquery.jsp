@@ -52,6 +52,7 @@ $(function(){
 					<tr>
 						<td style="border-right: 1px solid #DFE0E2; padding-right: 10px">작성자</td>
 						<td style="border-right: 1px solid #DFE0E2; padding-left: 10px; padding-right: 10px">유형</td>
+						<td style="border-right: 1px solid #DFE0E2; padding-left: 10px; padding-right: 10px">강좌명</td>
 						<td style="padding-left: 10px">날짜</td>
 					</tr>				
 					</table>

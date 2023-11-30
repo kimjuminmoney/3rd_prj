@@ -14,21 +14,22 @@
 	.table th:nth-child(1) {
 		width: 50px; /* 첫 번째 열의 너비 설정 */
 	}
-	
 	.table th:nth-child(2) {
 		width: 50px; /* 첫 번째 열의 너비 설정 */
 	}
-	
 	.table th:nth-child(3) {
-		width: 1000px; /* 첫 번째 열의 너비 설정 */
+		width: 700px; /* 첫 번째 열의 너비 설정 */
 	}
 	.table th:nth-child(4) {
-		width: 100px; /* 첫 번째 열의 너비 설정 */
+		width: 300px; /* 첫 번째 열의 너비 설정 */
 	}
 	.table th:nth-child(5) {
 		width: 100px; /* 첫 번째 열의 너비 설정 */
 	}
 	.table th:nth-child(6) {
+		width: 100px; /* 첫 번째 열의 너비 설정 */
+	}
+	.table th:nth-child(7) {
 		width: 100px; /* 첫 번째 열의 너비 설정 */
 	}
 </style>
@@ -69,7 +70,12 @@ $(function(){
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                            <select class="form-select" aria-label="Default select example">
+							  <option selected>분류</option>
+							  <option value="1">One</option>
+							  <option value="2">Two</option>
+							  <option value="3">Three</option>
+							</select>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -79,17 +85,18 @@ $(function(){
                                             <th>번호</th>
                                             <th>분류</th>
                                             <th>제목</th>
+                                            <th>강좌명</th>
                                             <th>작성자</th>
                                             <th>작성일</th>
                                             <th>답변여부</th>
                                         </tr>
                                     </thead>
-
                                     <tbody>
                                         <tr>
                                             <td>1</td>
                                             <td>Edinburgh</td>
                                             <td><a href="detailCouInquery.do">System Architect</a></td>
+                                            <td>대충 강좌명</td>
                                             <td>61</td>
                                             <td>2011/04/25</td>
                                             <td>y</td>
