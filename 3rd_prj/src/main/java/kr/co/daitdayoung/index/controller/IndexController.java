@@ -1,4 +1,4 @@
-package kr.co.index;
+package kr.co.daitdayoung.index.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,10 +17,24 @@ public class IndexController {
 		return "/index/index";
 	}
 	
-	@RequestMapping(value = "/courses.do", method = RequestMethod.GET)
-	public String courses(Model model) {
+	@RequestMapping(value = "/courses_ce.do", method = RequestMethod.GET)
+	public String coursesCe(Model model) {
 		
-		return "/courses/courses";
+		return "/courses/courses_ce";
+	}
+	
+	
+	@RequestMapping(value = "/courses_se.do", method = RequestMethod.GET)
+	public String coursesSe(Model model) {
+		
+		return "/courses/courses_se";
+	}
+	
+	
+	@RequestMapping(value = "/courses_ose.do", method = RequestMethod.GET)
+	public String coursesOse(Model model) {
+		
+		return "/courses/courses_ose";
 	}
 	
 	@RequestMapping(value = "/courses_detail.do", method = RequestMethod.GET)

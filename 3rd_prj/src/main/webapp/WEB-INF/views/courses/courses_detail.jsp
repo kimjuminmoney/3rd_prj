@@ -337,7 +337,7 @@
             <input type="hidden" id="__MATERIALS" data-selector="materials" value='[{&quot;id&quot;:3364772,&quot;text&quot;:&quot;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&quot;,&quot;isShowMaterial&quot;:false,&quot;lectureId&quot;:0,&quot;isUploading&quot;:false,&quot;orgLectureId&quot;:0,&quot;isCode&quot;:false,&quot;courseId&quot;:67376,&quot;type&quot;:&quot;Text&quot;,&quot;isLoaded&quot;:true}]'>
 <input type="hidden" id="__COURSENAME" data-selector="courseName" value="GPTSW">
 <script src="https://www.edwith.org/static/js/vendor/prismplayer-pc/dist/index.js?231109_47a067d4"></script>
-<link rel="stylesheet" type="text/css" href="https://www.edwith.org/static/js/vendor/prismplayer-pc/dist/main.css?231109_47a067d4">
+<link rel="stylesheet" type="text/css" href="https://www.edwith.org/static/js/vendor/prismplayer-pc/dist/main.css?231109_47a067d4"/>
 <script src="https://www.edwith.org/static/js/src/entries/common/_material.entry.browserfied.min.js?231109_47a067d4"></script>
 
 

@@ -80,8 +80,10 @@
 
 
 <ul class="lnk">
-        <li><a href="courses.do">공개강좌</a></li>
-    
+        <li><a href="courses_ce.do">의무교육</a></li>
+        <li><a href="courses_se.do">자기개발교육</a></li>
+        <li><a href="courses_ose.do">산업안전교육</a></li>
+        
 </ul>
 
 <ul class="gnb ly_type2" id="gnb">

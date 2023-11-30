@@ -8,13 +8,13 @@
 <!-- 수동 큐레이션 -->
 <div id="manual_curation_wrap"><div class="class_list_wrap"><!-- #breadcrumb: /modules/main/template/manual.curation.html -->
 
-<h3 class="class_list_title">과학기술특성화대학의 명강의를 STAR-MOOC에서!</h3>
+<h3 class="class_list_title">똑똑한 직장인의 비결, 대공개!</h3>
 <div class="link_wrap" curation-wrap="">
     
-        <a href="https://www.starmooc.kr/" class="title_box" target="" data-nclk="mc.title20">
+        <a href="courses_ce.do" class="title_box" target="" data-nclk="mc.title20">
             <span class="thumb" style="background-image: url(https://cphinf.pstatic.net/mooc/20201215_132/1608026284610nDLQS_PNG/q_box_bg_01.png?type=ff252_286)"></span>
-            <em class="title">스타무크</em>
-            <p class="text">국내 최고 6개 과학기술특성화대학의 온라인 공개강좌로 초대합니다.</p>
+            <em class="title">의무교육        </em>
+            <p class="text">근로기준법에 의거한 법정 의무교육으로 똑똑한 직장인 도전!</p>
         </a>
     
 <div><!-- #breadcrumb: /modules/main/template/manual.curation.item.html -->
@@ -111,15 +111,20 @@
         <a href="#" class="dot " slide-btn-page="" data-page="1" data-nclk="mc.move"><span class="blind">1</span></a>
     
 </div>
-</div></div></div><div class="class_list_wrap"><!-- #breadcrumb: /modules/main/template/manual.curation.html -->
+</div>
+</div>
+</div>
 
-<h3 class="class_list_title">카이스트의 고품격 강의를 KOOC에서 확인하세요</h3>
+
+<div class="class_list_wrap"><!-- #breadcrumb: /modules/main/template/manual.curation.html -->
+
+<h3 class="class_list_title">회사와 성장하는 시대? 이제는 나의 성장 시대!</h3>
 <div class="link_wrap" curation-wrap="">
     
-        <a href="https://kooc.kaist.ac.kr/" class="title_box" target="" data-nclk="mc.title30">
+        <a href="courses_se.do" class="title_box" target="" data-nclk="mc.title30">
             <span class="thumb" style="background-image: url(https://cphinf.pstatic.net/mooc/20201215_45/1608025862412BpWqR_PNG/box.png?type=ff252_286)"></span>
-            <em class="title">KOOC</em>
-            <p class="text">KAIST에 입학하지 않아도 KAIST의 유명 강의를 수강할 수 있는 방법</p>
+            <em class="title">자기개발교육</em>
+            <p class="text">회사 업무 외에 나를 위한 스펙업을 차근차근 쌓아가게 도와드립니다</p>
         </a>
     
 <div><!-- #breadcrumb: /modules/main/template/manual.curation.item.html -->
@@ -254,15 +259,20 @@
         <a href="#" class="dot " slide-btn-page="" data-page="1" data-nclk="mc.move"><span class="blind">1</span></a>
     
 </div>
-</div></div></div><div class="class_list_wrap"><!-- #breadcrumb: /modules/main/template/manual.curation.html -->
+</div>
+</div>
+</div>
 
-<h3 class="class_list_title">모두가 평등하게 최고의 SW 교육을! 네이버 커넥트재단</h3>
+
+<div class="class_list_wrap"><!-- #breadcrumb: /modules/main/template/manual.curation.html -->
+
+<h3 class="class_list_title">모두의 안전하고 행복한 하루를 만들어보아요!</h3>
 <div class="link_wrap" curation-wrap="">
     
-        <a href="https://www.edwith.org" class="title_box" target="" data-nclk="mc.title40">
+        <a href="courses_ose.do" class="title_box" target="" data-nclk="mc.title40">
             <span class="thumb" style="background-image: url(https://cphinf.pstatic.net/mooc/20201215_229/1608027977378cSAmK_PNG/q_box_bg_02_new.png?type=ff252_286)"></span>
-            <em class="title">네이버 커넥트재단</em>
-            <p class="text">현업에 바로 활용할 수 있는 소프트웨어 교육! 네이버 커넥트 재단</p>
+            <em class="title">산업안전교육</em>
+            <p class="text">근로자들이 속한 작업장에서 발생할 수 있는 위험한 요인 및 사고 예방법, 안전 지식 등을 배울 수 있는 법정의무교육</p>
         </a>
     
 <div><!-- #breadcrumb: /modules/main/template/manual.curation.item.html -->
@@ -284,19 +294,6 @@
             <div class="lecture_count">
                 <div class="favorite"><span class="ic_heart">좋아요</span>49</div>
                 <div class="student"><span class="ic_student">수강생 수</span>3165</div>
-
-                
-                <div class="level">
-                    <span class="blind">난이도</span>
-                    
-                    <div class="icon">
-                        <span class="level_bg"></span>
-                        <span class="level_bg"></span>
-                        <span class="level_bg"></span>
-                    </div>
-                    입문
-                    
-                </div>
                 
             </div>
         </li>
@@ -315,19 +312,6 @@
             <div class="lecture_count">
                 <div class="favorite"><span class="ic_heart">좋아요</span>956</div>
                 <div class="student"><span class="ic_student">수강생 수</span>13007</div>
-
-                
-                <div class="level">
-                    <span class="blind">난이도</span>
-                    
-                    <div class="icon">
-                        <span class="level_bg"></span>
-                        <span class="level_bg"></span>
-                        <span class="level_bg"></span>
-                    </div>
-                    입문
-                    
-                </div>
                 
             </div>
         </li>
@@ -391,340 +375,11 @@
         
     </ul>
     
-        <a href="#" class="list_prev_btn" slide-btn-prev="" data-nclk="mc.before" style="display: none;"><span class="blind">이전</span></a>
-        <a href="#" class="list_next_btn" slide-btn-next="" data-nclk="mc.after1"><span class="blind">다음</span></a>
-    
-</div>
-<div class="pagination">
-    
-        <a href="#" class="dot on" slide-btn-page="" data-page="0" data-nclk="mc.move"><span class="blind">0</span></a>
-    
-        <a href="#" class="dot " slide-btn-page="" data-page="1" data-nclk="mc.move"><span class="blind">1</span></a>
-    
-</div>
-</div></div></div><div class="class_list_wrap"><!-- #breadcrumb: /modules/main/template/manual.curation.html -->
-
-<h3 class="class_list_title">소프트웨어 산업계 수요에 맞는 교육! 부산대학교 소프트웨어 교육센터</h3>
-<div class="link_wrap" curation-wrap="">
-    
-        <a href="https://www.edwith.org/ptnr/pnuswedu" class="title_box" target="" data-nclk="mc.title50">
-            <span class="thumb" style="background-image: url(https://cphinf.pstatic.net/mooc/20201215_5/1608028526074IHYdc_PNG/image.PNG?type=ff252_286)"></span>
-            <em class="title">부산대학교</em>
-            <p class="text">탄탄한 프로그래밍 능력을 갖춰, 세계로 뻗는 SW가치 확산에 동참하세요!</p>
-        </a>
-    
-<div><!-- #breadcrumb: /modules/main/template/manual.curation.item.html -->
-
-<div class="inner_wrap all_list" style="overflow: hidden;">
-    <ul class="class_list" slide-list-container="" style="width: 1656px;">
-        
-        <li class="list_item">
-            <a href="/pnu-cplusplus" class="link" target="" data-nclk="mc.lec51">
-                <div class="badge">
-                    
-                </div>
-                <em class="class_name">C++프로그래밍 (C++ Programming)</em>
-                <div class="info">
-                    <span>정은미</span><span>부산대학교</span>
-                </div>
-                <span class="thumb" style="background-image: url(https://cphinf.pstatic.net/mooc/20210311_248/1615451572086wVCWJ_PNG/c%2B%2B.png?type=ff220_88)">&nbsp;</span>
-            </a>
-            <div class="lecture_count">
-                <div class="favorite"><span class="ic_heart">좋아요</span>145</div>
-                <div class="student"><span class="ic_student">수강생 수</span>823</div>
-
-                
-                <div class="level">
-                    <span class="blind">난이도</span>
-                    
-                    <div class="icon level2">
-                        <span class="level_bg"></span>
-                        <span class="level_bg"></span>
-                        <span class="level_bg"></span>
-                    </div>
-                    기본
-                    
-                </div>
-                
-            </div>
-        </li>
-        
-        <li class="list_item">
-            <a href="/pnu-basicc" class="link" target="" data-nclk="mc.lec52">
-                <div class="badge">
-                    
-                </div>
-                <em class="class_name">C언어를 활용한 기초컴퓨터프로그래밍</em>
-                <div class="info">
-                    <span>최윤호</span><span>부산대학교</span>
-                </div>
-                <span class="thumb" style="background-image: url(https://cphinf.pstatic.net/mooc/20171229_17/1514523981969Gese9_JPEG/pnu_course_C.jpg?type=ff220_88)">&nbsp;</span>
-            </a>
-            <div class="lecture_count">
-                <div class="favorite"><span class="ic_heart">좋아요</span>243</div>
-                <div class="student"><span class="ic_student">수강생 수</span>9790</div>
-
-                
-            </div>
-        </li>
-        
-        <li class="list_item">
-            <a href="/pnu-basicr" class="link" target="" data-nclk="mc.lec53">
-                <div class="badge">
-                    
-                </div>
-                <em class="class_name">R언어를 활용한 기초컴퓨터프로그래밍</em>
-                <div class="info">
-                    <span>박성호</span><span>부산대학교</span>
-                </div>
-                <span class="thumb" style="background-image: url(https://cphinf.pstatic.net/mooc/20171229_155/15145238885330z1cJ_JPEG/pnu_course_R.jpg?type=ff220_88)">&nbsp;</span>
-            </a>
-            <div class="lecture_count">
-                <div class="favorite"><span class="ic_heart">좋아요</span>185</div>
-                <div class="student"><span class="ic_student">수강생 수</span>5854</div>
-
-                
-            </div>
-        </li>
-        
-        <li class="list_item">
-            <a href="/pnu-basicpython" class="link" target="" data-nclk="mc.lec54">
-                <div class="badge">
-                    
-                </div>
-                <em class="class_name">파이썬을 활용한 기초컴퓨터프로그래밍</em>
-                <div class="info">
-                    <span>유영환</span><span>부산대학교</span>
-                </div>
-                <span class="thumb" style="background-image: url(https://cphinf.pstatic.net/mooc/20171229_272/1514523951568GHuXX_JPEG/pnu_course_P.jpg?type=ff220_88)">&nbsp;</span>
-            </a>
-            <div class="lecture_count">
-                <div class="favorite"><span class="ic_heart">좋아요</span>231</div>
-                <div class="student"><span class="ic_student">수강생 수</span>6498</div>
-
-                
-            </div>
-        </li>
-        
-        <li class="list_item">
-            <a href="/pnu-thinking02" class="link" target="" data-nclk="mc.lec55">
-                <div class="badge">
-                    
-                </div>
-                <em class="class_name">인문사회예체능계열 전공자를 위한 컴퓨팅사고</em>
-                <div class="info">
-                    <span>박성호</span><span>부산대학교</span>
-                </div>
-                <span class="thumb" style="background-image: url(https://cphinf.pstatic.net/mooc/20180110_245/1515567186777SrMHP_JPEG/pnu-thinking01.jpg?type=ff220_88)">&nbsp;</span>
-            </a>
-            <div class="lecture_count">
-                <div class="favorite"><span class="ic_heart">좋아요</span>23</div>
-                <div class="student"><span class="ic_student">수강생 수</span>1844</div>
-
-                
-            </div>
-        </li>
-        
-        <li class="list_item">
-            <a href="/basic-python" class="link" target="" data-nclk="mc.lec56">
-                <div class="badge">
-                    
-                </div>
-                <em class="class_name">데이터분석을 위한 파이썬 입문</em>
-                <div class="info">
-                    <span>김경민</span><span>부산대학교</span>
-                </div>
-                <span class="thumb" style="background-image: url(https://cphinf.pstatic.net/mooc/20200529_68/1590742011535Wi7fx_JPEG/_.jpg?type=ff220_88)">&nbsp;</span>
-            </a>
-            <div class="lecture_count">
-                <div class="favorite"><span class="ic_heart">좋아요</span>91</div>
-                <div class="student"><span class="ic_student">수강생 수</span>1051</div>
-
-                
-                <div class="level">
-                    <span class="blind">난이도</span>
-                    
-                    <div class="icon">
-                        <span class="level_bg"></span>
-                        <span class="level_bg"></span>
-                        <span class="level_bg"></span>
-                    </div>
-                    입문
-                    
-                </div>
-                
-            </div>
-        </li>
-        
-    </ul>
-    
-        <a href="#" class="list_prev_btn" slide-btn-prev="" data-nclk="mc.before" style="display: none;"><span class="blind">이전</span></a>
-        <a href="#" class="list_next_btn" slide-btn-next="" data-nclk="mc.after1"><span class="blind">다음</span></a>
-    
-</div>
-<div class="pagination">
-    
-        <a href="#" class="dot on" slide-btn-page="" data-page="0" data-nclk="mc.move"><span class="blind">0</span></a>
-    
-        <a href="#" class="dot " slide-btn-page="" data-page="1" data-nclk="mc.move"><span class="blind">1</span></a>
-    
-</div>
-</div></div></div><div class="class_list_wrap"><!-- #breadcrumb: /modules/main/template/manual.curation.html -->
-
-<h3 class="class_list_title">소프트웨어 중심사회 인재를 양성하는 곳! 경북대학교 소프트웨어 교육센터</h3>
-<div class="link_wrap" curation-wrap="">
-    
-        <a href="https://www.edwith.org/ptnr/knu" class="title_box" target="" data-nclk="mc.title60">
-            <span class="thumb" style="background-image: url(https://cphinf.pstatic.net/mooc/20201215_214/160802892484503VWn_PNG/png.png?type=ff252_286)"></span>
-            <em class="title">경북대학교 소프트웨어 교육센터</em>
-            <p class="text">다양한 온라인 교육을 통해 SW 중심사회를 이끌어갈 미래의 리더로 성장하세요</p>
-        </a>
-    
-<div><!-- #breadcrumb: /modules/main/template/manual.curation.item.html -->
-
-<div class="inner_wrap all_list" style="overflow: hidden;">
-    <ul class="class_list" slide-list-container="" style="width: 1656px;">
-        
-        <li class="list_item">
-            <a href="/knuswedu_cbasic" class="link" target="" data-nclk="mc.lec61">
-                <div class="badge">
-                    
-                </div>
-                <em class="class_name">C 프로그래밍 기초</em>
-                <div class="info">
-                    <span>SW교육센터</span><span>경북대학교 소프트웨어교육원</span>
-                </div>
-                <span class="thumb" style="background-image: url(https://cphinf.pstatic.net/mooc/20161130_132/14804838817973bfB5_PNG/_C.png?type=ff220_88)">&nbsp;</span>
-            </a>
-            <div class="lecture_count">
-                <div class="favorite"><span class="ic_heart">좋아요</span>589</div>
-                <div class="student"><span class="ic_student">수강생 수</span>10470</div>
-
-                
-                <div class="level">
-                    <span class="blind">난이도</span>
-                    
-                    <div class="icon level2">
-                        <span class="level_bg"></span>
-                        <span class="level_bg"></span>
-                        <span class="level_bg"></span>
-                    </div>
-                    기본
-                    
-                </div>
-                
-            </div>
-        </li>
-        
-        <li class="list_item">
-            <a href="/knuswedu_scratch" class="link" target="" data-nclk="mc.lec62">
-                <div class="badge">
-                    
-                </div>
-                <em class="class_name">스크래치 활용 프로그래밍</em>
-                <div class="info">
-                    <span>SW교육센터</span><span>경북대학교 소프트웨어교육원</span>
-                </div>
-                <span class="thumb" style="background-image: url(https://cphinf.pstatic.net/mooc/20161121_59/1479718997685of8ig_PNG/_.png?type=ff220_88)">&nbsp;</span>
-            </a>
-            <div class="lecture_count">
-                <div class="favorite"><span class="ic_heart">좋아요</span>26</div>
-                <div class="student"><span class="ic_student">수강생 수</span>2302</div>
-
-                
-            </div>
-        </li>
-        
-        <li class="list_item">
-            <a href="/knu-algorithm" class="link" target="" data-nclk="mc.lec63">
-                <div class="badge">
-                    
-                </div>
-                <em class="class_name">파이썬으로 배우는 알고리즘 기초</em>
-                <div class="info">
-                    <span>SW교육센터</span><span>경북대학교 소프트웨어교육원</span>
-                </div>
-                <span class="thumb" style="background-image: url(https://cphinf.pstatic.net/mooc/20200702_202/1593673130352uGNUK_PNG/image.PNG?type=ff220_88)">&nbsp;</span>
-            </a>
-            <div class="lecture_count">
-                <div class="favorite"><span class="ic_heart">좋아요</span>101</div>
-                <div class="student"><span class="ic_student">수강생 수</span>990</div>
-
-                
-            </div>
-        </li>
-        
-        <li class="list_item">
-            <a href="/knu-cbasic" class="link" target="" data-nclk="mc.lec64">
-                <div class="badge">
-                    
-                </div>
-                <em class="class_name">비전공자를 위한 기초프로그래밍</em>
-                <div class="info">
-                    <span>SW교육센터</span><span>경북대학교 소프트웨어교육원</span>
-                </div>
-                <span class="thumb" style="background-image: url(https://cphinf.pstatic.net/mooc/20180625_75/1529929465773rCTN0_PNG/__.png?type=ff220_88)">&nbsp;</span>
-            </a>
-            <div class="lecture_count">
-                <div class="favorite"><span class="ic_heart">좋아요</span>35</div>
-                <div class="student"><span class="ic_student">수강생 수</span>1944</div>
-
-                
-            </div>
-        </li>
-        
-        <li class="list_item">
-            <a href="/opensource" class="link" target="" data-nclk="mc.lec65">
-                <div class="badge">
-                    
-                </div>
-                <em class="class_name">오픈소스 개발의 이해와 실습</em>
-                <div class="info">
-                    <span>SW교육센터</span><span>경북대학교 소프트웨어교육원</span>
-                </div>
-                <span class="thumb" style="background-image: url(https://cphinf.pstatic.net/mooc/20180306_107/15203044914627RsjD_PNG/_.PNG?type=ff220_88)">&nbsp;</span>
-            </a>
-            <div class="lecture_count">
-                <div class="favorite"><span class="ic_heart">좋아요</span>43</div>
-                <div class="student"><span class="ic_student">수강생 수</span>1743</div>
-
-                
-            </div>
-        </li>
-        
-        <li class="list_item">
-            <a href="/knusw-ai" class="link" target="" data-nclk="mc.lec66">
-                <div class="badge">
-                    
-                </div>
-                <em class="class_name">인공지능의 이해</em>
-                <div class="info">
-                    <span>SW교육센터</span><span>경북대학교 소프트웨어교육원</span>
-                </div>
-                <span class="thumb" style="background-image: url(https://cphinf.pstatic.net/mooc/20191231_188/15778014615855BcgW_PNG/_.png?type=ff220_88)">&nbsp;</span>
-            </a>
-            <div class="lecture_count">
-                <div class="favorite"><span class="ic_heart">좋아요</span>129</div>
-                <div class="student"><span class="ic_student">수강생 수</span>1800</div>
-
-                
-            </div>
-        </li>
-        
-    </ul>
-    
-        <a href="#" class="list_prev_btn" slide-btn-prev="" data-nclk="mc.before" style="display: none;"><span class="blind">이전</span></a>
-        <a href="#" class="list_next_btn" slide-btn-next="" data-nclk="mc.after1"><span class="blind">다음</span></a>
-    
-</div>
-<div class="pagination">
-    
-        <a href="#" class="dot on" slide-btn-page="" data-page="0" data-nclk="mc.move"><span class="blind">0</span></a>
-    
-        <a href="#" class="dot " slide-btn-page="" data-page="1" data-nclk="mc.move"><span class="blind">1</span></a>
     
 </div>
 </div></div></div>
+
+
 </div>
 </div>
 </section>
