@@ -70,8 +70,8 @@ $(function(){
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
 							<div class="btn-group" role="group" aria-label="Basic outlined example">
-							  <button type="button" class="btn btn-outline-primary">학생</button>
-							  <button type="button" class="btn btn-outline-primary">강사</button>
+							  <button type="button" class="btn btn-outline-primary" value="학생">학생</button>
+							  <button type="button" class="btn btn-outline-primary" value="강사">강사</button>
 							</div>
                         </div>
                         <div class="card-body">
@@ -83,15 +83,15 @@ $(function(){
                                             <th>아이디</th>
                                             <th>이름</th>
                                             <th>가입일</th>
-                                            <th>수강중인 강의</th>
-                                            <th>수료한 강의</th>
+                                            <th>수강중인 강좌</th>
+                                            <th>수료한 강좌</th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
                                         <tr>
                                             <td>1</td>
-                                            <td><a href="detailCourse.jsp">wnstrl04092</a></td>
+                                            <td><a href="detailStudent.do">wnstrl04092</a></td>
                                             <td>Alex</td>
                                             <td>61</td>
                                             <td>2011/04/25</td>

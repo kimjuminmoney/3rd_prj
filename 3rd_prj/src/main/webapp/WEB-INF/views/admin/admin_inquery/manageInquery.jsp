@@ -16,7 +16,7 @@
 	}
 	.table th:nth-child(2) {
 		width: 50px; /* 첫 번째 열의 너비 설정 */
-	
+	}
 	.table th:nth-child(3) {
 		width: 1000px; /* 첫 번째 열의 너비 설정 */
 	}
@@ -67,7 +67,12 @@ $(function(){
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+							<select class="form-select" aria-label="Default select example">
+							  <option selected>분류</option>
+							  <option value="1">One</option>
+							  <option value="2">Two</option>
+							  <option value="3">Three</option>
+							</select>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
