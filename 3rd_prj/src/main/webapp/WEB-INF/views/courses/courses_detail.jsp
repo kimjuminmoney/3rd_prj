@@ -85,6 +85,7 @@
     
     <!-- // Google Tag Manager -->
 
+    <title>청소년을 위한 Chat GPT 강좌소개 : edwith</title>
 </head>
 <body class="re_pack boost_course_main_body le_info win chrome chrome119">
 
@@ -147,7 +148,118 @@
 <script src="/static/js/src/entries/common/_head.entry.browserfied.min.js?231109_47a067d4"></script>
 <script type="text/javascript" src="https://wcs.naver.net/wcslog.js"></script>
 <script src="https://vliveplus.pstatic.net/0/mobile/2020/04/standby/f1.1.0.8.js"></script>
+<script>
+    var title = document.title;
+    document.title = _.unescape(title);
 
+    var entry = require("/entries/common/_head.entry.js");
+    entry.initialize();
+
+    // 부코 진입시, 통합 회원 약관 동의하지 않았으면 약관 페이지로 이동하는 즉시 실행 함수
+    (function connectMemberIntegration() {
+        // 자체 로그인 서비스를 이용 하는 경우(snsCode가 있는 경우)를 제외하고는 통합 회원 전환을 진행함
+        if ("") {  // null, 빈 문자열 호환됨
+            return;
+        }
+
+        var integrationUserId = Number();
+        var integrationAgree = Boolean();
+        var regrSecUserId = Number();
+
+        // 미로그인자 또는 약관에 이미 동의한 사람, 교수자가 직접 등록한 계정은 제외
+        if ((integrationUserId === 0) || integrationAgree || (regrSecUserId > 0)) {
+            return;
+        }
+
+        // 약관 페이지 및 오류 페이지 무한 리다이렉트 방지
+        if ((location.pathname.indexOf("/users/connect-integration") > -1)
+            || (location.pathname.indexOf("/notAuthorized") > -1)
+            || (location.pathname.indexOf("/notExist") > -1)
+            || (location.pathname.indexOf("/internalServerError") > -1)
+            || (location.pathname.indexOf("/readOnlyError") > -1)
+            || (location.pathname.indexOf("/badRequest") > -1)
+            || (location.pathname.indexOf("/methodNotAllowed") > -1)
+            || (location.pathname.indexOf("/neoid/doChainingLogin") > -1)) {
+            return;
+        }
+
+        location.href = ("/users/connect-integration?returnUrl=" + encodeURI(location.href));
+    }());
+
+
+    
+        
+        if(!wcs_add) var wcs_add = {};
+        
+            wcs_add["wa"] = "3d48cd39225150";
+        
+        wcs_do();
+
+        
+        
+    
+
+    
+    function diff_minutes(dt2, dt1) {
+        var diff =(dt2.getTime() - dt1.getTime()) / 1000;
+        diff /= 60;
+        return Math.abs(Math.round(diff));
+    }
+
+    //오늘 하루만 유지되도록 쿠키 Minute 설정
+    function getStandbyCookieTime() {
+        var dt1 = new Date();
+
+        var dt2 = new Date(dt1);
+        dt2.setDate(dt1.getDate() + 1);
+        dt2.setHours(0,0,0,0);
+
+        var diffMinute =  diff_minutes(dt2, dt1);
+        if(diffMinute <= 0) {
+            return 24 * 60
+        } else {
+            return diffMinute;
+        }
+    }
+
+    var htInfo = {
+        serviceId : "edwith_NEXT",
+        seqApi : "https://standby-campaign.naver.com/",
+        heartBeatApi : "https://standby-campaign.naver.com/",
+        homeUrl : "https://edwith.org",
+        cookieTime : getStandbyCookieTime()
+    };
+
+    var oSequenceManager = new SequenceManager({
+        serviceId : htInfo.serviceId,
+        apiHost: htInfo.seqApi,
+        cookieTime: htInfo.cookieTime, //minute 단위
+        successCallback : function(response){
+            //시퀀스 호출이 성공 하였을 경우 heartbeat 요청 시작~
+            oHeartbeat.start();
+        },
+        failCallback : function(response) {
+        },
+        errorCallback : function(error) {
+            //호출 시 오류가 발생 하였을 경우 3초 후 시퀀스 호출
+            setTimeout(oSequenceManager.requestSequence , 3000);
+        }
+    });
+
+    var oHeartbeat = new Heartbeat(oSequenceManager,{
+        serviceId: htInfo.serviceId,
+        apiHost: htInfo.heartBeatApi,
+        soldoutCallback: function(response) {
+        },
+        errorCallback : function(response) {
+            //에러가 발생했을 경우 순번 삭제 후 아무것도 하지 않음
+        },
+        successRun : true //대기열 진입 시에도 계속 heartbeat 호출할 필요가 있을 경우 true(상품 품절 체크 등의 이슈)
+    });
+
+    //dom 로드된 후 아래 코드 호출
+    //oSequenceManager.requestSequence();
+</script>
 
 
     <input type="hidden" id="GA_VIEW_ID" value="UA-93980439-1" />
@@ -168,7 +280,72 @@
 <input type="hidden" id="GA_DIMENSION05" value="NEXT" /> 
 <input type="hidden" id="GA_DIMENSION06" value="PC_WEB" /> 
 
+<script>
+    
+		
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    
 
+    (function() {
+        function gaGetInfo() {
+            var gaInfo = {
+                viewId: document.getElementById('GA_VIEW_ID').value,
+                userId: document.getElementById('GA_USER_ID').value,
+                dimension01: document.getElementById('GA_DIMENSION01').value,
+                dimension02: document.getElementById('GA_DIMENSION02').value,
+                dimension03: document.getElementById('GA_DIMENSION03').value,
+                dimension04: document.getElementById('GA_DIMENSION04').value,
+                dimension05: document.getElementById('GA_DIMENSION05').value,
+                dimension06: document.getElementById('GA_DIMENSION06').value,
+                dimension07: document.getElementById('GA_DIMENSION07').value,
+                dimension08: document.getElementById('GA_DIMENSION08').value,
+                dimension09: document.getElementById('GA_DIMENSION09').value
+            };
+
+            return gaInfo;
+        }
+
+
+        function gaHitPageView() {
+            var gaInfo = gaGetInfo();
+            var ga = window.ga;
+
+            ga('create', gaInfo.viewId, 'auto');
+            ga('set', 'userId', gaInfo.userId);
+            ga('set', 'dimension1', gaInfo.dimension01);
+            ga('set', 'dimension2', gaInfo.dimension02);
+            ga('set', 'dimension3', gaInfo.dimension03);
+            ga('set', 'dimension4', gaInfo.dimension04);
+            ga('set', 'dimension5', gaInfo.dimension05);
+            ga('set', 'dimension6', gaInfo.dimension06);
+            ga('set', 'dimension7', gaInfo.dimension07);
+            ga('set', 'dimension8', gaInfo.dimension08);
+            ga('set', 'dimension9', gaInfo.dimension09);
+
+            ga('send', 'pageview');
+        }
+
+        function gaSimpleHitPageView(page) {
+            ga('set', 'page', page);
+            ga('send', 'pageview');
+        }
+
+        window.gaHitPageView = gaSimpleHitPageView;
+
+        
+        /*ga('send', {
+            hitType: 'event',
+            eventCategory: 'video',
+            eventAction: 'play',
+            eventLabel: 'media play'
+        });*/
+
+        gaHitPageView();
+    })();
+</script>
 
 
 
@@ -194,12 +371,115 @@
     background-color: #00AB50;
 }
 </style>
+<div class="modal_wrap" id="_modal_wrap" style="display:none">
+	<div class="modal_inner">
+	    <!--애니메이션 영역-->
+	    <div class="modal_container" data-md-content></div>
+	    <div class="modal_dimmed"><iframe frameborder="0" src="about:blank" title="버그픽스용"></iframe></div>
+    </div>
+</div>
+<div id="u_skip">
+    
+    
+        <a href="/login" ><span>로그인 바로가기</span></a>
+    
+    
+    <a href="#snb" onclick="document.getElementById('snb').tabIndex=-1;document.getElementById('snb').focus();return false;"><span>하위 메뉴 바로가기</span></a>
+    
+    <a href="#content" onclick="document.getElementById('content').tabIndex=-1;document.getElementById('content').focus();return false;"><span>본문 바로가기</span></a>
+</div>
 
 <!-- #breadcrumb:layouts/course_index.gsp -->
 <div id="wrap" data-hasMobile="true">
 <!-- 로고 2개있는 경우 및 부스트코스, edwith 분기 -->
     
-<jsp:include page="../index_nav/courses_detail_head.jsp"/>
+        <header id="header" class="edwith">
+            <div class="layout_in" data-wrap-gnb-menu>
+                
+
+
+
+    
+    
+        
+        
+    
+    
+    
+    
+    <h1 class="logo">
+        <a class="N=a:gnb.edwith" href="/">
+            <img height="" src="https://ssl.pstatic.net/static/m/mooc/p/partner/next/logo_v4.png?_=?231109_47a067d4"
+                 
+                 alt="edwith">
+        </a>
+    </h1>
+
+
+
+<ul class="lnk">
+        <li><a href="courses_ce.do">의무교육</a></li>
+        <li><a href="courses_se.do">자기개발교육</a></li>
+        <li><a href="courses_ose.do">산업안전교육</a></li>
+        
+</ul>
+
+
+
+
+<input type="hidden" id="__isLogged" value="">
+
+
+    
+
+<script src="/static/js/src/entries/common/_gnbmenu.entry.browserfied.min.js?231109_47a067d4"></script>
+<script>
+    $(document).ready(function() {
+        var entry = require("/entries/common/_gnbmenu.entry.js");
+        entry.initialize({
+            isLogged : $.trim( $("#__isLogged").val() ) === "" ? false : true,
+            isClosedPartner : false,
+            courseId: '67376',
+            userId: '',
+        });
+    });
+</script>
+
+<style>
+.boost_course_main_body.le_info .inc_sub .sub_box .summary span+span::before {
+    background-color:#00AB50;
+}
+.boost_course_main_body.le_info .inc_sub .sub_box .summary .em {
+    color:#00AB50;
+}
+.boost_course_main_body.le_info .lnb #snb .count_info {
+    color:#00AB50;
+}
+.boost_course_main_body.le_info #snb .state_area .info em {
+    color:#00AB50;
+}
+/*추가된 파트너 컬러 적용 style*/
+#header .gnb.ly_type2 .ly_dropdown .ly_top+.scroll_wrap ul li .ico_bx {
+    background-color:#00AB50;
+}
+#header .gnb.ly_type2 .ly_dropdown .ly_top+.scroll_wrap ul li .list_title em {
+    color:#00AB50;
+}
+#header .gnb.ly_type2 .ly_dropdown .ly_top+.scroll_wrap ul li .info em {
+    color:#00AB50;
+}
+body#content .page_header .reverse_wrap .ick .checkbox.checked,
+#snb .privacy_area .agree_area input[type="checkbox"]:checked + .checkbox_label .check_icon {
+    background-color:#00AB50;
+}
+.class_manager .slc_area .add_top_wrap .ick .checkbox.checked {
+    background-color:#00AB50;
+}
+
+
+</style>
+            </div>
+        </header>
     
     <div id="container">
         
@@ -284,11 +564,45 @@
             <!-- // 수강신청 안내 메시지 -->
             <div class="btn_box">
                 <!-- 공유하기 -->
-
+                <div class="sns_area" data-sns-area>
+                    <button type="button" class="btn sns_share" data-sns-share><span>공유하기</span></button>
+                    <!-- [D] 활성화 시 class="on"추가, URL 복사만 출력할 경우 class="type2 추가" -->
+                    <div class="sns_layer" data-sns-layer>
+                        <div class="inner">
+                            <a href="#" class="ico_url" data-type="urlCopy" data-clipboard-text="www.edwith.org/GPTSW">URL복사</a>
+                            
+                                <a href="#" class="ico_band" data-type="band">밴드</a>
+                                <a href="#" class="ico_facebook" data-type="facebook">페이스북</a>
+                                <a href="#" class="ico_twitter" data-type="twitter">트위터</a>
+                            
+                        </div>
+                    </div>
+                    <div id="_band_share_content" style="display:none">청소년을 위한 Chat GPT</div>
+                    <div id="_twitter_share_content" style="display:none">청소년을 위한 Chat GPT</div>
+                    <div style="width:1px;height:1px;font-size:0;line-height:0;color:transparent"><span id="urlCopy">http://www.edwith.org/GPTSW</span></div>
+                </div>
+                <!-- // 공유하기 -->
+                <!-- 둘러보기 -->
+                
+                    
+                        
+                            <a class="btn btn_type8 clr2" id="_btn_preview_lecture" href="/GPTSW/home">
+                                둘러보기
+                            </a>
+                        
+                    
+                    
+                
+                <!-- // 둘러보기 -->
             </div>
 
         </div>
-
+        <div class="lecture_sub_info">
+            <div class="count_info">
+                <span class="count_like"><em>좋아요</em> 0</span>
+                <span class="count_observe"><em>수강생</em> 9</span>
+            </div>
+        </div>
     </div>
 </div>
 <div id="content">
@@ -336,9 +650,9 @@
             
             <input type="hidden" id="__MATERIALS" data-selector="materials" value='[{&quot;id&quot;:3364772,&quot;text&quot;:&quot;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&quot;,&quot;isShowMaterial&quot;:false,&quot;lectureId&quot;:0,&quot;isUploading&quot;:false,&quot;orgLectureId&quot;:0,&quot;isCode&quot;:false,&quot;courseId&quot;:67376,&quot;type&quot;:&quot;Text&quot;,&quot;isLoaded&quot;:true}]'>
 <input type="hidden" id="__COURSENAME" data-selector="courseName" value="GPTSW">
-<script src="https://www.edwith.org/static/js/vendor/prismplayer-pc/dist/index.js?231109_47a067d4"></script>
-<link rel="stylesheet" type="text/css" href="https://www.edwith.org/static/js/vendor/prismplayer-pc/dist/main.css?231109_47a067d4"/>
-<script src="https://www.edwith.org/static/js/src/entries/common/_material.entry.browserfied.min.js?231109_47a067d4"></script>
+<script src="/static/js/vendor/prismplayer-pc/dist/index.js?231109_47a067d4"></script>
+<link rel="stylesheet" type="text/css" href="/static/js/vendor/prismplayer-pc/dist/main.css?231109_47a067d4">
+<script src="/static/js/src/entries/common/_material.entry.browserfied.min.js?231109_47a067d4"></script>
 
 
 <style type="text/css">
@@ -393,7 +707,7 @@
         });
     });
 </script>
-<script src="https://www.edwith.org/static/js/plugins/ntsYoutubeConnecter.1.0.min.js"></script>
+<script src="/js/plugins/ntsYoutubeConnecter.1.0.min.js"></script>
 
         </div>
 
@@ -547,6 +861,25 @@
             <!-- 추가정보 -->
             
             <!-- // 추가정보 -->
+
+            <!-- 태그 -->
+            
+            <div class="con tag tag_lst">
+                <h3 class="blind">태그</h3>
+                <div class="txt_tag">
+                    
+                        <a href="/search/show?searchQuery=SW%EC%A4%91%EC%8B%AC%EB%8C%80%ED%95%99%EC%82%AC%EC%97%85%EB%8B%A8">#SW중심대학사업단</a>
+                    
+                        <a href="/search/show?searchQuery=chatgpt">#chatgpt</a>
+                    
+                        <a href="/search/show?searchQuery=%EC%9B%90%EA%B4%91%EB%8C%80%ED%95%99%EA%B5%90">#원광대학교</a>
+                    
+                        <a href="/search/show?searchQuery=%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5">#인공지능</a>
+                    
+                </div>
+            </div>
+            
+            <!-- // 태그 -->
         
     </section>
 </div>
@@ -596,17 +929,150 @@
         
 
 <!-- #breadcrumb:common/_footer.gsp -->
+<footer id="footer">
+    <!-- 메인에서만 노출 -->
+    <div class="f_noti">
+        <div class="layout_in NE=a:not">
+            <strong class="tit">공지사항</strong>
+            
+                <a href="http://blog.naver.com/edwith" class="dsc NPI=a:notice" target="_blank">공지사항 바로가기</a>
+            
+            <a href="http://blog.naver.com/edwith" class="more NPI=a:blog" target="_blank">공식 블로그 바로가기</a>
+        </div>
+    </div>
 
-
-
-<footer class="bg-dark py-4 mt-auto">
-<jsp:include page="../index_nav/index_in_foot.jsp"></jsp:include>
+    
+    
+    <div class="layout_in NE=a:fot" id="_layer">
+        <ul class="f_lst">
+            <li><a href="https://blog.naver.com/PostList.nhn?blogId=edwith&from=postList&categoryNo=1&parentCategoryNo=1" data-nclk="foot.service">공지사항</a></li>
+            <li><a href="/introduce" class="NPI=a:introduce">서비스 소개</a></li>
+            <li><a href="/help/advice-info" class="NPI=a:help">도움말</a></li>
+            <li><a href="/voc" class="NPI=a:request">서비스 문의</a></li>
+        </ul>
+        <div class="sel_lang_box">
+            <div class="slt">
+                <select class="_custom_slt" title="언어 선택" style="width:160px" onchange="setLanguage(this.value)">
+                    <option value="ko_KR" selected>한국어</option>
+                    <option value="en_US" >English</option>
+                    
+                    <option value="vi_VN" >Tiếng việt</option>
+                </select>
+            </div>
+        </div>
+        <dl class="f_terms">
+            <dt class="sr_only">edwith 정책 및 이용약관</dt>
+            <dd>
+                <a href="/rules/intg/service">이용약관</a>
+                <span class="bar"></span>
+                <a href="/rules/intg/privacy"><strong>개인정보처리방침</strong></a>
+            </dd>
+        </dl>
+        <div class="f_terms_addres_box">
+            <ul class="addres_list">
+                <li>상호: 재단법인 네이버 커넥트</li>
+                <li>소재지: 경기도 성남시 분당구 황새울로 246 도담빌딩 2층</li>
+                <li>대표자명 : 조규찬</li>
+                <li><a href="https://www.ftc.go.kr/bizCommPop.do?wrkr_no=1298212249&apv_perm_no=2015378021930200754" class="link" target="_blank">사업자정보확인</a></li>
+                <li>사업자 등록번호: 129-82-12249</li>
+                <li>통신판매신고 번호: 제2015-경기성남-0754호</li>
+                <li>고객센터: support@boostcourse.org</li>
+            </ul>
+        </div>
+        <dl class="f_app">
+            <dt class="sr_only">edwith 앱 다운로드</dt>
+            <dd>
+                <a href="https://play.google.com/store/apps/details?id=org.connect.mooc.mobile" target="_blank" title="구글플레이 다운로드" class="ico_android">구글플레이</a>
+                <a href="https://itunes.apple.com/kr/app/edwith-edyukeisyeon-wideu/id1097491400?mt=8" target="_blank" title="앱스토어 다운로드" class="ico_apple">앱스토어</a>
+            </dd>
+        </dl>
+        <p class="copyright">
+            
+                &copy; NAVER Connect All Rights Reserved. Powered by NAVER
+            
+        </p>
+    </div>
+    
 </footer>
-
 
 <!-- Build 231109.47a067d4 -->
 
+
+<!-- lcs file -->
+<script src="/static/lcs-js/lcslog.js?231109_47a067d4"></script>
+<script src="/static/js/src/entries/common/_lcs.entry.browserfied.min.js?231109_47a067d4"></script>
+<script>
+    $(document).ready(function(){
+        var entry = require("/entries/common/_lcs.entry.js");
+        entry.initialize({
+            environment: "PRODUCTION",
+            useSti: false
+        });
+    });
+</script>
+<script src="/static/js/src/entries/footer/index.entry.browserfied.min.js?231109_47a067d4"></script>
+<script>
+    $(document).ready(function(){
+        var entry = require("/entries/footer/index.entry.js");
+        entry.initialize({
+            el : "#_layer",
+            isLogin: false,
+            isClosedMooc: true,
+            hasEmail: false,
+            myInfoLink : "http://www.edwith.org/userInfo/base-info"
+        });
+    });
+
+    function setLanguage(locale){
+        setCookie(locale, -1);
+        setCookie(locale, 7);
+        location.reload();
+    }
+
+    function setCookie(value, expireDays) {
+        var exdate = new Date();
+        exdate.setDate(exdate.getDate() + expireDays);
+        document.cookie = "EDWITH_LOCALE="+escape(value)+";expires="+exdate.toUTCString()+";domain=edwith.org;path=/;";
+    }
+</script>
+    
 </div>
+
+<style type="text/css">
+.pzp.pzp-pc {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.pzp-pc-seeking-preview__time {
+    left: 0;
+}
+
+.pzp-pc--fullscreen .pzp-pc-viewmode-button {
+    display: none !important;
+}
+</style>
+
+<script src="/static/js/vendor/prismplayer-pc/dist/index.js?231109_47a067d4"></script>
+<link rel="stylesheet" type="text/css" href="/static/js/vendor/prismplayer-pc/dist/main.css?231109_47a067d4">
+<script src="/static/js/src/entries/layouts/course_index.entry.browserfied.min.js?231109_47a067d4"></script>
+<script>
+$(document).ready(function(){
+    var entry = require( "/entries/layouts/course_index.entry.js" );
+    entry.initialize({
+        messageCode : $("#__MESSAGE_CODE").val(),
+        popupTitle : $("#__MESSAGE_TITLE").val(),
+        message : $("#__MESSAGE").val(),
+        course : '',
+        isCourseUseVote: true
+    });
+});
+</script>
+</body>
+</html>
+
+
+<body>
 
 </body>
 </html>

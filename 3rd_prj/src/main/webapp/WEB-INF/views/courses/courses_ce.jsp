@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!-- 의무교육 -->
+<!-- 산업안전교육 -->
 <html lang="ko" itemscope itemtype="http://schema.org/Article">
 
-<title>강좌 : 의무교육</title>      
+<title>강좌 : 의무교육</title>  
 <body class="w1080 ct_center win chrome chrome119 next">
 
   

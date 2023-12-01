@@ -84,7 +84,7 @@
     <br/>
     
 	    <a href="#" class="btn_naver" data-sns-login="naver" data-nclk="log.naver">
-	        <span class="text"><span class="blind">NAVER</span>로그인</span>
+	        <span class="text">로그인</span>
 	    </a>
     
     <br/>
