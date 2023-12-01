@@ -47,7 +47,7 @@
     <!-- // Google Tag Manager -->
 
     
-        <title>나의 할일: 김주민</title>
+        <title>강좌 문의하기: 김주민</title>
     
     <style>
         .re_pack .snb_wrap .snb .menu_area li[aria-selected="true"] a,
@@ -397,7 +397,7 @@
             <!--SNB-->
             
 <!-- #breadcrumb:common/_whaleclass_snb.gsp -->
-<jsp:include page="../nav/nav3.jsp"></jsp:include>
+<jsp:include page="../nav/nav2.jsp"></jsp:include>
 
             
 <div class="content">
@@ -413,10 +413,10 @@
                     <span class="blind">알림</span><em class="badge_new" data-badge-box-count=""></em>
                 </div>
             </div>
-            <h3 class="tit_home">나의 할일</h3>
-            <!-- <div class="btn_area" data-course-list="">
-                    <button type="button" class="btn_type" data-course-join-btn=""><span class="btn_txt">강좌 참여하기</span></button>
-            </div> -->
+            <h3 class="tit_home">문의하기</h3>
+            <div class="btn_area" data-course-list="">
+                    <button type="button" class="btn_type" data-course-join-btn=""><span class="btn_txt">문의하기</span></button>
+            </div>
         </div>
         
         
@@ -445,15 +445,14 @@
         </div> -->
 
 
-	<div class="todo_lst">
-		<ul data-todo-list=""><li class="none">등록된 내용이 없습니다.</li></ul>
-	</div>
+	<!-- <div class="todo_lst">
+		<ul data-todo-list=""><li class="none">현재 시험정보는 없습니다..</li></ul>
+	</div> -->
 
 
-<!-- <div class="course_group course_join" data-course-group="">
+<div class="course_group course_join" data-course-group="">
     <div class="course_lst class_area">
             <ul data-course-card-ul="">
-            
                     <li class="" data-course="5094" data-course-uri="onlineclass-tutorial" data-course-name="누구나 쉽게 준비하는 에드위드 온라인클래스!">
                         <div class="info_area ">
                             <div class="thumb">
@@ -652,7 +651,7 @@
                 
                     
                     
-                    <li class="" data-course="4271" data-course-uri="blockchain-and-society" data-course-name="블록체인과 암호화폐가 여는 미래">
+                    <!-- <li class="" data-course="4271" data-course-uri="blockchain-and-society" data-course-name="블록체인과 암호화폐가 여는 미래">
                         <div class="info_area ">
                             <div class="thumb">
                                 
@@ -809,12 +808,12 @@
                                 
                             </div>
                         </div>
-                    </li>
+                    </li> -->
                 
             </ul>
         
     </div>
-</div> -->
+</div>
             
         
         

@@ -887,20 +887,20 @@
 
 
 
-<!-- <div class="lnb">
-    신규 boostcourse LNB SNB
+<div class="lnb">
+    <!-- 신규 boostcourse LNB SNB -->
     <div class="inc_sub default">
         <div class="hd_txt">
             <div class="inner">
                 <div class="label_box">
                     
 
-                [D] 강좌 난이도에 따라 .level에 class 추가 필요
+                <!-- [D] 강좌 난이도에 따라 .level에 class 추가 필요
                                 기본 basic 추가
                                 심화 advanced 추가
-                                입문은 class 추가 없음
+                                입문은 class 추가 없음 -->
                     
-                        <div class="level basic">
+                        <!-- <div class="level basic">
                             <span class="blind">난이도</span>
                             <div class="icon level2">
                                 <span class="level_bg"></span>
@@ -908,21 +908,21 @@
                                 <span class="level_bg"></span>
                             </div>
                             기본
-                        </div>
+                        </div> -->
                     
                 </div>
-                [D] 강좌명이 51~90자인 경우 h2 class에 word_max 추가
+                <!-- [D] 강좌명이 51~90자인 경우 h2 class에 word_max 추가 -->
                 <h2 class="">
                     <a href="/onlineclass-tutorial/home" class="NPI=a:title" id="_courseName">사이드바 강좌명</a>
                 </h2>
                     <div class="profile">
-                        [D] 이미지 노출시 class="bgnone" 추가
+                        <!-- [D] 이미지 노출시 class="bgnone" 추가 -->
                         <span class="thumb bgnone"><img src="https://cphinf.pstatic.net/mooc/20200405_5/1586078383558G8DF6_PNG/edwith%28%29.png?type=ff64_64" width="32" height="32" alt="임시 이미지"></span>
                         <span class="name">강사명</span>
-                        [D] 파트너홈이 없는 경우
+                        <!-- [D] 파트너홈이 없는 경우 -->
                         <span class="from">소속?</span>
                     </div>
-            공유하기
+            <!-- 공유하기 -->
             <div class="sns_area _sns_area">
 			    <button type="button" class="btn sns_share" data-sns-share><span class="sr_only">공유하기</span></button>
 			    <div class="sns_layer " data-sns-layer>
@@ -953,7 +953,7 @@
 			    entry.initialize($('._sns_area'), htData);
 			});
 			</script>
-            // 공유하기
+            <!-- // 공유하기 -->
             </div>
             <div class="lecture_sub_tool">
                 
@@ -973,7 +973,7 @@
     </div>
 
     
-        신규 boostcourse SNB
+        <!-- 신규 boostcourse SNB -->
         <div id="snb" class="default ">
             
             
@@ -986,19 +986,19 @@
         
     
 
-    [D] 선택된 메뉴에 .active 추가, 구분선 추가시 <li class="hr"></li> 추가
+    <!-- [D] 선택된 메뉴에 .active 추가, 구분선 추가시 <li class="hr"></li> 추가-->
     
         
         
             <li class="notice ">
                 <a href="/onlineclass-tutorial/notices/32827" title="공지 사항" class="NPI=a:notice">
-                    new 아이콘 일단 제거(나중에 스펙 확정되면 추가)
+                    <!-- new 아이콘 일단 제거(나중에 스펙 확정되면 추가)
                     <i class="icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
                             <path fill="#108F6B" fill-rule="nonzero" d="M1 0C.448 0 0 .448 0 1v14c0 .552.448 1 1 1h14c.552 0 1-.448 1-1V1c0-.552-.448-1-1-1H1zm3 12V4h2l4 5V4h2v8h-2L6 7v5H4z" clip-rule="evenodd"></path>
                         </svg>
                     </i>
-                   
+                    -->
                     <span class="menu">공지 사항</span>
                 </a>
             </li>
@@ -1012,12 +1012,12 @@
                 <a href="/onlineclass-tutorial/joinLectures/32824?isDesc=false" title="교수자를 위한 튜토리얼" class="NPI=a:lectures">
                     <span class="menu">교수자를 위한 튜토리얼</span>
                 </a>
-                [D] .btn_open 클릭시 상위 li 에 .active 추가해주세요.
+                <!--[D] .btn_open 클릭시 상위 li 에 .active 추가해주세요.-->
                 <button class="btn_open"><span class="blind">강좌 전체목록보기</span></button>
                 <div>
-                [D] 수강완료한 강좌는 li.done 클래스 추가
-                [D] 현재 수강중인 강좌는 li.now 클래스 추가
-                lecture.contType에 따라 url 분기처리
+                <!--[D] 수강완료한 강좌는 li.done 클래스 추가-->
+                <!--[D] 현재 수강중인 강좌는 li.now 클래스 추가-->
+                <!-- lecture.contType에 따라 url 분기처리 -->
                 
                     
                         
@@ -1233,8 +1233,8 @@
             
         </div>
     
-</div> -->
-<jsp:include page="../nav/nav_courses.jsp"></jsp:include>
+</div>
+
 <script src="https://www.edwith.org/static/js/src/entries/common/_lnbmenu.entry.browserfied.min.js?231109_47a067d4"></script>
 <script>
     $(document).ready(function() {
@@ -1252,487 +1252,345 @@
         <div id="content">
             
 <!-- #breadcrumb:lecture/show.gsp -->
-<section class="page mg_menu">
-	
-	<!--page_header-->
-	<header class="page_header">
-		<div class="group_lr mab10">
-			<div class="group_r">
-				<!-- 역순정렬기능 -->
-				<div class="reverse_wrap">
-					<label class="ick">
-						<span class="checkbox ">
-							<input type="checkbox" data-chk-order="">
-						</span>
-						<span class="ph">역순 정렬</span>
-					</label>
-				</div>
-				<form action="/onlineclass-tutorial/search/lecture" method="get" class="it it_added input">
-					<span class="ph">제목을 입력하세요.</span>
-					<span class="input_area"><input type="text" name="searchText" data-global-placeholder=".ph"><input type="hidden" name="bbsId" value="32824"></span>
-					<span class="added"><button type="submit" class="btn"><span class="sr_only">검색</span></button></span>
-				</form>
-			</div>
-			<div class="group_l">
-				<h1 class="page_title">
-					교수자를 위한 튜토리얼
-					
-						<a href="/help/navigator?helpName=JOIN_COURSE" target="_blank" title="도움말" class="ico_help2">도움말</a>
-					
-				</h1>
-			</div>
-		</div>
-	</header>
-	<!--//page_header-->
+<section class="page forum _warp_lecture_content" data-hasMobile="true">
+    
+    
+    
+    
 
-	<div class="class_manager
-        type2
-        ">
-		
-		<!--chapter_list-->
-		<ul>
-			
-				
-					<!-- [D] 진행중 class : on -->
-					<li>
-						<div class="chapter">
-							<div class="le_txt"><strong>에드위드 온라인클래스 매뉴얼(교수자ver, 학생ver)</strong></div>
-							
-						</div>
-						<ul class="sub">
-							
-								
-									<li>
-										<a href="/onlineclass-tutorial/lecture/65388">
-										
-											<span class="ico_lecture"></span>
-										
-											<div class="le_txt">
-												<strong>에드위드 온라인클래스 매뉴얼로 차근차근 개설해보세요!</strong>
-												
-											</div>
-											<dl class="info">
-												
-												<dt><span class="sr_only">작성자</span></dt>
-												<dt>업데이트 :&nbsp;</dt>
-												<dd>2023.05.28</dd>
-												
-													<dt class="like"><span class="ico_like"></span><em class="blind">좋아요</em></dt>
-													<dd>14</dd>
-												
-												
-											</dl>
-                                            
-										</a>
-									</li>
-								
-							
-							
-						</ul>
-					</li>
-				
-			
-				
-					<!-- [D] 진행중 class : on -->
-					<li>
-						<div class="chapter">
-							<div class="le_txt"><strong>퀵하게 학생들을 등록하고 간편하게 강의 업로드하기!</strong></div>
-							
-								<div class="time"><span class="blind">강의시간</span>06:04</div>
-							
-						</div>
-						<ul class="sub">
-							
-								
-									<li>
-										<a href="/onlineclass-tutorial/lecture/65372">
-										
-											<span class="ico_lecture"></span>
-										
-											<div class="le_txt">
-												<strong>퀵하게 학생 등록하는 방법 4가지!</strong>
-												
-											</div>
-											<dl class="info">
-												
-												<dt><span class="sr_only">작성자</span></dt>
-												<dt>업데이트 :&nbsp;</dt>
-												<dd>2022.05.10</dd>
-												
-													<dt class="like"><span class="ico_like"></span><em class="blind">좋아요</em></dt>
-													<dd>10</dd>
-												
-												
-													<dt><span class="sr_only">동영상</span></dt>
-													<dd><div class="time"><span class="blind">강의시간</span>02:06</div></dd>
-												
-											</dl>
-                                            
-										</a>
-									</li>
-								
-									<li>
-										<a href="/onlineclass-tutorial/lecture/65371">
-										
-											<span class="ico_lecture"></span>
-										
-											<div class="le_txt">
-												<strong>동영상 시청 완료 기준을 설정해서 학생들의 출석을 체크하세요!</strong>
-												
-											</div>
-											<dl class="info">
-												
-												<dt><span class="sr_only">작성자</span></dt>
-												<dt>업데이트 :&nbsp;</dt>
-												<dd>2022.05.10</dd>
-												
-													<dt class="like"><span class="ico_like"></span><em class="blind">좋아요</em></dt>
-													<dd>5</dd>
-												
-												
-											</dl>
-                                            
-										</a>
-									</li>
-								
-									<li>
-										<a href="/onlineclass-tutorial/lecture/65373">
-										
-											<span class="ico_lecture"></span>
-										
-											<div class="le_txt">
-												<strong>간편한 콘텐츠 업로드,유튜브 영상도 OK! 클릭한번으로 나의 다른 강좌 복사도 가능!</strong>
-												
-											</div>
-											<dl class="info">
-												
-												<dt><span class="sr_only">작성자</span></dt>
-												<dt>업데이트 :&nbsp;</dt>
-												<dd>2022.05.10</dd>
-												
-													<dt class="like"><span class="ico_like"></span><em class="blind">좋아요</em></dt>
-													<dd>4</dd>
-												
-												
-													<dt><span class="sr_only">동영상</span></dt>
-													<dd><div class="time"><span class="blind">강의시간</span>03:58</div></dd>
-												
-											</dl>
-                                            
-										</a>
-									</li>
-								
-									<li>
-										<a href="/onlineclass-tutorial/lecture/65394">
-										
-											<span class="ico_lecture"></span>
-										
-											<div class="le_txt">
-												<strong>우리 학생들끼리 참여하는 실시간 라이브 수업!</strong>
-												
-											</div>
-											<dl class="info">
-												
-												<dt><span class="sr_only">작성자</span></dt>
-												<dt>업데이트 :&nbsp;</dt>
-												<dd>2022.05.10</dd>
-												
-													<dt class="like"><span class="ico_like"></span><em class="blind">좋아요</em></dt>
-													<dd>2</dd>
-												
-												
-											</dl>
-                                            
-										</a>
-									</li>
-								
-							
-							
-						</ul>
-					</li>
-				
-			
-				
-					<!-- [D] 진행중 class : on -->
-					<li>
-						<div class="chapter">
-							<div class="le_txt"><strong>수강생들의 학습현황(진도율, 퀴즈, 과제) 한눈에 파악하기!</strong></div>
-							
-								<div class="time"><span class="blind">강의시간</span>08:13</div>
-							
-						</div>
-						<ul class="sub">
-							
-								
-									<li>
-										<a href="/onlineclass-tutorial/lecture/84231">
-										
-											<span class="ico_lecture"></span>
-										
-											<div class="le_txt">
-												<strong>학생들의 댓글 및 댓글 작성 시점(시간,분)을 엑셀로 한번에 다운로드받기!</strong>
-												
-											</div>
-											<dl class="info">
-												
-												<dt><span class="sr_only">작성자</span></dt>
-												<dt>업데이트 :&nbsp;</dt>
-												<dd>2022.05.10</dd>
-												
-													<dt class="like"><span class="ico_like"></span><em class="blind">좋아요</em></dt>
-													<dd>6</dd>
-												
-												
-											</dl>
-                                            
-										</a>
-									</li>
-								
-									<li>
-										<a href="/onlineclass-tutorial/lecture/65375">
-										
-											<span class="ico_lecture"></span>
-										
-											<div class="le_txt">
-												<strong>교육부"원격수업 출결 가이드라인" 최적화된 과제관리 피드백 기능!</strong>
-												
-											</div>
-											<dl class="info">
-												
-												<dt><span class="sr_only">작성자</span></dt>
-												<dt>업데이트 :&nbsp;</dt>
-												<dd>2023.03.10</dd>
-												
-													<dt class="like"><span class="ico_like"></span><em class="blind">좋아요</em></dt>
-													<dd>4</dd>
-												
-												
-													<dt><span class="sr_only">동영상</span></dt>
-													<dd><div class="time"><span class="blind">강의시간</span>02:07</div></dd>
-												
-											</dl>
-                                            
-										</a>
-									</li>
-								
-									<li>
-										<a href="/onlineclass-tutorial/lecture/65383">
-										
-											<span class="ico_lecture"></span>
-										
-											<div class="le_txt">
-												<strong>주관식, 객관식, 서술형 퀴즈 추가하고 평가하기!</strong>
-												
-											</div>
-											<dl class="info">
-												
-												<dt><span class="sr_only">작성자</span></dt>
-												<dt>업데이트 :&nbsp;</dt>
-												<dd>2023.03.10</dd>
-												
-													<dt class="like"><span class="ico_like"></span><em class="blind">좋아요</em></dt>
-													<dd>8</dd>
-												
-												
-													<dt><span class="sr_only">동영상</span></dt>
-													<dd><div class="time"><span class="blind">강의시간</span>04:01</div></dd>
-												
-											</dl>
-                                            
-										</a>
-									</li>
-								
-									<li>
-										<a href="/onlineclass-tutorial/lecture/65374">
-										
-											<span class="ico_lecture"></span>
-										
-											<div class="le_txt">
-												<strong>내 강좌를 수료한 수강생에게 수료증을 발급하세요!</strong>
-												
-											</div>
-											<dl class="info">
-												
-												<dt><span class="sr_only">작성자</span></dt>
-												<dt>업데이트 :&nbsp;</dt>
-												<dd>2023.03.10</dd>
-												
-													<dt class="like"><span class="ico_like"></span><em class="blind">좋아요</em></dt>
-													<dd>4</dd>
-												
-												
-											</dl>
-                                            
-										</a>
-									</li>
-								
-									<li>
-										<a href="/onlineclass-tutorial/lecture/65384">
-										
-											<span class="ico_lecture"></span>
-										
-											<div class="le_txt">
-												<strong>학생들의 진도율, 과제, 퀴즈를 엑셀파일로 다운로드받기!</strong>
-												
-											</div>
-											<dl class="info">
-												
-												<dt><span class="sr_only">작성자</span></dt>
-												<dt>업데이트 :&nbsp;</dt>
-												<dd>2023.03.10</dd>
-												
-													<dt class="like"><span class="ico_like"></span><em class="blind">좋아요</em></dt>
-													<dd>5</dd>
-												
-												
-													<dt><span class="sr_only">동영상</span></dt>
-													<dd><div class="time"><span class="blind">강의시간</span>02:05</div></dd>
-												
-											</dl>
-                                            
-										</a>
-									</li>
-								
-							
-							
-						</ul>
-					</li>
-				
-			
-				
-					<!-- [D] 진행중 class : on -->
-					<li>
-						<div class="chapter">
-							<div class="le_txt"><strong>참고 자료</strong></div>
-							
-						</div>
-						<ul class="sub">
-							
-								
-									<li>
-										<a href="/onlineclass-tutorial/lecture/65376">
-										
-											<span class="ico_lecture"></span>
-										
-											<div class="le_txt">
-												<strong>화면녹화프로그램으로 PPT에 판서하고 녹음하기!</strong>
-												
-											</div>
-											<dl class="info">
-												
-												<dt><span class="sr_only">작성자</span></dt>
-												<dt>업데이트 :&nbsp;</dt>
-												<dd>2023.03.10</dd>
-												
-													<dt class="like"><span class="ico_like"></span><em class="blind">좋아요</em></dt>
-													<dd>6</dd>
-												
-												
-											</dl>
-                                            
-										</a>
-									</li>
-								
-									<li>
-										<a href="/onlineclass-tutorial/lecture/65378">
-										
-											<span class="ico_lecture"></span>
-										
-											<div class="le_txt">
-												<strong>강좌 대표이미지는 여기서 찾으세요! 저작권 무료인 이미지 사이트</strong>
-												
-											</div>
-											<dl class="info">
-												
-												<dt><span class="sr_only">작성자</span></dt>
-												<dt>업데이트 :&nbsp;</dt>
-												<dd>2023.03.10</dd>
-												
-													<dt class="like"><span class="ico_like"></span><em class="blind">좋아요</em></dt>
-													<dd>10</dd>
-												
-												
-											</dl>
-                                            
-										</a>
-									</li>
-								
-									<li>
-										<a href="/onlineclass-tutorial/lecture/65379">
-										
-											<span class="ico_lecture"></span>
-										
-											<div class="le_txt">
-												<strong>자막 제작하는 꿀팁 공유드립니다! srt 자막 제작 방법</strong>
-												
-											</div>
-											<dl class="info">
-												
-												<dt><span class="sr_only">작성자</span></dt>
-												<dt>업데이트 :&nbsp;</dt>
-												<dd>2023.03.10</dd>
-												
-													<dt class="like"><span class="ico_like"></span><em class="blind">좋아요</em></dt>
-													<dd>6</dd>
-												
-												
-											</dl>
-                                            
-										</a>
-									</li>
-								
-							
-							
-						</ul>
-					</li>
-				
-			
-				
-					<!-- [D] 진행중 class : on -->
-					<li>
-						<div class="chapter">
-							<div class="le_txt"><strong>edwith에서 강좌를 처음 개설하시는 분들을 위한 가이드</strong></div>
-							
-						</div>
-						<ul class="sub">
-							
-								
-									<li>
-										<a href="/onlineclass-tutorial/lecture/72848">
-										
-											<span class="ico_lecture"></span>
-										
-											<div class="le_txt">
-												<strong>에드위드 임시점검 안내</strong>
-												
-											</div>
-											<dl class="info">
-												
-												<dt><span class="sr_only">작성자</span></dt>
-												<dt>업데이트 :&nbsp;</dt>
-												<dd>2023.06.30</dd>
-												
-													<dt class="like"><span class="ico_like"></span><em class="blind">좋아요</em></dt>
-													<dd>8</dd>
-												
-												
-											</dl>
-                                            
-										</a>
-									</li>
-								
-							
-							
-						</ul>
-					</li>
-				
-			
-		</ul>
-		
-		<!--project_list-->
-		<ul id="project_group_area" class="mat30 ui-sortable"><div data-space-buffer=""></div></ul>
-	</div>
-	<p class="none" style="display:none" data-nodata-message="">준비중입니다.</p>
+    <!--page_header-->
+    <header class="page_header">
+        <div class="group_lr mab10">
+            
+                <div class="group_r">
+                    
+                        <div class="group_r">
+                            <a href="#" class="alarm_set_btn disabled" style="display:none" data-btn-alarm-set> </a>
+                        </div>
+                    
+                </div>
+            
+            <div class="group_l">
+                <h1 class="page_title "> 퀵하게 학생 등록하는 방법 4가지!</h1>
+            </div>
+        </div>
+    </header>
+    <!--//page_header-->
+
+    
+
+    <div class="user_info_view ce ce_view">
+        
+        <input type="hidden" id="__MATERIALS" data-selector="materials" value='[{&quot;id&quot;:171985,&quot;text&quot;:&quot;&lt;p&gt;&amp;nbsp;&lt;span id=\&quot;SE-55d72904-074f-4b6c-81c1-a5cef423dab8\&quot;&gt;학생들을 수강신청하라고 가이드하는 것이 늘 어려우셨나요? &lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p id=\&quot;SE-b27800da-d8b5-4d2b-9ce2-ef97e2336967\&quot;&gt;&lt;span id=\&quot;SE-65d393d5-6a18-4838-8183-fa88b92afb14\&quot;&gt;학생들이 어려서 메일 주소가 없으신가요?&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p id=\&quot;SE-69f31e56-6dad-497f-b068-2d9d0c000889\&quot;&gt;&lt;span id=\&quot;SE-1d23dfd1-faf7-48f9-aaee-52f65a297e64\&quot;&gt;edwith가 4가지 방법을 공유드립니다.&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p id=\&quot;SE-e487b07f-ff02-46e3-819f-9393d1ddbe49\&quot;&gt;&lt;span id=\&quot;SE-eb6b3912-8e34-42db-8509-25582d686022\&quot;&gt;​&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p&gt;[방법1] URL을 카카오톡과 같은 SNS로 간편하게 공유하세요. 해당 URL에 접근하시면, edwith회원가입도 가능합니다.&lt;\u002fp&gt;&lt;p id=\&quot;SE-ec0e9f86-3515-467e-80a4-227df291f829\&quot;&gt;&lt;span style=\&quot;color: rgb(0, 0, 255);\&quot; data-mce-style=\&quot;color: #0000ff;\&quot;&gt;&lt;span id=\&quot;SE-1dd943d3-e311-451f-b2d2-5781aa9e51f3\&quot;&gt;00:06&lt;\u002fspan&gt;&lt;span id=\&quot;SE-08e4da3f-9a6c-4bb8-8956-5f1c7bebbcc1\&quot;&gt;&amp;nbsp;&lt;\u002fspan&gt;&lt;\u002fspan&gt;&lt;span id=\&quot;SE-c8ae62cb-ddf6-4564-83e4-7ebfe899a15b\&quot;&gt;[방법2] 수강생 메일로 초대장 발송하기(메일발송)&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p id=\&quot;SE-c9d57b32-9e6f-4664-a131-9a3ac326aa9f\&quot;&gt;&lt;span id=\&quot;SE-cf5b5783-c01f-4514-b596-9abf2f8111bb\&quot; style=\&quot;color: rgb(0, 0, 255);\&quot; data-mce-style=\&quot;color: #0000ff;\&quot;&gt;00:30&lt;\u002fspan&gt;&lt;span id=\&quot;SE-feb161b1-552e-49d5-8f41-19ac77e863c8\&quot;&gt; &lt;\u002fspan&gt;&lt;span id=\&quot;SE-4c90ab2b-af43-4011-8347-cecb253a56ce\&quot;&gt;[방법3] 학생을 엑셀파일로 한번에 등록하기&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p id=\&quot;SE-43315b61-fdae-43df-8047-321008f5d73f\&quot;&gt;&lt;span id=\&quot;SE-b1531f2e-3c51-4148-b60e-f210fc2d976e\&quot; style=\&quot;color: rgb(0, 0, 255);\&quot; data-mce-style=\&quot;color: #0000ff;\&quot;&gt;01:14 &lt;\u002fspan&gt;&lt;span id=\&quot;SE-589b5de3-dad6-402f-bb00-367cba384f88\&quot;&gt;[방법4] 메일주소를 만들기 어려운 학생들을 위해, ID와 비밀번호 만들어 주기&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p id=\&quot;SE-832f9994-be7b-40c5-800f-634c527a2dcc\&quot;&gt;&lt;span id=\&quot;SE-bc65919b-e8ce-4172-a2d2-2669b1c1e5ea\&quot; style=\&quot;color: rgb(0, 0, 255);\&quot; data-mce-style=\&quot;color: #0000ff;\&quot;&gt;01:32&lt;\u002fspan&gt;&lt;span id=\&quot;SE-f50ef449-271f-4e24-9563-0adfdc3fff35\&quot;&gt;&amp;nbsp;수강생 튜터로 지정하거나 강제 탈퇴시키기&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p&gt;&amp;nbsp;&lt;br&gt;&lt;\u002fp&gt;&lt;p&gt;&lt;span style=\&quot;color: rgb(0, 0, 255);\&quot; data-mce-style=\&quot;color: #0000ff;\&quot;&gt;&lt;\u002fspan&gt;&lt;\u002fp&gt;&quot;,&quot;title&quot;:&quot;&quot;,&quot;isShowMaterial&quot;:false,&quot;isUploading&quot;:false,&quot;description&quot;:&quot;&quot;,&quot;filename&quot;:&quot;&quot;,&quot;isCode&quot;:false,&quot;orgLectureId&quot;:65372,&quot;type&quot;:&quot;Text&quot;,&quot;isLoaded&quot;:true},{&quot;playerHeight&quot;:&quot;439px&quot;,&quot;isShowMaterial&quot;:false,&quot;orgLectureId&quot;:65372,&quot;contentType&quot;:&quot;video&quot;,&quot;type&quot;:&quot;Movie&quot;,&quot;downloadable&quot;:true,&quot;ext&quot;:&quot;mp4&quot;,&quot;id&quot;:171986,&quot;fileSize&quot;:0,&quot;title&quot;:&quot;복잡한 절차 없는 간편한 학생 등록하고 관리하기&quot;,&quot;indexOrTime&quot;:1,&quot;height&quot;:720,&quot;captions&quot;:[],&quot;attachmentId&quot;:144736,&quot;commonYn&quot;:false,&quot;description&quot;:&quot;&quot;,&quot;thumbnailId&quot;:&quot;7708CCD769BA009E5A7F928155487839090E.5&quot;,&quot;resultCode&quot;:&quot;&quot;,&quot;downloadPath&quot;:&quot;/downloadFile/fileDownload?attachmentId=144736&quot;,&quot;videoManageStatus&quot;:&quot;SUCCESS&quot;,&quot;isParsed&quot;:true,&quot;pageCount&quot;:0,&quot;controlTime&quot;:[],&quot;userUploadedImage&quot;:&quot;&quot;,&quot;isUploading&quot;:false,&quot;status&quot;:5,&quot;width&quot;:1280,&quot;image&quot;:&quot;https://cphinf.pstatic.net/mooc/20200405_246/1586069370681iDoUF_JPEG/tGmcDdkkdVciFQOdRczO.jpg&quot;,&quot;viewType&quot;:&quot;left&quot;,&quot;playerWidth&quot;:&quot;720px&quot;,&quot;postId&quot;:28171,&quot;url&quot;:&quot;&quot;,&quot;playTime&quot;:126,&quot;filename&quot;:&quot;04_수강생 초대&amp;정보 변경하기.mp4&quot;,&quot;isCopied&quot;:false,&quot;videoIndexList&quot;:[{&quot;title&quot;:&quot;수강생 메일로 초대장 발송하기(메일발송)&quot;,&quot;runTime&quot;:{&quot;changedFormat&quot;:&quot;00:00:06&quot;,&quot;timeToSeconds&quot;:6},&quot;endTime&quot;:{&quot;changedFormat&quot;:&quot;00:00:29&quot;,&quot;timeToSeconds&quot;:29}},{&quot;title&quot;:&quot;엑셀로 한번에 수강생 등록하기(단, 학생들이 edwith에 가입되어있어야함)&quot;,&quot;runTime&quot;:{&quot;changedFormat&quot;:&quot;00:00:30&quot;,&quot;timeToSeconds&quot;:30},&quot;endTime&quot;:{&quot;changedFormat&quot;:&quot;00:01:13&quot;,&quot;timeToSeconds&quot;:73}},{&quot;title&quot;:&quot;메일주소를 만들기 어려운 학생들을 위해, ID와 비밀번호 만들어 주기&quot;,&quot;runTime&quot;:{&quot;changedFormat&quot;:&quot;00:01:14&quot;,&quot;timeToSeconds&quot;:74},&quot;endTime&quot;:{&quot;changedFormat&quot;:&quot;00:01:31&quot;,&quot;timeToSeconds&quot;:91}},{&quot;title&quot;:&quot;수강생 튜터로 지정하거나 강제 탈퇴시키기&quot;,&quot;runTime&quot;:{&quot;changedFormat&quot;:&quot;00:01:32&quot;,&quot;timeToSeconds&quot;:92},&quot;endTime&quot;:{&quot;changedFormat&quot;:&quot;00:02:00&quot;,&quot;timeToSeconds&quot;:120}}],&quot;isLoaded&quot;:true},{&quot;id&quot;:178355,&quot;title&quot;:&quot;&quot;,&quot;text&quot;:&quot;&lt;p&gt;&lt;span style=\&quot;color: rgb(0, 0, 255);\&quot; data-mce-style=\&quot;color: #0000ff;\&quot;&gt;※(4)기능에 대한 많은 선생님들의 요청사항으로,&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p&gt;&lt;span style=\&quot;color: rgb(0, 0, 255);\&quot; data-mce-style=\&quot;color: #0000ff;\&quot;&gt;빠른 시일내로 \&quot;엑셀로 한번에 수강생의 계정(ID/비밀번호)를 생성하는 기능\&quot;을 추가했습니다.&lt;\u002fspan&gt;&lt;\u002fp&gt;&quot;,&quot;isShowMaterial&quot;:false,&quot;lectureId&quot;:&quot;65372&quot;,&quot;isUploading&quot;:false,&quot;description&quot;:&quot;&quot;,&quot;filename&quot;:&quot;&quot;,&quot;isCode&quot;:false,&quot;orgLectureId&quot;:65372,&quot;courseId&quot;:&quot;5094&quot;,&quot;type&quot;:&quot;Text&quot;,&quot;isLoaded&quot;:true},{&quot;isParsed&quot;:false,&quot;pageCount&quot;:0,&quot;isShowMaterial&quot;:true,&quot;isUploading&quot;:false,&quot;width&quot;:1440,&quot;at&quot;:0,&quot;image&quot;:&quot;https://cphinf.pstatic.net/mooc/20200409_149/1586426994234g5sXl_PNG/___ID_.png&quot;,&quot;orgLectureId&quot;:65372,&quot;viewType&quot;:&quot;top&quot;,&quot;type&quot;:&quot;Image&quot;,&quot;url&quot;:&quot;https://cphinf.pstatic.net/mooc/20200409_149/1586426994234g5sXl_PNG/___ID_.png&quot;,&quot;postId&quot;:0,&quot;ext&quot;:&quot;png&quot;,&quot;id&quot;:178338,&quot;fileSize&quot;:261094,&quot;title&quot;:&quot;&quot;,&quot;playTime&quot;:0,&quot;height&quot;:1440,&quot;attachmentId&quot;:152926,&quot;commonYn&quot;:false,&quot;description&quot;:&quot;&quot;,&quot;resultCode&quot;:&quot;&quot;,&quot;downloadPath&quot;:&quot;/downloadFile/fileDownload?attachmentId=152926&quot;,&quot;filename&quot;:&quot;에드위드 온라인클래스_학생에게 ID비밀번호 생성해주기.png&quot;,&quot;isCopied&quot;:false,&quot;isLoaded&quot;:true},{&quot;id&quot;:171987,&quot;text&quot;:&quot;&lt;p&gt;&lt;span style=\&quot;font-size: 18pt; color: rgb(0, 128, 0);\&quot; data-mce-style=\&quot;font-size: 18pt; color: #008000;\&quot;&gt;&lt;strong&gt;[방법1]&amp;nbsp;URL을 학생들에게 공유하기&lt;\u002fstrong&gt;&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p&gt;① 만드신 강좌의 URL을 복사해서 카톡, 메일 등으로 학생들에게 보내주세요.&lt;\u002fp&gt;&lt;p&gt;② 학생은 그 URL을 통해 강좌로 진입하고 나서 [수강신청]을 클릭하여 신청합니다.&lt;\u002fp&gt;&lt;p&gt;③ 회원가입이 되어있지 않아도, 강좌 URL을 통해서 회원가입 가능합니다.&lt;\u002fp&gt;&quot;,&quot;title&quot;:&quot;&quot;,&quot;isShowMaterial&quot;:false,&quot;isUploading&quot;:false,&quot;lectureId&quot;:&quot;65354&quot;,&quot;description&quot;:&quot;&quot;,&quot;filename&quot;:&quot;&quot;,&quot;isCode&quot;:false,&quot;orgLectureId&quot;:65372,&quot;courseId&quot;:&quot;4536&quot;,&quot;type&quot;:&quot;Text&quot;,&quot;isLoaded&quot;:true},{&quot;isParsed&quot;:false,&quot;pageCount&quot;:0,&quot;isShowMaterial&quot;:true,&quot;isUploading&quot;:false,&quot;width&quot;:914,&quot;at&quot;:0,&quot;image&quot;:&quot;https://cphinf.pstatic.net/mooc/20200405_154/1586070780521qacOY_PNG/URL__.png&quot;,&quot;orgLectureId&quot;:65372,&quot;viewType&quot;:&quot;top&quot;,&quot;type&quot;:&quot;Image&quot;,&quot;url&quot;:&quot;https://cphinf.pstatic.net/mooc/20200405_154/1586070780521qacOY_PNG/URL__.png&quot;,&quot;postId&quot;:0,&quot;ext&quot;:&quot;png&quot;,&quot;id&quot;:171988,&quot;fileSize&quot;:197902,&quot;title&quot;:&quot;&quot;,&quot;playTime&quot;:0,&quot;height&quot;:848,&quot;attachmentId&quot;:144737,&quot;commonYn&quot;:false,&quot;description&quot;:&quot;&quot;,&quot;resultCode&quot;:&quot;&quot;,&quot;downloadPath&quot;:&quot;/downloadFile/fileDownload?attachmentId=144737&quot;,&quot;filename&quot;:&quot;URL을 학생에게 공유하기.png&quot;,&quot;isCopied&quot;:false,&quot;isLoaded&quot;:true},{&quot;id&quot;:171989,&quot;text&quot;:&quot;&lt;div&gt;&lt;p&gt;&lt;span style=\&quot;font-size: 18pt;\&quot; data-mce-style=\&quot;font-size: 18pt;\&quot;&gt;&lt;strong&gt;&lt;\u002fstrong&gt;&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p&gt;&lt;span style=\&quot;font-size: 18pt;\&quot; data-mce-style=\&quot;font-size: 18pt;\&quot;&gt;&lt;strong&gt;&lt;span style=\&quot;color: rgb(0, 128, 0);\&quot; data-mce-style=\&quot;color: #008000;\&quot;&gt;[방법2] 수강생 메일로 초대장 발송하기(메일발송)&lt;\u002fspan&gt;&lt;\u002fstrong&gt;&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p&gt;강좌개설의 마무리 단계에서 수강생의 가입을 유도시키거나 직접 수강생에게 초대 메일을 보낼 수 있습니다.&lt;br&gt;초대기능을 통해 나의 강좌를 알리고 수강신청을 받아볼까요?&lt;\u002fp&gt;&lt;p&gt;&amp;nbsp;&lt;\u002fp&gt;&lt;p&gt;수강생&lt;\u002fp&gt;&lt;p&gt;1. 강좌관리에서 좌측 메뉴의 \&quot;수강생 초대\&quot;를 클릭하세요!&lt;\u002fp&gt;&lt;p&gt;2. 한번에 1~10명까지 초대메일을 보낼 수 있습니다.&lt;\u002fp&gt;&lt;p&gt;3. 수강생이 각자의 메일함에서 \&quot;초대에 응하기\&quot; 버튼을 누르면, 내 강좌에 소개페이지에 접근하여 수강신청할 수 있습니다.&lt;\u002fp&gt;&lt;p&gt;&amp;nbsp;&lt;\u002fp&gt;&lt;\u002fdiv&gt;&lt;div&gt;&amp;nbsp;&lt;\u002fdiv&gt;&quot;,&quot;title&quot;:&quot;&quot;,&quot;isShowMaterial&quot;:false,&quot;isUploading&quot;:false,&quot;description&quot;:&quot;&quot;,&quot;filename&quot;:&quot;&quot;,&quot;isCode&quot;:false,&quot;orgLectureId&quot;:65372,&quot;type&quot;:&quot;Text&quot;,&quot;isLoaded&quot;:true,&quot;plainText&quot;:&quot;&lt;div&gt;&lt;p&gt;강좌개설의 마무리 단계에서 수강생의 가입을 유도시키거나 직접 수강생에게 초대 메일을 보낼 수 있습니다.&lt;br&gt;초대기능을 통해 나의 강좌를 알리고 수강신청을 받아볼까요?&lt;\u002fp&gt;&lt;p&gt;&lt;br data-mce-bogus=\&quot;1\&quot;&gt;&lt;\u002fp&gt;&lt;p&gt;수강생&lt;\u002fp&gt;&lt;p&gt;1. 강좌관리에서 좌측 메뉴의 \&quot;수강생 초대\&quot;를 클릭하세요!&lt;\u002fp&gt;&lt;p&gt;2. 한번에 1~10명까지 초대메일을 보낼 수 있습니다.&lt;\u002fp&gt;&lt;p&gt;3. 수강생이 각자의 메일함에서 \&quot;초대에 응하기\&quot; 버튼을 누르면, 내 강좌에 소개페이지에 접근하여 수강신청할 수 있습니다.&lt;\u002fp&gt;&lt;p&gt;&lt;br data-mce-bogus=\&quot;1\&quot;&gt;&lt;\u002fp&gt;&lt;\u002fdiv&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;&lt;\u002fdiv&gt;&lt;\u002fdiv&gt;&lt;\u002fdiv&gt;&lt;\u002fdiv&gt;&quot;},{&quot;videoHeight&quot;:0,&quot;isShowMaterial&quot;:true,&quot;orgLectureId&quot;:65372,&quot;contentType&quot;:&quot;image&quot;,&quot;courseId&quot;:&quot;4536&quot;,&quot;type&quot;:&quot;Url&quot;,&quot;ext&quot;:&quot;&quot;,&quot;imageOrg&quot;:&quot;&quot;,&quot;id&quot;:171990,&quot;title&quot;:&quot;edwith 온라인클래스 활용TIp 메일로 수강생에게 초대장 보내기&quot;,&quot;indexOrTime&quot;:-1,&quot;height&quot;:&quot;&quot;,&quot;captions&quot;:[],&quot;lectureId&quot;:&quot;61937&quot;,&quot;commonYn&quot;:false,&quot;description&quot;:&quot;더 자세한 내용을 보고 싶으시다면, edwith 공식블로그에서 확인하세요!&quot;,&quot;sourceName&quot;:&quot;BLOG&quot;,&quot;thumbnailId&quot;:&quot;&quot;,&quot;video&quot;:&quot;&quot;,&quot;controlTime&quot;:[],&quot;userUploadedImage&quot;:&quot;&quot;,&quot;isUploading&quot;:false,&quot;width&quot;:&quot;&quot;,&quot;image&quot;:&quot;https://cphinf.pstatic.net/mooc/20200317_250/15844286869506kw6D_PNG/r3wC87akScacD1qKYq4X.png?type=ffn199_148&quot;,&quot;videoWidth&quot;:0,&quot;videoSourceId&quot;:0,&quot;viewType&quot;:&quot;left&quot;,&quot;url&quot;:&quot;https://blog.naver.com/edwith/221050732874&quot;,&quot;videoType&quot;:&quot;&quot;,&quot;duration&quot;:&quot;&quot;,&quot;playTime&quot;:0,&quot;filename&quot;:&quot;&quot;,&quot;isLoaded&quot;:true},{&quot;id&quot;:171991,&quot;text&quot;:&quot;&lt;p&gt;&lt;span style=\&quot;font-size: 18pt; color: #008000;\&quot; data-mce-style=\&quot;font-size: 18pt; color: #008000;\&quot;&gt;&lt;strong&gt;[방법3] 학생을 엑셀파일로 한번에 등록하기&lt;\u002fstrong&gt;&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p&gt;학생들에게 URL을 공유하여 자율적으로 수강신청하기를 기다릴 수도 있지만,&lt;\u002fp&gt;&lt;p&gt;수강생들을 한번에 엑셀파일로 등록하고 싶지 않으신가요?&lt;\u002fp&gt;&lt;p id=\&quot;SE-3ee0b086-4e89-4348-867f-a295300e688b\&quot;&gt;&lt;span id=\&quot;SE-214a6b06-fa8e-4795-96a9-726655a049f3\&quot;&gt;엑셀파일로 수강생들을 한번에 등록하는 방법을 공유드립니다!&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p&gt;&amp;nbsp;&lt;\u002fp&gt;&lt;p&gt;1. 학생들에게 edwith에 가입하라고 안내한 뒤, edwith에 가입한 메일 주소를 취합하세요!&lt;\u002fp&gt;&lt;p&gt;2. 강좌관리에서 좌측 메뉴의 \&quot;구성원 관리\&quot;를 클릭하세요.&lt;\u002fp&gt;&lt;p&gt;3. \&quot;메일로 수강생 추가하기\&quot;와 \&quot;메일이 없는 수강생 추가하기\&quot; 중 [메일로 수강생 추가하기]를 클릭하면,&amp;nbsp;수강생의 이메일을 직접 엑셀 파일로 일괄 등록시킬 수 있는 팝업이 뜹니다!&lt;\u002fp&gt;&lt;p&gt;4. 수강생들의 edwith에 가입한 메일계정들을 기입한 엑셀파일을 업로드해주세요!&lt;\u002fp&gt;&lt;p id=\&quot;SE-54dc77a8-9c98-4d6e-af6f-77d62c36c402\&quot;&gt;&lt;span id=\&quot;SE-379e2087-baa1-4a0f-9932-d0ee3860f673\&quot;&gt;등록하고 나면 학생들은 자동으로 선생님의 강좌의 수강신청 처리가 완료되어 바로 강좌안에서 학습이 가능합니다.&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p&gt;&amp;nbsp;&lt;\u002fp&gt;&lt;p&gt;&lt;span id=\&quot;SE-f6e4887f-4360-458b-a191-3b498e312a93\&quot;&gt;선생님에 의해 등록된 학생들은 로그인후에 &lt;\u002fspan&gt;&lt;span id=\&quot;SE-780311e5-42b1-4263-8d1e-986b54858cad\&quot;&gt;&lt;strong&gt;선생님이 만든 모든 강좌들에 대해&lt;\u002fstrong&gt;&lt;\u002fspan&gt;&lt;span id=\&quot;SE-bc1b8927-3d95-45f3-b0a1-2b73d58e734d\&quot;&gt; 별도의 수강신청 승인 없이 바로 참여가 가능해서 참 편리하답니다!&lt;\u002fspan&gt;&lt;\u002fp&gt;&quot;,&quot;title&quot;:&quot;&quot;,&quot;isShowMaterial&quot;:false,&quot;isUploading&quot;:false,&quot;description&quot;:&quot;&quot;,&quot;filename&quot;:&quot;&quot;,&quot;isCode&quot;:false,&quot;orgLectureId&quot;:65372,&quot;type&quot;:&quot;Text&quot;,&quot;isLoaded&quot;:true,&quot;plainText&quot;:&quot;&lt;p id=\&quot;SE-7a0f57a6-953e-4c11-ade9-96c1fa2e1f9a\&quot;&gt;&lt;span id=\&quot;SE-cfb065f2-6490-4d29-a633-311c5366070d\&quot;&gt;&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p&gt;학생들에게 URL을 공유하여 자율적으로 수강신청하기를 기다릴 수도 있지만,&lt;\u002fp&gt;&lt;p&gt;수강생들을 한번에 엑셀파일로 등록하고 싶지 않으신가요?&lt;\u002fp&gt;&lt;p id=\&quot;SE-3ee0b086-4e89-4348-867f-a295300e688b\&quot;&gt;&lt;span id=\&quot;SE-214a6b06-fa8e-4795-96a9-726655a049f3\&quot;&gt;엑셀파일로 수강생들을 한번에 등록하는 방법을 공유드립니다!&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p&gt;&lt;br data-mce-bogus=\&quot;1\&quot;&gt;&lt;\u002fp&gt;&lt;p&gt;&lt;span style=\&quot;font-size: 14pt; color: rgb(51, 153, 102);\&quot; data-mce-style=\&quot;font-size: 14pt; color: #339966;\&quot;&gt;&lt;strong&gt;수강생을 엑셀파일로 한번에 등록하기&lt;\u002fstrong&gt;&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p&gt;1. 학생들에게 edwith에 가입하라고 안내한 뒤, edwith에 가입한 메일 주소를 취합하세요!&lt;\u002fp&gt;&lt;p&gt;2. 강좌관리에서 좌측 메뉴의 \&quot;구성원 관리\&quot;를 클릭하세요.&lt;\u002fp&gt;&lt;p&gt;3. \&quot;메일로 수강생 추가하기\&quot;와 \&quot;메일이 없는 수강생 추가하기\&quot; 중 [메일로 수강생 추가하기]를 클릭하면,&amp;nbsp;수강생의 이메일을 직접 엑셀 파일로 일괄 등록시킬 수 있는 팝업이 뜹니다!&lt;\u002fp&gt;&lt;p&gt;4. 수강생들의 edwith에 가입한 메일계정들을 기입한 엑셀파일을 업로드해주세요!&lt;\u002fp&gt;&lt;p id=\&quot;SE-54dc77a8-9c98-4d6e-af6f-77d62c36c402\&quot;&gt;&lt;span id=\&quot;SE-379e2087-baa1-4a0f-9932-d0ee3860f673\&quot;&gt;등록하고 나면 학생들은 자동으로 선생님의 강좌의 수강신청 처리가 완료되어 바로 강좌안에서 학습이 가능합니다.&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p&gt;&lt;br data-mce-bogus=\&quot;1\&quot;&gt;&lt;\u002fp&gt;&lt;p&gt;&lt;span id=\&quot;SE-f6e4887f-4360-458b-a191-3b498e312a93\&quot;&gt;선생님에 의해 등록된 학생들은 로그인후에 &lt;\u002fspan&gt;&lt;span id=\&quot;SE-780311e5-42b1-4263-8d1e-986b54858cad\&quot;&gt;&lt;strong&gt;선생님이 만든 모든 강좌들에 대해&lt;\u002fstrong&gt;&lt;\u002fspan&gt;&lt;span id=\&quot;SE-bc1b8927-3d95-45f3-b0a1-2b73d58e734d\&quot;&gt; 별도의 수강신청 승인 없이 바로 참여가 가능해서 참 편리하답니다!&lt;\u002fspan&gt;&lt;br&gt;&lt;\u002fp&gt;&quot;},{&quot;videoHeight&quot;:0,&quot;isShowMaterial&quot;:true,&quot;orgLectureId&quot;:65372,&quot;contentType&quot;:&quot;image&quot;,&quot;courseId&quot;:&quot;4536&quot;,&quot;type&quot;:&quot;Url&quot;,&quot;ext&quot;:&quot;&quot;,&quot;imageOrg&quot;:&quot;&quot;,&quot;id&quot;:171992,&quot;title&quot;:&quot;edwith 온라인클래스 활용Tip 학생을 엑셀파일로 한번에 등록하기&quot;,&quot;indexOrTime&quot;:-1,&quot;height&quot;:&quot;&quot;,&quot;captions&quot;:[],&quot;lectureId&quot;:&quot;61938&quot;,&quot;commonYn&quot;:false,&quot;description&quot;:&quot;더 자세한 내용은 edwith공식블로그에서 확인하세요!&quot;,&quot;sourceName&quot;:&quot;BLOG&quot;,&quot;thumbnailId&quot;:&quot;&quot;,&quot;video&quot;:&quot;&quot;,&quot;controlTime&quot;:[],&quot;userUploadedImage&quot;:&quot;&quot;,&quot;isUploading&quot;:false,&quot;width&quot;:&quot;&quot;,&quot;image&quot;:&quot;https://cphinf.pstatic.net/mooc/20200317_109/1584429349150jijpc_JPEG/8fkJ68jDo2BZrpb7cdCX.jpg?type=ffn199_148&quot;,&quot;videoWidth&quot;:0,&quot;videoSourceId&quot;:0,&quot;viewType&quot;:&quot;left&quot;,&quot;url&quot;:&quot;https://blog.naver.com/edwith/221050733359&quot;,&quot;videoType&quot;:&quot;&quot;,&quot;duration&quot;:&quot;&quot;,&quot;playTime&quot;:0,&quot;filename&quot;:&quot;&quot;,&quot;isLoaded&quot;:true},{&quot;id&quot;:171993,&quot;text&quot;:&quot;&lt;p&gt;&lt;span style=\&quot;font-size: 18pt; color: rgb(0, 128, 0);\&quot; data-mce-style=\&quot;font-size: 18pt; color: #008000;\&quot;&gt;&lt;strong&gt;[방법4]&amp;nbsp;메일주소를 만들기 어려운 학생들을 위해, ID와 비밀번호 만들어 주기&lt;\u002fstrong&gt;&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p id=\&quot;SE-7a0f57a6-953e-4c11-ade9-96c1fa2e1f9a\&quot;&gt;&lt;span id=\&quot;SE-cfb065f2-6490-4d29-a633-311c5366070d\&quot;&gt;우리 학생들을 edwith에 초대하기에 앞서&amp;nbsp;&lt;\u002fspan&gt;&lt;span id=\&quot;SE-834ca0f7-050a-403a-83bc-0f1479656e13\&quot;&gt;이메일주소가 없는 학생들은 계정을 만들때 로그인에 어려움을 겪을 수 있을텐데요&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p id=\&quot;SE-3ee0b086-4e89-4348-867f-a295300e688b\&quot;&gt;&lt;span id=\&quot;SE-214a6b06-fa8e-4795-96a9-726655a049f3\&quot;&gt;강좌에 어려운 절차 없이 학생들을 초대하기 위해서&amp;nbsp;&lt;\u002fspan&gt;&lt;span id=\&quot;SE-f74a01af-2010-4628-bb2a-7958e72a3707\&quot;&gt;교수자가 직접 학생들의 계정을 만들어 줄 수 있습니다.&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p id=\&quot;SE-ef89c63a-15ab-40a2-8e96-aad6e123dce5\&quot;&gt;&lt;span id=\&quot;SE-e68cae08-ea12-458e-a444-f72f0a742aaf\&quot;&gt;학습자들은 별도의 가입 절차 없이 선생님이 공지한 ID와 패스워드만 알고 있으면,&amp;nbsp;&lt;\u002fspan&gt;&lt;span id=\&quot;SE-7c41c1b5-1817-4ece-8226-055de323042a\&quot;&gt;강좌를 수강할 수 있으니 참 간편합니다!&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p&gt;&lt;br&gt;&lt;\u002fp&gt;&lt;p&gt;1. 강좌관리에서 좌측 메뉴의 \&quot;구성원 관리\&quot;를 클릭하세요!&lt;\u002fp&gt;&lt;p&gt;2. \&quot;메일로 수강생 추가하기\&quot;와 \&quot;메일이 없는 수강생 추가하기\&quot; 중 \&quot;메일이 없는 수강생 추가하기\&quot;를 눌러주세요!&lt;\u002fp&gt;&lt;p&gt;3. 우리반 학생들이 쉽게 로그인을 할 수 있도록 직접 ID와 패스워드를 생성해주세요!&lt;\u002fp&gt;&lt;p&gt;&amp;nbsp;&lt;br&gt;&lt;\u002fp&gt;&lt;p id=\&quot;SE-726add07-b661-4ad5-a2c9-d60fc1fd23b2\&quot;&gt;&lt;span id=\&quot;SE-0d687a52-5bec-4bd2-912c-bb436528434a\&quot;&gt;이메일이 없는 학생일 경우 [메일이 없는 수강생 추가하기]의 등록하기 버튼을 클릭하면 학생들의 ID와 임의 비밀번호를 지정하여 계정을 만들어줄 수 있어요.&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p id=\&quot;SE-70717a31-05c4-4188-8bad-d75524a11be4\&quot;&gt;&lt;span id=\&quot;SE-3eae85a1-31f3-4b44-a8e2-5b03d853d7af\&quot;&gt;&lt;strong&gt;기억하기 쉬운 비밀번호 또는 랜덤으로 제공하는 비밀번호&lt;\u002fstrong&gt;&lt;\u002fspan&gt;&lt;span id=\&quot;SE-224bc9bb-5c61-4789-85e4-c52a18de02ea\&quot;&gt;를 잘 기억해 두셨다가 학생들에게 알려주어야 겠죠? 한명씩 ID를 작성하고 추가해서 계속 등록을 해보세요.&amp;nbsp;&lt;\u002fspan&gt;&lt;span id=\&quot;SE-f7742b21-6782-4b40-a59d-1a22ce96429b\&quot;&gt;이후 학생들에게 ID와 비밀번호를 전달하고 로그인 안내를 해주세요.&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p id=\&quot;SE-9237c957-f9e1-43fd-b5de-1ee4ed862a33\&quot;&gt;&lt;span id=\&quot;SE-8a19e62b-8266-4aa1-8876-253b9c0d53be\&quot;&gt;​&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p id=\&quot;SE-1764fa3c-aa0c-4a43-9d2d-b5ab36f346f8\&quot;&gt;&lt;span id=\&quot;SE-f6e4887f-4360-458b-a191-3b498e312a93\&quot;&gt;선생님에 의해 등록된 학생들은 로그인후에 &lt;\u002fspan&gt;&lt;span id=\&quot;SE-780311e5-42b1-4263-8d1e-986b54858cad\&quot;&gt;&lt;strong&gt;선생님이 만든 모든 강좌들에 대해&lt;\u002fstrong&gt;&lt;\u002fspan&gt;&lt;span id=\&quot;SE-bc1b8927-3d95-45f3-b0a1-2b73d58e734d\&quot;&gt; 별도의 수강신청 승인 없이 바로 참여가 가능해서 참 편리하답니다!&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p&gt;&lt;span style=\&quot;color: rgb(0, 0, 255);\&quot; data-mce-style=\&quot;color: #0000ff;\&quot;&gt;※많은 선생님들의 요청사항으로,\&quot;엑셀로 한번에 수강생의 계정(ID/비밀번호)를 생성하는 기능\&quot;을 추가했습니다!&lt;\u002fspan&gt;&lt;\u002fp&gt;&quot;,&quot;title&quot;:&quot;&quot;,&quot;isShowMaterial&quot;:false,&quot;isUploading&quot;:false,&quot;description&quot;:&quot;&quot;,&quot;filename&quot;:&quot;&quot;,&quot;isCode&quot;:false,&quot;orgLectureId&quot;:65372,&quot;type&quot;:&quot;Text&quot;,&quot;isLoaded&quot;:true,&quot;plainText&quot;:&quot;&lt;p id=\&quot;SE-7a0f57a6-953e-4c11-ade9-96c1fa2e1f9a\&quot;&gt;&lt;span id=\&quot;SE-cfb065f2-6490-4d29-a633-311c5366070d\&quot;&gt;우리 학생들을 edwith에 초대하기에 앞서&amp;nbsp;&lt;\u002fspan&gt;&lt;span id=\&quot;SE-834ca0f7-050a-403a-83bc-0f1479656e13\&quot;&gt;이메일주소가 없는 학생들은 계정을 만들때 로그인에 어려움을 겪을 수 있을텐데요&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p id=\&quot;SE-3ee0b086-4e89-4348-867f-a295300e688b\&quot;&gt;&lt;span id=\&quot;SE-214a6b06-fa8e-4795-96a9-726655a049f3\&quot;&gt;강좌에 어려운 절차 없이 학생들을 초대하기 위해서&amp;nbsp;&lt;\u002fspan&gt;&lt;span id=\&quot;SE-f74a01af-2010-4628-bb2a-7958e72a3707\&quot;&gt;교수자가 직접 학생들의 계정을 만들어 줄 수 있습니다.&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p id=\&quot;SE-ef89c63a-15ab-40a2-8e96-aad6e123dce5\&quot;&gt;&lt;span id=\&quot;SE-e68cae08-ea12-458e-a444-f72f0a742aaf\&quot;&gt;학습자들은 별도의 가입 절차 없이 선생님이 공지한 ID와 패스워드만 알고 있으면,&amp;nbsp;&lt;\u002fspan&gt;&lt;span id=\&quot;SE-7c41c1b5-1817-4ece-8226-055de323042a\&quot;&gt;강좌를 수강할 수 있으니 참 간편합니다!&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p&gt;&lt;br&gt;&lt;\u002fp&gt;&lt;p&gt;1. 강좌관리에서 좌측 메뉴의 \&quot;구성원 관리\&quot;를 클릭하세요!&lt;\u002fp&gt;&lt;p&gt;2. \&quot;메일로 수강생 추가하기\&quot;와 \&quot;메일이 없는 수강생 추가하기\&quot; 중 \&quot;메일이 없는 수강생 추가하기\&quot;를 눌러주세요!&lt;\u002fp&gt;&lt;p&gt;3. 우리반 학생들이 쉽게 로그인을 할 수 있도록 직접 ID와 패스워드를 생성해주세요!&lt;\u002fp&gt;&lt;p&gt;&lt;br data-mce-bogus=\&quot;1\&quot;&gt;&lt;\u002fp&gt;&lt;p id=\&quot;SE-726add07-b661-4ad5-a2c9-d60fc1fd23b2\&quot;&gt;&lt;span id=\&quot;SE-0d687a52-5bec-4bd2-912c-bb436528434a\&quot;&gt;이메일이 없는 학생일 경우 [메일이 없는 수강생 추가하기]의 등록하기 버튼을 클릭하면 학생들의 ID와 임의 비밀번호를 지정하여 계정을 만들어줄 수 있어요.&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p id=\&quot;SE-70717a31-05c4-4188-8bad-d75524a11be4\&quot;&gt;&lt;span id=\&quot;SE-3eae85a1-31f3-4b44-a8e2-5b03d853d7af\&quot;&gt;&lt;strong&gt;기억하기 쉬운 비밀번호 또는 랜덤으로 제공하는 비밀번호&lt;\u002fstrong&gt;&lt;\u002fspan&gt;&lt;span id=\&quot;SE-224bc9bb-5c61-4789-85e4-c52a18de02ea\&quot;&gt;를 잘 기억해 두셨다가 학생들에게 알려주어야 겠죠? 한명씩 ID를 작성하고 추가해서 계속 등록을 해보세요.&amp;nbsp;&lt;\u002fspan&gt;&lt;span id=\&quot;SE-f7742b21-6782-4b40-a59d-1a22ce96429b\&quot;&gt;이후 학생들에게 ID와 비밀번호를 전달하고 로그인 안내를 해주세요.&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p id=\&quot;SE-9237c957-f9e1-43fd-b5de-1ee4ed862a33\&quot;&gt;&lt;span id=\&quot;SE-8a19e62b-8266-4aa1-8876-253b9c0d53be\&quot;&gt;​&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p id=\&quot;SE-1764fa3c-aa0c-4a43-9d2d-b5ab36f346f8\&quot;&gt;&lt;span id=\&quot;SE-f6e4887f-4360-458b-a191-3b498e312a93\&quot;&gt;선생님에 의해 등록된 학생들은 로그인후에 &lt;\u002fspan&gt;&lt;span id=\&quot;SE-780311e5-42b1-4263-8d1e-986b54858cad\&quot;&gt;&lt;strong&gt;선생님이 만든 모든 강좌들에 대해&lt;\u002fstrong&gt;&lt;\u002fspan&gt;&lt;span id=\&quot;SE-bc1b8927-3d95-45f3-b0a1-2b73d58e734d\&quot;&gt; 별도의 수강신청 승인 없이 바로 참여가 가능해서 참 편리하답니다!&lt;\u002fspan&gt;&lt;\u002fp&gt;&quot;},{&quot;videoHeight&quot;:0,&quot;isShowMaterial&quot;:true,&quot;orgLectureId&quot;:65372,&quot;contentType&quot;:&quot;image&quot;,&quot;courseId&quot;:&quot;4536&quot;,&quot;type&quot;:&quot;Url&quot;,&quot;ext&quot;:&quot;&quot;,&quot;imageOrg&quot;:&quot;&quot;,&quot;id&quot;:171994,&quot;title&quot;:&quot;edwith 온라인클래스 활용Tip 수강생이 이메일이 없을때는 어떻게 하죠?&quot;,&quot;indexOrTime&quot;:-1,&quot;height&quot;:&quot;&quot;,&quot;captions&quot;:[],&quot;lectureId&quot;:&quot;61938&quot;,&quot;commonYn&quot;:false,&quot;description&quot;:&quot;더 자세한 내용은 edwith공식블로그에서 확인하세요!&quot;,&quot;sourceName&quot;:&quot;BLOG&quot;,&quot;thumbnailId&quot;:&quot;&quot;,&quot;video&quot;:&quot;&quot;,&quot;controlTime&quot;:[],&quot;userUploadedImage&quot;:&quot;&quot;,&quot;isUploading&quot;:false,&quot;width&quot;:&quot;&quot;,&quot;image&quot;:&quot;https://cphinf.pstatic.net/mooc/20200317_109/1584429349150jijpc_JPEG/8fkJ68jDo2BZrpb7cdCX.jpg?type=ffn199_148&quot;,&quot;videoWidth&quot;:0,&quot;videoSourceId&quot;:0,&quot;viewType&quot;:&quot;left&quot;,&quot;url&quot;:&quot;https://blog.naver.com/edwith/221050733359&quot;,&quot;videoType&quot;:&quot;&quot;,&quot;duration&quot;:&quot;&quot;,&quot;playTime&quot;:0,&quot;filename&quot;:&quot;&quot;,&quot;isLoaded&quot;:true}]'>
+<input type="hidden" id="__COURSENAME" data-selector="courseName" value="onlineclass-tutorial">
+<script src="https://www.edwith.org/static/js/vendor/prismplayer-pc/dist/index.js?231109_47a067d4"></script>
+<link rel="stylesheet" type="text/css" href="https://www.edwith.org/static/js/vendor/prismplayer-pc/dist/main.css?231109_47a067d4">
+<script src="https://www.edwith.org/static/js/src/entries/common/_material.entry.browserfied.min.js?231109_47a067d4"></script>
+
+
+<style type="text/css">
+    .u_cbox .u_cbox_content_layer {
+        position: absolute;
+        left: 0;
+        bottom: auto;
+        width: 100%;
+        text-align: center;
+        z-index: 10;
+    }
+
+    .pzp.pzp-pc {
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    .pzp-pc-seeking-preview__time {
+        left: 0;
+    }
+
+    .pzp-pc--fullscreen .pzp-pc-viewmode-button {
+        display: none !important;
+    }
+</style>
+
+<script>
+    $(document).ready(function(){
+        var entry = require("/entries/common/_material.entry.js");
+        entry.initialize({
+            welTarget: $(".ce_view"),
+            data: {
+                courseName: $("#__COURSENAME").val(),
+                materials: $.parseJSON($("#__MATERIALS").val()),
+                isEditable: false,
+                userId: '2668417',
+                courseId: '5094',
+                lectureId: '65372',
+                videoType: 'LECTURE',    // 강의 상세페이지와 정보 페이지는 이 곳을 같이 사용하고 있네요.
+                videoTypeId: '65372',
+                isOpenAll: true,
+                liveInfo: {
+                    isLiveOpened: false,
+                    recentLiveStartTime: "",
+                    recentLiveEndTime: "",
+                    reservationStartTime: "",
+                    reservationEndTime: "",
+                    streamType: "NOVA",
+                    isShowLiveMaterial: true
+                }
+            }
+        });
+    });
+</script>
+<script src="https://www.edwith.org/static/js/plugins/ntsYoutubeConnecter.1.0.min.js"></script>
+
+    </div>
+
+    
+
+    <div class="share NE=a:lec">
+        
+
+        <div class="group_lr">
+            <div class="group_l">
+                
+                
+    <div class="sns_area _content_sns_area">
+        <button type="button" class="btn btn_type17 bold" data-sns-share>공유하기</button>
+        <!-- [D] 활성화 시 class="on"추가, URL 복사만 출력할 경우 class="type2 추가" -->
+        <div class="sns_layer " data-sns-layer>
+            <div class="inner">
+                <a href="#" class="ico_url" data-type="urlCopy" data-clipboard-text="http://www.edwith.org/onlineclass-tutorial/lecture/65372">URL복사</a>
+                
+                    <a href="#" class="ico_band" data-type="band">밴드</a>
+                    <a href="#" class="ico_facebook" data-type="facebook">페이스북</a>
+                    <a href="#" class="ico_twitter" data-type="twitter">트위터</a>
+                
+            </div>
+            
+        </div>
+    </div>
+    <div id="_band_share_content" style="display:none">퀵하게 학생 등록하는 방법 4가지!
+&nbsp;학생들을 수강신청하라고 가이드하는 것이 늘 어려우셨나요? 학생들이 어려서 메일 주소가 없으신가요? edwith가 4가지 방법을 공유드립니다. ​ [방법1] URL을 카카오톡과 같...
+- edwith</div>
+    <div id="_twitter_share_content" style="display:none">퀵하게 학생 등록하는 방법 4가지!
+&nbsp;학생들을 수강신청하라고 가이드하는 것이 늘 어려우셨나요? 학생들이 어려서 메일 주소가 없으신가요? edwith가 4가지 방법을 공유드립니다. ​ [방법1] URL을 카카오톡과 같...
+- edwith</div>
+
+    <script src="https://www.edwith.org/static/js/src/entries/common/_sns.share.service.entry.browserfied.min.js?231109_47a067d4"></script>
+    <script>
+        $(document).ready(function(){
+            var entry = require("/entries/common/_sns.share.service.entry.js");
+            var snsShareContentHtData = {
+                facebook : ['http://www.edwith.org/onlineclass-tutorial/lecture/65372', '1441124829481137', 'http://www.edwith.org/popupClose'],
+                twitter : ['http://www.edwith.org/onlineclass-tutorial/lecture/65372', $("#_twitter_share_content").text(),  '',  ''],
+                googlePlus : ['http://www.edwith.org/onlineclass-tutorial/lecture/65372'],
+                band : ['http://www.edwith.org/onlineclass-tutorial/lecture/65372', $("#_band_share_content").text()],
+                url: 'http://www.edwith.org/onlineclass-tutorial/lecture/65372'
+            };
+            entry.initialize($('._content_sns_area'), snsShareContentHtData);
+        });
+    </script>
+
+                <!-- // 공유하기 -->
+                
+                    <button class="btn_lecture_like " data-btn-like data-count-num="10">
+                        좋아요
+
+                        
+                            10
+                        
+                    </button>
+                
+                <!-- // 좋아요 -->
+            </div>
+        </div>
+
+        
+        
+            <!-- comment -->
+            <div class="cmt_group" id="comment">
+                <nav class="nav_tab3">
+                    <ul>
+                        
+                            <li class="active" data-btn-comment><a href="#" id="_wrap_comment_count">댓글  </a></li>
+                        
+                        
+                            <li  data-btn-forum>
+                                <a href="#" id="_wrap_forum_count">연관 토론  </a>
+                            </li>
+                        
+                    </ul>
+                </nav>
+
+                
+                    <div class="new_comment_wrap">
+                        <section class="comment" id="_wrap_comment">
+                            <h3 class="sr_only">comment</h3>
+                            <!--댓글 등록 폼-->
+                            <div class="se_wrap" data-editor></div>
+                            <!--//댓글 등록 폼-->
+                            <div class="live_tab_wrap">
+                                <div class="group_l">
+                                    <ul class="tab_list">
+                                        <li class="tab selected" data-sort-tab="regYmdt"><a href="#">최신순</a></li>
+                                        <li class="tab" data-sort-tab="id"><a href="#">등록순</a></li>
+                                        <li class="tab" data-sort-tab="voteCount"><a href="#">추천순</a></li>
+                                    </ul>
+                                </div>
+                                <div class="group_r">
+                                    <div class="btn_mine_box">
+                                        <span class="text">나의 글만 보기</span>
+                                        <button type="button" class="btn_mine" title="나의 글만 보기" data-my-comments>
+                                            <span class="ico_mine">OFF</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="comment_list">
+                                <ul id="_wrap_comment_list"></ul>
+                            </div>
+                            <!--댓글 paginate : start -->
+                            <div class="group_lr mat40">
+                                <nav class="paginate" role="navigation" id="_wrap_page_navi" style="display:none;">
+                                    <h4 class="sr_only">페이지 이동</h4>
+
+                                    <div class="inner">
+                                        <a href="#" class="pre_end disabled" data-pg-first><span class="sr_only">First</span></a>
+                                        <a href="#" class="pre" data-pg-prev>Prev</a>
+                                        <ul class="page_list" data-pg-number>
+                                        </ul>
+                                        <a href="#" class="next" data-pg-next>Next</a>
+                                        <a href="#" class="next_end" data-pg-last><span class="sr_only">Last</span></a>
+                                    </div>
+                                </nav>
+                            </div>
+                            <!--댓글 paginate : end -->
+                        </section>
+                    </div>
+                
+                <!--//comment-->
+
+                
+                    <div id="_wrap_forum" style="display: none">
+                        <ul class="forum_list comment_forum _warp_forum_list">
+                        </ul>
+
+                        <nav class="paginate" role="navigation" id="_wrap_forum_page_navi" style="display:none;">
+                            <h4 class="sr_only">페이지 이동</h4>
+
+                            <div class="inner">
+                                <a href="#" class="pre_end disabled" data-pg-first><span class="sr_only">First</span></a>
+                                <a href="#" class="pre" data-pg-prev>이전</a>
+                                <ul class="page_list" data-pg-number>
+                                </ul>
+                                <a href="#" class="next" data-pg-next>다음</a>
+                                <a href="#" class="next_end" data-pg-last><span class="sr_only">Last</span></a>
+                            </div>
+                        </nav>
+                    </div>
+                
+            </div>
+            <div id="comment_loader"></div>
+        
+    </div>
+
+    <div class="new_boost_btm">
+        <div class="group_lr">
+            
+                <div class="group_r">
+                    
+                    
+                        <button type="button" class="btn btn_type15 clr" data-selector="tglLearningCompletion" data-role="completed">
+                            수강완료
+                        </button>
+                    
+                    <div class="bubb type3" data-wrap="tooltip" style="display:none;top:-68px;right:40px;" data-tooltip-end>
+                        <strong>수강이 완료되었습니다.</strong>
+                        <a href="#" class="ico_clse" data-btn-tooltip-close>
+                            닫기
+                        </a>
+                    </div>
+
+                    <div class="bubb type3" data-wrap="tooltip" style="display:none;top:-88px;right:40px;"
+                         data-tooltip-next>
+                        <strong>수강이 완료되었습니다.</strong>
+                        <p>이제 <a href="#">다음 강의</a>를 확인하세요.</p>
+                        <a href="#" class="ico_clse" data-btn-tooltip-close>
+                            닫기
+                        </a>
+                    </div>
+
+                    <div class="bubb type3" data-wrap="tooltip" style="display:none;top:-68px;right:40px;" data-tooltip-alert>
+                        <p data-tooltip-alert-msg></p>
+                        <a href="#" class="ico_clse" data-btn-tooltip-close>
+                            닫기
+                        </a>
+                    </div>
+                </div>
+            
+            <!--페이지네비게이션 : 이전글/다음글-->
+            
+<!-- #breadcrumb:lecture/_pageNavigation.gsp -->
+
+<!--목록URL-->
+
+    
+
+
+
+<!--이전 URL/Title -->
+
+    
+    
+    
+        
+    
+
+
+<!--다음 URL/Title -->
+
+    
+    
+    
+        
+    
+
+
+<!--페이지네비게이션 : 이전글/다음글/목록보기-->
+<div class="group_l">
+    <div class="paginate4">
+        <!--[D] 비활성화 될 시 .disable 클래스 추가해 주세요.-->
+        <div class="pagin l">
+            
+                <a href="/onlineclass-tutorial/lecture/65388/?isDesc=false" class="btn_prve" data-btn-prev>
+            
+                <i class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="#25292F" stroke-width="1.5" d="M16 4l-8 8 8 8"></path>
+                    </svg>
+                </i>
+                <span class="blind">에드위드 온라인클래스 매뉴얼로 차근차근 개설해보세요!</span>
+            </a>
+        </div>
+        <div class="pagin r">
+            
+                <a href="/onlineclass-tutorial/lecture/65371/?isDesc=false" class="btn_next" data-btn-next>
+            
+                <i class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="#2A2C2F" stroke-width="1.5" d="M8 20l8-8-8-8"></path>
+                    </svg>
+                </i>
+                <span class="blind">동영상 시청 완료 기준을 설정해서 학생들의 출석을 체크하세요!</span>
+            </a>
+        </div>
+    </div>
+</div>
+<!--//페이지네비게이션 -->
+            <!--//페이지네비게이션 -->
+        </div>
+    </div>
+
+    <input type="hidden" id="_serverEnv" value="www">
 </section>
 <script src="https://www.edwith.org/static/js/vendor/tinymce/tinymce.min.js?231109_47a067d4"></script>
 <script src="https://www.edwith.org/static/js/vendor/katex/katex.min.js?231109_47a067d4"></script>

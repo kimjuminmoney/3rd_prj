@@ -3,7 +3,7 @@
 <%@ page info="   " %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html>
+<html lang="ko" itemscope itemtype="http://schema.org/Article">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -19,17 +19,8 @@
     
     <link rel="stylesheet" type="text/css" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/whaleclass.css">
     <link rel="stylesheet" type="text/css" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/plugin.css">
-    <script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-0V6W0JCK4T&amp;cx=c&amp;_slc=1"></script>
-    <script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-TDK60FVBJE&amp;cx=c&amp;_slc=1"></script>
-    <script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-263ER9ET6N&amp;cx=c&amp;_slc=1"></script>
-    <script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-N90K8EJMQ3&amp;l=dataLayer&amp;cx=c"></script>
-    <script async="" src="https://www.google-analytics.com/analytics.js"></script>
-    <script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-P2H76TF"></script>
     <script src="https://www.edwith.org/static/js/vendor/raphael/raphael.js?231109_47a067d4"></script>
     <script src="https://www.edwith.org/static/js/plugins/nclktag.js?231109_47a067d4"></script>
-    <!-- Jquery CDN시작 -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-	<!-- Jquery CDN끝 -->
     <script>
         var nsc = 'edwith.all';
         var ccsrv = 'cc.naver.com';
@@ -47,7 +38,7 @@
     <!-- // Google Tag Manager -->
 
     
-        <title>나의 할일: 김주민</title>
+        <title>나의 할 일2: 김주민</title>
     
     <style>
         .re_pack .snb_wrap .snb .menu_area li[aria-selected="true"] a,
@@ -129,6 +120,12 @@
     </style>
 </head>
 
+
+
+
+    
+
+
     <!-- Google Tag Manager (noscript) -->
     
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2H76TF"
@@ -148,7 +145,7 @@
 <input type="hidden" id="__COURSE_OPEN_DAY" value="" />
 <input type="hidden" id="__COURSE_CLOSE_DAY" value="" />
 <input type="hidden" id="__COURSE_URI_PATH" value="" />
-<input type="hidden" id="__CURRENT_DATE" value="2023.11.24" />
+<input type="hidden" id="__CURRENT_DATE" value="2023.11.30" />
 <input type="hidden" id="__MESSAGE_TITLE" value="알림" />
 
     <input type="hidden" id="__LOCALE_LANGUAGE" value="ko" />
@@ -380,8 +377,23 @@
         gaHitPageView();
     })();
 </script>
-<body>
-<div class="wrap">
+
+
+
+<!-- #breadcrumb:whaleclass/main/index.gsp -->
+<div class="modal_wrap whale_look" id="_modal_wrap" style="display:none; z-index: 10000">
+    <!--애니메이션 영역-->
+    <div class="modal_container" data-md-content></div>
+    <div class="modal_dimmed"><iframe frameborder="0" src="about:blank" title="버그픽스용"></iframe></div>
+</div>
+<input type="hidden" name="partnerUrl" value="https://www.edwith.org/">
+<input type="hidden" id="__isLogged" value="org.nhnnext.mooc.user.SecUser : 2668417">
+
+
+    
+
+<body class="win chrome chrome119 re_pack new_color edwith">
+    <div class="wrap">
         <!-- container -->
         <div class="container new_layout ">
             <!-- HEADER -->
@@ -389,7 +401,6 @@
 
 <!-- #breadcrumb:common/_whaleclass_header.gsp -->
 <jsp:include page="../nav/header.jsp"></jsp:include>
-
             <!-- [D] 모바일에서 snb 딤드 노출시 class open 추가해주세요
 				딤드 노출시 html, body에 style="overflow:hidden" 추가해주세요 -->
             <span class="snb_dimed" id="snb_dimed"></span>
@@ -402,27 +413,30 @@
             
 <div class="content">
     <div class="page">
-        <div class="main_top b_none" data-main-top="">
-            <button type="button" id="test" class="btn_gnb" data-gnb-on-btn=""><span class="blind">메뉴 펼치기</span></button>
+        <div class="main_top b_none" data-main-top>
+            <button type="button" id="test" class="btn_gnb" data-gnb-on-btn><span class="blind">메뉴 펼치기</span></button>
             <!-- my_btn_area  mo ~ 1279px 에 노출 -->
             <div class="my_btn_area">
-                <a href="#" class="btn_my" data-my-btn="">
-                    <img src="" width="32" height="32" alt="" class="my_thumb" style="display: none" data-profile-btn-image="">
+                <a href="#" class="btn_my" data-my-btn>
+                    <img src="" width="32" height="32" alt="" class="my_thumb" style="display: none" data-profile-btn-image>
                 </a>
-                <div class="badge_box" style="display: none" data-badge-box="">
-                    <span class="blind">알림</span><em class="badge_new" data-badge-box-count=""></em>
+                <div class="badge_box" style="display: none" data-badge-box>
+                    <span class="blind">알림</span><em class="badge_new" data-badge-box-count></em>
                 </div>
             </div>
             <h3 class="tit_home">나의 할일</h3>
-            <!-- <div class="btn_area" data-course-list="">
-                    <button type="button" class="btn_type" data-course-join-btn=""><span class="btn_txt">강좌 참여하기</span></button>
+            <!-- <div class="btn_area" data-course-list>
+                
+                    <button type="button" class="btn_type" data-course-join-btn><span class="btn_txt">강좌 참여하기</span></button>
+
+                
             </div> -->
         </div>
-        
-        
         <!-- <div class="tab_area">
             <ul class="tab_list" role="tablist">
-                <li role="tab" aria-selected="true"><a href="?searchType=all">참여중인 강좌</a></li>
+                
+                    <li role="tab" aria-selected="true"><a href="?searchType=all">참여중인 강좌</a></li>
+                
                 <li role="tab" aria-selected="false"><a href="?searchType=closed">수료한 강좌</a></li>
             </ul>
             <div class="edit_area">
@@ -435,29 +449,37 @@
                     </div>
 
                     
-                        <button type="button" class="btn_edit" data-edit-list-btn=""><span class="blind">목록 설정</span></button>
-                        <button type="button" class="btn_back" style="display: none" data-back-btn=""><span class="blind">뒤로가기</span></button>
+                        <button type="button" class="btn_edit" data-edit-list-btn><span class="blind">목록 설정</span></button>
+                        <button type="button" class="btn_back" style="display: none" data-back-btn><span class="blind">뒤로가기</span></button>
                         [D] 버튼 하위목록 노출시 class on 추가해주세요
-                        <ul class="btn_list" data-btn-list="">
-                            <li><a href="#" data-edit-btn="">강좌 설정</a></li>
+                        <ul class="btn_list" data-btn-list>
+                            <li><a href="#"  data-edit-btn>강좌 설정</a></li>
                         </ul>
+                    
+                
+                
             </div>
         </div> -->
-
-
-	<div class="todo_lst">
-		<ul data-todo-list=""><li class="none">등록된 내용이 없습니다.</li></ul>
-	</div>
-
-
-<!-- <div class="course_group course_join" data-course-group="">
-    <div class="course_lst class_area">
-            <ul data-course-card-ul="">
+        
+        
             
+                
+
+
+<div class="course_group course_join" data-course-group>
+    <div class="course_lst class_area">
+        
+            <ul data-course-card-ul>
+                
+                    
+                    
                     <li class="" data-course="5094" data-course-uri="onlineclass-tutorial" data-course-name="누구나 쉽게 준비하는 에드위드 온라인클래스!">
                         <div class="info_area ">
+                        <!-- 강좌 베너 넣으면 좋을듯 -->
                             <div class="thumb">
+                                
                                     <a href="/onlineclass-tutorial/home">
+                                
                                     <img src="https://cphinf.pstatic.net/mooc/20200410_241/1586514788201ChP2A_JPEG/onlineclass_course_img_720x426.jpg?type=ffn176_96" width="88" height="48" alt="강좌 썸네일">
                                 </a>
                             </div>
@@ -465,33 +487,32 @@
                                 
                                     <a href="/onlineclass-tutorial/home">
                                 
-                                    <strong class="title">누구나 쉽게 준비하는 에드위드 온라인클래스!</strong>
+                                    <strong class="title">나의 할일 강좌명</strong>
                                 </a>
                                 <div class="author">
-                                    <span class="name">edwith</span>
+                                    <span class="name">강사명 드가면 될듯</span>
                                     
-                                        <span class="bar"></span>
-                                        edwith
+                                        <!-- <span class="bar"></span>
+                                        edwith -->
                                     
                                 </div>
                             </div>
                             <div class="info_btns">
-                                
-                                <button type="button" class="btn_lecture_more" data-btn="showMoreCourseOption"><i>더보기</i></button>
-                                <ul class="ly_btn_more" style="display:none;" data-course-more-option="">
+                                <!-- <button type="button" class="btn_lecture_more" data-btn=showMoreCourseOption><i>더보기</i></button>
+                                <ul class="ly_btn_more" style="display:none;" data-course-more-option>
                                     
                                         <li><a href="/onlineclass-tutorial?type=stay">강좌소개</a></li>
                                     
-                                </ul>
+                                </ul> -->
                             </div>
                         </div>
                         
 
                         
-                            <div class="desc_area always" style="display: block;" data-info-lec="">
+                            <div class="desc_area always" style="display: block;" data-info-lec>
                                 <div class="desc_wrap">
                                     <div class="info_lec">
-                                        <ul>
+                                        <!-- <ul>
                                             <li>
                                                 <strong>강좌 기간</strong>
                                                 <p>
@@ -526,22 +547,22 @@
 
                                             
                                         </ul>
-
+ -->
                                         
-                                            <div class="info_more_box">
+                                            <!-- <div class="info_more_box">
                                                 <div class="info_more_area">
                                                     
                                                         <a href="#" class="btn btn_type3" data-btn="showStandard">수료기준</a>
-                                                        <div class="help_pop" style="display: none" data-standard-popup="">
+                                                        <div class="help_pop" style="display: none" data-standard-popup>
                                                             
                                                                 강좌 진도율: 총 <em>100</em>% 이상
                                                             
                                                             <a href="#" class="pop_close" data-btn="hideStandard">레이어 닫기</a>
                                                         </div>
                                                     
-                                                    <a href="#" class="btn btn_type3" data-btn="certificate" data-uripath="onlineclass-tutorial" data-passed="false" data-is-always-open="true">수료증</a>
+                                                    <a href="#" class="btn btn_type3" data-btn=certificate data-uripath=onlineclass-tutorial data-passed=false data-is-always-open=true>수료증</a>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         
                                     </div>
 
@@ -551,7 +572,7 @@
 
                                             <div class="done_area">
                                                 <div class="circle_progress_wrap lecture">
-                                                    <div data-selector="c_progress" data-color="yellow"><svg height="82" version="1.1" width="82" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><path fill="none" stroke="#ecf0f1" d="M41,7A34,34,0,1,1,40.89,7" stroke-width="4" stroke-linecap="round" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: round;"></path><path fill="none" stroke="none" d="M0,0" stroke-width="4" stroke-linecap="round" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: round;"></path></svg></div>
+                                                    <div data-selector="c_progress" data-color="yellow"></div>
                                                     <div class="num">
                                                         <span class="val">0</span>
                                                         <span class="slash">/</span>
@@ -561,7 +582,7 @@
                                                 </div>
 
                                                 <div class="circle_progress_wrap quiz">
-                                                    <div data-selector="c_progress" data-color="yellow"><svg height="82" version="1.1" width="82" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><path fill="none" stroke="#ecf0f1" d="M41,7A34,34,0,1,1,40.89,7" stroke-width="4" stroke-linecap="round" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: round;"></path><path fill="none" stroke="none" d="M0,0" stroke-width="4" stroke-linecap="round" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: round;"></path></svg></div>
+                                                    <div data-selector="c_progress" data-color="yellow"></div>
                                                     <div class="num">
                                                         <span class="val">0</span>
                                                         <span class="slash">/</span>
@@ -571,7 +592,7 @@
                                                 </div>
 
                                                 <div class="circle_progress_wrap task">
-                                                    <div data-selector="c_progress" data-color="yellow"><svg height="82" version="1.1" width="82" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><path fill="none" stroke="#ecf0f1" d="M41,7A34,34,0,1,1,40.89,7" stroke-width="4" stroke-linecap="round" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: round;"></path><path fill="none" stroke="none" d="M0,0" stroke-width="4" stroke-linecap="round" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: round;"></path></svg></div>
+                                                    <div data-selector="c_progress" data-color="yellow"></div>
                                                     <div class="num">
                                                         
                                                             <span class="val">-</span>
@@ -584,7 +605,7 @@
 
                                                 
                                                     <div class="circle_progress_wrap peer">
-                                                        <div data-selector="c_progress" data-color="yellow"><svg height="82" version="1.1" width="82" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><path fill="none" stroke="#ecf0f1" d="M41,7A34,34,0,1,1,40.89,7" stroke-width="4" stroke-linecap="round" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: round;"></path><path fill="none" stroke="none" d="M0,0" stroke-width="4" stroke-linecap="round" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: round;"></path></svg></div>
+                                                        <div data-selector="c_progress" data-color="yellow"></div>
                                                         <div class="num">
                                                             
                                                                 <span class="val">-</span>
@@ -604,34 +625,34 @@
                             </div>
                         
 
-                        <div class="desc_area" data-setting-lec="" style="display:none;">
+                        <div class="desc_area" data-setting-lec style="display:none;">
                             <div class="desc_wrap">
                                 <div class="info_lec">
                                     <ul>
                                         <li class="profile">
                                             <strong>프로필</strong>
-                                            [D] button.btn_set 클릭시 div.ly_prof_area에 opn클래스 추가
+                                            <!-- [D] button.btn_set 클릭시 div.ly_prof_area에 opn클래스 추가 -->
                                             <div class="ly_prof_area">
-                                            [D] 이미지 없을때 기본 프로필 이미지
+                                            <!-- [D] 이미지 없을때 기본 프로필 이미지 -->
                                                 
-                                                    <img src="https://cphinf.pstatic.net/mooc/20231109_73/1699518435941mLJn6_PNG/aLBZa5mqaNLKq3kOxZbH.png?type=ff32_32_r" alt="money55" data-profile-image="">
+                                                    <img src="https://cphinf.pstatic.net/mooc/20231109_73/1699518435941mLJn6_PNG/aLBZa5mqaNLKq3kOxZbH.png?type=ff32_32_r" alt="money55" data-profile-image>
                                                 
 
-                                                <span class="name" data-profile-nickname="">money55</span>
+                                                <span class="name" data-profile-nickname>money55</span>
                                                 
-                                                    <a href="#" class="btn_set" data-course-id="5094" data-profile-btn="">
+                                                    <a href="#" class="btn_set" data-course-id="5094" data-profile-btn>
                                                         프로필 설정
                                                     </a>
-                                                    @@include('uio_include/profile_set.html')
+                                                    <!--@@include('uio_include/profile_set.html')-->
                                                 
                                             </div>
                                         </li>
                                         
                                             <li>
                                                 <strong>메일수신</strong>
-                                                <label class="ick" data-ychecker="">
+                                                <label class="ick" data-ychecker>
                                                     <span class="checkbox checked">
-                                                        <input type="checkbox" name="isReceiveEmail" checked="">
+                                                        <input type="checkbox" name="isReceiveEmail" checked>
                                                     </span>
                                                     <span class="ph">강좌의 안내 메일을 수신하겠습니다.</span>
                                                 </label>
@@ -641,7 +662,7 @@
                                 </div>
                                 
                                     <div class="done_box">
-                                        <a href="#" class="btn_cancel" data-course-cancel-btn="" data-btn="cancel" data-course-id="onlineclass-tutorial" data-lecture-status="cancelReady" data-title="누구나 쉽게 준비하는 에드위드 온라인클래스!" data-type="">
+                                        <a href="#" class="btn_cancel" data-course-cancel-btn data-btn="cancel" data-course-id="onlineclass-tutorial" data-lecture-status="cancelReady" data-title="누구나 쉽게 준비하는 에드위드 온라인클래스!" data-type="">
                                             수강취소
                                         </a>
                                     </div>
@@ -662,77 +683,113 @@
                                 </a>
                             </div>
                             <div class="tit">
-                                <a href="/blockchain-and-society/home">
-                                    <strong class="title">강좌명</strong>
+                                
+                                    <a href="/blockchain-and-society/home">
+                                
+                                    <strong class="title">블록체인과 암호화폐가 여는 미래</strong>
                                 </a>
                                 <div class="author">
-                                    <span class="name">강사명</span>
-                                    <span class="bar"></span>
-                                    <a href="/ptnr/gist" class="from">소속?</a>
+                                    <span class="name">이흥노 교수</span>
+                                    
+                                        <span class="bar"></span>
+                                        
+                                            <a href="/ptnr/gist" class="from">GIST</a>
+                                        
+                                    
                                 </div>
                             </div>
                             <div class="info_btns">
-                                <button type="button" class="btn_lecture_more" data-btn="showMoreCourseOption"><i>더보기</i></button>
-                                <ul class="ly_btn_more" style="display:none;" data-course-more-option="">
-                                	<li><a href="/blockchain-and-society?type=stay">강좌소개</a></li>
+                                
+                                <button type="button" class="btn_lecture_more" data-btn=showMoreCourseOption><i>더보기</i></button>
+                                <ul class="ly_btn_more" style="display:none;" data-course-more-option>
+                                    
+                                        <li><a href="/blockchain-and-society?type=stay">강좌소개</a></li>
+                                    
                                 </ul>
                             </div>
                         </div>
-                            <div class="desc_area always" style="display: block;" data-info-lec="">
+                        
+
+                        
+                            <div class="desc_area always" style="display: block;" data-info-lec>
                                 <div class="desc_wrap">
                                     <div class="info_lec">
                                         <ul>
                                             <li>
                                                 <strong>강좌 기간</strong>
                                                 <p>
-                                                        수강기간입력하기
+                                                    
+                                                        상시 수강
+                                                    
                                                 </p>
                                             </li>
-                                            <li>
-                                                <strong>진도율</strong>
-                                                <div class="progress_area">
-                                                    <div class="progress">
-                                                        <div class="progress_bar" style="width:  0%;"></div>
+
+                                            
+
+                                            
+
+                                            
+                                                <li>
+                                                    <strong>진도율</strong>
+                                                    <div class="progress_area">
+                                                        <div class="progress">
+                                                            <div class="progress_bar" style="width:  0%;"></div>
+                                                        </div>
+                                                        <span class="per">0%</span>
                                                     </div>
-                                                    <span class="per">진도율 넣기</span>
-                                                </div>
-                                            </li>
+                                                </li>
+
+                                                
+                                            
+
+                                            
                                         </ul>
+
+                                        
                                             <div class="info_more_box">
                                                 <div class="info_more_area">
+                                                    
                                                         <a href="#" class="btn btn_type3" data-btn="showStandard">수료기준</a>
-                                                        <div class="help_pop" style="display: none" data-standard-popup="">
+                                                        <div class="help_pop" style="display: none" data-standard-popup>
+                                                            
                                                                 강좌 진도율: 총 <em>100</em>% 이상
+                                                            
                                                             <a href="#" class="pop_close" data-btn="hideStandard">레이어 닫기</a>
                                                         </div>
-                                                    <a href="#" class="btn btn_type3" data-btn="certificate" data-uripath="blockchain-and-society" data-passed="false" data-is-always-open="true">수료증</a>
+                                                    
+                                                    <a href="#" class="btn btn_type3" data-btn=certificate data-uripath=blockchain-and-society data-passed=false data-is-always-open=true>수료증</a>
                                                 </div>
                                             </div>
+                                        
                                     </div>
+
+                                    
                                         <div class="done_box">
+                                            
+
                                             <div class="done_area">
                                                 <div class="circle_progress_wrap lecture">
-                                                    <div data-selector="c_progress" data-color="yellow"><svg height="82" version="1.1" width="82" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><path fill="none" stroke="#ecf0f1" d="M41,7A34,34,0,1,1,40.89,7" stroke-width="4" stroke-linecap="round" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: round;"></path><path fill="none" stroke="none" d="M0,0" stroke-width="4" stroke-linecap="round" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: round;"></path></svg></div>
+                                                    <div data-selector="c_progress" data-color="yellow"></div>
                                                     <div class="num">
                                                         <span class="val">0</span>
                                                         <span class="slash">/</span>
                                                         <span class="total">13</span>
                                                     </div>
-                                                    <span>강의 갯수/수강갯수넣기</span>
+                                                    <span>강의</span>
                                                 </div>
 
                                                 <div class="circle_progress_wrap quiz">
-                                                    <div data-selector="c_progress" data-color="yellow"><svg height="82" version="1.1" width="82" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><path fill="none" stroke="#ecf0f1" d="M41,7A34,34,0,1,1,40.89,7" stroke-width="4" stroke-linecap="round" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: round;"></path><path fill="none" stroke="none" d="M0,0" stroke-width="4" stroke-linecap="round" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: round;"></path></svg></div>
+                                                    <div data-selector="c_progress" data-color="yellow"></div>
                                                     <div class="num">
                                                         <span class="val">0</span>
                                                         <span class="slash">/</span>
                                                         <span class="total">0</span>
                                                     </div>
-                                                    <span>시험 P/N으로 바꾸기</span>
+                                                    <span>퀴즈</span>
                                                 </div>
 
                                                 <div class="circle_progress_wrap task">
-                                                    <div data-selector="c_progress" data-color="yellow"><svg height="82" version="1.1" width="82" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><path fill="none" stroke="#ecf0f1" d="M41,7A34,34,0,1,1,40.89,7" stroke-width="4" stroke-linecap="round" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: round;"></path><path fill="none" stroke="none" d="M0,0" stroke-width="4" stroke-linecap="round" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: round;"></path></svg></div>
+                                                    <div data-selector="c_progress" data-color="yellow"></div>
                                                     <div class="num">
                                                         
                                                             <span class="val">-</span>
@@ -745,7 +802,7 @@
 
                                                 
                                                     <div class="circle_progress_wrap peer">
-                                                        <div data-selector="c_progress" data-color="yellow"><svg height="82" version="1.1" width="82" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><path fill="none" stroke="#ecf0f1" d="M41,7A34,34,0,1,1,40.89,7" stroke-width="4" stroke-linecap="round" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: round;"></path><path fill="none" stroke="none" d="M0,0" stroke-width="4" stroke-linecap="round" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: round;"></path></svg></div>
+                                                        <div data-selector="c_progress" data-color="yellow"></div>
                                                         <div class="num">
                                                             
                                                                 <span class="val">-</span>
@@ -765,34 +822,34 @@
                             </div>
                         
 
-                        <div class="desc_area" data-setting-lec="" style="display:none;">
+                        <div class="desc_area" data-setting-lec style="display:none;">
                             <div class="desc_wrap">
                                 <div class="info_lec">
                                     <ul>
                                         <li class="profile">
                                             <strong>프로필</strong>
-                                            [D] button.btn_set 클릭시 div.ly_prof_area에 opn클래스 추가
+                                            <!-- [D] button.btn_set 클릭시 div.ly_prof_area에 opn클래스 추가 -->
                                             <div class="ly_prof_area">
-                                            [D] 이미지 없을때 기본 프로필 이미지
+                                            <!-- [D] 이미지 없을때 기본 프로필 이미지 -->
                                                 
-                                                    <img src="https://cphinf.pstatic.net/mooc/20231109_73/1699518435941mLJn6_PNG/aLBZa5mqaNLKq3kOxZbH.png?type=ff32_32_r" alt="money55" data-profile-image="">
+                                                    <img src="https://cphinf.pstatic.net/mooc/20231109_73/1699518435941mLJn6_PNG/aLBZa5mqaNLKq3kOxZbH.png?type=ff32_32_r" alt="money55" data-profile-image>
                                                 
 
-                                                <span class="name" data-profile-nickname="">money55</span>
+                                                <span class="name" data-profile-nickname>money55</span>
                                                 
-                                                    <a href="#" class="btn_set" data-course-id="4271" data-profile-btn="">
+                                                    <a href="#" class="btn_set" data-course-id="4271" data-profile-btn>
                                                         프로필 설정
                                                     </a>
-                                                    @@include('uio_include/profile_set.html')
+                                                    <!--@@include('uio_include/profile_set.html')-->
                                                 
                                             </div>
                                         </li>
                                         
                                             <li>
                                                 <strong>메일수신</strong>
-                                                <label class="ick" data-ychecker="">
+                                                <label class="ick" data-ychecker>
                                                     <span class="checkbox checked">
-                                                        <input type="checkbox" name="isReceiveEmail" checked="">
+                                                        <input type="checkbox" name="isReceiveEmail" checked>
                                                     </span>
                                                     <span class="ph">강좌의 안내 메일을 수신하겠습니다.</span>
                                                 </label>
@@ -802,7 +859,7 @@
                                 </div>
                                 
                                     <div class="done_box">
-                                        <a href="#" class="btn_cancel" data-course-cancel-btn="" data-btn="cancel" data-course-id="blockchain-and-society" data-lecture-status="cancelReady" data-title="블록체인과 암호화폐가 여는 미래" data-type="">
+                                        <a href="#" class="btn_cancel" data-course-cancel-btn data-btn="cancel" data-course-id="blockchain-and-society" data-lecture-status="cancelReady" data-title="블록체인과 암호화폐가 여는 미래" data-type="">
                                             수강취소
                                         </a>
                                     </div>
@@ -814,19 +871,12 @@
             </ul>
         
     </div>
-</div> -->
+</div>
             
         
         
             <!-- paginate -->
-            <nav class="paginate" role="navigation">
-            <div class="inner"><a href="#" class="pre" onclick="return false;">이전</a>
-            <ul class="page_list">
-            <li><a href="/myPage/home?searchType=&amp;searchText=&amp;sortType=REG&amp;offset=0&amp;max=20" sort="regYmdt" order="desc" class="selected">1</a></li>
-            </ul>
-            <a href="#" class="next" onclick="return false;">다음</a>
-            </div>
-            </nav>
+            <nav class="paginate" role="navigation"><div class="inner"><a href="#" class="pre" onclick="return false;">이전</a><ul class="page_list"><li><a href="/myPage/home?searchType=&amp;searchText=&amp;sortType=REG&amp;offset=0&amp;max=20" sort="regYmdt" order="desc" class="selected">1</a></li></ul><a href="#" class="next" onclick="return false;">다음</a></div></nav>
             
         
     </div>
@@ -926,7 +976,28 @@
             <!-- FOOTER -->
             
 <!-- #breadcrumb:common/_whaleclass_footer.gsp -->
-<jsp:include page="../nav/footer.jsp"></jsp:include>
+
+    
+
+
+
+    <div class="footer whale_main">
+        <div class="f_inner">
+            <p class="copyright">ⓒ NAVER Connect Foundation</p>
+            <div class="f_menu">
+                <ul>
+                    <li class="menu"><a href="/help/advice-info">도움말</a></li>
+                    <li class="menu"><a href="/voc">문의</a></li>
+                    <li class="menu"><a href="/rules/intg/service">이용약관</a></li>
+                    <li class="menu"><a href="/rules/intg/privacy"><em>개인정보처리방침</em></a></li>
+                </ul>
+            </div>
+            
+                <button type="button" class="btn_logout"><a href="/logout">로그아웃</a></button>
+            
+        </div>
+    </div>
+
 
 <!-- Build 231109.47a067d4 -->
 
@@ -941,3 +1012,64 @@
     </div>
 </body>
 </html>
+
+
+<script src="https://www.edwith.org/static/js/src/entries/layouts/whaleclass.entry.browserfied.min.js?231109_47a067d4"></script>
+<script>
+    $(function(){
+        var entry = require("/entries/layouts/whaleclass.entry.js");
+        entry.initialize({
+            isLogged : $.trim( $("#__isLogged").val() ) === "" ? false : true,
+            isClosedPartner : false,
+            courseId: '',
+            userId: '2668417'
+        });
+
+        //SNB 디바이스별 열고닫기
+        $('.btn_snb').click(function(){
+            $('.snb').toggleClass('open');
+            $('.snb_dimed').toggleClass('open');
+            $('.ic').removeClass('on');
+
+            if($('.snb_dimed').hasClass('open')) {
+                $('html').css({'overflow':'hidden'});
+            } else {
+                $('html').css({'overflow':'scroll'});
+            }
+        });
+
+        //좌측 플로팅 snb left값 조정
+        $(document).ready(function(){
+            var Wwidth = $(window).width();
+            if(Wwidth < 1288) {
+                $('.snb_wrap').removeClass('min_1240');
+                $('[data-pc-only-menu]').hide();
+                $(window).bind('scroll',function(){
+                    var Wleft = $(window).scrollLeft();
+                    if (Wleft >= 0) {
+                        $('.snb_wrap').css('left', - Wleft + 'px');
+                    }
+                })
+            }else {
+                $('.snb_wrap').addClass('min_1240');
+                $('[data-pc-only-menu]').show();
+            }
+            $(window).bind('resize',function(){
+                var Wwidth = $(window).width();
+                if(Wwidth < 1288) {
+                    $('.snb_wrap').removeClass('min_1240');
+                    $('[data-pc-only-menu]').hide();
+                    $(window).bind('scroll',function(){
+                        var Wleft = $(window).scrollLeft();
+                        if (Wleft >= 0) {
+                            $('.snb_wrap').css('left', - Wleft + 'px');
+                        }
+                    })
+                } else {
+                    $('.snb_wrap').addClass('min_1240');
+                    $('[data-pc-only-menu]').show();
+                }
+            })
+        })
+    });
+</script>

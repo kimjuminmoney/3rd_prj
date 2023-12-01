@@ -444,12 +444,6 @@
             </div> -->
         </div>
 
-
-	<!-- <div class="todo_lst">
-		<ul data-todo-list=""><li class="none">현재 시험정보는 없습니다..</li></ul>
-	</div> -->
-
-
 <div class="course_group course_join" data-course-group="">
     <div class="course_lst class_area">
             <ul data-course-card-ul="">
@@ -944,5 +938,6 @@
 </script>
         </div>
     </div>
+<script src="/static/js/src/entries/layouts/whaleclass.entry.browserfied.min.js?231109_47a067d4"></script>
 </body>
 </html>
