@@ -9,7 +9,7 @@ public class InsCourseDetail {
 	@RequestMapping("/insCourseDetail.do")
 	public String insCourseDetail() {
 		
-		return "instructor/insCourseDetail";
+		return "instructor/MyClass/course/insCourseDetail";
 	}
 	
 	

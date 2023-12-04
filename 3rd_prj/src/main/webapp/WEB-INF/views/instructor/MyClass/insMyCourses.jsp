@@ -217,10 +217,8 @@
         </div>
         <div class="tab_area">
             <ul class="tab_list" role="tablist">
-                
-                    <li role="tab" aria-selected="true"><a href="?searchType=all">참여중인 강좌</a></li>
-                
-                <li role="tab" aria-selected="false"><a href="?searchType=closed">종료된 강좌</a></li>
+            	<li role="tab" aria-selected="true"><a href="?searchType=all">참여중인 강좌</a></li>
+           		<li role="tab" aria-selected="false"><a href="?searchType=closed">종료된 강좌</a></li>
             </ul>
             <div class="edit_area">
                 

@@ -176,8 +176,6 @@
     </div>
 </li>
 
-
-
             </ul>
             <button type="button" class="btn_snb"><span class="blind">메뉴 닫기</span></button>
         </div>
@@ -191,8 +189,6 @@
             <!--SNB-->
             
 <!-- #breadcrumb:common/_whaleclass_snb.gsp -->
-
-
             
 <div class="content">
     <div class="page">
@@ -207,81 +203,40 @@
                     <span class="blind">알림</span><em class="badge_new" data-badge-box-count></em>
                 </div>
             </div>
-            <h3 class="tit_home">나의 강좌</h3>
-        </div>
-        <div class="tab_area">
-            <ul class="tab_list" role="tablist">
-                    <li role="tab" aria-selected="true"><a href="?searchType=all">신청 목록</a></li>
-                    <li role="tab" aria-selected="false"><a href="?searchType=closed">강좌 공개</a></li>
-            </ul>
+            <h1 class="tit_home" >강좌 신청</h1>
+            </div>
         </div>
 <jsp:include page="../common/jsp/nav_bar.jsp"/>
+
 <div class="course_group course_join" data-course-group>
     <div class="course_lst class_area">
-        
             <ul data-course-card-ul>
-                    
-                    <li class="" data-course="4317" data-course-uri="web326" data-course-name="웹 백엔드">
-                        <div class="info_area">
-                            <div class="thumb">
-                                    <a href="https://www.boostcourse.org/web326/home" target="_self">
-                                    <img src="https://cphinf.pstatic.net/mooc/20201217_105/1608193449146qDyyJ_PNG/img_boost_web3.png?type=ffn176_96" width="88" height="48" alt="강좌 썸네일">
-                                </a>
-                            </div>
-                            <div class="tit">
-                                    <a href="https://www.boostcourse.org/web326/home" target="_self">
-                                    <strong class="title">웹 백엔드</strong>
-                                </a>
-                                <div class="author">
-                                    <span class="name">강경미</span>
-                                        <span class="bar"></span>
-                                        부스트코스
-                                </div>
-                                
-                                <div class="info_btns">
-                                    <strong class="title">상태 : </strong>
-                                    <strong class="title">신청 </strong>
-                                    
-                                </div>
-                        	</div>
-                        </div>
-                   	</li>
-
-                    <li class="" data-course="4317" data-course-uri="web326" data-course-name="웹 백엔드">
-                        <div class="info_area ">
-                            <div class="thumb">
-                                    <a href="https://www.boostcourse.org/web326/home" target="_self">
-                                    <img src="https://cphinf.pstatic.net/mooc/20201217_105/1608193449146qDyyJ_PNG/img_boost_web3.png?type=ffn176_96" width="88" height="48" alt="강좌 썸네일">
-                                </a>
-                            </div>
-                            <div class="tit">
-                                    <a href="https://www.boostcourse.org/web326/home" target="_self">
-                                    <strong class="title">웹 백엔드</strong>
-                                </a>
-                                <div class="author">
-                                    <span class="name">강경미</span>
-                                        <span class="bar"></span>
-                                        부스트코스
-                                </div>
-                            </div>
-                             <div class="info_btns" >
-	                            <strong class="title">상태 : </strong>
-	                            <strong class="title">반려</strong><br/>
-	                            <div class="reject-group" style="margin-top:5px;" >
-		                            <button style="margin:5px;"><strong class="title">반려사유</strong></button><br/>
-		                            <button style="margin:5px;"><strong class="title">수정하기</strong></button>
-		                        </div>
-                            </div>
-                        </div>
-                   	</li>
-                
-                
-            </ul>
-        
+        		<li>
+        			<div id="wrap" style="margin-left:5%">
+        				<div id="mokcha">
+        					<label style="font-size:30px; text-align:center;"><strong>목차</strong></label><br/>
+	        				<div>
+	        					<label style="font-size:30px; margin-top:5px;"><strong>1.</strong></label><input type="text" class="input_txt" style="width:30%; height:48px; font-size:16px; margin-left:5%;"><br/>
+	        					<label style="font-size:30px;margin-top:5px;"><strong>2.</strong></label><input type="text" class="input_txt" style="width:30%; height:48px; font-size:16px; margin-left:5%;"><br/>
+	        					<label style="font-size:30px;margin-top:5px;"><strong>3.</strong></label><input type="text" class="input_txt" style="width:30%; height:48px; font-size:16px; margin-left:5%;"><br/>
+	        					<label style="font-size:30px;margin-top:5px;"><strong>4.</strong></label><input type="text" class="input_txt" style="width:30%; height:48px; font-size:16px; margin-left:5%;"><br/>
+	        				</div>
+        				
+	        				<div id="mokcha-btn" style="margin-top:3%;">
+	        					<input type="button" class="btn btn-success" value="목차 추가"/>
+	        					<input type="button" class="btn btn-secondary" value="목차 삭제"/>
+	        				</div>
+						</div>
+        				<div style="margin-top:5%">
+        					<input type="button" class="btn btn-info btn-lg" value="이전으로"/>
+        					<input type="button" class="btn btn-success btn-lg" value="강좌신청"/>
+        				</div>
+        			</div>
+        		</li>
+        		
+        	</ul>
     </div>
 </div>
-            
-        
         
             <!-- paginate -->
             <nav class="paginate" role="navigation"><div class="inner"><a href="#" class="pre" onclick="return false;">이전</a><ul class="page_list"><li><a href="/myPage/home?searchType=&amp;searchText=&amp;sortType=REG&amp;offset=0&amp;max=20" sort="regYmdt" order="desc" class="selected">1</a></li></ul><a href="#" class="next" onclick="return false;">다음</a></div></nav>
@@ -421,8 +376,7 @@
 </body>
 </html>
 
-
-<script src="/static/js/src/entries/layouts/whaleclass.entry.browserfied.min.js?231109_47a067d4"></script>
+<script src="https://www.edwith.org//static/js/src/entries/layouts/whaleclass.entry.browserfied.min.js?231109_47a067d4"></script>
 <script>
     $(function(){
         var entry = require("/entries/layouts/whaleclass.entry.js");
