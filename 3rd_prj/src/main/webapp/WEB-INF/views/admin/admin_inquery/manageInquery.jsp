@@ -16,7 +16,7 @@
 	}
 	.table th:nth-child(2) {
 		width: 50px; /* 첫 번째 열의 너비 설정 */
-	
+	}
 	.table th:nth-child(3) {
 		width: 1000px; /* 첫 번째 열의 너비 설정 */
 	}
@@ -60,14 +60,17 @@ $(function(){
 
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">일반문의</h1>
-                    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-                        For more information about DataTables, please visit the <a target="_blank"
-                            href="https://datatables.net">official DataTables documentation</a>.</p>
+                    <hr style="background-color:#1CC88A; border-width: 2px; margin-bottom: 100px">
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+							<select class="form-select" aria-label="Default select example">
+							  <option selected>분류</option>
+							  <option value="1">One</option>
+							  <option value="2">Two</option>
+							  <option value="3">Three</option>
+							</select>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
