@@ -11,6 +11,11 @@ public class InsMyClassController {
 		
 		return "instructor/MyClass/insMyCourses";
 	}
+	@RequestMapping("/insTest2.do")
+	public String test2() {
+		
+		return "instructor/MyClass/test2";
+	}
 	
 	@RequestMapping("/insAddCourse.do")
 	public String addCourse() {
@@ -24,5 +29,10 @@ public class InsMyClassController {
 		return "instructor/MyClass/insAddCourseList";
 	}
 	
+	@RequestMapping("/insAddCourseList2.do")
+	public String addCourseList2() {
+		
+		return "instructor/MyClass/insAddCourseList2";
+	}
 	
-}
+}//class

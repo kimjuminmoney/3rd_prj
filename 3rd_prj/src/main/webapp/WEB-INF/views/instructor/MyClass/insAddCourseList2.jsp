@@ -211,8 +211,8 @@
         </div>
         <div class="tab_area">
             <ul class="tab_list" role="tablist">
-                    <li role="tab" aria-selected="true"><a href="?searchType=all">신청 목록</a></li>
-                    <li role="tab" aria-selected="false"><a href="?searchType=closed">강좌 공개</a></li>
+                    <li role="tab" aria-selected="false"><a href="?searchType=all">신청 목록</a></li>
+                    <li role="tab" aria-selected="true"><a href="?searchType=closed">강좌 공개</a></li>
             </ul>
         </div>
 <jsp:include page="../common/jsp/nav_bar.jsp"/>
@@ -220,33 +220,6 @@
     <div class="course_lst class_area">
         
             <ul data-course-card-ul>
-                    
-                    <li class="" data-course="4317" data-course-uri="web326" data-course-name="웹 백엔드">
-                        <div class="info_area">
-                            <div class="thumb">
-                                    <a href="https://www.boostcourse.org/web326/home" target="_self">
-                                    <img src="https://cphinf.pstatic.net/mooc/20201217_105/1608193449146qDyyJ_PNG/img_boost_web3.png?type=ffn176_96" width="88" height="48" alt="강좌 썸네일">
-                                </a>
-                            </div>
-                            <div class="tit">
-                                    <a href="https://www.boostcourse.org/web326/home" target="_self">
-                                    <strong class="title">웹 백엔드</strong>
-                                </a>
-                                <div class="author">
-                                    <span class="name">강경미</span>
-                                        <span class="bar"></span>
-                                        부스트코스
-                                </div>
-                                
-                                <div class="info_btns">
-                                    <strong class="title">상태 : </strong>
-                                    <strong class="title">신청 </strong>
-                                    
-                                </div>
-                        	</div>
-                        </div>
-                   	</li>
-
                     <li class="" data-course="4317" data-course-uri="web326" data-course-name="웹 백엔드">
                         <div class="info_area ">
                             <div class="thumb">
@@ -265,11 +238,7 @@
                                 </div>
                             </div>
                              <div class="info_btns" >
-	                            <strong class="title">상태 : </strong>
-	                            <strong class="title">반려</strong><br/>
-	                            <div class="reject-group" style="margin-top:5px;" >
-		                            <button style="margin:5px;"><strong class="title">반려사유</strong></button><br/>
-		                            <button style="margin:5px;"><strong class="title">수정하기</strong></button>
+		                            <button type="button" style="margin:5px;"><strong class="title">공개하기</strong></button><br/>
 		                        </div>
                             </div>
                         </div>

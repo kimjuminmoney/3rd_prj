@@ -18,7 +18,7 @@
                     <ul role="tablist">
                         <!-- [D] 선택된 탭 li에 aria-selected="true" 추가해주세요 -->
                             <li role="tab" aria-selected="true" class="menu ico_home">
-                                <a href="/insMyPage/addCourse.do">
+                                <a href="insMyCourse.do">
                                     <i>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                             <path fill="none" d="M3.5 17V6c0-.276.223-.5.5-.5h4.5c2.4 0 3.5 2.167 3.5 3v9H4c-.276 0-.5-.224-.5-.5z"></path>
