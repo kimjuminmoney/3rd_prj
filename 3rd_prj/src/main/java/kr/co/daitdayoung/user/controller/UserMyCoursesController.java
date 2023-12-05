@@ -25,7 +25,8 @@ public class UserMyCoursesController {
 	}
 	@GetMapping("/user/myCourses3.do")
 	public String userMyCourses3(HttpSession session, Model model ) {
-		String id = (String)session.getAttribute("userId");
+		//String id = (String)session.getAttribute("userId");
+		String id = "ui_test";
 		UserMyCoursesService umcs = new UserMyCoursesService();
 		List<UserMyCoursesDomain> list = umcs.searchCoursesList(id);
 		model.addAttribute("coursesList", list);
