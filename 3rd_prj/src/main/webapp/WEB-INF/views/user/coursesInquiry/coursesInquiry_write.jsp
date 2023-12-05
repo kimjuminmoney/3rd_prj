@@ -691,7 +691,7 @@
                             </tr> -->
                         </table>
                         <div class="group_lr">
-                            <div class="group_r">
+                            <div class="group_c">
                                 <button type="button" class="btn btn_type1" data-cancel-btn>취소</button>
                                 <button type="button" class="btn btn_type1 on" data-save-btn>등록</button>
                             </div>
@@ -1107,7 +1107,7 @@
         
         
             <!-- paginate -->
-            <nav class="paginate" role="navigation">
+            <!-- <nav class="paginate" role="navigation">
             <div class="inner">
             <a href="#" class="pre" onclick="return false;">이전</a>
             <ul class="page_list">
@@ -1115,7 +1115,7 @@
             </ul>
             <a href="#" class="next" onclick="return false;">다음</a>
             </div>
-            </nav>
+            </nav> -->
             
         
     </div>
