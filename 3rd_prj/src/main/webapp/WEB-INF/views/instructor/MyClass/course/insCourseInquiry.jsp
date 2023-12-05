@@ -276,7 +276,7 @@
 			</div>
 			<div class="group_l">
 				<h1 class="page_title">
-					강의목록
+					문의
 				</h1>
 			</div>
 		</div>
@@ -288,48 +288,38 @@
 		<ul>
 					<!-- [D] 진행중 class : on -->
 					<li>
-						<div id="wrap" style="margin-left:5%">
-						<div>
-	        				<label style="font-size:30px; text-align:center;"><strong>강좌 명</strong></label><input type="text" class="input_txt" style="width:60%; height:48px; font-size:16px; margin-left:5%;">
-	        				<div style="weight:600px; height:400px;"></div>
-						</div>
-						<div>
-	        				<input type="text" class="input_txt" style="width:60%; height:48px; font-size:16px; margin-left:5%;" placeholder="파일 명"><input type="button" class="btn btn-success" value="파일 등록">
-						</div>
-        				<div style="weight:100%; height:5%;;"></div>
-        				<div>
-        					<label style="font-size:30px; text-align:center;"><strong>분류 선택</strong></label>
-	        				<select>
-	        					<option> ----대분류 선택</option>
-	        				</select>
-	        				<select>
-	        					<option> ----소분류 선택</option>
-	        				</select>
-        				</div>
-        				<div>
-        					<label style="font-size:30px; text-align:center;"><strong>기한 설정</strong></label>
-        					<input type="text" class="input_txt" style="width:60%; height:48px; font-size:16px; margin-left:5%;">
-        				</div>
-        				<div>
-        					<label style="font-size:30px; text-align:center;"><strong>수료 조건</strong></label><br/>
+						<div id="content">
+        					
 	        				<div>
-	        					<label style="font-size:30px; text-align:center;"><strong>진도율</strong></label><input type="text" class="input_txt" style="width:30%; height:48px; font-size:16px; margin-left:5%;"><input type="checkbox"><br/>
-	        					<label style="font-size:30px; text-align:center;"><strong>시험</strong></label><input type="text" class="input_txt" style="width:30%; height:48px; font-size:16px; margin-left:5%;"><input type="checkbox"><br/>
+	        					<table class="table">
+	        						<tr>
+										<th>번호</th>
+										<th>학생이름</th>
+										<th>문의유형</th>
+										<th>날짜</th>
+										<th>상태</th>
+										<th>비고</th>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>홍지성</td>
+										<td>강좌</td>
+										<td>2023-12-04</td>
+										<td>답변완료</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>2</td>
+										<td>홍지성</td>
+										<td>강좌</td>
+										<td>2023-12-04</td>
+										<td>답변완료</td>
+										<td></td>
+									</tr>
+
+	        					</table>
 	        				</div>
-        					<div style="weight:100%; height:5%;;"></div>
 						</div>
-        				<label style="font-size:30px; text-align:center;"><strong>과목 설명</strong></label>
-        				<textarea style="width:100%; height: 30%;"></textarea>
-        				<div style="weight:100%; height:5%;;"></div>
-        				
-        				<label style="font-size:30px; text-align:center;"><strong>샘플 영상</strong></label>
-        				<div style="weight:600px; height:400px;"></div>
-        				<input type="text" class="input_txt" style="width:60%; height:48px; font-size:16px; margin-left:5%;" placeholder="파일 명"><input type="button" class="btn btn-success" value="파일 등록">
-        				<div style="weight:100%; height:5%;;"></div>
-        				
-        					<input type="button" class="btn btn-info btn-lg" value="수정하기"/>
-        				
-        			</div>
 					</li>
 			
 		</ul>

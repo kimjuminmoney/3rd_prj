@@ -1,0 +1,12 @@
+package kr.co.daitdayoung.user.vo;
+
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@ToString
+public class UserQuestionVO {
+	private String examCode, epCode;
+}

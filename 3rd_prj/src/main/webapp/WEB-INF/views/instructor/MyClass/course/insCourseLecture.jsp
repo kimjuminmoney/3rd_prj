@@ -276,7 +276,7 @@
 			</div>
 			<div class="group_l">
 				<h1 class="page_title">
-					강의목록
+					강의 등록
 				</h1>
 			</div>
 		</div>
@@ -288,48 +288,25 @@
 		<ul>
 					<!-- [D] 진행중 class : on -->
 					<li>
-						<div id="wrap" style="margin-left:5%">
-						<div>
-	        				<label style="font-size:30px; text-align:center;"><strong>강좌 명</strong></label><input type="text" class="input_txt" style="width:60%; height:48px; font-size:16px; margin-left:5%;">
-	        				<div style="weight:600px; height:400px;"></div>
-						</div>
-						<div>
-	        				<input type="text" class="input_txt" style="width:60%; height:48px; font-size:16px; margin-left:5%;" placeholder="파일 명"><input type="button" class="btn btn-success" value="파일 등록">
-						</div>
-        				<div style="weight:100%; height:5%;;"></div>
-        				<div>
-        					<label style="font-size:30px; text-align:center;"><strong>분류 선택</strong></label>
-	        				<select>
-	        					<option> ----대분류 선택</option>
-	        				</select>
-	        				<select>
-	        					<option> ----소분류 선택</option>
-	        				</select>
-        				</div>
-        				<div>
-        					<label style="font-size:30px; text-align:center;"><strong>기한 설정</strong></label>
-        					<input type="text" class="input_txt" style="width:60%; height:48px; font-size:16px; margin-left:5%;">
-        				</div>
-        				<div>
-        					<label style="font-size:30px; text-align:center;"><strong>수료 조건</strong></label><br/>
+						<div id="content">
+        					
 	        				<div>
-	        					<label style="font-size:30px; text-align:center;"><strong>진도율</strong></label><input type="text" class="input_txt" style="width:30%; height:48px; font-size:16px; margin-left:5%;"><input type="checkbox"><br/>
-	        					<label style="font-size:30px; text-align:center;"><strong>시험</strong></label><input type="text" class="input_txt" style="width:30%; height:48px; font-size:16px; margin-left:5%;"><input type="checkbox"><br/>
+	        					<label style="font-size:30px;"><strong>강의 선택</strong></label>
+	        					<select>
+	        					<option>---목록---</option>
+	        					<option>String</option>
+	        					</select>
+	        					<div id="explain">
+	        					<label style="font-size:30px;"><strong>설명</strong></label><textarea style="width:40%; height:20%;"></textarea>
+	        					</div>
+		        				<div style="weight:600px; height:400px; border:1px solid #333"></div>
+	        					<label style="font-size:30px;"><strong>영상 선택</strong></label>
+		        				<input type="text" class="input_txt" style="width:60%; height:48px; font-size:16px; margin-left:5%;" placeholder="파일 명"><input type="button" class="btn btn-success" value="파일 선택">
+		        				<div style="weight:100%; height:5%;"></div>
+		        				
+		        				<input type="button" class="btn btn-success btn-lg"/ value="저장하기">
 	        				</div>
-        					<div style="weight:100%; height:5%;;"></div>
 						</div>
-        				<label style="font-size:30px; text-align:center;"><strong>과목 설명</strong></label>
-        				<textarea style="width:100%; height: 30%;"></textarea>
-        				<div style="weight:100%; height:5%;;"></div>
-        				
-        				<label style="font-size:30px; text-align:center;"><strong>샘플 영상</strong></label>
-        				<div style="weight:600px; height:400px;"></div>
-        				<input type="text" class="input_txt" style="width:60%; height:48px; font-size:16px; margin-left:5%;" placeholder="파일 명"><input type="button" class="btn btn-success" value="파일 등록">
-        				<div style="weight:100%; height:5%;;"></div>
-        				
-        					<input type="button" class="btn btn-info btn-lg" value="수정하기"/>
-        				
-        			</div>
 					</li>
 			
 		</ul>

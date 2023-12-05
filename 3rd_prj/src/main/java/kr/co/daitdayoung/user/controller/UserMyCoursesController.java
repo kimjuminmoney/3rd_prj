@@ -1,13 +1,22 @@
 package kr.co.daitdayoung.user.controller;
 
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import kr.co.daitdayoung.user.domain.UserMyCoursesDomain;
+import kr.co.daitdayoung.user.service.UserMyCoursesService;
+
 @Controller
-public class MyCoursesController {
+public class UserMyCoursesController {
 	
 	@GetMapping("/user/myCourses.do")
-	public String userMyCourses() {
+	public String userMyCourses(HttpSession session) {
+		String id = (String)session.getAttribute("user_id");
 		return "user/myCourses/myCourses";
 	}
 	@GetMapping("/user/myCourses2.do")
@@ -15,7 +24,12 @@ public class MyCoursesController {
 		return "user/myCourses/myCourses2";
 	}
 	@GetMapping("/user/myCourses3.do")
-	public String userMyCourses3() {
+	public String userMyCourses3(HttpSession session, Model model ) {
+		//String id = (String)session.getAttribute("userId");
+		String id = "ui_test";
+		UserMyCoursesService umcs = new UserMyCoursesService();
+		List<UserMyCoursesDomain> list = umcs.searchCoursesList(id);
+		model.addAttribute("coursesList", list);
 		return "user/myCourses/myCourses3";
 	}
 	
@@ -27,15 +41,6 @@ public class MyCoursesController {
 	@GetMapping("/user/courses_detail.do")
 	public String userCoursesDetail() {
 		return "user/courses/courses_detail";
-	}
-	
-	@GetMapping("/user/toDoList.do")
-	public String userToDoList() {
-		return "user/toDoList/toDoList";
-	}
-	@GetMapping("/user/toDoList2.do")
-	public String userToDoList2() {
-		return "user/toDoList/toDoList2";
 	}
 	
 	@GetMapping("/user/myExam.do")

@@ -396,27 +396,28 @@
             <ul data-course-card-ul>
                 
                     
-                    
+                    <!-- div each -->
+                    <c:forEach var="courses" items="${ coursesList }">
                     <li class="" data-course="5094" data-course-uri="onlineclass-tutorial" data-course-name="누구나 쉽게 준비하는 에드위드 온라인클래스!">
                         <div class="info_area ">
                             <div class="thumb">
                                 <!-- 배너랑 강좌 링크 넣기 -->
                                     <a href="/onlineclass-tutorial/home">
                                 
-                                    <img src="https://cphinf.pstatic.net/mooc/20200410_241/1586514788201ChP2A_JPEG/onlineclass_course_img_720x426.jpg?type=ffn176_96" width="88" height="48" alt="강좌 썸네일">
+                                    <img src="http://localhost/daitdayoung/courses_data/COU_999999/${ courses.bannerImg }" width="88" height="48" alt="강좌 썸네일">
                                 </a>
                             </div>
                             <div class="tit">
                                 <!-- 강좌 링크 넣기 -->
                                     <a href="/onlineclass-tutorial/home">
                                 
-                                    <strong class="title">강좌명</strong>
+                                    <strong class="title"><c:out value="${ courses.couName }"/></strong>
                                 </a>
                                 <div class="author">
-                                    <span class="name">강사명</span>
+                                    <span class="name"><c:out value="${ courses.insName }"/></span>
                                     
-                                        <span class="bar"></span>
-                                        edwith
+                                        <!-- <span class="bar"></span>
+                                        edwith -->
                                     
                                 </div>
                             </div>
@@ -441,7 +442,7 @@
                                                 <strong>강좌 기간</strong>
                                                 <p>
                                                     
-                                                        상시 수강
+                                                        <c:out value="${ courses.registrationdate }"/> ~ <c:out value="${ courses.coursePeriod }"/>
                                                     
                                                 </p>
                                             </li>
@@ -479,7 +480,8 @@
                                                         <a href="#" class="btn btn_type3" data-btn="showStandard">수료기준</a>
                                                         <div class="help_pop" style="display: none" data-standard-popup>
                                                             
-                                                                강좌 진도율: 총 <em>100</em>% 이상
+                                                                강좌 진도율 : 총 <em><c:out value="${ courses.enrollRate }"/></em>% 이상<br/>
+                                                                시험 성적 : <em><c:out value="${ courses.examResults }"/></em>점 이상
                                                             
                                                             <a href="#" class="pop_close" data-btn="hideStandard">레이어 닫기</a>
                                                         </div>
@@ -498,9 +500,9 @@
                                                 <div class="circle_progress_wrap lecture">
                                                     <div data-selector="c_progress" data-color="yellow"></div>
                                                     <div class="num">
-                                                        <span class="val">0</span>
+                                                        <span class="val"><c:out value="${ courses.progressRate }"/></span>
                                                         <span class="slash">/</span>
-                                                        <span class="total">14</span>
+                                                        <span class="total">5</span>
                                                     </div>
                                                     <span>강의</span>
                                                 </div>
@@ -508,14 +510,23 @@
                                                 <div class="circle_progress_wrap quiz">
                                                     <div data-selector="c_progress" data-color="yellow"></div>
                                                     <div class="num">
-                                                        <span class="val">0</span>
-                                                        <span class="slash">/</span>
-                                                        <span class="total">0</span>
+                                                    <c:choose>
+                                                    	<c:when test="${ courses.examStatus eq 'Y'}">
+	                                                        <span class="val"><c:out value="${ courses.examScore }"/></span>
+	                                                        <span class="slash">/</span>
+	                                                        <span class="total">100</span>
+                                                    	</c:when>
+                                                    	<c:otherwise>
+	                                                        <span class="val"></span>
+	                                                        <span class="slash">미응시</span>
+	                                                        <span class="total"></span>
+                                                    	</c:otherwise>
+                                                    </c:choose>
                                                     </div>
-                                                    <span>퀴즈</span>
+                                                    <span>시험</span>
                                                 </div>
 
-                                                <div class="circle_progress_wrap task">
+                                                <!-- <div class="circle_progress_wrap task">
                                                     <div data-selector="c_progress" data-color="yellow"></div>
                                                     <div class="num">
                                                         
@@ -525,10 +536,10 @@
                                                         
                                                     </div>
                                                     <span>과제</span>
-                                                </div>
+                                                </div> -->
 
                                                 
-                                                    <div class="circle_progress_wrap peer">
+                                                    <!-- <div class="circle_progress_wrap peer">
                                                         <div data-selector="c_progress" data-color="yellow"></div>
                                                         <div class="num">
                                                             
@@ -538,7 +549,7 @@
                                                             
                                                         </div>
                                                         <span>동료평가</span>
-                                                    </div>
+                                                    </div> -->
                                                 
                                             </div>
                                         </div>
@@ -594,10 +605,11 @@
                             </div>
                         </div> -->
                     </li>
-                
+                    </c:forEach>
+                <!-- 여기까지 -->
                     
                     
-                    <li class="" data-course="4271" data-course-uri="blockchain-and-society" data-course-name="블록체인과 암호화폐가 여는 미래">
+                   <!--  <li class="" data-course="4271" data-course-uri="blockchain-and-society" data-course-name="블록체인과 암호화폐가 여는 미래">
                         <div class="info_area ">
                             <div class="thumb">
                                 
@@ -752,9 +764,9 @@
                                     <ul>
                                         <li class="profile">
                                             <strong>프로필</strong>
-                                            <!-- [D] button.btn_set 클릭시 div.ly_prof_area에 opn클래스 추가 -->
+                                            [D] button.btn_set 클릭시 div.ly_prof_area에 opn클래스 추가
                                             <div class="ly_prof_area">
-                                            <!-- [D] 이미지 없을때 기본 프로필 이미지 -->
+                                            [D] 이미지 없을때 기본 프로필 이미지
                                                 
                                                     <img src="https://cphinf.pstatic.net/mooc/20231109_73/1699518435941mLJn6_PNG/aLBZa5mqaNLKq3kOxZbH.png?type=ff32_32_r" alt="money55" data-profile-image>
                                                 
@@ -764,7 +776,7 @@
                                                     <a href="#" class="btn_set" data-course-id="4271" data-profile-btn>
                                                         프로필 설정
                                                     </a>
-                                                    <!--@@include('uio_include/profile_set.html')-->
+                                                    @@include('uio_include/profile_set.html')
                                                 
                                             </div>
                                         </li>
@@ -790,7 +802,7 @@
                                 
                             </div>
                         </div>
-                    </li>
+                    </li> -->
                 
             </ul>
         
