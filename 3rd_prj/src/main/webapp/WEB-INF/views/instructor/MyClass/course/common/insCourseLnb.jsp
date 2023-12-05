@@ -88,33 +88,33 @@ $(document).ready(function(){
                 <button class="btn_open"><span class="blind">강좌 전체목록보기</span></button>
             </li> -->    
             <li class="notice">
-                <a href="/python-data/notices/13743" title="공지게시판" class="NPI=a:notice">
+                <a href="insCourseDetail.do" title="강좌 정보" class="NPI=a:notice">
                     <span class="menu">강좌 정보</span>
                 </a>
             </li>
             <li class="notice">
-                <a href="/python-data/notices/13743" title="공지게시판" class="NPI=a:notice">
+                <a href="insCourseContent.do" title="목차" class="NPI=a:notice">
                     <span class="menu">목차</span>
                 </a>
             </li>
             <li class="notice">
-                <a href="/python-data/notices/13743" title="공지게시판" class="NPI=a:notice">
+                <a href="insCourseLecture.do" title="강의 등록" class="NPI=a:notice">
                     <span class="menu">강의 등록</span>
                 </a>
             </li>
             <li class="notice">
-                <a href="/python-data/notices/13743" title="공지게시판" class="NPI=a:notice">
+                <a href="insCourseTest.do" title="시험" class="NPI=a:notice">
                     <span class="menu">시험</span>
                 </a>
             </li>
             <li class="notice">
-                <a href="/python-data/notices/13743" title="공지게시판" class="NPI=a:notice">
+                <a href="insCourseInquiry.do" title="문의" class="NPI=a:notice">
                     <span class="menu">문의</span>
                 </a>
             </li>
             <li class="notice">
-                <a href="/python-data/notices/13743" title="공지게시판" class="NPI=a:notice">
-                    <span class="menu">공지</span>
+                <a href="insCourseNotice.do" title="공지사항" class="NPI=a:notice">
+                    <span class="menu">공지사항</span>
                 </a>
             </li>
             

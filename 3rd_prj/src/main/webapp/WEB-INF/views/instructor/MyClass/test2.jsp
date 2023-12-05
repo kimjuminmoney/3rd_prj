@@ -213,7 +213,7 @@
             <ul data-course-card-ul>
         		<li>
         			<div id="wrap" style="margin-left:5%">
-        				<div id="mokcha">
+        				<div id="content">
         					<label style="font-size:30px; text-align:center;"><strong>목차</strong></label><br/>
 	        				<div>
 	        					<label style="font-size:30px; margin-top:5px;"><strong>1.</strong></label><input type="text" class="input_txt" style="width:30%; height:48px; font-size:16px; margin-left:5%;"><br/>
