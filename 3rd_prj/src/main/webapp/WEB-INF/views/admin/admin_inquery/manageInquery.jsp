@@ -15,7 +15,7 @@
 		width: 50px; /* 첫 번째 열의 너비 설정 */
 	}
 	.table th:nth-child(2) {
-		width: 50px; /* 첫 번째 열의 너비 설정 */
+		width: 100px; /* 첫 번째 열의 너비 설정 */
 	}
 	.table th:nth-child(3) {
 		width: 1000px; /* 첫 번째 열의 너비 설정 */
@@ -66,10 +66,10 @@ $(function(){
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
 							<select class="form-select" aria-label="Default select example">
-							  <option selected>분류</option>
-							  <option value="1">One</option>
-							  <option value="2">Two</option>
-							  <option value="3">Three</option>
+							  	<option selected>분류</option>
+							 	<c:forEach var="inqType" items="${ requestScope.inqTypeList }">
+								<option value="${ inqType.itCode }"><c:out value="${ inqType.itName }"/></option>
+								</c:forEach>
 							</select>
                         </div>
                         <div class="card-body">
@@ -87,14 +87,19 @@ $(function(){
                                     </thead>
 
                                     <tbody>
+                                    <c:forEach var="inquiry" items="${ requestScope.inquiryList }">
                                         <tr>
-                                            <td>1</td>
-                                            <td>Edinburgh</td>
-                                            <td><a href="detailInquery.do">System Architect</a></td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>y</td>
+                                            <td><c:out value="${ inquiry.inqCode }"/></td>
+                                            <td><c:out value="${ inquiry.itName }"/></td>
+                                            <td><a href="detailInquery.do"><c:out value="${ inquiry.inqTitle }"/></a></td>
+                                            <td><c:out value="${ inquiry.uiId }"/></td>
+                                            <td><c:out value="${ inquiry.inqDate }"/></td>
+                                            <td>
+                                            <c:if test="${ inquiry.inqAnswer }">Y</c:if>
+                                            <c:if test="${ empty inquiry.inqAnswer }">N</c:if>
+                                            </td>
                                         </tr>
+									</c:forEach>
                                     </tbody>
                                 </table>
                             </div>
