@@ -229,6 +229,8 @@
     
         <a href="#gnb" onclick="document.getElementById('gnb').tabIndex=-1;document.getElementById('gnb').focus();return false;"><span>개인 메뉴 바로가기</span></a>
     
+    
+    
     <a href="#snb" onclick="document.getElementById('snb').tabIndex=-1;document.getElementById('snb').focus();return false;"><span>하위 메뉴 바로가기</span></a>
     
     <a href="#content" onclick="document.getElementById('content').tabIndex=-1;document.getElementById('content').focus();return false;"><span>본문 바로가기</span></a>
@@ -274,7 +276,7 @@
 			</div>
 			<div class="group_l">
 				<h1 class="page_title">
-					시험 정보 수정
+					공지사항
 				</h1>
 			</div>
 		</div>
@@ -287,15 +289,32 @@
 					<!-- [D] 진행중 class : on -->
 					<li>
 						<div id="content">
-							
-        					<label style="font-size:30px;"><strong>필수설정</strong></label><input type="checkbox"/><br/>
-        					<label style="font-size:30px;"><strong>시험기간</strong></label><input type="text" class="input_txt" style="width:60%; height:48px; font-size:16px; margin-left:5%;" placeholder="일 수 설정"><br/>
-        					<label style="font-size:30px;"><strong>통과기준</strong></label><input type="text" class="input_txt" style="width:60%; height:48px; font-size:16px; margin-left:5%;" placeholder="시험점수"><br/>
-        					<div>
-        					<label style="font-size:30px;"><strong>유의사항</strong></label><textarea style="width:500px; height:300px;"></textarea>
-        					</div>
         					
-        					
+	        				<div class="table">
+	        					<table class="table">
+	        						<tr>
+										<th>번호</th>
+										<th>제목</th>
+										<th>날짜</th>
+										<th>비고</th>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>[Web발신]..[더보기]</td>
+										<td>2023-12-04</td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>2</td>
+										<td>[Web발신]..[더보기]</td>
+										<td>2023-12-04</td>
+										<td></td>
+										<td></td>
+									</tr>
+
+	        					</table>
+	        				</div>
 						</div>
 					</li>
 			

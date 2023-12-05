@@ -103,9 +103,27 @@ $(document).ready(function(){
                 </a>
             </li>
             <li class="notice">
-                <a href="insCourseTest.do" title="시험" class="NPI=a:notice">
+                <a href="insCourseTest.do" title="시험" class="NPI=a:lectures">
                     <span class="menu">시험</span>
                 </a>
+                <ul class="sub">
+					<li >
+						<div style="text-align:left; padding-left: 30px; font-size:13px; margin-top:15px;">
+							<a href="insCourseTest.do">
+								<span class="ico_lecture"></span>
+								<strong>시험 관리</strong>
+						</a>
+							</div>
+					</li>
+					<li>
+						<div style="text-align:left; padding-left: 30px; font-size:13px; margin-top:15px; ">
+						<a href="insCourseTestQuestion.do">
+							<span class="ico_lecture"></span>
+								<strong>문제 관리</strong>
+						</a>
+						</div>
+					</li>
+				</ul>
             </li>
             <li class="notice">
                 <a href="insCourseInquiry.do" title="문의" class="NPI=a:notice">
