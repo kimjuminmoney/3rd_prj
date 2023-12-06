@@ -289,43 +289,43 @@
 					<!-- [D] 진행중 class : on -->
 					<li>
 						<div id="content">
-							<div class="container"></div>
-        					<div id="wrap">
-        					<div class="row">
-        					<div class="col"></div>
-        					<div class="" style="width:50%">
-	        					<textarea></textarea>
-	        					<label style="font-size:30px;"><strong>1.</strong></label><input type="text" class="input_txt" style="width:60%; height:48px; font-size:16px; margin-left:5%;" placeholder="내용을 입력해주세요."><input type="checkbox"/><br/>
-	        					<label style="font-size:30px;"><strong>2.</strong></label><input type="text" class="input_txt" style="width:60%; height:48px; font-size:16px; margin-left:5%;" placeholder="내용을 입력해주세요."><input type="checkbox"/><br/>
-	        					<label style="font-size:30px;"><strong>3.</strong></label><input type="text" class="input_txt" style="width:60%; height:48px; font-size:16px; margin-left:5%;" placeholder="내용을 입력해주세요."><input type="checkbox"/><br/>
-	        					<label style="font-size:30px;"><strong>4.</strong></label><input type="text" class="input_txt" style="width:60%; height:48px; font-size:16px; margin-left:5%;" placeholder="내용을 입력해주세요."><input type="checkbox"/><br/>
-	        					
-	        					</div>
-        					<div class="col">
-		        				<div class="table" style="width:50%">
-		        					<table class="table">
-		        						<tr>
-											<th>문제번호</th>
-											<th>정답</th>
-										</tr>
-										<tr>
-											<td>1</td>
-											<td>1</td>
-										</tr>
-										<tr>
-											<td>2</td>
-											<td>2</td>
-										</tr>
-	
-		        					</table>
+							<div class="container">
+	        					<div class="row">
+	        						<div class="col">
+		        						<div class="" >
+			        						<label style="font-size:30px;"><strong>문제 내용</strong></label><br/>
+			        						<textarea style="widht:100%; height:20%"></textarea><br/>
+				        					<label style="font-size:30px;"><strong>1.</strong></label><input type="text" class="input_txt" style="width:60%; height:48px; font-size:16px; margin-left:5%;" placeholder="내용을 입력해주세요."><input type="checkbox"/><br/>
+				        					<label style="font-size:30px;"><strong>2.</strong></label><input type="text" class="input_txt" style="width:60%; height:48px; font-size:16px; margin-left:5%;" placeholder="내용을 입력해주세요."><input type="checkbox"/><br/>
+				        					<label style="font-size:30px;"><strong>3.</strong></label><input type="text" class="input_txt" style="width:60%; height:48px; font-size:16px; margin-left:5%;" placeholder="내용을 입력해주세요."><input type="checkbox"/><br/>
+				        					<label style="font-size:30px;"><strong>4.</strong></label><input type="text" class="input_txt" style="width:60%; height:48px; font-size:16px; margin-left:5%;" placeholder="내용을 입력해주세요."><input type="checkbox"/><br/>
+			        					</div>
 		        					</div>
-	        					</div>
-	        				</div>
+	        						<div class="col">
+			        					<div class="table" style="width:50%">
+				        					<table class="table">
+				        						<tr>
+													<th>문제번호</th>
+													<th>정답</th>
+												</tr>
+												<tr>
+													<td>1</td>
+													<td>1</td>
+												</tr>
+												<tr>
+													<td>2</td>
+													<td>2</td>
+												</tr>
+				        					</table>
+						       			</div>
+				       				</div>
+		        				</div>
+							</div>
+							
+							<div id="btn_group">
+								<input type="button" class="btn btn_type17 bold" value="문제추가"/>
+							</div>
 						</div>
-						
-						</div>
-						
-						
 					</li>
 			
 		</ul>

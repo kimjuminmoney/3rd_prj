@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>kr.co</groupId>
 	<artifactId>daitdayoung</artifactId>
-	<name>3rd_prj</name>
+	<name>3rd_prj</name> 
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
@@ -161,6 +161,10 @@
 	</dependencies>
     <build>
         <plugins>
+        <plugin>
+		  <artifactId>maven-war-plugin</artifactId>
+		  <version>3.2.2</version>
+		</plugin>
             <plugin>
                 <artifactId>maven-eclipse-plugin</artifactId>
                 <version>2.9</version>
