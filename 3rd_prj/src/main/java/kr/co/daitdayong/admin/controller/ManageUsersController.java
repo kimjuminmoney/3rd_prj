@@ -9,7 +9,6 @@ public class ManageUsersController {
 	@GetMapping("/admin/admin_users/manageUsers.do")
 	public String manageUsers() {
 		
-		System.out.println("회원관리 실행");
 		return "admin/admin_users/manageUsers";
 	}
 	

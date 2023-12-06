@@ -1,5 +1,34 @@
 package kr.co.daitdayoung.admin.service;
 
+import java.util.List;
+
+import org.apache.ibatis.exceptions.PersistenceException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import kr.co.daitdayoung.admin.dao.ManageCouInqueryDAO;
+import kr.co.daitdayoung.admin.domain.ManageCouInqueryDomain;
+
+@Component
 public class ManageCouInqueryService {
 
+	@Autowired
+	private ManageCouInqueryDAO mcDAO;
+	
+	public List<ManageCouInqueryDomain> searchCiType() throws PersistenceException{
+		List<ManageCouInqueryDomain> list = null;
+		
+		list = mcDAO.selectCiType();
+		
+		return list;
+	}
+	
+	public List<ManageCouInqueryDomain> searchCouInquiry() throws PersistenceException{
+		List<ManageCouInqueryDomain> list = null;
+		
+		list = mcDAO.selectCouInquery();
+		
+		return list;
+	}
+	
 }

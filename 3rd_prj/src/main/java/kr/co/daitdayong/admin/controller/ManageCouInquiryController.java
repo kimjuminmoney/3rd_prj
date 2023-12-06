@@ -1,15 +1,30 @@
 package kr.co.daitdayong.admin.controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import kr.co.daitdayoung.admin.domain.ManageCouInqueryDomain;
+import kr.co.daitdayoung.admin.service.ManageCouInqueryService;
 
 @Controller
 public class ManageCouInquiryController {
 	
+	@Autowired
+	private ManageCouInqueryService mciService;
+	
 	@GetMapping("/admin/admin_couinquery/manageCouInquery.do")
-	public String manageCouInquery() {
+	public String manageCouInquery(Model model) {
 		
-		System.out.println("강좌문의 실행");
+		List<ManageCouInqueryDomain> couInquiryList = mciService.searchCouInquiry();
+		List<ManageCouInqueryDomain> ciTypeList = mciService.searchCiType();
+		
+		model.addAttribute("ciTypeList",ciTypeList);
+		model.addAttribute("couInquiryList",couInquiryList);
+		
 		return "admin/admin_couinquery/manageCouInquery";
 	}
 

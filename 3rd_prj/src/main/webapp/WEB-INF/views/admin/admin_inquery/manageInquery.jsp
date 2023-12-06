@@ -95,7 +95,7 @@ $(function(){
                                             <td><c:out value="${ inquiry.uiId }"/></td>
                                             <td><c:out value="${ inquiry.inqDate }"/></td>
                                             <td>
-                                            <c:if test="${ inquiry.inqAnswer }">Y</c:if>
+                                            <c:if test="${ not empty inquiry.inqAnswer }">Y</c:if>
                                             <c:if test="${ empty inquiry.inqAnswer }">N</c:if>
                                             </td>
                                         </tr>

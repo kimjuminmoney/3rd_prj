@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.daitdayoung.admin.mci">
+
+<select id="selectCiType" resultType="kr.co.daitdayoung.admin.domain.ManageCouInqueryDomain">
+select cit_code, cit_name
+from courses_inquiry_type
+</select>
+
+<select id="selectCouInquiry" resultType="kr.co.daitdayoung.admin.domain.ManageCouInqueryDomain">
+select ci.ci_code, ci.cit_code, cit.cit_name, ci.ci_title, ci.ui_id ,ui.ui_name, cou.cou_name, ci.ci_date, ci.ci_answer
+from courses_inquiry ci, courses_inquiry_type cit, user_info ui, courses cou
+where cit.cit_code = ci.cit_code and ci.ui_id=ui.ui_id and ci.cou_code=cou.cou_code
+</select>
+
+</mapper>
+
+
+

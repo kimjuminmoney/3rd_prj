@@ -90,15 +90,20 @@ $(function(){
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    <c:forEach var="couInquiry" items="${ requestScope.couInquiryList }">
                                         <tr>
-                                            <td>1</td>
-                                            <td>Edinburgh</td>
-                                            <td><a href="detailCouInquery.do">System Architect</a></td>
-                                            <td>대충 강좌명</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>y</td>
+                                            <td><c:out value="${ couInquiry.ciCode }"/></td>
+                                            <td><c:out value="${ couInquiry.citName }"/></td>
+                                            <td><a href="detailCouInquery.do"><c:out value="${ couInquiry.ciTitle }"/></a></td>
+                                            <td><c:out value="${ couInquiry.couName }"/></td>
+                                            <td><c:out value="${ couInquiry.uiName }"/></td>
+                                            <td><c:out value="${ couInquiry.ciDate }"/></td>
+                                            <td>
+                                            <c:if test="${ not empty couInquiry.ciAnswer }">Y</c:if>
+                                            <c:if test="${ empty couInquiry.ciAnswer }">N</c:if>
+                                            </td>
                                         </tr>
+									</c:forEach>
                                     </tbody>
                                 </table>
                             </div>

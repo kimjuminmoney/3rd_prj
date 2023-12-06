@@ -81,14 +81,16 @@ $(function(){
                                     </thead>
 
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td><a href="detailCourse.do">System Architect</a></td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
+                                    	<c:forEach var="course" items="${ requestScope.coursesList }">
+                                    	<tr>
+                                            <td><c:out value="${ course.couCode }"/></td>
+                                            <td><a href="detailCourse.do"><c:out value="${ course.couName }"/></a></td>
+                                            <td><c:out value="${ course.insName }"/></td>
+                                            <td><c:out value="${ course.opendate }"/></td>
+                                            <td><c:out value="${ course.registCnt }"/></td>
+                                            <td><c:out value="${ course.approve }"/></td>
                                         </tr>
+                                    	</c:forEach>
                                     </tbody>
                                 </table>
                             </div>

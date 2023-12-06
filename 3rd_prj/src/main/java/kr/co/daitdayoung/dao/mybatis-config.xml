@@ -28,6 +28,11 @@
   <!-- 나 -->
   	<mapper resource="kr/co/daitdayoung/instructor/mapper/insCourseMapper.xml"/>
   <!-- 나 -->
+  <!-- 준식 -->
+  	<mapper resource="kr/co/daitdayoung/admin/mapper/manageCoursesMapper.xml"/>
+  	<mapper resource="kr/co/daitdayoung/admin/mapper/manageInqueryMapper.xml"/>
+  	<mapper resource="kr/co/daitdayoung/admin/mapper/manageCouInqueryMapper.xml"/>
+  <!-- 준식 -->
   
   
   </mappers>

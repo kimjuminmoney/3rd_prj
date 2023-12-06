@@ -1,5 +1,38 @@
 package kr.co.daitdayoung.admin.dao;
 
-public class ManageCoursesDAO {
+import java.util.List;
 
-}
+import org.apache.ibatis.exceptions.PersistenceException;
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Component;
+
+import kr.co.daitdayoung.admin.domain.ManageCoursesDomain;
+import kr.co.daitdayoung.dao.MyBatisHandler;
+
+@Component
+public class ManageCoursesDAO {
+	
+	public List<ManageCoursesDomain> selectCourses() throws PersistenceException{
+		List<ManageCoursesDomain> list = null;
+		
+		MyBatisHandler mbh = MyBatisHandler.getInstance();
+		
+		SqlSession ss = mbh.getMyBatisHandler(false);
+		
+		list = ss.selectList("kr.co.daitdayoung.admin.mc.selectCourses");
+		
+		mbh.closeHandler(ss);
+		
+		return list;
+	}//selectCourses
+	
+	public static void main(String[] args) {
+		System.out.println(new ManageCoursesDAO().selectCourses());
+	}
+	
+}//class
+
+
+
+
+

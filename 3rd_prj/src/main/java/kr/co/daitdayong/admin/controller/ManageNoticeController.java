@@ -9,7 +9,6 @@ public class ManageNoticeController {
 	@GetMapping("/admin/admin_notice/manageNotice.do")
 	public String manageNotice() {
 		
-		System.out.println("공지사항 실행");
 		return "admin/admin_notice/manageNotice";
 	}
 
