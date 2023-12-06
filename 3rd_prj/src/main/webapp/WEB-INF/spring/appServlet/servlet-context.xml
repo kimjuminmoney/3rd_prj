@@ -22,8 +22,7 @@
 	</beans:bean>
 	
 	<!-- <context:component-scan base-package="kr.co.index" /> -->
-	<context:component-scan base-package="kr.co.daitdayong" />
-	<context:component-scan base-package="kr.co.daitdayong.*" />
+	<context:component-scan base-package="kr.co.daitdayoung" />
 	<context:component-scan base-package="kr.co.daitdayoung.*" />
 	
 	

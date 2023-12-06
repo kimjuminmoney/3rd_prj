@@ -70,9 +70,9 @@ $(function(){
                         <div class="card-header py-3">
                             <select class="form-select" aria-label="Default select example">
 							  <option selected>분류</option>
-							  <option value="1">One</option>
-							  <option value="2">Two</option>
-							  <option value="3">Three</option>
+							  <c:forEach var="ciTypeList" items="${ requestScope.ciTypeList }">
+							  <option value="${ ciTypeList.citCode }">${ ciTypeList.citName }</option>
+							  </c:forEach>
 							</select>
                         </div>
                         <div class="card-body">

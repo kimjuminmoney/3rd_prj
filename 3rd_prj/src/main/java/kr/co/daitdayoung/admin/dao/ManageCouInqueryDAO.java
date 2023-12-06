@@ -41,7 +41,7 @@ public class ManageCouInqueryDAO {
 	}//selectCouInquery
 	
 	public static void main(String[] args) {
-		System.out.println(new ManageCouInqueryDAO().selectCouInquery());
+		System.out.println(new ManageCouInqueryDAO().selectCiType());
 	}
 	
 }//class

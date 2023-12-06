@@ -1,4 +1,4 @@
-package kr.co.daitdayong.admin.controller;
+package kr.co.daitdayoung.admin.controller;
 
 import java.util.List;
 
