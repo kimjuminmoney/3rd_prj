@@ -10,8 +10,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class UserToDoDomain {
-	private String couName, crCode;
-	private int examPeriod;
-	private Date completiondate;
-
+	private String couName, couCode, completionStatus, examStatus;
+	private int remainingperiod;
+	private Date completiondate, courseperiod;
 }

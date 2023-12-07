@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.daitdayoung.user.toDoList">
+
+	<!-- 나의 강의실 수강 List -->
+	<select id="toDOList" resultType="kr.co.daitdayoung.user.domain.UserToDoDomain" parameterType="String">
+	select 	c.cou_code, c.cou_name, crg.COMPLETION_STATUS, EXAM_STATUS, TRUNC(REGISTRATIONDATE + COU_PERIOD - SYSDATE) AS remainingperiod
+	from  	COURSES c, COURSE_REGISTRATION crg , EXAM_PARTICIPATION ep
+	where	crg.ui_id = #{userId} and c.cou_code = ep.cou_code and c.cou_code = crg.cou_code
+	</select>
+	
+	
+	
+	
+	
+</mapper>

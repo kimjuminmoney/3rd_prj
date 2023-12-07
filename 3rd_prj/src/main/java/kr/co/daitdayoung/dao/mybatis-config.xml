@@ -22,8 +22,9 @@
     </environment>
   </environments>
   <mappers>
-  <!-- 민주당 -->
-  	<mapper resource="kr/co/daitdayoung/user/mapper/userMyCourses.xml"/>
+  <!-- 2수박 -->
+  	<mapper resource="kr/co/daitdayoung/user/mapper/userMyCoursesMapper.xml"/>
+  	<mapper resource="kr/co/daitdayoung/user/mapper/userToDoListMapper.xml"/>
   <!-- 주민 -->
   <!-- 나 -->
   	<mapper resource="kr/co/daitdayoung/instructor/mapper/insCourseMapper.xml"/>
