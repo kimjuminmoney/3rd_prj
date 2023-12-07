@@ -14,7 +14,8 @@ public class insCourseDetailController {
 
 	@RequestMapping("/insCourseDetail.do")
 	public String courseDetail(HttpServletRequest request,Model model) {
-		String couCode=request.getParameter("couCode");
+		String couCode = request.getParameter("couCode");
+		
 		
 		
 		
