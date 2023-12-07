@@ -102,7 +102,7 @@ session.setAttribute("userId", "ui_test");
         	<c:when test="${ not empty coursesList || listSize != 0 }">
             <ul class="tab_content_list" data-course-card-ul>
                     <!-- div each -->
-                    <c:forEach var="courses" items="${ coursesList }">
+                    <c:forEach var="courses" items="${ coursesList }" >
                     <li class="tab_content"  ${ courses.completionStatus == 'N' ? " data-complete='ongoing' style='display: block;'"  : " data-complete='completed' style='display: none;'" }  data-course="5094" data-course-uri="onlineclass-tutorial" data-course-name="누구나 쉽게 준비하는 에드위드 온라인클래스!">
                         <div class="info_area ">
                             <div class="thumb">

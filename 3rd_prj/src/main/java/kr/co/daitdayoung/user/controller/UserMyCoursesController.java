@@ -20,16 +20,6 @@ public class UserMyCoursesController {
 	@Autowired
 	private UserMyCoursesService umcs;
 	
-	/*
-	 * @GetMapping("/user/myCourses.do") public String userMyCourses(HttpSession
-	 * session) { String id = (String)session.getAttribute("user_id"); return
-	 * "user/myCourses/myCourses"; }
-	 * 
-	 * @GetMapping("/user/myCourses2.do") public String userMyCourses2() { return
-	 * "user/myCourses/myCourses2"; }
-	 */
-	
-	//String complete,HttpSession session,
 	@GetMapping("/user/myCourses.do")
 	public String userMyCourses(HttpSession session,Model model ) {
 		//String id = (String)session.getAttribute("userId");
@@ -44,25 +34,8 @@ public class UserMyCoursesController {
 		return "user/myCourses/myCourses";
 	}
 	
-	@GetMapping("/user/courses.do")
-	public String userCourses() {
-		return "user/courses/courses";
-	}
 	
-	@GetMapping("/user/courses_detail.do")
-	public String userCoursesDetail() {
-		return "user/courses/courses_detail";
-	}
 	
-	@GetMapping("/user/myExam.do")
-	public String userMyExam() {
-		return "user/myExam/myExam";
-	}
-	
-	@GetMapping("/user/myExam2.do")
-	public String userMyExam2() {
-		return "user/myExam/myExam2";
-	}
 	
 	@GetMapping("/user/coursesInquiry.do")
 	public String userCoursesInquiry() {
