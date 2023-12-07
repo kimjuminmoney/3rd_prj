@@ -357,7 +357,7 @@
 	            <div class="student"><span class="ic_student">수강생 수</span>14</div>
 	            
 	        </div>
-	        <a href="/GPTSW" class="lnk_lecture">
+	        <a href="/courses_detail" class="lnk_lecture">
 	            <span class="blind">강좌 바로가기</span>
 	        </a>
 	    </div>

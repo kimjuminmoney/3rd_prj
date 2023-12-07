@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.daitdayoung.index">
+
+	<!-- 문의글이 적힌 게시판의 모든 내용 조회 -->
+	<select id="" resultType="" parameterType="String">
+	
+	select 		IT_CODE, TO_CHAR(INQ_DATE, 'YYYY-MM-DD') AS INQ_DATE, UI_ID, INS_ID, 
+				INQ_TITLE, INQ_CONTENT,INQ_ANSWER, INQ_ANSWERDATE
+	from	 	INQUIRY
+	order by 	IT_CODE ASC;
+	
+	</select>
+	
+</mapper>

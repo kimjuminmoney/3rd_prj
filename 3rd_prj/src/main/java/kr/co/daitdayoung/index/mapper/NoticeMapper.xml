@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.daitdayoung.index">
+
+	<!-- 공지글이 적힌 게시판의 모든 내용 조회 -->
+	<select id="allNotice" resultType="kr.co.daitdayoung.index.domain.NoticeDomain" >
+	select not_code, not_title, to_char(not_date, 'yyyy-mm-dd') as not_date, admin_id,
+			row_number() over (order by not_code desc) as notice_index
+	from notice
+	</select>
+
+	<!-- 공지글 상세보기 -->
+	<select id="selectNotice" resultType="kr.co.daitdayoung.index.domain.NoticeDomain" parameterType="String">
+	select		not_code, not_title, to_char(not_date, 'yyyy-mm-dd') as not_date, admin_id, not_content
+	from 		notice
+	where  		not_code = #{notCode}
+	</select>
+	
+</mapper>
