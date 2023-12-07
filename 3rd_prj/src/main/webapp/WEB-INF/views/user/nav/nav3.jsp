@@ -8,32 +8,20 @@
         
         <div class="snb_scroll">
             <div class="inner ">
-                
-                    
-                    
-                        
-                            
-                        
                         <h1 class="bi_school">
-                            
-                                
-                            
                             <a href="/myPage/openClass?isHomeLogo=true">
                                 <img src="https://ssl.pstatic.net/static/m/mooc/p/partner/next/logo_v4.png"
-                                     
                                         height="24px"
-                                    
                                      alt="edwith">
                             </a>
                         </h1>
                     
-                
                 <div class="menu_area">
                     <ul role="tablist">
                         <!-- [D] 선택된 탭 li에 aria-selected="true" 추가해주세요 -->
                         
                             <li role="tab" aria-selected="true" class="menu ico_home">
-                                <a href="/myPage/home">
+                                <a href="/daitdayoung/user/myCourses.do">
                                     <i>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                             <path fill="none" d="M3.5 17V6c0-.276.223-.5.5-.5h4.5c2.4 0 3.5 2.167 3.5 3v9H4c-.276 0-.5-.224-.5-.5z"></path>

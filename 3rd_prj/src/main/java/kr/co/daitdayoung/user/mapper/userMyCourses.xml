@@ -5,11 +5,23 @@
 <mapper namespace="kr.co.daitdayoung.user">
 	<!-- 제조국에 대한 제조사 조회 -->
 	<select id="myCoursesList" resultType="kr.co.daitdayoung.user.domain.UserMyCoursesDomain" parameterType="String">
-	select  c.cou_code, c.cou_name, c.cou_period,i.ins_name, c.banner_img, crg.crg_code, ui.ui_name,
+	select 	c.cou_code, c.cou_name, c.cou_period,i.ins_name, c.banner_img, crg.crg_code, ui.ui_name,
 			crg.progress_rate, crg.registrationdate, crg.completiondate, (crg.registrationdate+c.cou_period) courseperiod,
-			cc.enroll_rate, cc.exam_results,ep.exam_score, ep.exam_status
-	from 	courses c, instructor i, course_registration crg, user_info ui,completion_criteria cc,exam_participation ep
-	where 	ui.ui_id = #{ui_id} and c.cc_code = cc.cc_code and c.cou_code = ep.cou_code
+			cc.enroll_rate, cc.exam_results,ep.exam_score, ep.exam_status, completion_status
+	from   	course_registration crg, courses c, user_info ui, instructor i ,
+			completion_criteria cc, exam_participation ep
+	where  	crg.ui_id = #{userId} and c.cou_code = crg.cou_code and i.ins_id = c.ins_id and
+			c.cc_code = cc.cc_code and c.cou_code = ep.cou_code
+	
+	</select>
+	
+	
+	
+	
+	<select id="CoursesCnt" resultType="int" parameterType="String">
+	select 	count(*) lec_cnt
+	from   	COURSES c,LECTURES l
+	where 	c.cou_code = l.cou_code and c.cou_code = #{couCode}
 	</select>
 	
 	
