@@ -22,6 +22,14 @@ public class MyClassDAO {
 		return cdList;
 	}
 	
+	public CourseDomain SearchOneCourse(String insId, String couCode) {
+		CourseDomain cd=null;
+		
+		
+		
+		
+		return cd;
+	}
 	
 //	public static void main(String[] args) {
 //		new MyClassDAO().SearchMyCourses("ins1");

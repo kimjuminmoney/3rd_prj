@@ -1,17 +1,58 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page info="nav_bar" %>
-<div class="snb_wrap ">
-    <!--[D] window의 크기가 1240이상일때 snb_wrap에 min_1240 클래스 추가해주세요.-->
-    <!--[D] 웨일클래스 에만 snb_wrap에 .whale 클래스 추가, 나머지는 삭제-->
+<%@ page info="snb" %>
+<!-- 김주민 script  참고 -->
+<script type="text/javascript">
+$(document).ready(function(){
+    // 초기화 시 창의 너비를 확인하여 특정 조건에 따라 SNB 스타일을 변경합니다.
+    var Wwidth = $(window).width();
+    if(Wwidth < 1288) {
+        // 창의 너비가 1288 미만인 경우
+        $('.snb_wrap').removeClass('min_1240');
+            var Wleft = $(window).scrollLeft();
+            if (Wleft >= 0) {
+                $('.snb_wrap').css('left', -Wleft + 'px');
+            }
+        // 스크롤 이벤트 리스너를 등록하여 좌측으로 스크롤 시 SNB를 이동시킵니다.
+        $(window).bind('scroll',function(){
+            var Wleft = $(window).scrollLeft();
+            if (Wleft >= 0) {
+                $('.snb_wrap').css('left', -Wleft + 'px');
+            }
+        });
+    } else {
+        // 창의 너비가 1288 이상인 경우
+        $('.snb_wrap').addClass('min_1240');
+        $('[data-pc-only-menu]').show();
+    }
+
+    // 창의 크기가 변경될 때마다 SNB의 스타일을 조정합니다.
+    $(window).bind('resize',function(){
+        var Wwidth = $(window).width();
+        if(Wwidth < 1288) {
+            // 창의 너비가 1288 미만인 경우
+            $('.snb_wrap').removeClass('min_1240');
+            $(window).bind('scroll',function(){
+                var Wleft = $(window).scrollLeft();
+                if (Wleft >= 0) {
+                    $('.snb_wrap').css('left', -Wleft + 'px');
+                }
+            });
+        } else {
+            // 창의 너비가 1288 이상인 경우
+            $('.snb_wrap').addClass('min_1240');
+        }
+    });
+});
+</script>
+<div id="snb_wrap" class="snb_wrap ">
     <div class="snb">
         <div class="snb_scroll">
             <div class="inner ">
                         <h1 class="bi_school">
                             <a href="/myPage/openClass?isHomeLogo=true">
                                 <img src="https://ssl.pstatic.net/static/m/mooc/p/partner/next/logo_v4.png"
-                                        height="24px"
-                                     alt="edwith">
+                                        height="24px"  alt="edwith">
                             </a>
                         </h1>
                 <div class="menu_area">
