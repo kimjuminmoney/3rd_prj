@@ -5,9 +5,10 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class MyCourseService {
-	/*
-	 * @Autowired private MyCourseDAO mcDAO;
-	 */ 
+	
+//	 @Autowired 
+//	 private MyCourseDAO mcDAO;
+	  
 	
 	
 }

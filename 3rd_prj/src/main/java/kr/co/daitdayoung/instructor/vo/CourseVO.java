@@ -1,4 +1,4 @@
-package kr.co.daitdayoung.instructor.VO;
+package kr.co.daitdayoung.instructor.vo;
 
 import java.sql.Date;
 
