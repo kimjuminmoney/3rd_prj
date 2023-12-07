@@ -7,11 +7,25 @@
 	<!-- 나의 강의실 수강 List -->
 	<select id="coursesInfo" resultType="kr.co.daitdayoung.user.domain.UserCoursesDomain" parameterType="String">
 	select  i.INS_ID, COU_NAME, CONTENT, OPENDATE, BANNER_IMG, COU_PERIOD, SAMPLE_VIDEO, HITS, FINAL_APPROVE,
-				i.ins_name, i.ins_profile 
+			i.ins_name, i.ins_profile,
+			(select count(*)
+			from COURSE_REGISTRATION
+			where cou_code = #{couCode}) cnt 
 	from    COURSES c, INSTRUCTOR i
 	where 	c.ins_id = i.ins_id and cou_code = #{couCode}
 	</select>
 	
+	<select id="coursesNotice" resultType="kr.co.daitdayoung.user.domain.UserCoursesNoticeDomain" parameterType="String">
+	select  CN_CODE, i.INS_ID, CN_TITLE, CN_DATE, CN_CONTENT, INS_NAME
+	from	COURSES_NOTICE cn, INSTRUCTOR i
+	where   cou_code = #{couCode} and i.ins_id = cn.ins_id
+	</select>
+	
+	<select id="coursesLecture" resultType="kr.co.daitdayoung.user.domain.UserCoursesLectureDomain" parameterType="String">
+	select  LEC_CODE, LEC_NAME, LEC_CONTENT, VIDEO_NAME
+	from 	LECTURES
+	where 	cou_code = #{couCode}
+	</select>
 	
 	
 	

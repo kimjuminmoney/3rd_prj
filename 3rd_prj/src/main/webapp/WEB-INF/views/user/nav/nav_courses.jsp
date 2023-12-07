@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page info="   " %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="lnb">
     <!-- 신규 boostcourse LNB SNB -->
     <div class="inc_sub default">
@@ -27,14 +28,12 @@
                 </div>
                 <!-- [D] 강좌명이 51~90자인 경우 h2 class에 word_max 추가 -->
                 <h2 class="">
-                    <a href="/onlineclass-tutorial/home" class="NPI=a:title" id="_courseName">사이드바 강좌명</a>
+                    <a href="/onlineclass-tutorial/home" class="NPI=a:title" id="_courseName"><c:out value="${ ucDomain.couName }"/></a>
                 </h2>
                     <div class="profile">
                         <!-- [D] 이미지 노출시 class="bgnone" 추가 -->
                         <span class="thumb bgnone"><img src="https://cphinf.pstatic.net/mooc/20200405_5/1586078383558G8DF6_PNG/edwith%28%29.png?type=ff64_64" width="32" height="32" alt="임시 이미지"></span>
-                        <span class="name">강사명</span>
-                        <!-- [D] 파트너홈이 없는 경우 -->
-                        <span class="from">소속?</span>
+                        <span class="name"><c:out value="${ ucDomain.insName }"/></span>
                     </div>
             <!-- 공유하기 -->
             <div class="sns_area _sns_area">
@@ -72,8 +71,8 @@
             <div class="lecture_sub_tool">
                 
                     <div class="count_info">
-                        <span class="count_like"><em>조회수</em> 87</span>
-                        <span class="count_observe"><em>수료자수</em> 9219</span>
+                        <span class="count_like"><em>조회수</em><c:out value="${ ucDomain.hits }"/></span>
+                        <span class="count_observe"><em>수료자수</em><c:out value="${ ucDomain.cnt }"/></span>
                     </div>
                     <div class="manage_box">
                         

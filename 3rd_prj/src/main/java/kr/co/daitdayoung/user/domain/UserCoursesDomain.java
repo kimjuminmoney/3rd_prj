@@ -13,7 +13,7 @@ public class UserCoursesDomain {
 	
 	private String insId,couName,content,bannerImg,sampleVideo,finalApprove,insName,insProfile ;
 	private Date opendate;
-	private int couPeriod,hits;
+	private int couPeriod,hits, cnt;
 	
 	
 	

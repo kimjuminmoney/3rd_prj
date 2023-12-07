@@ -597,6 +597,83 @@
         background-color: #00AB50;
     }
 </style>
+<style>
+/* *{
+  box-sizing: border-box; 
+} */
+  
+.que:first-child{
+    border-top: 1px solid black;
+  }
+  
+.que{
+  position: relative;
+  padding: 17px 0;
+  cursor: pointer;
+  font-size: 14px;
+  border-bottom: 1px solid #dddddd;
+  
+}
+  
+.que::before{
+  display: inline-block;
+  content: ;
+  font-size: 14px;
+  color: #006633;
+  margin: 0 5px;
+}
+
+.que.on>span{
+  font-weight: bold;
+  color: #006633; 
+}
+  
+.anw {
+  display: none;
+    overflow: hidden;
+  font-size: 14px;
+  background-color: #f4f4f2;
+  padding: 27px 0;
+}
+  
+.anw::before {
+  display: inline-block;
+  content: ;
+  font-size: 14px;
+  font-weight: bold;
+  color: #666;
+  margin: 0 5px;
+}
+
+.arrow-wrap {
+  position: absolute;
+  top:50%; right: 10px;
+  transform: translate(0, -50%);
+}
+
+.que .arrow-top {
+  display: none;
+}
+.que .arrow-bottom {
+  display: block;
+}
+.que.on .arrow-bottom {
+  display: none;
+}
+.que.on .arrow-top {
+  display: block; 
+}
+</style>
+<!-- 공지사항 아코디언 창 -->
+<script type="text/javascript">
+$(document).ready(function() {
+$(".que").click(function() {
+	   $(this).next(".anw").stop().slideToggle(300);
+	  $(this).toggleClass('on').siblings().removeClass('on');
+	  $(this).next(".anw").siblings(".anw").slideUp(300); // 1개씩 펼치기
+	});
+})
+</script>
         </header>
     
     <!-- share 보안 이슈 filter 미적용 -->
@@ -666,6 +743,52 @@
 							<div class="le_txt"><strong>샘플 비디오 자리</strong></div>
 							
 							
+						</div>
+						<!-- 공지사항 아코디언 -->
+						<div id="Accordion_wrap">
+						     <div class="que">
+						      <span>공지사항</span>
+						       <!-- <div class="arrow-wrap">
+						         <span class="arrow-top">↑</span>
+						        <span class="arrow-bottom">↓</span>
+						       </div> -->
+						      
+						     </div>
+						     <div class="anw">
+						      <ul class="forum_list_new bdnone">
+					                <li class="notice">
+					                    <a href="/onlineclass-tutorial/notice/4106" class="wrap_link">
+					                        <div class="forum_summary">
+					                            <strong class="title">5월 개선 예정 사항을 알려드립니다</strong>
+					                            <div class="user_info">
+					                                    <div class="thumb bgnone">
+					                                    <img src="https://cphinf.pstatic.net/mooc/20190311_200/1552269021926taXXr_PNG/edwith%28%29.png?type=ff48_48" width="24" height="24" alt="">
+					                                    </div>
+					                                <span class="username">edwith</span>
+					                                
+					                                    <span class="ic_ad vamiddle">관리자</span>
+					                                
+					                                <time class="time" datetime="2020.05.15">2020.05.15</time>
+					                            </div>
+					                        </div>
+					                    </a>
+					                </li>
+					    		</ul>
+						      
+						     </div>
+						      <!-- <div class="que">
+						      <span>This is second question.</span>
+						     </div> -->
+						     
+						     <!-- <div class="anw">
+						      <span>This is second answer.</span>
+						     </div>
+						      <div class="que">
+						      <span>This is third question.</span>
+						     </div>
+						     <div class="anw">
+						      <span>This is third answer.</span>
+						     </div> -->
 						</div>
 		<ul>
 					<!-- [D] 진행중 class : on -->
