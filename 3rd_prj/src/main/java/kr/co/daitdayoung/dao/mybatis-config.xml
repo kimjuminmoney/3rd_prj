@@ -32,6 +32,7 @@
   	<mapper resource="kr/co/daitdayoung/admin/mapper/manageCoursesMapper.xml"/>
   	<mapper resource="kr/co/daitdayoung/admin/mapper/manageInqueryMapper.xml"/>
   	<mapper resource="kr/co/daitdayoung/admin/mapper/manageCouInqueryMapper.xml"/>
+  	<mapper resource="kr/co/daitdayoung/admin/mapper/manageUsersMapper.xml"/>
   <!-- 준식 -->
   
   

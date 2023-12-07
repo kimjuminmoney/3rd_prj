@@ -1,13 +1,27 @@
 package kr.co.daitdayoung.admin.controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import kr.co.daitdayoung.admin.domain.ManageUsersDomain;
+import kr.co.daitdayoung.admin.service.ManageUsersService;
 
 @Controller
 public class ManageUsersController {
 
+	@Autowired
+	private ManageUsersService mus;
+	
 	@GetMapping("/admin/admin_users/manageUsers.do")
-	public String manageUsers() {
+	public String manageUsers(Model model) {
+		
+		List<ManageUsersDomain> studentsList = mus.searchStudents();
+		
+		model.addAttribute("studentsList", studentsList);
 		
 		return "admin/admin_users/manageUsers";
 	}
