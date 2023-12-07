@@ -1,13 +1,27 @@
 package kr.co.daitdayoung.admin.controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import kr.co.daitdayoung.admin.domain.ManageNoticeDomain;
+import kr.co.daitdayoung.admin.service.ManageNoticeService;
 
 @Controller
 public class ManageNoticeController {
 
+	@Autowired
+	private ManageNoticeService mns;
+	
 	@GetMapping("/admin/admin_notice/manageNotice.do")
-	public String manageNotice() {
+	public String manageNotice(Model model) {
+		
+		List<ManageNoticeDomain> noticeList = mns.searchNotice();
+		
+		model.addAttribute("noticeList", noticeList);
 		
 		return "admin/admin_notice/manageNotice";
 	}

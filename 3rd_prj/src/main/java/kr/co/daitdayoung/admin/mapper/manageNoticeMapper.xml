@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.daitdayoung.admin.mu">
+
+<select id="selectInqType" resultType="kr.co.daitdayoung.admin.domain.ManageUsersDomain">
+select it_code, it_name
+from inquiry_type
+</select>
+
+<select id="selectStudents" resultType="kr.co.daitdayoung.admin.domain.ManageUsersDomain">
+select ui_id, ui_name, ui_joindate, ui_quit,
+				(   select count(*)
+					from COURSE_REGISTRATION
+					where ui_id='ui_test' and COMPLETION_STATUS='Y' ) cou_y,
+				(   select count(*)
+					from COURSE_REGISTRATION
+					where ui_id='ui_test' and COMPLETION_STATUS='N' ) cou_n
+from user_info
+</select>
+
+</mapper>
+
+
+
