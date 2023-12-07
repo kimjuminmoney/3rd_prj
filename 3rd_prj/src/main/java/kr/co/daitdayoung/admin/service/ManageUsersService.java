@@ -22,5 +22,13 @@ public class ManageUsersService {
 		
 		return list;
 	}//searchStudents
+
+	public List<ManageUsersDomain> searchInstructors() throws PersistenceException{
+		List<ManageUsersDomain> list = null;
+		
+		list = mud.selectInstructors();
+		
+		return list;
+	}//searchInstructors
 	
 }

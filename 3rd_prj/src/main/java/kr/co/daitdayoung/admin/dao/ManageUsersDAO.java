@@ -24,6 +24,20 @@ public class ManageUsersDAO {
 		mbh.closeHandler(ss);
 		
 		return list;
-	}
+	}//selectStudents
+
+	public List<ManageUsersDomain> selectInstructors() throws PersistenceException{
+		List<ManageUsersDomain> list = null;
+		
+		MyBatisHandler mbh = MyBatisHandler.getInstance();
+		
+		SqlSession ss = mbh.getMyBatisHandler(false);
+		
+		list = ss.selectList("kr.co.daitdayoung.admin.mu.selectInstructors");
+		
+		mbh.closeHandler(ss);
+		
+		return list;
+	}//selectStudents
 	
 }

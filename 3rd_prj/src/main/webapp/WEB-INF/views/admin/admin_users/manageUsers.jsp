@@ -17,25 +17,44 @@
 		width: 50px; /* 첫 번째 열의 너비 설정 */
 	}
 	.table th:nth-child(2) {
-		width: 150px; /* 첫 번째 열의 너비 설정 */
+		width: 400px; /* 첫 번째 열의 너비 설정 */
 	}
 	.table th:nth-child(3) {
-		width: 100px; /* 첫 번째 열의 너비 설정 */
+		width: 250px; /* 첫 번째 열의 너비 설정 */
 	}
 	.table th:nth-child(4) {
-		width: 100px; /* 첫 번째 열의 너비 설정 */
+		width: 150px; /* 첫 번째 열의 너비 설정 */
 	}
 	.table th:nth-child(5) {
-		width: 400px; /* 첫 번째 열의 너비 설정 */
+		width: 150px; /* 첫 번째 열의 너비 설정 */
 	}
 	.table th:nth-child(6) {
-		width: 400px; /* 첫 번째 열의 너비 설정 */
+		width: 150px; /* 첫 번째 열의 너비 설정 */
+	}
+	.table th:nth-child(7) {
+		width: 100px; /* 첫 번째 열의 너비 설정 */
 	}
 </style>
 <script type="text/javascript">
-$(function(){
-   
-});//ready
+	$(function(){
+		
+	});//ready
+	
+	function showStuTable() {
+        var stuTable = document.getElementById("stuTable");
+        var insTable = document.getElementById("insTable");
+        
+        stuTable.style.display = "block";
+        insTable.style.display = "none";
+    }//showStuTable
+
+    function showInsTable() {
+        var stuTable = document.getElementById("stuTable");
+        var insTable = document.getElementById("insTable");
+        
+        stuTable.style.display = "none";
+        insTable.style.display = "block";
+    }//showInsTable
 </script>
 
 </head>
@@ -64,12 +83,12 @@ $(function(){
                     <h1 class="h3 mb-2 text-gray-800">회원관리</h1>
                     <hr style="background-color:#1CC88A; border-width: 2px; margin-bottom: 100px">
 
-                    <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
+                    <!-- 학생 테이블 -->
+                    <div class="card shadow mb-4" id="stuTable" style="display: block;">
                         <div class="card-header py-3">
 							<div class="btn-group" role="group" aria-label="Basic outlined example">
-							  <button type="button" class="btn btn-outline-primary" value="학생">학생</button>
-							  <button type="button" class="btn btn-outline-primary" value="강사">강사</button>
+							  <button type="button" class="btn btn-outline-primary" value="학생" onclick="showStuTable()">학생</button>
+							  <button type="button" class="btn btn-outline-primary" value="강사" onclick="showInsTable()">강사</button>
 							</div>
                         </div>
                         <div class="card-body">
@@ -83,18 +102,63 @@ $(function(){
                                             <th>가입일</th>
                                             <th>수강중인 강좌</th>
                                             <th>수료한 강좌</th>
+                                            <th>탈퇴</th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
+                                    	<c:forEach var="student" items="${ requestScope.studentsList }" varStatus="i">
                                         <tr>
-                                            <td>1</td>
-                                            <td><a href="detailStudent.do">wnstrl04092</a></td>
-                                            <td>Alex</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>y</td>
+                                            <td><c:out value="${ i.count }"/></td>
+                                            <td><a href="detailStudent.do"><c:out value="${ student.uiId }"/></a></td>
+                                            <td><c:out value="${ student.uiName }"/></td>
+                                            <td><c:out value="${ student.uiJoindate }"/></td>
+                                            <td><c:out value="${ student.couN }"/></td>
+                                            <td><c:out value="${ student.couY }"/></td>
+                                            <td><c:out value="${ student.uiQuit }"/></td>
                                         </tr>
+                                    	</c:forEach>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 강사테이f -->
+                    <div class="card shadow mb-4"  id="insTable" style="display: none;">
+                        <div class="card-header py-3">
+							<div class="btn-group" role="group" aria-label="Basic outlined example">
+							  <button type="button" class="btn btn-outline-primary" value="학생" onclick="showStuTable()">학생</button>
+							  <button type="button" class="btn btn-outline-primary" value="강사" onclick="showInsTable()">강사</button>
+							</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>번호</th>
+                                            <th>아이디</th>
+                                            <th>이름</th>
+                                            <th>가입일</th>
+                                            <th>전화번호</th>
+                                            <th>강좌수</th>
+                                            <th>탈퇴</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    	<c:forEach var="instructor" items="${ requestScope.instructorsList }" varStatus="i">
+                                        <tr>
+                                            <td><c:out value="${ i.count }"/></td>
+                                            <td><a href="detailStudent.do"><c:out value="${ instructor.insId }"/></a></td>
+                                            <td><c:out value="${ instructor.insName }"/></td>
+                                            <td><c:out value="${ instructor.insJoindate }"/></td>
+                                            <td><c:out value="${ instructor.insTel }"/></td>
+                                            <td><c:out value="${ instructor.couCnt }"/></td>
+                                            <td><c:out value="${ instructor.insQuit }"/></td>
+                                        </tr>
+                                    	</c:forEach>
                                     </tbody>
                                 </table>
                             </div>

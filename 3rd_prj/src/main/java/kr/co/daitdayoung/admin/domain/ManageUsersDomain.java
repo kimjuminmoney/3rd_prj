@@ -11,7 +11,7 @@ import lombok.ToString;
 @ToString
 public class ManageUsersDomain {
 
-	private String uiId, uiName, uiQuit, couY, couN;
-	private Date uiJoindate;
+	private String uiId, uiName, uiQuit, couY, couN, insId, insName, insTel, insQuit, couCnt;
+	private Date uiJoindate, insJoindate;
 	
 }

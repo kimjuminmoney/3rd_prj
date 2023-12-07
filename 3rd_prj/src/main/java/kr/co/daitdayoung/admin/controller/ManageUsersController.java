@@ -20,8 +20,10 @@ public class ManageUsersController {
 	public String manageUsers(Model model) {
 		
 		List<ManageUsersDomain> studentsList = mus.searchStudents();
+		List<ManageUsersDomain> instructorsList = mus.searchInstructors();
 		
 		model.addAttribute("studentsList", studentsList);
+		model.addAttribute("instructorsList", instructorsList);
 		
 		return "admin/admin_users/manageUsers";
 	}

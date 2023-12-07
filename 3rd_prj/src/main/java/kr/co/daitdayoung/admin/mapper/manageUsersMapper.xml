@@ -4,20 +4,23 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.daitdayoung.admin.mu">
 
-<select id="selectInqType" resultType="kr.co.daitdayoung.admin.domain.ManageUsersDomain">
-select it_code, it_name
-from inquiry_type
+<select id="selectStudents" resultType="kr.co.daitdayoung.admin.domain.ManageUsersDomain">
+	select ui_id, ui_name, ui_joindate, ui_quit,
+					(   select count(*)
+						from course_registration
+						where ui_id='ui_test' and completion_status='y' ) cou_y,
+					(   select count(*)
+						from course_registration
+						where ui_id='ui_test' and completion_status='n' ) cou_n
+	from user_info
 </select>
 
-<select id="selectStudents" resultType="kr.co.daitdayoung.admin.domain.ManageUsersDomain">
-select ui_id, ui_name, ui_joindate, ui_quit,
-				(   select count(*)
-					from COURSE_REGISTRATION
-					where ui_id='ui_test' and COMPLETION_STATUS='Y' ) cou_y,
-				(   select count(*)
-					from COURSE_REGISTRATION
-					where ui_id='ui_test' and COMPLETION_STATUS='N' ) cou_n
-from user_info
+<select id="selectInstructors" resultType="kr.co.daitdayoung.admin.domain.ManageUsersDomain">
+	select i.ins_id, ins_name, ins_tel, ins_joindate, ins_quit,
+			(	select count(*)
+				from courses
+				where ins_id=i.ins_id ) cou_cnt
+	from instructor i
 </select>
 
 </mapper>
