@@ -9,14 +9,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.util.WebUtils;
 
+import kr.co.daitdayoung.instructor.vo.CourseVO;
+
 @Controller
 public class insCourseDetailController {
 
 	@RequestMapping("/insCourseDetail.do")
-	public String courseDetail(HttpServletRequest request,Model model) {
-		String couCode = request.getParameter("couCode");
-		
-		
+	public String courseDetail() {
+		/* String couCode = request.getParameter("couCode"); */
 		
 		
 		System.out.println("강좌정보");
