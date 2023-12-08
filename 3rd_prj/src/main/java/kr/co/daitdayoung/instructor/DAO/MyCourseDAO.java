@@ -16,8 +16,8 @@ public class MyCourseDAO {
 		MyBatisHandler mbh=MyBatisHandler.getInstance();
 		SqlSession ss= mbh.getMyBatisHandler(false);
 
-		cd=ss.selectOne("kr.co.daitdayoung.instructor.selectOneCourse",cVO);
-		System.out.println(cd);
+		cd=ss.selectOne("kr.co.daitdayoung.instructor.course.selectOneCourse",cVO);
+		
 		if(ss != null) {
 			ss.close();
 		}

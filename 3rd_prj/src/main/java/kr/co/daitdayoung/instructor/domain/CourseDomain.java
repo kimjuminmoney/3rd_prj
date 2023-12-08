@@ -17,6 +17,6 @@ public class CourseDomain {
 	private Date openDate;
 	private int couPeriod,hits;
 	
-	private int enRollRate,examResult;
+	private int enRollRate,examResults;
 	
 }

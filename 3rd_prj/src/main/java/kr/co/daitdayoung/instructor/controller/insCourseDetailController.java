@@ -30,11 +30,9 @@ public class insCourseDetailController {
 		//세션에서 꺼내온 아이디를 VO에 넣어라
 		cVO.setInsId((String)session.getAttribute("insId"));
 		
-		System.out.println("------------------------"+ cVO );
 		cd=mcs.searchCourse(cVO);
 		
 		model.addAttribute("cd",cd);
-		System.out.println("강좌정보");
 		
 		return "instructor/MyClass/course/insCourseDetail";
 	}//courseDetail

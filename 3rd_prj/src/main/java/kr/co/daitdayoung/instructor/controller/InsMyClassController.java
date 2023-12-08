@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import kr.co.daitdayoung.instructor.domain.CourseDomain;
 import kr.co.daitdayoung.instructor.service.MyClassService;
+import kr.co.daitdayoung.instructor.vo.CourseVO;
 
 @SessionAttributes("insId")
 @Controller
@@ -46,16 +47,24 @@ public class InsMyClassController {
 		return "instructor/MyClass/insAddCourse";
 	}
 
+	@RequestMapping("/insAddCourseList2.do")
+	public String addCourseList2(CourseVO cVO, Model model) {
+		
+		model.addAttribute("cVO",cVO);
+		
+		return "instructor/MyClass/insAddCourseList2";
+	}
+
+//	public String addAjax(CourseVO cVO, List<String> mokcha, Model model) {
+//	
+//		
+//		return 
+//	}
 	@RequestMapping("/insAddCourseList.do")
 	public String addCourseList() {
 		
 		return "instructor/MyClass/insAddCourseList";
 	}
 	
-	@RequestMapping("/insAddCourseList2.do")
-	public String addCourseList2() {
-		
-		return "instructor/MyClass/insAddCourseList2";
-	}
 	
 }//class

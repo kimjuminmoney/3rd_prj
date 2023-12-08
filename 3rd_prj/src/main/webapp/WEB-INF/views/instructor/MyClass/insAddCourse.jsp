@@ -47,19 +47,11 @@
 <!-- #breadcrumb:common/_whaleclass_header.gsp -->
 <header id="header" class="default_ly2 ">
     <div class="header_wrap">
-    
-        
-            
                 
             
-            <h1 class="bi_school"
-                >
+            <h1 class="bi_school">
                 <a href="/myPage/openClass?isHomeLogo=true">
-                    <img src="https://ssl.pstatic.net/static/m/mooc/p/partner/next/logo_v4.png"
-                        
-                            style="max-height:24px;"
-                        
-                         alt="edwith">
+                    <img src="https://ssl.pstatic.net/static/m/mooc/p/partner/next/logo_v4.png" style="max-height:24px;" alt="edwith">
                 </a>
             </h1>
         
@@ -265,7 +257,6 @@
             
         
     </div>
-</div>
 
 
 <!-- lcs file -->
@@ -362,10 +353,6 @@
             
 <!-- #breadcrumb:common/_whaleclass_footer.gsp -->
 
-    
-
-
-
     <div class="footer whale_main">
         <div class="f_inner">
             <p class="copyright">ⓒ NAVER Connect Foundation</p>
@@ -384,79 +371,17 @@
     </div>
 
 
-<!-- Build 231109.47a067d4 -->
-
-<!-- lcs file -->
-<script src="/static/lcs-js/lcslog.js?231109_47a067d4"></script>
-<script src="/static/js/src/entries/footer/index.entry.browserfied.min.js?231109_47a067d4"></script>
-<script>
-    $(document).ready(function(){
-    });
-</script>
-        </div>
+	<!-- Build 231109.47a067d4 -->
+	
+	<!-- lcs file -->
+	<script src="/static/lcs-js/lcslog.js?231109_47a067d4"></script>
+	<script src="/static/js/src/entries/footer/index.entry.browserfied.min.js?231109_47a067d4"></script>
+	<script>
+	    $(document).ready(function(){
+	    });
+	</script>
     </div>
+  </div>
 </body>
 </html>
 
-<script src="https://www.edwith.org//static/js/src/entries/layouts/whaleclass.entry.browserfied.min.js?231109_47a067d4"></script>
-<script>
-    $(function(){
-        var entry = require("/entries/layouts/whaleclass.entry.js");
-        entry.initialize({
-            isLogged : $.trim( $("#__isLogged").val() ) === "" ? false : true,
-            isClosedPartner : false,
-            courseId: '',
-            userId: '2674262'
-        });
-
-        //SNB 디바이스별 열고닫기
-        $('.btn_snb').click(function(){
-            $('.snb').toggleClass('open');
-            $('.snb_dimed').toggleClass('open');
-            $('.ic').removeClass('on');
-
-            if($('.snb_dimed').hasClass('open')) {
-                $('html').css({'overflow':'hidden'});
-            } else {
-                $('html').css({'overflow':'scroll'});
-            }
-        });
-
-        //좌측 플로팅 snb left값 조정
-        $(document).ready(function(){
-            var Wwidth = $(window).width();
-            if(Wwidth < 1288) {
-                $('.snb_wrap').removeClass('min_1240');
-                $('[data-pc-only-menu]').hide();
-                $(window).bind('scroll',function(){
-                    var Wleft = $(window).scrollLeft();
-                    if (Wleft >= 0) {
-                        $('.snb_wrap').css('left', - Wleft + 'px');
-                    }
-                })
-            }else {
-                $('.snb_wrap').addClass('min_1240');
-                $('[data-pc-only-menu]').show();
-            }
-            $(window).bind('resize',function(){
-                var Wwidth = $(window).width();
-                if(Wwidth < 1288) {
-                    $('.snb_wrap').removeClass('min_1240');
-                    $('[data-pc-only-menu]').hide();
-                    $(window).bind('scroll',function(){
-                        var Wleft = $(window).scrollLeft();
-                        if (Wleft >= 0) {
-                            $('.snb_wrap').css('left', - Wleft + 'px');
-                        }
-                    })
-                } else {
-                    $('.snb_wrap').addClass('min_1240');
-                    $('[data-pc-only-menu]').show();
-                }
-            })
-        })
-    });
-</script>
-
-</body>
-</html>
