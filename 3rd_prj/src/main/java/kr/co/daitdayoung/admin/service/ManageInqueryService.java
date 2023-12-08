@@ -28,9 +28,15 @@ public class ManageInqueryService {
 		
 		return list;
 	}
-	
-	public static void main(String[] args) {
-		System.out.println(new ManageInqueryService().searchInqType());
+
+	public ManageInqueryDomain searchDetailInq(String inqCode){
+		ManageInqueryDomain detailInq = null;
+		
+		ManageInqueryDAO miDAO = new ManageInqueryDAO();
+		
+		detailInq = miDAO.selectDetailInq(inqCode);
+		
+		return detailInq;
 	}
 	
 }
