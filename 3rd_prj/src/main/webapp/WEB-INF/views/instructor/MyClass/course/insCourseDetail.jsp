@@ -40,17 +40,12 @@
 </script>
 
     <!-- Google Tag Manager -->
-    
         <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
         var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
         j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-P2H76TF');</script>
-    
     <!-- // Google Tag Manager -->
-
-    
         <title>파이썬 자료구조 > 강의목록 : edwith</title>
-    
 </head>
 <body class="re_pack win chrome chrome119">
     <!-- Google Tag Manager (noscript) -->
@@ -150,8 +145,6 @@
 </script>
 
 <script>
-    
-		
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -176,7 +169,6 @@
 
             return gaInfo;
         }
-
 
         function gaHitPageView() {
             var gaInfo = gaGetInfo();
@@ -203,7 +195,6 @@
         }
 
         window.gaHitPageView = gaSimpleHitPageView;
-
         
         /*ga('send', {
             hitType: 'event',
@@ -228,11 +219,7 @@
 <div id="u_skip">
     
         <a href="#gnb" onclick="document.getElementById('gnb').tabIndex=-1;document.getElementById('gnb').focus();return false;"><span>개인 메뉴 바로가기</span></a>
-    
-    
-    
     <a href="#snb" onclick="document.getElementById('snb').tabIndex=-1;document.getElementById('snb').focus();return false;"><span>하위 메뉴 바로가기</span></a>
-    
     <a href="#content" onclick="document.getElementById('content').tabIndex=-1;document.getElementById('content').focus();return false;"><span>본문 바로가기</span></a>
 </div>
 <!-- #breadcrumb:layouts/course.gsp -->
@@ -290,17 +277,25 @@
 					<li>
 						<div id="wrap" style="margin-left:5%">
 						<div>
-	        				<label style="font-size:30px; text-align:center;"><strong>강좌 명</strong></label><input type="text" class="input_txt" style="width:60%; height:48px; font-size:16px; margin-left:5%;">
-	        				<div style="weight:600px; height:400px;"></div>
-						</div>
+	        				<label style="font-size:30px; text-align:center;"><strong>강좌 명</strong></label>
+	        				<input type="text" class="input_txt" style="width:60%; height:30%; font-size:16px; margin-left:5%;" value="${ cd.couName }" disabled/>
+	        			</div>
 						<div>
-	        				<input type="text" class="input_txt" style="width:60%; height:48px; font-size:16px; margin-left:5%;" placeholder="파일 명"><input type="button" class="btn btn-success" value="파일 등록">
+	        				<div id="thumb" style="weight:600px; height:400px;">
+							</div>
+							<div>
+	        				<input type="text" class="input_txt" style="width:60%; height:30%; font-size:16px; margin-left:5%;" value="${ cd.bannerImg }" disabled/>
+	        				<input type="button" class="btn btn-success" value="파일 등록">
+	        				</div>
 						</div>
+						
         				<div style="weight:100%; height:5%;;"></div>
         				<div>
         					<label style="font-size:30px; text-align:center;"><strong>분류 선택</strong></label>
 	        				<select>
 	        					<option> ----대분류 선택</option>
+	        					<%-- <c:forEach var="mc" items="${ cd. mcCode}" varStatus="i">
+	        					</c:forEach> --%>
 	        				</select>
 	        				<select>
 	        					<option> ----소분류 선택</option>
@@ -308,24 +303,24 @@
         				</div>
         				<div>
         					<label style="font-size:30px; text-align:center;"><strong>기한 설정</strong></label>
-        					<input type="text" class="input_txt" style="width:60%; height:48px; font-size:16px; margin-left:5%;">
+        					<input type="text" class="input_txt" style="width:60%; height:30%; font-size:16px; margin-left:5%;" value="${ cd.couPeriod}">
         				</div>
         				<div>
         					<label style="font-size:30px; text-align:center;"><strong>수료 조건</strong></label><br/>
 	        				<div>
-	        					<label style="font-size:30px; text-align:center;"><strong>진도율</strong></label><input type="text" class="input_txt" style="width:30%; height:48px; font-size:16px; margin-left:5%;"><input type="checkbox"><br/>
-	        					<label style="font-size:30px; text-align:center;"><strong>시험</strong></label><input type="text" class="input_txt" style="width:30%; height:48px; font-size:16px; margin-left:5%;"><input type="checkbox"><br/>
+	        					<label style="font-size:30px; text-align:center;"><strong>진도율</strong></label><input type="text" class="input_txt" style="width:30%; height:30%; font-size:16px; margin-left:5%;" value="${ cd.sampleVideo }"><input type="checkbox"><br/>
+	        					<label style="font-size:30px; text-align:center;"><strong>시험</strong></label><input type="text" class="input_txt" style="width:30%; height:30%; font-size:16px; margin-left:5%;" value="${ cd.sampleVideo }" ><input type="checkbox"><br/>
 	        				</div>
         					<div style="weight:100%; height:5%;;"></div>
 						</div>
         				<label style="font-size:30px; text-align:center;"><strong>과목 설명</strong></label>
-        				<textarea style="width:100%; height: 30%;"></textarea>
+        				<textarea style="width:100%; height: 30%;"><c:out value="${ cd.content }"/></textarea>
         				<div style="weight:100%; height:5%;;"></div>
         				
         				<label style="font-size:30px; text-align:center;"><strong>샘플 영상</strong></label>
-        				<div style="weight:600px; height:400px;"></div>
-        				<input type="text" class="input_txt" style="width:60%; height:48px; font-size:16px; margin-left:5%;" placeholder="파일 명"><input type="button" class="btn btn-success" value="파일 등록">
-        				<div style="weight:100%; height:5%;;"></div>
+s        				<div style="weight:600px; height:400px;"></div>
+        				<input type="text" class="input_txt" style="width:60%; height:30%; font-size:16px; margin-left:5%;" value="${ cd.sampleVideo }"><input type="button" class="btn btn-success" value="파일 등록">
+        				<div style="weight:100%; height:5%;"></div>
         				
         					<input type="button" class="btn btn-info btn-lg" value="수정하기"/>
         				

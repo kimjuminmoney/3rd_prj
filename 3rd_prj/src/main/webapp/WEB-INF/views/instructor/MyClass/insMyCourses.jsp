@@ -19,7 +19,7 @@
  <script type="text/javascript">
  $(function(){
 	 
-	 
+ alert( "${ sessionScope.insId }");	 
 	 
 	 
  });//ready
@@ -44,6 +44,8 @@
 </div>
 <input type="hidden" name="partnerUrl" value="https://www.edwith.org/">
 <input type="hidden" id="__isLogged" value="org.nhnnext.mooc.user.SecUser : 2674262">
+
+
 
 
     

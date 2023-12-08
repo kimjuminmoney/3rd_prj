@@ -13,8 +13,6 @@
 <!-- 신규 boostcourse gnb 시작 -->
 <div class="layout_in " data-wrap-gnb-menu data-is-boostcourse="true">
         <ul class="gnb ly_type2" id="gnb">
-        
-            
 
             <!-- [D] 활성화 li class="on" 추가 -->
             <!-- 운영 강좌/클래스 -->

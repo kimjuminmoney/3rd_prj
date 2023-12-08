@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 import kr.co.daitdayoung.dao.MyBatisHandler;
 import kr.co.daitdayoung.instructor.domain.CourseDomain;
+import kr.co.daitdayoung.instructor.vo.CourseVO;
 
 @Component
 public class MyClassDAO {
@@ -22,13 +23,25 @@ public class MyClassDAO {
 		return cdList;
 	}
 	
-	public CourseDomain SearchOneCourse(String insId, String couCode) {
-		CourseDomain cd=null;
+	public int AddCourse(CourseVO cVO) {
+		int cnt=0;
 		
 		
 		
 		
-		return cd;
+		
+		return cnt;
+	}
+
+	public List<CourseDomain> SearchAddedCourses(CourseVO cVO) {
+		List<CourseDomain> cdList=null;
+		
+		
+		
+		
+		
+		
+		return cdList;
 	}
 	
 //	public static void main(String[] args) {

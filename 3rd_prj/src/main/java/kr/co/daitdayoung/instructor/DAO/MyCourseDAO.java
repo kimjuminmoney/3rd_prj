@@ -1,14 +1,16 @@
 package kr.co.daitdayoung.instructor.DAO;
 
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Component;
 
 import kr.co.daitdayoung.dao.MyBatisHandler;
 import kr.co.daitdayoung.instructor.domain.CourseDomain;
 import kr.co.daitdayoung.instructor.vo.CourseVO;
 
+@Component
 public class MyCourseDAO {
 
-	private CourseDomain selectOneCourse(CourseVO cVO) {
+	public CourseDomain selectOneCourse(CourseVO cVO) {
 		CourseDomain cd=null;
 		
 		MyBatisHandler mbh=MyBatisHandler.getInstance();

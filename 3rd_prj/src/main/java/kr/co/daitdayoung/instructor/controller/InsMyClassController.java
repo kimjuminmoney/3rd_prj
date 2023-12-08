@@ -6,10 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import kr.co.daitdayoung.instructor.domain.CourseDomain;
 import kr.co.daitdayoung.instructor.service.MyClassService;
 
+@SessionAttributes("insId")
 @Controller
 public class InsMyClassController {
 
@@ -26,7 +28,7 @@ public class InsMyClassController {
 		model.addAttribute("cdList",cdList);
 		model.addAttribute("cdSize",cdList.size());
 		
-		
+		model.addAttribute("insId",insId);
 		
 		return "instructor/MyClass/insMyCourses";
 	}//myCourses
