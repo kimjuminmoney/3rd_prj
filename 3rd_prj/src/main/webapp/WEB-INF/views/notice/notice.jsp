@@ -5,7 +5,7 @@
 <html lang="ko" itemscope itemtype="http://schema.org/Article">
 <head>
 
-<title id="titleJoin">공지사항</title>
+<title id="titleJoin">문의</title>
 
 <script type="text/javascript" src="https://www.starbucks.co.kr/common/js/esabsbuxkr.js?single"></script> 
 
@@ -43,56 +43,52 @@
 	</div>
 </div>
 
-<div id="container">
-                <!-- 공지사항 -->
-				<!-- <div class="news_sch_wrap">
-                	<p><input type="text" name="sch_bar" id="sch_bar" placeholder="검색어를 입력해 주세요."> <a href="javascript:void(0)" class="newBoardSearchBtn">검색</a></p>
-                </div>        -->       
-                <div class="notice_wrap">
-                	
-                	<div class="news_sch_wrap">
-	                	<p>
-	                	<label for="sch_bar" class="a11y">검색어</label>
-	                	<!-- 접근성_20171123 label 추가 -->
-	                	<input type="text" name="sch_bar" id="sch_bar" placeholder="검색어를 입력해 주세요."> 
-	                	<a href="javascript:void(0)" class="newBoardSearchBtn">검색</a>
-	                	</p>
-	                </div>
+	<div id="container">
+	    <div class="notice_wrap">
+	    	
+	    	<div class="news_sch_wrap">
+	     	<p>
+	     	<label for="sch_bar" class="a11y">검색어</label>
+	     	<!-- 접근성_20171123 label 추가 -->
+	     	<input type="text" name="sch_bar" id="sch_bar" placeholder="검색어를 입력해 주세요."> 
+	     	<a href="javascript:void(0)" class="newBoardSearchBtn">검색</a>
+	     	</p>
+	     	</div>
 	                
 	                
-	                <!-- 공지사항 디자인 -->
-                    <table summary="공지사항" class="notice_tb">
-                        <caption class="hid">공지사항 번호, 제목, 날짜, 조회수 테이블</caption>
-                        <colgroup>
-                            <col width="5.45454%">
-                            <col width="74.5454%">
-                            <col width="10.90909%">
-                            <col width="*">
-                        </colgroup>
-                        <thead>
-                            <tr>
-                                <th scope="col">NO</th>
-                                <th scope="col">제목</th>
-                                <th scope="col">날짜</th>
-                                <th scope="col">작성자</th>
-                            </tr>
-                        </thead>
-                        
-                        
-                      <!-- 전체 공지 -->  
-                      <tbody id="notice">
-                      <c:forEach var="notice" items="${ noticeList }">
-                        <tr>     
-                        <td><c:out value= "${ notice.noticeIndex }"/></td>
-                        <td><c:out value= "${ notice.notTitle }"/></td>
-                        <td><c:out value= "${ notice.notDate }"/></td>
-                        <td><c:out value= "${ notice.adminId }"/></td>
-                        </tr>
-                      </c:forEach>
-                      
-                   	</table>
-                   
-                   <!-- 하단 페이지 -->
+          	<!-- 공지사항 디자인 -->
+            <table summary="공지사항" class="notice_tb">
+                 <caption class="hid">번호, 제목, 날짜, 작성자</caption>
+                 <colgroup>
+                     <col width="5.45454%">
+                     <col width="74.5454%">
+                     <col width="10.90909%">
+                     <col width="*">
+                 </colgroup>
+                 <thead>
+                     <tr>
+                         <th scope="col">NO</th>
+                         <th scope="col">제목</th>
+                         <th scope="col">날짜</th>
+                         <th scope="col">작성자</th>
+                     </tr>
+                 </thead>
+                 
+                 
+               <!-- 전체 공지 -->  
+               <tbody id="notice">
+               <c:forEach var="notice" items="${ noticeList }">
+                 <tr>     
+                 <td><c:out value= "${ notice.noticeIndex }"/></td>
+                 <td><c:out value= "${ notice.notTitle }"/></td>
+                 <td><c:out value= "${ notice.notDate }"/></td>
+                 <td><c:out value= "${ notice.adminId }"/></td>
+                 </tr>
+               </c:forEach>
+            	</table>
+                    
+                    
+                    <!-- 하단 페이지 -->
                    <div class="news_pagination">
                         <ul class="pager">
                         <li class="control">
@@ -118,7 +114,7 @@
                     </div>
                     
                 </div>
-                <!-- 공지사항 end -->
+                <!-- 문의사항 end -->
 </div>
            
 
@@ -126,7 +122,7 @@
             
             
 
-<footer class="bg-dark py-4 mt-auto">
+<footer id="footer">
 <jsp:include page="../index_nav/index_in_foot.jsp"></jsp:include>
 </footer>
 

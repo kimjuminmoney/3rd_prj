@@ -77,7 +77,7 @@ var eFrequencyPlannerYn = 'Y';
 
 <div class="sub_tit_wrap">
     <div class="sub_tit_inner">
-        <h2>공지사항</h2>
+        <h2 class="heading_sjt">공지사항</h2>
     </div>
 </div>
 
@@ -165,7 +165,7 @@ var eFrequencyPlannerYn = 'Y';
 </article>
 
 		<div class="btn_notice_wrap">
-		<p class="btn_notice_list"><a href="notice_list.do">목록</a></p>
+		<p class="btn_notice_list"><a href="notice.do">목록</a></p>
 		</div>
 		
 </section>

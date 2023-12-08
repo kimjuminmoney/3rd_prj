@@ -41,7 +41,7 @@
   
   <!-- 다영 -->
 	<!-- <mapper resource="kr/co/daitdayoung/index/mapper/CoursesMapper.xml"/> -->
-	<!-- <mapper resource="kr/co/daitdayoung/index/mapper/InquiryMapper.xml"/> -->
+	<mapper resource="kr/co/daitdayoung/index/mapper/InquiryMapper.xml"/>
 	<mapper resource="kr/co/daitdayoung/index/mapper/NoticeMapper.xml"/>
   <!-- /다영 -->
   

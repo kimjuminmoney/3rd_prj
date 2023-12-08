@@ -11,7 +11,7 @@ import lombok.ToString;
 @ToString
 public class InquiryVO {
 
-	private String inqCode, itCode, uiId, insId, inqTitle, inqContent, adminId, inqAnswer;
+	private String inqCode, itCode, uiId, insId, inqTitle, inqContent, adminId, inqAnswer, uiName;
 	private Date inqDate, inqAnswerdate;
 	
 }

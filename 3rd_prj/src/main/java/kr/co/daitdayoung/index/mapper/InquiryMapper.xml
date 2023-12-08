@@ -5,13 +5,44 @@
 <mapper namespace="kr.co.daitdayoung.index">
 
 	<!-- 문의글이 적힌 게시판의 모든 내용 조회 -->
-	<select id="" resultType="" parameterType="String">
+	<select id="allInquiry" resultType="kr.co.daitdayoung.index.domain.InquiryDomain" parameterType="kr.co.daitdayoung.index.vo.LoginVO">
+	select 	it.it_name, iq.inq_code, iq.inq_title, to_char(iq.inq_date, 'yyyy-mm-dd') as inq_date,
+	    	iq.ui_id, iq.ins_id, row_number() over (order by it.it_code desc) as inquiry_index,
+	    	
+	<if test="uiId neq null"> 
+	ui.ui_name
+	</if>
+	<if test="insId neq null"> 
+	ins.ins_name 
+	</if>
+	from 	inquiry iq,inquiry_type it,
+	<if test="uiId neq null"> 
+	user_info ui
+	</if>
+	<if test="insId neq null"> 
+	instructor ins 
+	</if>
 	
-	select 		IT_CODE, TO_CHAR(INQ_DATE, 'YYYY-MM-DD') AS INQ_DATE, UI_ID, INS_ID, 
-				INQ_TITLE, INQ_CONTENT,INQ_ANSWER, INQ_ANSWERDATE
-	from	 	INQUIRY
-	order by 	IT_CODE ASC;
-	
+	<where>
+	iq.it_code = it.it_code 
+	<if test="uiId neq null">
+	and iq.ui_id = ui.ui_id and ui.ui_id = #{uiId}
+	</if>
+	<if test="insId neq null">
+	and iq.ins_id = ins.ins_id and ins.ins_id = #{insId}
+	</if>
+	</where>
 	</select>
+	
+	
+	<!-- 특정 문의글 하나의 내용 조회 -->
+	<select id="selectInquiry" resultType="kr.co.daitdayoung.index.domain.InquiryDomain" parameterType="String">
+	select 	inq_code, it.it_code, to_char(inq_date, 'yyyy-mm-dd') as inq_date, ui_id, ins_id, 
+			inq_title, inq_content,
+			it_name,  to_char(inq_answerdate, 'yyyy-mm-dd') as  inq_answerdate, inq_answer
+	from 	inquiry iq, inquiry_type it
+	where	iq.it_code = it.it_code and iq.inq_code = ${inqCode}
+	</select>
+	
 	
 </mapper>

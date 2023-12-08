@@ -27,8 +27,9 @@ public class NoticeDAO {
 		
 		return ndList;
 		
-		
 	} //searchNotice
+	
+	
 	public List<NoticeDomain> searchNotice (String notCode) {
 		
 		mbh = MyBatisHandler.getInstance();
@@ -40,11 +41,11 @@ public class NoticeDAO {
 		
 		return ndList;
 		
-		
 	} //searchNotice
+	
 	
 	public static void main (String[] agrs) {
 		System.out.println(new NoticeDAO().selectNoticeList());
-	}
+	} //main
 	
 } //class
