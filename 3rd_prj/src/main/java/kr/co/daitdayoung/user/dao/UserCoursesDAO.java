@@ -12,6 +12,7 @@ import kr.co.daitdayoung.dao.MyBatisHandler;
 import kr.co.daitdayoung.user.domain.UserCoursesDomain;
 import kr.co.daitdayoung.user.domain.UserCoursesLectureDomain;
 import kr.co.daitdayoung.user.domain.UserCoursesNoticeDomain;
+import kr.co.daitdayoung.user.vo.UserCoursesVO;
 
 @Component
 public class UserCoursesDAO {
@@ -38,17 +39,18 @@ public class UserCoursesDAO {
 		return list;
 	}//selectCourseNotice
 	
-	public List<UserCoursesLectureDomain> selectCourseLectureList(String couCode) throws PersistenceException{
+	public List<UserCoursesLectureDomain> selectCourseLectureList(UserCoursesVO cuVO) throws PersistenceException{
 		
 		mbh = MyBatisHandler.getInstance();
 		SqlSession ss = mbh.getMyBatisHandler(false);
-		List<UserCoursesLectureDomain> list = ss.selectList("kr.co.daitdayoung.user.courses.coursesLecture",couCode);
+		List<UserCoursesLectureDomain> list = ss.selectList("kr.co.daitdayoung.user.courses.coursesLecture",cuVO);
 		return list;
 	}//selectCourseNotice
 	
 	
 	public static void main(String[] args) {
-		System.out.println(new UserCoursesDAO().selectCourseLectureList("COU_999999"));
+		//UserCoursesVO cuVO = new UserCoursesVO("COU_999999","ui_test");
+		//System.out.println(new UserCoursesDAO().selectCourseLectureList(cuVO));
 		//System.out.println(new UserCoursesDAO().selectCourseNoticeList("COU_999999"));
 		//System.out.println(new UserCoursesDAO().selectCourseInfo("COU_999999"));
 	}

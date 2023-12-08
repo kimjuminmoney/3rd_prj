@@ -16,17 +16,17 @@
 	</select>
 	
 	<select id="coursesNotice" resultType="kr.co.daitdayoung.user.domain.UserCoursesNoticeDomain" parameterType="String">
-	select  CN_CODE, i.INS_ID, CN_TITLE, CN_DATE, CN_CONTENT, INS_NAME
+	select  CN_CODE, i.INS_ID, CN_TITLE, CN_DATE, CN_CONTENT, INS_NAME,ROW_NUMBER() OVER (ORDER BY CN_DATE) ind
 	from	COURSES_NOTICE cn, INSTRUCTOR i
 	where   cou_code = #{couCode} and i.ins_id = cn.ins_id
+	order by ind desc
 	</select>
 	
-	<select id="coursesLecture" resultType="kr.co.daitdayoung.user.domain.UserCoursesLectureDomain" parameterType="String">
-	select  LEC_CODE, LEC_NAME, LEC_CONTENT, VIDEO_NAME
-	from 	LECTURES
-	where 	cou_code = #{couCode}
+	<select id="coursesLecture" resultType="kr.co.daitdayoung.user.domain.UserCoursesLectureDomain" parameterType="kr.co.daitdayoung.user.vo.UserCoursesVO">
+	select  lec.LEC_CODE, LEC_NAME, LEC_CONTENT, VIDEO_NAME, COURSE_STATUS
+	from 	LECTURES lec, COURSE_RECORD cr
+	where 	lec.cou_code = #{couCode} and lec.lec_code = cr.lec_code and cr.ui_id = #{uiId}
 	</select>
-	
 	
 	
 	

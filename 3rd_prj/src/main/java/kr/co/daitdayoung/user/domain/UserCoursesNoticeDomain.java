@@ -13,6 +13,7 @@ public class UserCoursesNoticeDomain {
 	
 	private String cnCode, insId, cnTitle,  cnContent, insName;
 	private Date cnDate;
+	private int ind;
 	
 	
 

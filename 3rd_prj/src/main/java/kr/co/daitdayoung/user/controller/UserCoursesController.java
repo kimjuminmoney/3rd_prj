@@ -13,6 +13,7 @@ import kr.co.daitdayoung.user.domain.UserCoursesDomain;
 import kr.co.daitdayoung.user.domain.UserCoursesLectureDomain;
 import kr.co.daitdayoung.user.domain.UserCoursesNoticeDomain;
 import kr.co.daitdayoung.user.service.UserCoursesService;
+import kr.co.daitdayoung.user.vo.UserCoursesVO;
 
 @Controller
 public class UserCoursesController {
@@ -23,11 +24,13 @@ public class UserCoursesController {
 	@GetMapping("/user/courses.do")
 	public String userCourses(String couCode, HttpSession session, Model model) {
 		couCode = "COU_999999";
+		String uiId = (String)session.getAttribute("uiId");
+		uiId = "ui_test";
 		UserCoursesDomain ucd = ucs.searchCoursesInfo(couCode);
-		
+		UserCoursesVO cuVO = new UserCoursesVO(couCode, uiId);
 		List<UserCoursesNoticeDomain> noticeList = ucs.searchCoursesNoticeList(couCode);		
-		List<UserCoursesLectureDomain> lectureList = ucs.searchCoursesLectureList(couCode);		
-		
+		List<UserCoursesLectureDomain> lectureList = ucs.searchCoursesLectureList(cuVO);		
+
 		model.addAttribute("ucDomain", ucd);
 		model.addAttribute("noticeList", noticeList);
 		model.addAttribute("lectureList", lectureList);

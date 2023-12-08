@@ -623,9 +623,9 @@
   margin: 0 5px;
 }
 
-.que.on>span{
+.que.on {
   font-weight: bold;
-  color: #006633; 
+  color: #00AB50; 
 }
   
 .anw {
@@ -664,6 +664,44 @@
   display: block; 
 }
 </style>
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+#customers th:nth-child(1) {
+  width: 80px;
+}
+
+#customers th:nth-child(2) {
+  width: 400px;
+}
+
+#customers th:nth-child(3),
+#customers th:nth-child(4) {
+  width: 120px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #00ab50;
+  color: white;
+}
+</style>
+
 <!-- 공지사항 아코디언 창 -->
 <script type="text/javascript">
 $(document).ready(function() {
@@ -710,8 +748,8 @@ $(".que").click(function() {
 	<!--page_header-->
 	<header class="page_header">
 		<div class="group_lr mab10">
-			<div class="group_r">
-				<!-- 역순정렬기능 -->
+			<!-- <div class="group_r">
+				역순정렬기능
 				<div class="reverse_wrap">
 					<label class="ick">
 						<span class="checkbox ">
@@ -725,7 +763,7 @@ $(".que").click(function() {
 					<span class="input_area"><input type="text" name="searchText" data-global-placeholder=".ph"><input type="hidden" name="bbsId" value="32824"></span>
 					<span class="added"><button type="submit" class="btn"><span class="sr_only">검색</span></button></span>
 				</form>
-			</div>
+			</div> -->
 			<div class="group_l">
 				<h1 class="page_title">
 					강의
@@ -738,475 +776,80 @@ $(".que").click(function() {
 
 	<div class="class_manager type2">
 		<!--chapter_list-->
-						<div class="chapter">
-							<div class="le_txt"><strong>강좌소개</strong></div>
-							<div class="le_txt"><strong>샘플 비디오 자리</strong></div>
-							
-							
-						</div>
-						<!-- 공지사항 아코디언 -->
-						<div id="Accordion_wrap">
-						     <div class="que">
-						      <span>공지사항</span>
-						       <!-- <div class="arrow-wrap">
-						         <span class="arrow-top">↑</span>
-						        <span class="arrow-bottom">↓</span>
-						       </div> -->
-						      
-						     </div>
-						     <div class="anw">
-						      <ul class="forum_list_new bdnone">
-					                <li class="notice">
-					                    <a href="/onlineclass-tutorial/notice/4106" class="wrap_link">
-					                        <div class="forum_summary">
-					                            <strong class="title">5월 개선 예정 사항을 알려드립니다</strong>
-					                            <div class="user_info">
-					                                    <div class="thumb bgnone">
-					                                    <img src="https://cphinf.pstatic.net/mooc/20190311_200/1552269021926taXXr_PNG/edwith%28%29.png?type=ff48_48" width="24" height="24" alt="">
-					                                    </div>
-					                                <span class="username">edwith</span>
-					                                
-					                                    <span class="ic_ad vamiddle">관리자</span>
-					                                
-					                                <time class="time" datetime="2020.05.15">2020.05.15</time>
-					                            </div>
-					                        </div>
-					                    </a>
-					                </li>
-					    		</ul>
-						      
-						     </div>
-						      <!-- <div class="que">
-						      <span>This is second question.</span>
-						     </div> -->
-						     
-						     <!-- <div class="anw">
-						      <span>This is second answer.</span>
-						     </div>
-						      <div class="que">
-						      <span>This is third question.</span>
-						     </div>
-						     <div class="anw">
-						      <span>This is third answer.</span>
-						     </div> -->
-						</div>
-		<ul>
+		<div class="chapter">
+			<div class="le_txt"><strong><c:out value="${ ucDomain.content }"/></strong></div>
+			<div class="le_txt"><strong><c:out value="${ ucDomain.sampleVideo }"/></strong></div>
+		</div>
+			<!-- 공지사항 아코디언 -->
+			<div id="Accordion_wrap">
+			     <div class="que" style="text-align: center; font-size: 20px">
+			      공지사항
+			      <div class="arrow-wrap">
+			         <span class="arrow-top">↑</span>
+			        <span class="arrow-bottom">↓</span>
+			       </div>
+			      
+			     </div>
+				<div class="anw">
+				<table id="customers" class="forum_list_new bdnone table">
+				<thead>
+				<tr>
+					<th>번호</th><th>제목</th><th>글쓴이</th><th>날짜</th>
+				</tr>
+				</thead>
+				<tbody>
+				<c:if test="${ empty noticeList }">
+				<tr>
+					<th colspan="4"> 등록된 공지사항이 없습니다.</th>
+				</tr>
+				</c:if>
+				<c:forEach var="notice" items="${ noticeList }">
+				<tr class="notice">
+					<td><c:out value="${ notice.ind }"/></td>
+					<td>
+						<a href="/onlineclass-tutorial/notice/${notice.cnCode}" class="wrap_link">
+							<strong class="title">${notice.cnTitle}</strong>
+						</a>
+					</td>
+					<td>
+					<div class="user_info">
+						<span class="username">${notice.insName}</span>
+					</div>
+					</td>
+					<td>
+					<time class="time" datetime="${notice.cnDate}">${notice.cnDate}</time>
+					</td>
+				</tr>
+				</c:forEach>
+				</tbody>
+				</table>
+				</div>
+			</div>
+			<ul>
 					<!-- [D] 진행중 class : on -->
 					<li>
-						<!-- <ul class="sub">
-									<li>
-										<a href="/onlineclass-tutorial/lecture/65388">
-											<span class="ico_lecture"></span>
-											<div class="le_txt">
-												<strong>에드위드 온라인클래스 매뉴얼로 차근차근 개설해보세요!</strong>
-											</div>
-											<dl class="info">
-												<dt><span class="sr_only">작성자</span></dt>
-												<dt>업데이트 :&nbsp;</dt>
-												<dd>2023.05.28</dd>
-												
-													<dt class="like"><span class="ico_like"></span><em class="blind">좋아요</em></dt>
-													<dd>14</dd>
-											</dl>
-										</a>
-									</li>
-						</ul> -->
-					</li>
-				
-			
-				
-					<!-- [D] 진행중 class : on -->
-					<li>
-						<!-- <div class="chapter">
-							<div class="le_txt"><strong>목차명</strong></div>
-							
-								<div class="time"><span class="blind">강의시간</span>06:04</div>
-							
-						</div> -->
 						<ul class="sub">
-									<li>
-										<a href="/onlineclass-tutorial/lecture/65372">
-										
-											<span class="ico_lecture"></span>
-										
-											<div class="le_txt">
-												<strong>목차명</strong>
-												
+					<c:forEach var="lecture" items="${lectureList }">
+									<li >
+										<a href="/onlineclass-tutorial/lecture/65388" style="display: flex;">
+											<div style="flex: 1">
+												<c:if test="${ lecture.courseStatus eq 'Y' }">
+												<img src="http://localhost/daitdayoung/common/img/check.png" width="30px"/>
+												</c:if>
+												<c:if test="${ lecture.courseStatus eq 'N' }">
+												<img src="http://localhost/daitdayoung/common/img/uncheck.png" width="30px"/>
+												</c:if>
 											</div>
-											<dl class="info">
-												
-												<!-- <dt><span class="sr_only">작성자</span></dt> -->
-												<!-- <dt>업데이트 :&nbsp;</dt>
-												<dd>2022.05.10</dd>
-												
-													<dt class="like"><span class="ico_like"></span><em class="blind">좋아요</em></dt>
-													<dd>10</dd> -->
-												
-												
-													<dt><span class="sr_only">동영상</span></dt>
-													<dd><div class="time"><span class="blind">강의시간</span>02:06</div></dd>
-												
-											</dl>
-                                            
+											<!-- <span class="ico_lecture" style="flex: 1"></span> -->
+											<div class="le_txt" style="flex: 1">
+												<strong><c:out value="${ lecture.lecName }"/></strong>
+											</div>
+											<div class="time" style="float: right"><span class="blind">강의시간</span>06:04</div>
 										</a>
 									</li>
-								
-									<!-- <li>
-										<a href="/onlineclass-tutorial/lecture/65371">
-										
-											<span class="ico_lecture"></span>
-										
-											<div class="le_txt">
-												<strong>동영상 시청 완료 기준을 설정해서 학생들의 출석을 체크하세요!</strong>
-												
-											</div>
-											<dl class="info">
-												
-												<dt><span class="sr_only">작성자</span></dt>
-												<dt>업데이트 :&nbsp;</dt>
-												<dd>2022.05.10</dd>
-												
-													<dt class="like"><span class="ico_like"></span><em class="blind">좋아요</em></dt>
-													<dd>5</dd>
-												
-												
-											</dl>
-                                            
-										</a>
-									</li>
-								
-									<li>
-										<a href="/onlineclass-tutorial/lecture/65373">
-										
-											<span class="ico_lecture"></span>
-										
-											<div class="le_txt">
-												<strong>간편한 콘텐츠 업로드,유튜브 영상도 OK! 클릭한번으로 나의 다른 강좌 복사도 가능!</strong>
-												
-											</div>
-											<dl class="info">
-												
-												<dt><span class="sr_only">작성자</span></dt>
-												<dt>업데이트 :&nbsp;</dt>
-												<dd>2022.05.10</dd>
-												
-													<dt class="like"><span class="ico_like"></span><em class="blind">좋아요</em></dt>
-													<dd>4</dd>
-												
-												
-													<dt><span class="sr_only">동영상</span></dt>
-													<dd><div class="time"><span class="blind">강의시간</span>03:58</div></dd>
-												
-											</dl>
-                                            
-										</a>
-									</li>
-								
-									<li>
-										<a href="/onlineclass-tutorial/lecture/65394">
-										
-											<span class="ico_lecture"></span>
-										
-											<div class="le_txt">
-												<strong>우리 학생들끼리 참여하는 실시간 라이브 수업!</strong>
-												
-											</div>
-											<dl class="info">
-												
-												<dt><span class="sr_only">작성자</span></dt>
-												<dt>업데이트 :&nbsp;</dt>
-												<dd>2022.05.10</dd>
-												
-													<dt class="like"><span class="ico_like"></span><em class="blind">좋아요</em></dt>
-													<dd>2</dd>
-												
-												
-											</dl>
-                                            
-										</a>
-									</li> -->
-								
-							
-							
+					</c:forEach>
 						</ul>
 					</li>
-				
-			
-				
-					<!-- [D] 진행중 class : on -->
-					<!-- <li>
-						<div class="chapter">
-							<div class="le_txt"><strong>수강생들의 학습현황(진도율, 퀴즈, 과제) 한눈에 파악하기!</strong></div>
-							
-								<div class="time"><span class="blind">강의시간</span>08:13</div>
-							
-						</div>
-						<ul class="sub">
-							
-								
-									<li>
-										<a href="/onlineclass-tutorial/lecture/84231">
-										
-											<span class="ico_lecture"></span>
-										
-											<div class="le_txt">
-												<strong>학생들의 댓글 및 댓글 작성 시점(시간,분)을 엑셀로 한번에 다운로드받기!</strong>
-												
-											</div>
-											<dl class="info">
-												
-												<dt><span class="sr_only">작성자</span></dt>
-												<dt>업데이트 :&nbsp;</dt>
-												<dd>2022.05.10</dd>
-												
-													<dt class="like"><span class="ico_like"></span><em class="blind">좋아요</em></dt>
-													<dd>6</dd>
-												
-												
-											</dl>
-                                            
-										</a>
-									</li>
-								
-									<li>
-										<a href="/onlineclass-tutorial/lecture/65375">
-										
-											<span class="ico_lecture"></span>
-										
-											<div class="le_txt">
-												<strong>교육부"원격수업 출결 가이드라인" 최적화된 과제관리 피드백 기능!</strong>
-												
-											</div>
-											<dl class="info">
-												
-												<dt><span class="sr_only">작성자</span></dt>
-												<dt>업데이트 :&nbsp;</dt>
-												<dd>2023.03.10</dd>
-												
-													<dt class="like"><span class="ico_like"></span><em class="blind">좋아요</em></dt>
-													<dd>4</dd>
-												
-												
-													<dt><span class="sr_only">동영상</span></dt>
-													<dd><div class="time"><span class="blind">강의시간</span>02:07</div></dd>
-												
-											</dl>
-                                            
-										</a>
-									</li>
-								
-									<li>
-										<a href="/onlineclass-tutorial/lecture/65383">
-										
-											<span class="ico_lecture"></span>
-										
-											<div class="le_txt">
-												<strong>주관식, 객관식, 서술형 퀴즈 추가하고 평가하기!</strong>
-												
-											</div>
-											<dl class="info">
-												
-												<dt><span class="sr_only">작성자</span></dt>
-												<dt>업데이트 :&nbsp;</dt>
-												<dd>2023.03.10</dd>
-												
-													<dt class="like"><span class="ico_like"></span><em class="blind">좋아요</em></dt>
-													<dd>8</dd>
-												
-												
-													<dt><span class="sr_only">동영상</span></dt>
-													<dd><div class="time"><span class="blind">강의시간</span>04:01</div></dd>
-												
-											</dl>
-                                            
-										</a>
-									</li>
-								
-									<li>
-										<a href="/onlineclass-tutorial/lecture/65374">
-										
-											<span class="ico_lecture"></span>
-										
-											<div class="le_txt">
-												<strong>내 강좌를 수료한 수강생에게 수료증을 발급하세요!</strong>
-												
-											</div>
-											<dl class="info">
-												
-												<dt><span class="sr_only">작성자</span></dt>
-												<dt>업데이트 :&nbsp;</dt>
-												<dd>2023.03.10</dd>
-												
-													<dt class="like"><span class="ico_like"></span><em class="blind">좋아요</em></dt>
-													<dd>4</dd>
-												
-												
-											</dl>
-                                            
-										</a>
-									</li>
-								
-									<li>
-										<a href="/onlineclass-tutorial/lecture/65384">
-										
-											<span class="ico_lecture"></span>
-										
-											<div class="le_txt">
-												<strong>학생들의 진도율, 과제, 퀴즈를 엑셀파일로 다운로드받기!</strong>
-												
-											</div>
-											<dl class="info">
-												
-												<dt><span class="sr_only">작성자</span></dt>
-												<dt>업데이트 :&nbsp;</dt>
-												<dd>2023.03.10</dd>
-												
-													<dt class="like"><span class="ico_like"></span><em class="blind">좋아요</em></dt>
-													<dd>5</dd>
-												
-												
-													<dt><span class="sr_only">동영상</span></dt>
-													<dd><div class="time"><span class="blind">강의시간</span>02:05</div></dd>
-												
-											</dl>
-                                            
-										</a>
-									</li>
-								
-							
-							
-						</ul>
-					</li> -->
-				
-			
-				
-					<!-- [D] 진행중 class : on -->
-					<!-- <li>
-						<div class="chapter">
-							<div class="le_txt"><strong>참고 자료</strong></div>
-							
-						</div>
-						<ul class="sub">
-							
-								
-									<li>
-										<a href="/onlineclass-tutorial/lecture/65376">
-										
-											<span class="ico_lecture"></span>
-										
-											<div class="le_txt">
-												<strong>화면녹화프로그램으로 PPT에 판서하고 녹음하기!</strong>
-												
-											</div>
-											<dl class="info">
-												
-												<dt><span class="sr_only">작성자</span></dt>
-												<dt>업데이트 :&nbsp;</dt>
-												<dd>2023.03.10</dd>
-												
-													<dt class="like"><span class="ico_like"></span><em class="blind">좋아요</em></dt>
-													<dd>6</dd>
-												
-												
-											</dl>
-                                            
-										</a>
-									</li>
-								
-									<li>
-										<a href="/onlineclass-tutorial/lecture/65378">
-										
-											<span class="ico_lecture"></span>
-										
-											<div class="le_txt">
-												<strong>강좌 대표이미지는 여기서 찾으세요! 저작권 무료인 이미지 사이트</strong>
-												
-											</div>
-											<dl class="info">
-												
-												<dt><span class="sr_only">작성자</span></dt>
-												<dt>업데이트 :&nbsp;</dt>
-												<dd>2023.03.10</dd>
-												
-													<dt class="like"><span class="ico_like"></span><em class="blind">좋아요</em></dt>
-													<dd>10</dd>
-												
-												
-											</dl>
-                                            
-										</a>
-									</li>
-								
-									<li>
-										<a href="/onlineclass-tutorial/lecture/65379">
-										
-											<span class="ico_lecture"></span>
-										
-											<div class="le_txt">
-												<strong>자막 제작하는 꿀팁 공유드립니다! srt 자막 제작 방법</strong>
-												
-											</div>
-											<dl class="info">
-												
-												<dt><span class="sr_only">작성자</span></dt>
-												<dt>업데이트 :&nbsp;</dt>
-												<dd>2023.03.10</dd>
-												
-													<dt class="like"><span class="ico_like"></span><em class="blind">좋아요</em></dt>
-													<dd>6</dd>
-												
-												
-											</dl>
-                                            
-										</a>
-									</li>
-								
-							
-							
-						</ul>
-					</li>
-				 -->
-			
-				
-					<!-- [D] 진행중 class : on -->
-					<!-- <li>
-						<div class="chapter">
-							<div class="le_txt"><strong>edwith에서 강좌를 처음 개설하시는 분들을 위한 가이드</strong></div>
-							
-						</div>
-						<ul class="sub">
-							
-								
-									<li>
-										<a href="/onlineclass-tutorial/lecture/72848">
-										
-											<span class="ico_lecture"></span>
-										
-											<div class="le_txt">
-												<strong>에드위드 임시점검 안내</strong>
-												
-											</div>
-											<dl class="info">
-												
-												<dt><span class="sr_only">작성자</span></dt>
-												<dt>업데이트 :&nbsp;</dt>
-												<dd>2023.06.30</dd>
-												
-													<dt class="like"><span class="ico_like"></span><em class="blind">좋아요</em></dt>
-													<dd>8</dd>
-												
-												
-											</dl>
-                                            
-										</a>
-									</li>
-								
-							
-							
-						</ul>
-					</li> -->
-				
-			
 		</ul>
 		
 		<!--project_list-->

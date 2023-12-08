@@ -9,8 +9,7 @@ import lombok.ToString;
 @ToString
 public class UserCoursesLectureDomain {
 	
-	private String lecCode, lecName, lecContent, videoName;
+	private String lecCode, lecName, lecContent, videoName,courseStatus;
 	
 	
-
 }

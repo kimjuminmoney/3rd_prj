@@ -9,6 +9,7 @@ import kr.co.daitdayoung.user.dao.UserCoursesDAO;
 import kr.co.daitdayoung.user.domain.UserCoursesDomain;
 import kr.co.daitdayoung.user.domain.UserCoursesLectureDomain;
 import kr.co.daitdayoung.user.domain.UserCoursesNoticeDomain;
+import kr.co.daitdayoung.user.vo.UserCoursesVO;
 
 @Service
 public class UserCoursesService {
@@ -29,8 +30,8 @@ public class UserCoursesService {
 		return list;
 	}//searchCoursesNotice
 	
-	public List<UserCoursesLectureDomain> searchCoursesLectureList(String couCode){
-		List<UserCoursesLectureDomain> list = ucDAO.selectCourseLectureList(couCode);
+	public List<UserCoursesLectureDomain> searchCoursesLectureList(UserCoursesVO cuVO){
+		List<UserCoursesLectureDomain> list = ucDAO.selectCourseLectureList(cuVO);
 		return list;
 	}//searchCoursesNotice
 
