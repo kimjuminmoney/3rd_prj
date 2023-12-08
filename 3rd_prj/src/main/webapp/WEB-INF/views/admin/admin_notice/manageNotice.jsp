@@ -14,11 +14,9 @@
 	.table th:nth-child(1) {
 		width: 50px; /* 첫 번째 열의 너비 설정 */
 	}
-	
 	.table th:nth-child(2) {
 		width: 50px; /* 첫 번째 열의 너비 설정 */
 	}
-	
 	.table th:nth-child(3) {
 		width: 1000px; /* 첫 번째 열의 너비 설정 */
 	}
@@ -30,13 +28,31 @@
 	}
 </style>
 <script type="text/javascript">
-$(function(){
-   
-	$("#addNoticeBtn").click(function(){
-		location.href="addNotice.do";
-	});//click
+	$(function(){
+	   
+		$("#addNoticeBtn").click(function(){
+			location.href="addNotice.do";
+		});//click
+		
+		$('.my-datatable').DataTable();
+		
+	});//ready
 	
-});//ready
+	function showNotTable() {
+	    var notTable = document.getElementById("notTable");
+	    var cnTable = document.getElementById("cnTable");
+	    
+	    notTable.style.display = "block";
+	    cnTable.style.display = "none";
+	}//showNotTable
+	
+	function showCnTable() {
+	    var notTable = document.getElementById("notTable");
+	    var cnTable = document.getElementById("cnTable");
+	    
+	    notTable.style.display = "none";
+	    cnTable.style.display = "block";
+	}//showCnTable
 </script>
 
 </head>
@@ -65,18 +81,18 @@ $(function(){
                     <h1 class="h3 mb-2 text-gray-800">공지사항</h1>
                     <hr style="background-color:#1CC88A; border-width: 2px; margin-bottom: 100px">
 
-                    <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
+                    <!-- 일반공지 테이블 -->
+                    <div class="card shadow mb-4" id="notTable" style="display: block;">
                         <div class="card-header py-3">
 							<div class="btn-group" role="group" aria-label="Basic outlined example">
-							  <button type="button" class="btn btn-outline-primary">일반</button>
-							  <button type="button" class="btn btn-outline-primary">강좌</button>
+							  <button type="button" class="btn btn-outline-primary" onclick="showNotTable()">일반</button>
+							  <button type="button" class="btn btn-outline-primary" onclick="showCnTable()">강좌</button>
 							</div>
 							<button type="button" id="addNoticeBtn" class="btn btn-outline-primary" style="margin-left: 1350px;">공지사항 쓰기</button>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="my-datatable display table table-bordered" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>번호</th>
@@ -88,13 +104,54 @@ $(function(){
                                     </thead>
 
                                     <tbody>
+                                    	<c:forEach var="notice" items="${ requestScope.noticeList }">
                                         <tr>
-                                            <td>1</td>
-                                            <td>Edinburgh</td>
-                                            <td><a href="detailNotice.do">System Architect</a></td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
+                                            <td><c:out value="${ notice.notCode }"/></td>
+                                            <td>일반</td>
+                                            <td><a href="detailNotice.do"><c:out value="${ notice.notTitle }"/></a></td>
+                                            <td><c:out value="${ notice.adminName }"/></td>
+                                            <td><c:out value="${ notice.notDate }"/></td>
                                         </tr>
+                                    	</c:forEach>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 강좌공지 테이블 -->
+                    <div class="card shadow mb-4" id="cnTable" style="display: none;">
+                        <div class="card-header py-3">
+							<div class="btn-group" role="group" aria-label="Basic outlined example">
+							  <button type="button" class="btn btn-outline-primary" onclick="showNotTable()">일반</button>
+							  <button type="button" class="btn btn-outline-primary" onclick="showCnTable()">강좌</button>
+							</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="my-datatable display table table-bordered" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>번호</th>
+                                            <th>분류</th>
+                                            <th>제목</th>
+                                            <th style="width:400px">강좌명</th>
+                                            <th>작성자</th>
+                                            <th style="width:100px">작성일</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    	<c:forEach var="couNotice" items="${ requestScope.cnList }">
+                                        <tr>
+                                            <td><c:out value="${ couNotice.cnCode }"/></td>
+                                            <td>강좌</td>
+                                            <td><a href="detailCouNotice.do"><c:out value="${ couNotice.cnTitle }"/></a></td>
+                                            <td><c:out value="${ couNotice.couName }"/></td>
+                                            <td><c:out value="${ couNotice.insName }"/></td>
+                                            <td><c:out value="${ couNotice.cnDate }"/></td>
+                                        </tr>
+                                    	</c:forEach>
                                     </tbody>
                                 </table>
                             </div>

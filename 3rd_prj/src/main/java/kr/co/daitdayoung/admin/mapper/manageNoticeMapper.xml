@@ -4,15 +4,16 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.daitdayoung.admin.mn">
 
-<select id="selectInqType" resultType="kr.co.daitdayoung.admin.domain.ManageNoticeDomain">
-select it_code, it_name
-from inquiry_type
-</select>
-
 <select id="selectNotice" resultType="kr.co.daitdayoung.admin.domain.ManageNoticeDomain">
 	select n.not_code, n.not_title, n.admin_id, a.admin_name, n.not_date
 	from notice n, admin a
 	where n.admin_id=a.admin_id
+</select>
+
+<select id="selectCouNotice" resultType="kr.co.daitdayoung.admin.domain.ManageNoticeDomain">
+	select cn.cn_code, cn.cn_title, cn.cn_date, c.cou_name, i.ins_name
+	from courses c, courses_notice cn, instructor i
+	where cn.cou_code=c.cou_code and cn.ins_id=i.ins_id
 </select>
 
 </mapper>

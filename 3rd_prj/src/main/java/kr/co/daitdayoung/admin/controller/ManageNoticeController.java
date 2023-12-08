@@ -20,8 +20,10 @@ public class ManageNoticeController {
 	public String manageNotice(Model model) {
 		
 		List<ManageNoticeDomain> noticeList = mns.searchNotice();
+		List<ManageNoticeDomain> cnList = mns.searchCouNotice();
 		
 		model.addAttribute("noticeList", noticeList);
+		model.addAttribute("cnList", cnList);
 		
 		return "admin/admin_notice/manageNotice";
 	}

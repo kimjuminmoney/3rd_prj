@@ -25,5 +25,19 @@ public class ManageNoticeDAO {
 		
 		return list;
 	}
+
+	public List<ManageNoticeDomain> selectCouNotice() throws PersistenceException{
+		List<ManageNoticeDomain> list = null;
+		
+		MyBatisHandler mbh = MyBatisHandler.getInstance();
+		
+		SqlSession ss = mbh.getMyBatisHandler(false);
+		
+		list = ss.selectList("kr.co.daitdayoung.admin.mn.selectCouNotice");
+		
+		mbh.closeHandler(ss);
+		
+		return list;
+	}
 	
 }

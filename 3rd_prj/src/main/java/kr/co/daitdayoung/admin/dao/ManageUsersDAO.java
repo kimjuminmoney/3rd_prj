@@ -40,4 +40,9 @@ public class ManageUsersDAO {
 		return list;
 	}//selectStudents
 	
+	public static void main(String[] args) {
+		System.out.println(new ManageUsersDAO().selectStudents());
+		
+	}
+	
 }

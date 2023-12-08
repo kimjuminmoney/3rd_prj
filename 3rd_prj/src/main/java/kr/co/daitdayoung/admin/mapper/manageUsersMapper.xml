@@ -6,13 +6,13 @@
 
 <select id="selectStudents" resultType="kr.co.daitdayoung.admin.domain.ManageUsersDomain">
 	select ui_id, ui_name, ui_joindate, ui_quit,
-					(   select count(*)
+					( select count(*)
 						from course_registration
-						where ui_id='ui_test' and completion_status='y' ) cou_y,
-					(   select count(*)
+						where ui_id=u.ui_id and completion_status='Y' ) cou_y,
+					( select count(*)
 						from course_registration
-						where ui_id='ui_test' and completion_status='n' ) cou_n
-	from user_info
+						where ui_id=u.ui_id and completion_status='N' ) cou_n
+	from user_info u
 </select>
 
 <select id="selectInstructors" resultType="kr.co.daitdayoung.admin.domain.ManageUsersDomain">

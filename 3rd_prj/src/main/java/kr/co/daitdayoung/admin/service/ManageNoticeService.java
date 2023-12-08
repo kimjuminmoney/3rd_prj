@@ -22,5 +22,13 @@ public class ManageNoticeService {
 		
 		return list;
 	}//searchNotice
+
+	public List<ManageNoticeDomain> searchCouNotice() throws PersistenceException {
+		List<ManageNoticeDomain> list = null;
+		
+		list = mnd.selectCouNotice();
+		
+		return list;
+	}//searchNotice
 	
 }//class

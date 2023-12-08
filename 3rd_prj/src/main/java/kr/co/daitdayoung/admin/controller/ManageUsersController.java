@@ -36,10 +36,10 @@ public class ManageUsersController {
 	}
 
 	//강사 상세
-	@GetMapping("/admin/admin_users/detailInstrurtor.do")
+	@GetMapping("/admin/admin_users/detailInstructor.do")
 	public String detailInstrurtor() {
 		
-		return "admin/admin_users/detailInstrurtor";
+		return "admin/admin_users/detailInstructor";
 	}
 	
 }

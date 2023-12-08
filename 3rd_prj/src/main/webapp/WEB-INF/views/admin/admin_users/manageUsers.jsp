@@ -83,6 +83,14 @@
                     <h1 class="h3 mb-2 text-gray-800">회원관리</h1>
                     <hr style="background-color:#1CC88A; border-width: 2px; margin-bottom: 100px">
 
+<script>
+        $(document).ready(function() {
+            // Use the class selector to initialize DataTable
+            $('.my-datatable').DataTable();
+        });
+    </script>
+
+
                     <!-- 학생 테이블 -->
                     <div class="card shadow mb-4" id="stuTable" style="display: block;">
                         <div class="card-header py-3">
@@ -93,7 +101,7 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="my-datatable display table table-bordered"  width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>번호</th>
@@ -124,7 +132,7 @@
                         </div>
                     </div>
 
-                    <!-- 강사테이f -->
+                    <!-- 강사테이블 -->
                     <div class="card shadow mb-4"  id="insTable" style="display: none;">
                         <div class="card-header py-3">
 							<div class="btn-group" role="group" aria-label="Basic outlined example">
@@ -134,7 +142,7 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="my-datatable display table table-bordered"  width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>번호</th>
@@ -151,7 +159,7 @@
                                     	<c:forEach var="instructor" items="${ requestScope.instructorsList }" varStatus="i">
                                         <tr>
                                             <td><c:out value="${ i.count }"/></td>
-                                            <td><a href="detailStudent.do"><c:out value="${ instructor.insId }"/></a></td>
+                                            <td><a href="detailInstructor.do"><c:out value="${ instructor.insId }"/></a></td>
                                             <td><c:out value="${ instructor.insName }"/></td>
                                             <td><c:out value="${ instructor.insJoindate }"/></td>
                                             <td><c:out value="${ instructor.insTel }"/></td>

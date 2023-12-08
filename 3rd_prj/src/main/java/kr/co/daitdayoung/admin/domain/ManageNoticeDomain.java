@@ -11,7 +11,7 @@ import lombok.ToString;
 @ToString
 public class ManageNoticeDomain {
 
-	private String notCode, notTitle, adminId, adminName; 
-	private Date notDate;
+	private String notCode, notTitle, adminId, adminName, cnCode, cnTitle, couName, insName; 
+	private Date notDate, cnDate;
 	
 }
