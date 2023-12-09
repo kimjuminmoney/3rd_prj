@@ -9,7 +9,6 @@ import lombok.ToString;
 @Setter
 @ToString
 @NoArgsConstructor
-public class CategoryDomain {
+public class MainCategoryDomain {
 	private String mcCode,mcName;
-	private String scCode,scName;
 }

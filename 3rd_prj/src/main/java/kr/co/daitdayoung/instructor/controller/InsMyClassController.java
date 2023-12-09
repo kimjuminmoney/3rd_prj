@@ -19,6 +19,8 @@ public class InsMyClassController {
 	@Autowired
 	private MyClassService mcs;
 	
+	
+	
 	@RequestMapping("/insMyCourse.do")
 	public String myCourses(String tempId, Model model) {
 		
