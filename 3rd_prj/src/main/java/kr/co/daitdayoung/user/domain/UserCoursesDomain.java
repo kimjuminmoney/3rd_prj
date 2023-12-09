@@ -10,12 +10,9 @@ import lombok.ToString;
 @Setter
 @ToString
 public class UserCoursesDomain {
-	
-	private String insId,couName,content,bannerImg,sampleVideo,finalApprove,insName,insProfile ;
-	private Date opendate;
-	private int couPeriod,hits, cnt;
-	
-	
-	
+
+	private String insId, couName, content, bannerImg, sampleVideo, finalApprove, insName, insProfile, completionStatus;
+	private Date opendate, coursePeriod, registrationdate;
+	private int couPeriod, hits, completeCnt, enrollRate, examResults,progressRate;
 
 }

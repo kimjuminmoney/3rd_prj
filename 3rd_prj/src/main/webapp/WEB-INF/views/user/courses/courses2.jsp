@@ -18,10 +18,6 @@
 	
 		<meta property="og:url" content="http://www.edwith.org/onlineclass-tutorial/lecture/65372">
 	
-		<meta property="og:type" content="article">
-	
-		<meta property="og:title" content="[LECTURE] 퀵하게 학생 등록하는 방법 4가지! : edwith">
-	
 		<meta property="og:description" content="&nbsp;학생들을 수강신청하라고 가이드하는 것이 늘 어려우셨나요? 학생들이 어려서 메일 주소가 없으신가요? edwith가 4가지 방법을 공유드립니다. ​ [방법1] URL을 카카오톡과 같... - edwith">
 	
 		<meta property="og:image" content="https://cphinf.pstatic.net/mooc/20200405_246/1586069370681iDoUF_JPEG/tGmcDdkkdVciFQOdRczO.jpg">
@@ -55,29 +51,20 @@
 <!-- NEXT -->
 
 
-	<link rel="shortcut icon" type="https://ssl.pstatic.net/static/m/mooc/edwithmage/x-icon" href="https://ssl.pstatic.net/static/m/mooc/p/partner/next/favicon.ico">
-
-
+<link rel="shortcut icon" type="https://ssl.pstatic.net/static/m/mooc/edwithmage/x-icon" href="https://ssl.pstatic.net/static/m/mooc/p/partner/next/favicon.ico">
 <link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/plugin.css" type="text/css">
 <link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/boostcourse_common.css" type="text/css">
-
-	
-		<link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/edwith.css" type="text/css">
-		<link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/nanumsquare_webfont.css" type="text/css">
-	
-	
-	
-
+<link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/edwith.css" type="text/css">
+<link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/nanumsquare_webfont.css" type="text/css">
 <link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/code_editor/prism.css" type="text/css">
 <link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/code_editor/codemirror.css" type="text/css">
-
 <script src="https://connect.facebook.net/en_US/all.js"></script>
 <script src="https://www.edwith.org/static/js/vendor/html5shiv/dist/html5shiv.min.js?231109_47a067d4"></script>
 <script src="https://www.edwith.org/static/js/vendor/respond/dest/respond.min.js?231109_47a067d4"></script>
 <script src="https://www.edwith.org/static/js/plugins/nclktag.js?231109_47a067d4"></script>
 
     
-        <title>강의실 : edwith </title>
+<title>강의실 : edwith </title>
     
 </head>
 <body class="re_pack win chrome chrome119">
@@ -712,23 +699,30 @@ $(".que").click(function() {
 	});
 })
 </script>
-</header>
+        </header>
     
-<div id="container">
+    <!-- share 보안 이슈 filter 미적용 -->
+    <div id="container">
+        <!-- 신규 boostcourse LNB -->
+        
+<!--[D] 관리자 권한이면서 bbs를 클릭하지 않았을 경우 true-->
+
+
 
 <!-- nav -->
 <jsp:include page="../nav/nav_courses.jsp"></jsp:include>
 <!-- nav -->
 
-	<div id="content">
-	<section class="page mg_menu">
+<div id="content">
+<!-- #breadcrumb:lecture/show.gsp -->
+<section class="page mg_menu">
+	
 	<!--page_header-->
 	<header class="page_header">
 		<div class="group_lr mab10">
 			<div class="group_l">
 				<h1 class="page_title">
 					강의
-						<a href="/help/navigator?helpName=JOIN_COURSE" target="_blank" title="도움말" class="ico_help2">도움말</a>
 				</h1>
 			</div>
 		</div>
@@ -737,15 +731,13 @@ $(".que").click(function() {
 
 	<div class="class_manager type2">
 		<!--chapter_list-->
-		<div class="" style="padding: 0px">
-			<div class="le_txt" style="margin: 20px;"><strong><c:out value="${ ucDomain.content }"/></strong></div>
-			<div style="border: 3px;padding-top: 10px; padding-bottom: 3px;">
-			<div class="info_lec" style="display: flex; padding-right: 0px; align-items: center; height: 80px;">
-				<!-- <ul class="sub">
-					<li style="display: flex;padding-right: 0px;align-items: center"> -->
-						<!-- <a href="/onlineclass-tutorial/lecture/65388" style="display: flex;"> -->
-							<div style="flex: 1; border: 1px solid #00ab50; border-radius: 10px; padding: 5px; margin: 20px; display: flex; align-items: center; justify-content: center; flex-direction: column; height: 100%;">
-							<!-- <div style="flex: 1; border: 1px solid #00ab50; border-radius: 10px; padding: 5px; margin: 20px; align-items: center;justify-content: center; flex-direction: column;" > -->
+		<div class="chapter" >
+			<div class="le_txt"><strong><c:out value="${ ucDomain.content }"/></strong></div>
+			<div class="info_lec">
+				<ul class="sub">
+					<li >
+						<a href="/onlineclass-tutorial/lecture/65388" style="display: flex;">
+							<div style="flex: 1">
 								<c:if test="${ ucDomain.completionStatus eq 'Y' }">
 								<img src="http://localhost/daitdayoung/common/icon/laurel.png" width="30px"/><strong>수료</strong>
 								</c:if>
@@ -755,8 +747,7 @@ $(".que").click(function() {
 							</div>
 							
 							<!-- <span class="ico_lecture" style="flex: 1"></span> -->
-							<div class="le_txt" style="flex: 1; border: 1px solid #00ab50; border-radius: 10px; padding: 5px; margin: 20px; display: flex; align-items: center; justify-content: center; flex-direction: column; height: 100%;">
-<!-- 							<div class="le_txt" style="flex: 1"> -->
+							<div class="le_txt" style="flex: 1">
 								<div class="info_more_area">
                                    <strong>수료기준</strong>
                                    <div class="help_pop" >
@@ -765,26 +756,29 @@ $(".que").click(function() {
                                    </div>
                            </div>
 							</div>
-							<div style="flex: 1; border: 1px solid #00ab50; border-radius: 10px; padding: 5px; margin: 20px; display: flex; align-items: center; justify-content: center; flex-direction: column; height: 100%;">
+							<div style="float: right">
 							<strong>강좌 기간</strong>
                                <p>
                                    <c:out value="${ ucDomain.registrationdate }"/> ~ <c:out value="${ ucDomain.coursePeriod }"/>
                                </p>
                             </div>
-						<!-- </a> -->
-					<!-- </li>
-				</ul> -->
+						</a>
+					</li>
+				</ul>
 			</div>
-			<div style="margin: 20px;">
+			<div>
 			<strong>진도율</strong>
 	             <div class="progress_area">
-	                 <div class="progress" style=" height: 30px; ">
-	                     <div class="progress_bar" style="width:  ${ ucDomain.progressRate/lecCnt *100 }%; height: 30px;align-items: center;display: flex;justify-content: center;">
-		                 <strong>${ ucDomain.progressRate/lecCnt *100 }%</strong>
+	                 <div class="progress">
+	                     <div class="progress_bar" style="width:  ${ ucDomain.progressRate/lecCnt *100 }%;">
+	                     
 	                     </div>
 	                 </div>
 	             </div>
+	                 <span class="per">${ ucDomain.progressRate/lecCnt *100 }%</span>
 			</div>
+			
+			
 			</div>
 		</div>
 			<!-- 공지사항 아코디언 -->
@@ -792,9 +786,9 @@ $(".que").click(function() {
 			     <div class="que" style="text-align: center; font-size: 20px">
 			      공지사항
 			      <div class="arrow-wrap">
-				      <span class="arrow-top"><img src="http://localhost/daitdayoung/common/icon/up.png" width="30px"/></span>
-				      <span class="arrow-bottom"><img src="http://localhost/daitdayoung/common/icon/down.png" width="30px"/></span>
-			      </div>
+			        <span class="arrow-top"><img src="http://localhost/daitdayoung/common/icon/up.png" width="30px"/></span>
+			        <span class="arrow-bottom"><img src="http://localhost/daitdayoung/common/icon/down.png" width="30px"/></span>
+			       </div>
 			      
 			     </div>
 				<div class="anw">
@@ -832,9 +826,8 @@ $(".que").click(function() {
 				</table>
 				</div>
 			</div>
-			<ul>
+			<div class="class_manager type2">
 					<!-- [D] 진행중 class : on -->
-					<li>
 						<ul class="sub">
 					<c:forEach var="lecture" items="${lectureList }">
 									<li >
@@ -856,12 +849,10 @@ $(".que").click(function() {
 									</li>
 					</c:forEach>
 						</ul>
-					</li>
-		</ul>
-		
+		</div>
 		<!--project_list-->
 		<ul id="project_group_area" class="mat30 ui-sortable"><div data-space-buffer=""></div></ul>
-	</div>
+		</div>
 	<p class="none" style="display:none" data-nodata-message="">준비중입니다.</p>
 </section>
 <script src="https://www.edwith.org/static/js/vendor/tinymce/tinymce.min.js?231109_47a067d4"></script>
@@ -899,21 +890,6 @@ $(".que").click(function() {
         <p class="copyright">© NAVER Connect All Rights Reserved.</p>
         <button class="btn_to_top" data-btn-scroll-top data-nclk="foot.top"><span class="blind">페이지 맨 위로가기</span></button>
     </footer>
-
-
-
-<!-- lcs file -->
-<script src="https://www.edwith.org/static/lcs-js/lcslog.js?231109_47a067d4"></script>
-<script src="https://www.edwith.org/static/js/src/entries/common/_lcs.entry.browserfied.min.js?231109_47a067d4"></script>
-<script>
-    $(document).ready(function(){
-        var entry = require("/entries/common/_lcs.entry.js");
-        entry.initialize({
-            environment: "PRODUCTION",
-            useSti: false
-        });
-    });
-</script>
 <script src="https://www.edwith.org/static/js/src/entries/footer/index.entry.browserfied.min.js?231109_47a067d4"></script>
 <script>
     $(document).ready(function(){

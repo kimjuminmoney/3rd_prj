@@ -26,14 +26,16 @@ public class UserCoursesController {
 		couCode = "COU_999999";
 		String uiId = (String)session.getAttribute("uiId");
 		uiId = "ui_test";
-		UserCoursesDomain ucd = ucs.searchCoursesInfo(couCode);
-		UserCoursesVO cuVO = new UserCoursesVO(couCode, uiId);
+		UserCoursesVO ucVO = new UserCoursesVO(couCode, uiId);
+		UserCoursesDomain ucDomain = ucs.searchCoursesInfo(ucVO);
 		List<UserCoursesNoticeDomain> noticeList = ucs.searchCoursesNoticeList(couCode);		
-		List<UserCoursesLectureDomain> lectureList = ucs.searchCoursesLectureList(cuVO);		
+		List<UserCoursesLectureDomain> lectureList = ucs.searchCoursesLectureList(ucVO);
+		
 
-		model.addAttribute("ucDomain", ucd);
+		model.addAttribute("ucDomain", ucDomain);
 		model.addAttribute("noticeList", noticeList);
 		model.addAttribute("lectureList", lectureList);
+		model.addAttribute("lecCnt", lectureList.size());
 		
 		return "user/courses/courses";
 	}
