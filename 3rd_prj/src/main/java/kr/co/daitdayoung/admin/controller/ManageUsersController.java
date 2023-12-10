@@ -2,6 +2,8 @@ package kr.co.daitdayoung.admin.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,7 +32,18 @@ public class ManageUsersController {
 	
 	//학생 상세
 	@GetMapping("/admin/admin_users/detailStudent.do")
-	public String detailStudent() {
+	public String detailStudent(Model model, String uiId, HttpServletRequest request) {
+		
+		uiId=request.getParameter("uiId");
+		
+		ManageUsersDomain detailStu=mus.searchDetailStu1(uiId);
+		List<ManageUsersDomain> detailStuList = mus.searchDetailStu2(uiId);
+		
+		model.addAttribute("uiId",detailStu.getUiId());
+		model.addAttribute("uiName",detailStu.getUiName());
+		model.addAttribute("uiBirth",detailStu.getUiBirth());
+		model.addAttribute("uiJoindate",detailStu.getUiJoindate());
+		model.addAttribute("detailStuList",detailStuList);
 		
 		return "admin/admin_users/detailStudent";
 	}

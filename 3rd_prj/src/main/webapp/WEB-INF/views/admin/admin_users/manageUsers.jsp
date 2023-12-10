@@ -37,7 +37,7 @@
 </style>
 <script type="text/javascript">
 	$(function(){
-		
+		$('.my-datatable').DataTable();
 	});//ready
 	
 	function showStuTable() {
@@ -83,14 +83,6 @@
                     <h1 class="h3 mb-2 text-gray-800">회원관리</h1>
                     <hr style="background-color:#1CC88A; border-width: 2px; margin-bottom: 100px">
 
-<script>
-        $(document).ready(function() {
-            // Use the class selector to initialize DataTable
-            $('.my-datatable').DataTable();
-        });
-    </script>
-
-
                     <!-- 학생 테이블 -->
                     <div class="card shadow mb-4" id="stuTable" style="display: block;">
                         <div class="card-header py-3">
@@ -118,7 +110,7 @@
                                     	<c:forEach var="student" items="${ requestScope.studentsList }" varStatus="i">
                                         <tr>
                                             <td><c:out value="${ i.count }"/></td>
-                                            <td><a href="detailStudent.do"><c:out value="${ student.uiId }"/></a></td>
+                                            <td><a href="detailStudent.do?uiId=${ student.uiId }"><c:out value="${ student.uiId }"/></a></td>
                                             <td><c:out value="${ student.uiName }"/></td>
                                             <td><c:out value="${ student.uiJoindate }"/></td>
                                             <td><c:out value="${ student.couN }"/></td>
@@ -159,7 +151,7 @@
                                     	<c:forEach var="instructor" items="${ requestScope.instructorsList }" varStatus="i">
                                         <tr>
                                             <td><c:out value="${ i.count }"/></td>
-                                            <td><a href="detailInstructor.do"><c:out value="${ instructor.insId }"/></a></td>
+                                            <td><a href="detailInstructor.do?insId=${ instructor.insId }"><c:out value="${ instructor.insId }"/></a></td>
                                             <td><c:out value="${ instructor.insName }"/></td>
                                             <td><c:out value="${ instructor.insJoindate }"/></td>
                                             <td><c:out value="${ instructor.insTel }"/></td>

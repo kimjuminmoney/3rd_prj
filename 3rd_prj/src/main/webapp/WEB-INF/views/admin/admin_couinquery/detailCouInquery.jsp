@@ -47,17 +47,17 @@ $(function(){
                 <!-- /.container-fluid -->
                 
                 <div id="inqueryDetail" style="width:1000px; margin: 0 auto; margin-top: 100px">
-	                <h6 id="inqueryTitle" class="h3 mb-4 text-gray-800" style="font-size: 20px">제목</h6>
+	                <h6 id="inqueryTitle" class="h3 mb-4 text-gray-800" style="font-size: 20px"><c:out value="${ requestScope.ciTitle }"/></h6>
 					<table>
 					<tr>
-						<td style="border-right: 1px solid #DFE0E2; padding-right: 10px">작성자</td>
-						<td style="border-right: 1px solid #DFE0E2; padding-left: 10px; padding-right: 10px">유형</td>
-						<td style="border-right: 1px solid #DFE0E2; padding-left: 10px; padding-right: 10px">강좌명</td>
-						<td style="padding-left: 10px">날짜</td>
+						<td style="border-right: 1px solid #DFE0E2; padding-right: 10px"><c:out value="${ requestScope.uiName }"/></td>
+						<td style="border-right: 1px solid #DFE0E2; padding-left: 10px; padding-right: 10px"><c:out value="${ requestScope.citName }"/></td>
+						<td style="border-right: 1px solid #DFE0E2; padding-left: 10px; padding-right: 10px"><c:out value="${ requestScope.couName }"/></td>
+						<td style="padding-left: 10px"><c:out value="${ requestScope.ciDate }"/></td>
 					</tr>				
 					</table>
 	                <hr>
-	                <p style="color: #5A5C69;">문의 내용</p>
+	                <p style="color: #5A5C69;"><c:out value="${ requestScope.ciContent }"/></p>
                 </div>
                 <div id="addInquery" style="width:1000px; margin: 0 auto; margin-top: 50px">
 	                <hr style="background-color:#1CC88A;">
@@ -66,12 +66,12 @@ $(function(){
         				<h6 id="inqueryTitle" class="h3 mb-4 text-gray-800" style="font-size: 20px">답변</h6>
 	        			<table>
 						<tr>
-							<td style="border-right: 1px solid #DFE0E2; padding-right: 10px">작성자</td>
-							<td style="padding-left: 10px">날짜</td>
+							<td style="border-right: 1px solid #DFE0E2; padding-right: 10px"><c:out value="${ requestScope.insName }"/></td>
+							<td style="padding-left: 10px"><c:out value="${ requestScope.ciAnswerdate }"/></td>
 						</tr>				
 						</table>
 						<hr>
-						<p style="color: #5A5C69;">답변 내용</p>
+						<p style="color: #5A5C69;"><c:out value="${ requestScope.ciAnswer }"/></p>
 					</div>
 					<div style="margin-top: 50px; ">
 					  <button type="button" class="btn btn-outline-secondary">확인</button>
