@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.daitdayoung.user.coursesInquiry">
+
+	<!-- 문의사항 리스트 -->
+	<select id="coursesInquiryList" parameterType="String" resultType="kr.co.daitdayoung.user.domain.UserCoursesInquiryDomain">
+	select 	CI_CODE, cit.CIT_CODE, CI_TITLE, CI_CONTENT, CI_DATE, CI_ANSWER, CI_ANSWERDATE, c.COU_CODE, i.INS_ID
+			,cit.CIT_NAME, c.cou_name, ROW_NUMBER() OVER (ORDER BY CI_DATE desc) ciInd
+	from 	COURSES_INQUIRY ci, COURSES_INQUIRY_TYPE cit, INSTRUCTOR i, COURSES c
+	where 	cit.cit_code = ci.cit_code and i.ins_id = ci.ins_id and ci.ui_id = #{uiId} and ci.cou_code = c.cou_code
+	order by ciInd desc
+	</select>
+	
+	<!-- 문의사항 상세보기 -->
+	<select id="coursesInquiryDetail" parameterType="String" resultType="kr.co.daitdayoung.user.domain.UserCoursesInquiryDomain">
+	select	CI_TITLE, CI_CONTENT, CI_DATE, CI_ANSWER, CI_ANSWERDATE, CIT_NAME, INS_Name, c.cou_Name 
+	from 	COURSES_INQUIRY ci, COURSES_INQUIRY_TYPE cit,INSTRUCTOR i, COURSES c
+	where   ci.cit_code = cit.cit_code and ci.ins_id = i.ins_id and ci_code = #{ciCode} and c.cou_code = ci.cou_code
+	</select>	
+	
+	<!-- 문의사항 쓰기 문의유형 -->
+	<select id="coursesInquiryTypeList" resultType="kr.co.daitdayoung.user.domain.UserCoursesInquiryDomain" >
+	select	CIT_CODE, CIT_NAME
+	from 	COURSES_INQUIRY_TYPE
+	</select>
+	
+	<!-- 문의사항 수강중인 강좌 -->
+	<select id="coursesInquiryCouList" parameterType="String" resultType="kr.co.daitdayoung.user.domain.UserCoursesInquiryDomain" >
+	select 	c.COU_CODE, COU_NAME, c.ins_id
+	from    COURSES c ,COURSE_REGISTRATION cr
+	where	c.cou_code = cr.cou_code and cr.ui_id = #{uiId}
+	</select>
+	
+	<!-- 강좌문의사항 insert -->
+	<insert id="coursesInquiryInsert" parameterType="kr.co.daitdayoung.user.vo.UserCoursesInquirVO">
+	insert into COURSES_INQUIRY(CI_CODE, UI_ID, CIT_CODE, CI_TITLE, CI_CONTENT, INS_ID, COU_CODE)
+	values('CI_'||LPAD(CI_SEQ.nextVal, 6, '0'), #{uiId}, #{citCode}, #{ciTitle}, #{ciContent}, #{insId}, #{couCode})
+	</insert>
+</mapper>

@@ -150,7 +150,7 @@
             <!--SNB-->
             
 <!-- #breadcrumb:common/_whaleclass_snb.gsp -->
-<jsp:include page="../nav/nav3.jsp"></jsp:include>
+<jsp:include page="../nav/nav_myCourses.jsp"></jsp:include>
 
             
 <div class="content">

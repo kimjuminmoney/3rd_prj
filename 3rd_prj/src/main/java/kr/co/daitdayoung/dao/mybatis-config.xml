@@ -22,10 +22,11 @@
     </environment>
   </environments>
   <mappers>
-  <!-- 2수박 -->
+    <!-- 2수박 -->
   	<mapper resource="kr/co/daitdayoung/user/mapper/userMyCoursesMapper.xml"/>
   	<mapper resource="kr/co/daitdayoung/user/mapper/userToDoListMapper.xml"/>
   	<mapper resource="kr/co/daitdayoung/user/mapper/userCoursesMapper.xml"/>
+  	<mapper resource="kr/co/daitdayoung/user/mapper/userCoursesInquiryMapper.xml"/>
   <!-- 주민 -->
   <!-- 나 -->
   	<mapper resource="kr/co/daitdayoung/instructor/mapper/insCourseMapper.xml"/>
