@@ -12,11 +12,98 @@
 <script src="https://www.edwith.org/static/js/vendor/raphael/raphael.js?231109_47a067d4"></script>
 <script src="https://www.edwith.org/static/js/plugins/nclktag.js?231109_47a067d4"></script>
     
-<title>강좌 문의 상세: edwith</title>
+<title>강좌 문의 하기: edwith</title>
    <!-- courses css -->
 <link rel="stylesheet" href="http://localhost/daitdayoung/common/css/user/myCourses.css" type="text/css">
+<!-- jQuery CDN시작 -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/edwith.css" type="text/css">
+<style type="text/css">
+.card-header1 h1 {
+    font-size: 30px;
+    font-weight: 600;
+}
 
+.card-write {
+    padding: 20px;
+    
+}
+
+.card-write input,
+.card-write textarea,
+.card-write select,
+.card-write option {
+    margin-left: 10px;
+    padding: 10px;
+    border: 1px solid #999;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px #e6e6e6;
+}
+.card-write .myinfo {
+    display: flex;
+    align-items: center;
+}
+
+.card-write .myinfo,.title-w {
+    display: flex;
+    align-items: center;
+}
+
+.card-write .myinfo input[type="text"] {
+    width: 20%;
+    margin-right: 20px;
+    padding-right: 10px;
+}
+.card-write .myinfo select {
+    margin-right: 50px;
+}
+
+.card-write .title-w input[type="text"] {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 85.5%;
+}
+
+.card-write .msg textarea {
+    min-width: 85.5%;
+    max-width: 85.5%;
+    min-height: 180px;
+    max-height: 180px;
+    box-shadow: inset 3px 3px 10px #e6e6e6;
+    vertical-align: top;
+}
+.card-write .msg {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.btn-w {
+    margin: 10px 10px 20px 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* 추가: 세로 가운데 정렬을 위해 */
+}
+
+.btn-w input {
+    background-color: tomato;
+    padding: 10px;
+    color: #fff;
+    border-radius: 10px;
+    width: 120px;
+    height: 40px;
+    font-size: 20px;
+    text-align: center;
+}
+</style>
+<script type="text/javascript">
+$(function(){
+	$("#subBtn").on("click", function() {
+	      // 뒤로 가기
+	      window.history.back();
+	    });
+})
+</script>
 </head>
 
 <script src="https://www.edwith.org/static/js/vendor/vendor.compressed.min.js?231109_47a067d4"></script>
@@ -44,181 +131,81 @@
 <jsp:include page="../nav/nav_myCourses.jsp"></jsp:include>
 
             
-<div class="content">
-<!-- 1111111111111111111111111111111111111111111111111111111111111111111 -->
+<div class="content"style="padding-bottom: 40px;">
 <div class="page">
-	<div class="main_top b_none" data-main-top="" >
-	        <!-- my_btn_area  mo ~ 1279px 에 노출 -->
-	        <div>
-	        <h3 class="tit_home"><c:out value="${ uciDomain.ciTitle }"/></h3>
-	        </div><br>
-	</div>
+	
+    <div class="card">
+        <div class="card-header1">
+            <h1>문의하기</h1>
+        </div>
+
+        <div class="card-write">
+            <div class="title-w">
+                제목<input type="text" value="${ uciDomain.ciTitle }"  readonly="readonly">
+            </div>
+            <div class="myinfo">
+                <span>강좌</span>
+                <input type="text" value="${ uciDomain.couName }"  readonly="readonly">
+                <span>문의유형</span>
+                <input type="text" value="${ uciDomain.citName }"  readonly="readonly">
+                <span>날짜</span>
+                <input type="text" value="${ uciDomain.ciDate }"  readonly="readonly">
+            </div>
+
+            <div class="msg">
+                <span>내용</span>
+                <textarea readonly="readonly"><c:out value="${ uciDomain.ciContent }"/></textarea>
+            </div>
+            <c:if test="${ not empty uciDomain.ciAnswer }">
+            <div class="myinfo">
+                <span>강사</span>
+                <input type="text" value="${ uciDomain.insName }"  readonly="readonly">
+                <span>답변 날짜</span>
+                <input type="text" value="${ uciDomain.ciAnswerdate }"  readonly="readonly">
+            </div>
+            <div class="msg">
+                <span>답변</span>
+                <textarea readonly="readonly"><c:out value="${ uciDomain.ciAnswer }"/></textarea>
+            </div>
+            </c:if>
+            <c:if test="${ empty uciDomain.ciAnswer }">
+            <div class="myinfo">
+                <span>강사</span>
+                <input type="text" value=""  readonly="readonly">
+                <span>답변 날짜</span>
+                <input type="text" value=""  readonly="readonly">
+            </div>
+            <div class="msg">
+                <span>답변</span>
+                <textarea readonly="readonly">답변을 준비하고있습니다.</textarea>
+            </div>
+            </c:if>
+        </div>
+        <div class="btn-w"><input type="button" value="목록" id="subBtn"></div>
+    </div>
+   
     
-    <div class="course_group course_join" data-course-group="">
-	    <div class="course_lst class_area">
-	        <div>
-	        강좌명 : <c:out value="${ uciDomain.couName }"/> 문의유형 : <c:out value="${ uciDomain.citName }"/> 문의날짜 : <c:out value="${ uciDomain.ciDate }"/>
-	        </div>
-	    
-	    
-	    
-	    
-	    
-	    </div>
-    </div>
-    
-</div>        
-<section class="page forum" data-hasmobile="true">
-    <!--page_header-->
-    <header class="page_header">
-        <div class="group_lr">
-            <div class="group_l">
-                <h1 class="page_title"><c:out value="${ uciDomain.ciTitle }"/></h1>
-            </div>
-        </div>
-    </header>
-    <!--//page_header-->
-
-    <!--notice_view-->
-    <article class="forum_view">
-        <!-- [D] 권한에 따라 노출되는 UI가 다름 -->
-        <div class="forum_func group_lr">
-            <div class="group_l">
-                <div class="user_info">
-                    
-                        <div class="thumb bgnone">
-                            <img src="https://cphinf.pstatic.net/mooc/20190311_200/1552269021926taXXr_PNG/edwith%28%29.png?type=ff48_48" width="24" height="24" alt="">
-                        </div>
-                    
-                    <!-- <span class="username">edwith</span>
-                    
-                        <span class="ic_ad vamiddle">관리자</span> -->
-                    
-                    <time class="time" datetime="2020.05.15"><c:out value="${ uciDomain.ciDate }"/></time>
-                </div>
-            </div>
-            
-        </div>
-        <div class="ce ce_view">
-            <article class="material_view material_text">
-                <div class="material_desc editor_reset">
-                    <p>
-                    <c:out value="${ uciDomain.ciContent }"/>
-					</p>
-                </div>
-            </article>
-
-            <div class="share">
-                
-                <!--페이지네비게이션 : 이전글/다음글/목록보기-->
-                
-<!-- #breadcrumb:common/_pageNavigation.gsp -->
-<div class="group_lr">
-    <div class="paginate">
-            <div class="pagin l"><a href="#" class="btn_prve disabled" style="pointer-events: none;">이전 글이 없습니다.</a></div>
-            <div class="pagin r"><a href="#" class="btn_next disabled" style="pointer-events: none;">다음 글이 없습니다.</a></div>
-        
-    </div>
-    <div class="group_lr">
-        <div class="group_r">
-            <a href="/onlineclass-tutorial/notices/32827" class="btn btn_type2 bold N=a:lec.list" data-selector="backToListBtn">목록</a>
-        </div>
-    </div>
-</div>
-                <!--//페이지네비게이션 -->
-            </div>
-        </div>
-    </article>
-    <!--//forum_view-->
-</section>
-<!-- 1111111111111111111111111111111111111111111111111111111111111111111 -->
-   <%--  <div class="page">
-        <div class="main_top b_none" data-main-top>
-            <button type="button" id="test" class="btn_gnb" data-gnb-on-btn><span class="blind">메뉴 펼치기</span></button>
-            <!-- my_btn_area  mo ~ 1279px 에 노출 -->
-            <div class="my_btn_area">
-                <a href="#" class="btn_my" data-my-btn>
-                    <img src="" width="32" height="32" alt="" class="my_thumb" style="display: none" data-profile-btn-image>
-                </a>
-                <div class="badge_box" style="display: none" data-badge-box>
-                    <span class="blind">알림</span><em class="badge_new" data-badge-box-count></em>
-                </div>
-            </div>
-            <h3 class="tit_home">문의하기</h3>
-            <div class="btn_area" data-course-list>
-                    <button type="button" class="btn_type" data-course-join-btn><span class="btn_txt">문의하기</span></button>
-            </div>
-        </div>
-            <hr>
-        <div class="tab_area">
-            
-        </div>
-        
-
-<div class="course_group course_join" data-course-group>
-    <div class="course_lst class_area">
-    <header class="page_header">
-        <div class="group_lr">
-            <div class="group_l">
-                <h1 class="page_title"><c:out value="${ uciDomain.ciTitle }"/></h1>
-            </div>
-        </div>
-    </header>
-    <article class="forum_view">
-        <!-- [D] 권한에 따라 노출되는 UI가 다름 -->
-        <div class="forum_func group_lr">
-            <div class="group_l">
-                <div class="user_info">
-                    <time class="time" ><c:out value="${ uciDomain.ciDate }"/></time>
-                </div>
-            </div>
-        </div>
-        <div class="ce ce_view">
-            <article class="material_view material_text">
-                <div class="material_desc editor_reset">
-                    <c:out value="${ uciDomain.ciContent }"/>
-                </div>
-            </article>
+<!-- <div class="share">
+페이지네비게이션 : 이전글/다음글/목록보기
+	<div class="group_lr">
+		<div class="paginate">
+			<div class="pagin l"><a href="#" class="btn_prve disabled" style="pointer-events: none;">이전 글이 없습니다.</a></div>
+			<div class="pagin r"><a href="#" class="btn_next disabled" style="pointer-events: none;">다음 글이 없습니다.</a></div>
 		</div>
-	</article>
-            
-    </div>
+		<div class="group_lr">
+			<div class="group_r">
+				<a href="/onlineclass-tutorial/notices/32827" class="btn btn_type2 bold N=a:lec.list" data-selector="backToListBtn">목록</a>
+			</div>
+		</div>
+	</div>
+</div> -->
+</div>        
 </div>
-             --%>
-        
-        
-            <!-- paginate -->
-           <!--  <nav class="paginate" role="navigation">
-            <div class="inner">
-            <a href="#" class="pre" onclick="return false;">이전</a>
-            <ul class="page_list">
-            <li><a href="/myPage/home?searchType=&amp;searchText=&amp;sortType=REG&amp;offset=0&amp;max=20" sort="regYmdt" order="desc" class="selected">1</a></li>
-            </ul>
-            <a href="#" class="next" onclick="return false;">다음</a>
-            </div>
-            </nav> -->
-            
-        
-    </div>
 </div>
-
-
-
-
-<script src="https://www.edwith.org/static/js/src/entries/whaleclass/main/index.entry.browserfied.min.js?231109_47a067d4"></script>
-<script>
-    $(function(){
-        var entry = require("/entries/whaleclass/main/index.entry.js");
-        entry.initialize({
-            searchType: "all"
-        });
-    });
-</script>
+</div>
 
 <!-- FOOTER -->
 <jsp:include page="../nav/footer.jsp"></jsp:include>
 
-        </div>
-    </div>
 </body>
 </html>

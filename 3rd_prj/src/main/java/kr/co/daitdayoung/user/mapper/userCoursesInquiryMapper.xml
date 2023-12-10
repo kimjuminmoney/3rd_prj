@@ -7,7 +7,7 @@
 	<!-- 문의사항 리스트 -->
 	<select id="coursesInquiryList" parameterType="String" resultType="kr.co.daitdayoung.user.domain.UserCoursesInquiryDomain">
 	select 	CI_CODE, cit.CIT_CODE, CI_TITLE, CI_CONTENT, CI_DATE, CI_ANSWER, CI_ANSWERDATE, c.COU_CODE, i.INS_ID
-			,cit.CIT_NAME, c.cou_name, ROW_NUMBER() OVER (ORDER BY CI_DATE desc) ciInd
+			,cit.CIT_NAME, c.cou_name, ROW_NUMBER() OVER (ORDER BY CI_DATE) ciInd
 	from 	COURSES_INQUIRY ci, COURSES_INQUIRY_TYPE cit, INSTRUCTOR i, COURSES c
 	where 	cit.cit_code = ci.cit_code and i.ins_id = ci.ins_id and ci.ui_id = #{uiId} and ci.cou_code = c.cou_code
 	order by ciInd desc
@@ -34,7 +34,7 @@
 	</select>
 	
 	<!-- 강좌문의사항 insert -->
-	<insert id="coursesInquiryInsert" parameterType="kr.co.daitdayoung.user.vo.UserCoursesInquirVO">
+	<insert id="coursesInquiryInsert" parameterType="kr.co.daitdayoung.user.vo.UserCoursesInquiryVO">
 	insert into COURSES_INQUIRY(CI_CODE, UI_ID, CIT_CODE, CI_TITLE, CI_CONTENT, INS_ID, COU_CODE)
 	values('CI_'||LPAD(CI_SEQ.nextVal, 6, '0'), #{uiId}, #{citCode}, #{ciTitle}, #{ciContent}, #{insId}, #{couCode})
 	</insert>

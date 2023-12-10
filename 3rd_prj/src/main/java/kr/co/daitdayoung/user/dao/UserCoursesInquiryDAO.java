@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 import kr.co.daitdayoung.dao.MyBatisHandler;
 import kr.co.daitdayoung.user.domain.UserCoursesInquiryDomain;
 import kr.co.daitdayoung.user.domain.UserMyCoursesDomain;
-import kr.co.daitdayoung.user.vo.UserCoursesInquirVO;
+import kr.co.daitdayoung.user.vo.UserCoursesInquiryVO;
 
 @Component
 public class UserCoursesInquiryDAO {
@@ -42,7 +42,7 @@ public class UserCoursesInquiryDAO {
 		return list;
 	}// selectCoursesInquiryTypeList
 
-	public int insertInquiry(UserCoursesInquirVO uciVO) throws PersistenceException {
+	public void insertInquiry(UserCoursesInquiryVO uciVO) throws PersistenceException {
 		mbh = MyBatisHandler.getInstance();
 		SqlSession ss = mbh.getMyBatisHandler(false);
 
@@ -53,7 +53,6 @@ public class UserCoursesInquiryDAO {
 		}//end if
 		
 		mbh.closeHandler(ss);
-		return cnt;
 	}// insertInquiry
 
 	public List<UserCoursesInquiryDomain> selectCoursesInquiryCouList(String uiId) throws PersistenceException {
