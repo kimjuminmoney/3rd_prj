@@ -3,31 +3,20 @@
 <%@ page info="   " %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
-session.setAttribute("userId", "ui_test");
+session.setAttribute("uiId", "ui_test");
 %>
 <!DOCTYPE html>
 <html lang="ko" itemscope itemtype="http://schema.org/Article">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <meta http-equiv="Cache-Control" content="max-age=86400, public">
     
-        <meta name="robots" content="noindex, nofollow">
-    
-    
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1,user-scalable=no">
-    
-        <link rel="shortcut icon" type="https://ssl.pstatic.net/static/m/mooc/edwithmage/x-icon" href="https://ssl.pstatic.net/static/m/mooc/p/partner/next/favicon.ico">
-    
-    <link rel="stylesheet" type="text/css" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/whaleclass.css">
-    <link rel="stylesheet" type="text/css" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/plugin.css">
-    <script src="https://www.edwith.org/static/js/vendor/raphael/raphael.js?231109_47a067d4"></script>
-    <script src="https://www.edwith.org/static/js/plugins/nclktag.js?231109_47a067d4"></script>
-
-    
+<link rel="shortcut icon" type="https://ssl.pstatic.net/static/m/mooc/edwithmage/x-icon" href="https://ssl.pstatic.net/static/m/mooc/p/partner/next/favicon.ico">
+<link rel="stylesheet" type="text/css" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/whaleclass.css">
+<script src="https://www.edwith.org/static/js/vendor/raphael/raphael.js?231109_47a067d4"></script>
+<script src="https://www.edwith.org/static/js/plugins/nclktag.js?231109_47a067d4"></script>
+<!-- courses css -->
+<link rel="stylesheet" href="http://localhost/daitdayoung/common/css/user/myCourses.css" type="text/css">
         <title>나의 강좌: edwith</title>
-        <jsp:include page="../nav/user.css"></jsp:include>
 </head>
 <script src="https://www.edwith.org/static/js/vendor/vendor.compressed.min.js?231109_47a067d4"></script>
 <script src="https://www.edwith.org/static/js/src/entries/common/_head.entry.browserfied.min.js?231109_47a067d4"></script>
@@ -48,28 +37,14 @@ session.setAttribute("userId", "ui_test");
       $('.tab_list li[data-complete="' + dataComplete + '"]').attr('aria-selected', 'true');
     }
 </script>
-
-
-    
-
 <body class="win chrome chrome119 re_pack new_color edwith">
-    <div class="wrap">
-        <!-- container -->
-        <div class="container new_layout ">
-            <!-- HEADER -->
-            
-
-<!-- #breadcrumb:common/_whaleclass_header.gsp -->
+<div class="wrap">
+<!-- container -->
+<div class="container new_layout ">
+<!-- HEADER -->
 <jsp:include page="../nav/header.jsp"></jsp:include>
-
-            <!-- [D] 모바일에서 snb 딤드 노출시 class open 추가해주세요
-				딤드 노출시 html, body에 style="overflow:hidden" 추가해주세요 -->
-            <span class="snb_dimed" id="snb_dimed"></span>
-
-            <!--SNB-->
-            
-<!-- #breadcrumb:common/_whaleclass_snb.gsp -->
-<jsp:include page="../nav/nav3.jsp"></jsp:include>
+	<span class="snb_dimed" id="snb_dimed"></span>
+<jsp:include page="../nav/nav_myCourses.jsp"></jsp:include>
 
             
 <div class="content">
@@ -93,11 +68,9 @@ session.setAttribute("userId", "ui_test");
 	    		<li role="tab" aria-selected="false" data-complete="completed"><a href="#void" id="completed" onclick="toggleTab('completed')">수료한 강좌</a></li>
             </ul>
         </div>
-		
 
 <div class="course_group course_join" data-course-group>
     <div class="course_lst class_area">
-		
 		<c:choose>
         	<c:when test="${ not empty coursesList || listSize != 0 }">
             <ul class="tab_content_list" data-course-card-ul>
@@ -107,30 +80,19 @@ session.setAttribute("userId", "ui_test");
                         <div class="info_area ">
                             <div class="thumb">
                                 <!-- 배너랑 강좌 링크 넣기 -->
-                                <a href="/onlineclass-tutorial/home">
+                                <a href="courses.do?couCode=${ courses.couCode }">
 	                            	<img src="http://localhost/daitdayoung/courses_data/${ courses.couCode }/${ courses.bannerImg }" width="88" height="48" alt="강좌 썸네일">
                                 </a>
                             </div>
                             <div class="tit">
                                 <!-- 강좌 링크 넣기 -->
-                                    <a href="/onlineclass-tutorial/home">
-                                
+                                    <a href="courses.do?couCode=${ courses.couCode }">
                                     <strong class="title"><c:out value="${ courses.couName }"/></strong>
                                 </a>
                                 <div class="author">
                                     <span class="name"><c:out value="${ courses.insName }"/></span>
                                 </div>
                             </div>
-                             <!-- <div class="info_btns">
-                                
-                                <button type="button" class="btn_lecture_more"style="display: block;">더보기</button>
-                                <button type="button" class="btn_lecture_more" data-btn="showMoreCourseOption"><i>더보기</i></button>
-                                <ul class="ly_btn_more" style="display: none;" data-course-more-option="">
-                                    
-                                        <li><a class="btn_area" href="/onlineclass-tutorial?type=stay">수료</a></li>
-                                    
-                                </ul>
-                            </div> -->
                         </div>
                         
                             <div class="desc_area always" style="display: block;" data-info-lec>

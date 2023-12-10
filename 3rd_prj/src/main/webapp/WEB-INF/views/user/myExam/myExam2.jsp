@@ -39,7 +39,7 @@
 
     
         <title>내가 본 시험: edwith</title>
-        <jsp:include page="../nav/user.css"></jsp:include>
+        <link rel="stylesheet" href="http://localhost/daitdayoung/common/css/user/courses.css" type="text/css">
 </head>
 
 
@@ -332,7 +332,7 @@
             <!--SNB-->
             
 <!-- #breadcrumb:common/_whaleclass_snb.gsp -->
-<jsp:include page="../nav/nav3.jsp"></jsp:include>
+<jsp:include page="../nav/nav_courses.jsp"></jsp:include>
 
             
 <div class="content">

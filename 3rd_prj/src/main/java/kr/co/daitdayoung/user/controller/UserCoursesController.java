@@ -23,9 +23,13 @@ public class UserCoursesController {
 
 	@GetMapping("/user/courses.do")
 	public String userCourses(String couCode, HttpSession session, Model model) {
-		couCode = "COU_999999";
+		//couCode = "COU_999999";
 		String uiId = (String)session.getAttribute("uiId");
-		uiId = "ui_test";
+		System.out.println("----------------------------------------------");
+		System.out.println(couCode);
+		System.out.println(uiId);
+		System.out.println("----------------------------------------------");
+		//uiId = "ui_test";
 		UserCoursesVO ucVO = new UserCoursesVO(couCode, uiId);
 		UserCoursesDomain ucDomain = ucs.searchCoursesInfo(ucVO);
 		List<UserCoursesNoticeDomain> noticeList = ucs.searchCoursesNoticeList(couCode);		
@@ -43,6 +47,11 @@ public class UserCoursesController {
 	@GetMapping("/user/courses_detail.do")
 	public String userCoursesDetail(HttpSession session, Model model) {
 		return "user/courses/courses_detail";
+	}
+	
+	@GetMapping("/user/courses_notice.do")
+	public String userCoursesNotice(HttpSession session, Model model) {
+		return "user/courses/courses_notice";
 	}
 
 }

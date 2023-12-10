@@ -28,34 +28,10 @@ public class UserMyCoursesController {
 		
 		list = umcs.searchLecturesCnt(list);
 		
-		
 		model.addAttribute("coursesList", list);
 		model.addAttribute("listSize" ,list.size());
 		return "user/myCourses/myCourses";
 	}
-	
-	
-	
-	
-	@GetMapping("/user/coursesInquiry.do")
-	public String userCoursesInquiry() {
-		return "user/coursesInquiry/coursesInquiry";
-	}
-	@GetMapping("/user/coursesInquiry2.do")
-	public String userCoursesInquiry2() {
-		return "user/coursesInquiry/coursesInquiry2";
-	}
-	
-	@GetMapping("/user/coursesInquiry_write.do")
-	public String userCoursesInquiryWrite() {
-		return "user/coursesInquiry/coursesInquiry_write";
-	}
-	
-	@GetMapping("/user/coursesInquiry_detail.do")
-	public String userCoursesInquiryDetail() {
-		return "user/coursesInquiry/coursesInquiry_detail";
-	}
-	
 	
 
 }
