@@ -23,6 +23,22 @@
 	from instructor i
 </select>
 
+<select id="selectDetailStu1" resultType="kr.co.daitdayoung.admin.domain.ManageUsersDomain" parameterType="String">
+	select ui_id, ui_name, ui_joindate, ui_birth
+	from user_info
+	where ui_id=#{ ui_id }
+</select>
+
+<select id="selectDetailStu2" resultType="kr.co.daitdayoung.admin.domain.ManageUsersDomain" parameterType="String">
+	select c.cou_name, cr.registrationdate, i.ins_name, cr.progress_rate, e.exam_status, cr.completion_status,
+			(   select count(*)
+				from lectures
+				where cou_code=c.cou_code ) lec_cnt
+	from course_registration cr, courses c, instructor i, exam_participation e
+	where cr.cou_code=c.cou_code and c.ins_id=i.ins_id and cr.cou_code=e.cou_code and cr.ui_id=#{ ui_id }
+</select>
+
+
 </mapper>
 
 

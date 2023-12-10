@@ -10,8 +10,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class ManageCouInqueryDomain {
-
-	private String ciCode, citCode, citName, ciTitle, uiId, uiName, couName, ciAnswer;
-	private Date ciDate;
+	private String ciCode, citCode, citName, ciTitle, ciContent, uiId, uiName, couName, ciAnswer, insName;
+	private Date ciDate, ciAnswerdate;
 	
 }

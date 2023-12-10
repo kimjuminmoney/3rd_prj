@@ -40,8 +40,22 @@ public class ManageCouInqueryDAO {
 		return list;
 	}//selectCouInquery
 	
+	public ManageCouInqueryDomain selectDetailCi(String ciCode) throws PersistenceException{
+		ManageCouInqueryDomain detailCi = null;
+		
+		MyBatisHandler mbh = MyBatisHandler.getInstance();
+		
+		SqlSession ss = mbh.getMyBatisHandler(false);
+		
+		detailCi = ss.selectOne("kr.co.daitdayoung.admin.mci.selectDetailCi",ciCode);
+		
+		mbh.closeHandler(ss);
+		
+		return detailCi;
+	}//selectDetailCi
+	
 	public static void main(String[] args) {
-		System.out.println(new ManageCouInqueryDAO().selectCiType());
+		System.out.println(new ManageCouInqueryDAO().selectDetailCi("CI_999998"));
 	}
 	
 }//class

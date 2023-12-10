@@ -94,7 +94,7 @@ $(function(){
                                         <tr>
                                             <td><c:out value="${ couInquiry.ciCode }"/></td>
                                             <td><c:out value="${ couInquiry.citName }"/></td>
-                                            <td><a href="detailCouInquery.do"><c:out value="${ couInquiry.ciTitle }"/></a></td>
+                                            <td><a href="detailCouInquery.do?ciCode=${ couInquiry.ciCode }"><c:out value="${ couInquiry.ciTitle }"/></a></td>
                                             <td><c:out value="${ couInquiry.couName }"/></td>
                                             <td><c:out value="${ couInquiry.uiName }"/></td>
                                             <td><c:out value="${ couInquiry.ciDate }"/></td>

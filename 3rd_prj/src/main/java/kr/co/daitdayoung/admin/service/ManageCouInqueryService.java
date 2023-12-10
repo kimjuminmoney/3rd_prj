@@ -21,7 +21,7 @@ public class ManageCouInqueryService {
 		list = mcDAO.selectCiType();
 		
 		return list;
-	}
+	}//searchCiType
 	
 	public List<ManageCouInqueryDomain> searchCouInquiry() throws PersistenceException{
 		List<ManageCouInqueryDomain> list = null;
@@ -29,6 +29,12 @@ public class ManageCouInqueryService {
 		list = mcDAO.selectCouInquery();
 		
 		return list;
-	}
+	}//searchCouInquiry
 	
-}
+	public ManageCouInqueryDomain searchDetailCi(String ciCode) throws PersistenceException{
+		ManageCouInqueryDomain detailCi = mcDAO.selectDetailCi(ciCode);
+		
+		return detailCi;
+	}//searchDetailCi
+	
+}//class

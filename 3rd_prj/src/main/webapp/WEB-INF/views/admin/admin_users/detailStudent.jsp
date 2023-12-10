@@ -65,27 +65,32 @@ $(function(){
                     	<h1 class="h3 mb-2 text-gray-800">학생회원 상세정보</h1>
                     	<hr style="background-color:#1CC88A; border-width: 2px;">
                     </div>
-	                <div id="userDetail" style="width:1000px; margin: 0 auto; margin-top: 100px; margin-bottom: 30px;">
-		                <label class="form-label">ID</label>
-						<input type="text" id="idFrm" class="form-control" disabled readonly><br/>
-		                <label class="form-label">가입일</label>
-						<input type="text" id="joinFrm" class="form-control" disabled readonly><br/>
-		                <label class="form-label">이름</label>
-						<input type="text" id="nameFrm" class="form-control"><br/>
-		                <label class="form-label">생년월일</label>
-						<input type="text" id="birthFrm" class="form-control"><br/>
-						<div style="margin-top: 10px;">
+                    <div id="userDetail" style="width:1000px; margin: 0 auto; margin-top: 100px; margin-bottom: 30px;
+                     display: grid; grid-template-columns: 1fr 1fr;">
+		                <div id="udFrm" style="width:450px; margin: 0 auto; margin-bottom: 30px;">
+			                <label class="form-label">아이디</label>
+							<input type="text" id="idFrm" class="form-control" value="${ requestScope.uiId }" disabled readonly><br/>
+			                <label class="form-label">가입일</label>
+							<input type="text" id="joinFrm" class="form-control" value="${ requestScope.uiJoindate }" disabled readonly><br/>
+						</div>
+						<div id="udFrm2" style="width:450px; margin: 0 auto; margin-bottom: 30px;">	
+			                <label class="form-label">이름</label>
+							<input type="text" id="nameFrm" value="${ requestScope.uiName }" class="form-control"><br/>
+			                <label class="form-label">생년월일</label>
+							<input type="text" id="birthFrm" value="${ requestScope.uiBirth }" class="form-control"><br/>
+		                </div>
+						<div style="margin-top: 10px; margin-left: 25px">
 					  		<button type="button" class="btn btn-outline-success">수정</button>
 					  		<button type="button" class="btn btn-outline-danger">탈퇴</button>
 						</div>
-	                </div>
+                    </div>
 
 	                <hr style="background-color:#1CC88A; width:1000px; margin: 0 auto; margin-bottom: 50px">
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4" style="width:1000px; margin: 0 auto;">
                         <div class="card-header py-3">
 							<div class="btn-group" role="group" aria-label="Basic outlined example">
-								내용
+								강좌
 							</div>
                         </div>
                         <div class="card-body">
@@ -103,14 +108,16 @@ $(function(){
                                     </thead>
 
                                     <tbody>
+                                    	<c:forEach var="detailStu" items="${ requestScope.detailStuList }">
                                         <tr>
-                                            <td>1</td>
-                                            <td>wnstrl04092</td>
-                                            <td>Alex</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>y</td>
+                                            <td><c:out value="${ detailStu.couName }"/></td>
+                                            <td><c:out value="${ detailStu.registrationDate }"/></td>
+                                            <td><c:out value="${ detailStu.insName }"/></td>
+                                            <td><c:out value="${ detailStu.progressRate / detailStu.lecCnt * 100 }"/>%</td>
+                                            <td><c:out value="${ detailStu.examStatus }"/></td>
+                                            <td><c:out value="${ detailStu.completionStatus }"/></td>
                                         </tr>
+                                    	</c:forEach>
                                     </tbody>
                                 </table>
                             </div>
