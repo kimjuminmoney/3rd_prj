@@ -17,6 +17,7 @@ import kr.co.daitdayoung.user.domain.UserCoursesLectureDomain;
 import kr.co.daitdayoung.user.domain.UserCoursesNoticeDomain;
 import kr.co.daitdayoung.user.service.UserCoursesInquiryService;
 import kr.co.daitdayoung.user.service.UserCoursesService;
+import kr.co.daitdayoung.user.vo.UserCoursesInquiryVO;
 import kr.co.daitdayoung.user.vo.UserCoursesVO;
 
 @Controller
@@ -50,11 +51,10 @@ public class UserCoursesInquiryController {
 	}
 	
 	@PostMapping("/user/coursesInquiry_process.do")
-	public String userCoursesInquiryProcess(HttpSession session,UserCoursesInquiryDomain uciDomain,Model model) {
-		System.out.println(uciDomain);
-		System.out.println("----------------------------------------");
-		System.out.println(session.getAttribute("uiId").toString());
-		System.out.println("----------------------------------------");
+	public String userCoursesInquiryProcess(HttpSession session,UserCoursesInquiryVO uciVO,Model model) {
+		uciVO.setUiId((String)session.getAttribute("uiId"));
+		System.out.println("=================================="+uciVO);
+		uciService.addCoursesInquiry(uciVO);
 		
 		return "redirect:/user/coursesInquiry.do";
 	}

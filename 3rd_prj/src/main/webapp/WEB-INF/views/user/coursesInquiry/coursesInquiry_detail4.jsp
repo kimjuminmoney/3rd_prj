@@ -50,13 +50,12 @@
 }
 
 .card-write .myinfo input[type="text"] {
-    width: 20%;
-    margin-right: 20px;
+    width: 25%;
+    margin-right: 50px;
     padding-right: 10px;
 }
 .card-write .myinfo select {
-    margin-right: 20px;
-    width: 20%;
+    margin-right: 50px;
 }
 
 .card-write .title-w input[type="text"] {
@@ -179,6 +178,7 @@ $(function(){
 
             
 <div class="content">
+<!-- 1111111111111111111111111111111111111111111111111111111111111111111 -->
 <div class="page">
 	
     <form id="frm" action="/daitdayoung/user/coursesInquiry_process.do" method="POST">
@@ -209,6 +209,8 @@ $(function(){
                 	<option value="${ type.citCode }"><c:out value="${ type.citName }"/></option>
                 	</c:forEach>
                 </select>
+                <!-- <span>날짜</span>
+                <input type="text" > -->
             </div>
 
             <div class="msg">
@@ -219,13 +221,78 @@ $(function(){
         <div class="btn-w"><input type="button" value="전송" id="subBtn"></div>
     </div>
         </form>
-	</div>        
+   
+    
+</div>        
+<section class="page forum" data-hasmobile="true">
+    <!--page_header-->
+    <header class="page_header">
+        <div class="group_lr">
+            <div class="group_l">
+                <h1 class="page_title"><c:out value="${ uciDomain.ciTitle }"/></h1>
+            </div>
         </div>
+    </header>
+    <!--//page_header-->
+
+    <!--notice_view-->
+    <article class="forum_view">
+        <!-- [D] 권한에 따라 노출되는 UI가 다름 -->
+        <div class="forum_func group_lr">
+            <div class="group_l">
+                <div class="user_info">
+                    
+                        <div class="thumb bgnone">
+                            <img src="https://cphinf.pstatic.net/mooc/20190311_200/1552269021926taXXr_PNG/edwith%28%29.png?type=ff48_48" width="24" height="24" alt="">
+                        </div>
+                    
+                    <!-- <span class="username">edwith</span>
+                    
+                        <span class="ic_ad vamiddle">관리자</span> -->
+                    
+                    <time class="time" datetime="2020.05.15"><c:out value="${ uciDomain.ciDate }"/></time>
+                </div>
+            </div>
+            
+        </div>
+        <div class="ce ce_view">
+            <article class="material_view material_text">
+                <div class="material_desc editor_reset">
+                    <p>
+                    <c:out value="${ uciDomain.ciContent }"/>
+					</p>
+                </div>
+            </article>
+
+            <div class="share">
+                
+                <!--페이지네비게이션 : 이전글/다음글/목록보기-->
+                
+<!-- #breadcrumb:common/_pageNavigation.gsp -->
+<div class="group_lr">
+    <div class="paginate">
+            <div class="pagin l"><a href="#" class="btn_prve disabled" style="pointer-events: none;">이전 글이 없습니다.</a></div>
+            <div class="pagin r"><a href="#" class="btn_next disabled" style="pointer-events: none;">다음 글이 없습니다.</a></div>
+        
+    </div>
+    <div class="group_lr">
+        <div class="group_r">
+            <a href="/onlineclass-tutorial/notices/32827" class="btn btn_type2 bold N=a:lec.list" data-selector="backToListBtn">목록</a>
+        </div>
+    </div>
+</div>
+                <!--//페이지네비게이션 -->
+            </div>
+        </div>
+    </article>
+    <!--//forum_view-->
+</section>
     </div>
 </div>
 
 <!-- FOOTER -->
 <jsp:include page="../nav/footer.jsp"></jsp:include>
 
+        </div>
 </body>
 </html>

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 import kr.co.daitdayoung.user.dao.UserCoursesInquiryDAO;
 import kr.co.daitdayoung.user.domain.UserCoursesInquiryDomain;
+import kr.co.daitdayoung.user.vo.UserCoursesInquiryVO;
 
 @Component
 public class UserCoursesInquiryService {
@@ -28,6 +29,10 @@ public class UserCoursesInquiryService {
 	
 	public UserCoursesInquiryDomain searchCoursesInquiryDetail(String ciCode) {
 		return uciDAO.selectCoursesInquiryDetail(ciCode);
+	}// searchCoursesInquiryList
+	
+	public void addCoursesInquiry(UserCoursesInquiryVO uciVO) {
+		uciDAO.insertInquiry(uciVO);
 	}// searchCoursesInquiryList
 	
 
