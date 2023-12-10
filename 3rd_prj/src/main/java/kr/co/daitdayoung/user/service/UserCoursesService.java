@@ -19,9 +19,9 @@ public class UserCoursesService {
 	
 	
 	
-	public UserCoursesDomain searchCoursesInfo(String couCode) {
+	public UserCoursesDomain searchCoursesInfo(UserCoursesVO ucVO) {
 		
-		UserCoursesDomain umcd = ucDAO.selectCourseInfo(couCode);
+		UserCoursesDomain umcd = ucDAO.selectCourseInfo(ucVO);
 		return umcd;
 	}// searchCoursesList
 	

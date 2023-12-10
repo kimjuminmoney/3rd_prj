@@ -91,7 +91,7 @@ $(function(){
                                         <tr>
                                             <td><c:out value="${ inquiry.inqCode }"/></td>
                                             <td><c:out value="${ inquiry.itName }"/></td>
-                                            <td><a href="detailInquery.do"><c:out value="${ inquiry.inqTitle }"/></a></td>
+                                            <td><a href="detailInquery.do?inqCode=${ inquiry.inqCode }"><c:out value="${ inquiry.inqTitle }"/></a></td>
                                             <td><c:out value="${ inquiry.uiId }"/></td>
                                             <td><c:out value="${ inquiry.inqDate }"/></td>
                                             <td>

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.co.daitdayoung.instructor">
+<mapper namespace="kr.co.daitdayoung.instructor.insMyClass">
 
 	<select id="selectMyCourses" resultType="kr.co.daitdayoung.instructor.domain.CourseDomain" parameterType="String">
 	select *
@@ -10,11 +10,7 @@
 	where ins_id=#{ insId } 
 	</select>
 
-	<select id="selectOneCourse" resultType="kr.co.daitdayoung.instructor.domain.CourseDomain" parameterType="kr.co.daitdayoung.instructor.vo.CourseVO">
-	select *
-	from courses
-	where ins_id=#{ insId } and cou_code=#{ couCode } 
-	</select>
+	
 
 
 

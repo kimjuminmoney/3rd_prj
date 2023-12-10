@@ -308,8 +308,8 @@
         				<div>
         					<label style="font-size:30px; text-align:center;"><strong>수료 조건</strong></label><br/>
 	        				<div>
-	        					<label style="font-size:30px; text-align:center;"><strong>진도율</strong></label><input type="text" class="input_txt" style="width:30%; height:30%; font-size:16px; margin-left:5%;" value="${ cd.sampleVideo }"><input type="checkbox"><br/>
-	        					<label style="font-size:30px; text-align:center;"><strong>시험</strong></label><input type="text" class="input_txt" style="width:30%; height:30%; font-size:16px; margin-left:5%;" value="${ cd.sampleVideo }" ><input type="checkbox"><br/>
+	        					<label style="font-size:30px; text-align:center;"><strong>진도율</strong></label><input type="text" class="input_txt" style="width:30%; height:30%; font-size:16px; margin-left:5%;" value="${ cd.enRollRate }"><input type="checkbox"><br/>
+	        					<label style="font-size:30px; text-align:center;"><strong>시험</strong></label><input type="text" class="input_txt" style="width:30%; height:30%; font-size:16px; margin-left:5%;" value="${ cd.examResults }" ><input type="checkbox"><br/>
 	        				</div>
         					<div style="weight:100%; height:5%;;"></div>
 						</div>

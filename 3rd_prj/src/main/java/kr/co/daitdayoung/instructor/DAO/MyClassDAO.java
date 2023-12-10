@@ -17,7 +17,7 @@ public class MyClassDAO {
 		
 		SqlSession ss=mbh.getMyBatisHandler(false);
 		
-		List<CourseDomain> cdList=ss.selectList("kr.co.daitdayoung.instructor.selectMyCourses",insId);
+		List<CourseDomain> cdList=ss.selectList("kr.co.daitdayoung.instructor.insMyClass.selectMyCourses",insId);
 		System.out.println(cdList);
 		
 		return cdList;

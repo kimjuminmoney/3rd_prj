@@ -30,6 +30,7 @@
   <!-- 나 -->
   	<mapper resource="kr/co/daitdayoung/instructor/mapper/insCourseMapper.xml"/>
   	<mapper resource="kr/co/daitdayoung/instructor/mapper/insMyClassMapper.xml"/>
+  	<mapper resource="kr/co/daitdayoung/instructor/mapper/insAddCourseMapper.xml"/>
   <!-- 나 -->
   <!-- 준식 -->
   	<mapper resource="kr/co/daitdayoung/admin/mapper/manageCoursesMapper.xml"/>

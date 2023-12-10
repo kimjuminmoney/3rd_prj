@@ -72,7 +72,7 @@
                 
                     <div class="count_info">
                         <span class="count_like"><em>조회수</em><c:out value="${ ucDomain.hits }"/></span>
-                        <span class="count_observe"><em>수료자수</em><c:out value="${ ucDomain.cnt }"/></span>
+                        <span class="count_observe"><em>수료자수</em><c:out value="${ ucDomain.completeCnt }"/></span>
                     </div>
                     <div class="manage_box">
                         

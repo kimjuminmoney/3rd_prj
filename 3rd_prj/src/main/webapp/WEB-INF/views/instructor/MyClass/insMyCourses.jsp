@@ -174,7 +174,7 @@
         </ul>
     </div>
 </li>
-s
+
             </ul>
             <button type="button" class="btn_snb"><span class="blind">메뉴 닫기</span></button>
         </div>
@@ -258,8 +258,8 @@ s
 
 
 <!-- lcs file -->
-<script src="/static/lcs-js/lcslog.js?231109_47a067d4"></script>
-<script src="/static/js/src/entries/common/_lcs.entry.browserfied.min.js?231109_47a067d4"></script>
+<script src="https://www.edwith.org/static/lcs-js/lcslog.js?231109_47a067d4"></script>
+<script src="https://www.edwith.org/static/js/src/entries/common/_lcs.entry.browserfied.min.js?231109_47a067d4"></script>
 <script>
     $(document).ready(function(){
         var entry = require("/entries/common/_lcs.entry.js");
@@ -283,7 +283,7 @@ s
     });
 </script>
 
-<script src="/static/js/src/entries/whaleclass/main/index.entry.browserfied.min.js?231109_47a067d4"></script>
+<script src="https://www.edwith.org/static/js/src/entries/whaleclass/main/index.entry.browserfied.min.js?231109_47a067d4"></script>
 <script>
     $(function(){
         var entry = require("/entries/whaleclass/main/index.entry.js");
@@ -351,10 +351,6 @@ s
             
 <!-- #breadcrumb:common/_whaleclass_footer.gsp -->
 
-    
-
-
-
     <div class="footer whale_main">
         <div class="f_inner">
             <p class="copyright">ⓒ NAVER Connect Foundation</p>
@@ -376,8 +372,8 @@ s
 <!-- Build 231109.47a067d4 -->
 
 <!-- lcs file -->
-<script src="/static/lcs-js/lcslog.js?231109_47a067d4"></script>
-<script src="/static/js/src/entries/footer/index.entry.browserfied.min.js?231109_47a067d4"></script>
+<script src="https://www.edwith.org/static/lcs-js/lcslog.js?231109_47a067d4"></script>
+<script src="https://www.edwith.org/static/js/src/entries/footer/index.entry.browserfied.min.js?231109_47a067d4"></script>
 <script>
     $(document).ready(function(){
     });
@@ -387,8 +383,7 @@ s
 </body>
 </html>
 
-
-<script src="/static/js/src/entries/layouts/whaleclass.entry.browserfied.min.js?231109_47a067d4"></script>
+<!-- <script src="https://www.edwith.org/static/js/src/entries/layouts/whaleclass.entry.browserfied.min.js?231109_47a067d4"></script>
 <script>
     $(function(){
         var entry = require("/entries/layouts/whaleclass.entry.js");
@@ -447,6 +442,4 @@ s
         })
     });
 </script>
-
-</body>
-</html>
+ -->
