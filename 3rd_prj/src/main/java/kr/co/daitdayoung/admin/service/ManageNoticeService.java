@@ -31,4 +31,20 @@ public class ManageNoticeService {
 		return list;
 	}//searchNotice
 	
+	public ManageNoticeDomain searchDetailNot(String notCode) throws PersistenceException{
+		ManageNoticeDomain detailNot=null;
+		
+		detailNot = mnd.selectDetailNot(notCode);
+		
+		return detailNot;
+	}
+
+	public ManageNoticeDomain searchDetailCn(String cnCode) throws PersistenceException{
+		ManageNoticeDomain detailCn=null;
+		
+		detailCn = mnd.selectDetailCn(cnCode);
+		
+		return detailCn;
+	}
+	
 }//class

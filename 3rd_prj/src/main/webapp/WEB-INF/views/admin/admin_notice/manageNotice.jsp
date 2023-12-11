@@ -108,7 +108,7 @@
                                         <tr>
                                             <td><c:out value="${ notice.notCode }"/></td>
                                             <td>일반</td>
-                                            <td><a href="detailNotice.do"><c:out value="${ notice.notTitle }"/></a></td>
+                                            <td><a href="detailNotice.do?notCode=${ notice.notCode }"><c:out value="${ notice.notTitle }"/></a></td>
                                             <td><c:out value="${ notice.adminName }"/></td>
                                             <td><c:out value="${ notice.notDate }"/></td>
                                         </tr>
@@ -146,7 +146,7 @@
                                         <tr>
                                             <td><c:out value="${ couNotice.cnCode }"/></td>
                                             <td>강좌</td>
-                                            <td><a href="detailCouNotice.do"><c:out value="${ couNotice.cnTitle }"/></a></td>
+                                            <td><a href="detailCouNotice.do?cnCode=${ couNotice.cnCode }"><c:out value="${ couNotice.cnTitle }"/></a></td>
                                             <td><c:out value="${ couNotice.couName }"/></td>
                                             <td><c:out value="${ couNotice.insName }"/></td>
                                             <td><c:out value="${ couNotice.cnDate }"/></td>

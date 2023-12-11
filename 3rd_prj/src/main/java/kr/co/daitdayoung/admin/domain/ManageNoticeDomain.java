@@ -10,8 +10,8 @@ import lombok.ToString;
 @Setter
 @ToString
 public class ManageNoticeDomain {
-
-	private String notCode, notTitle, adminId, adminName, cnCode, cnTitle, couName, insName; 
+	
+	private String notCode, notTitle, notContent, adminId, adminName, cnCode, cnTitle, couName, cnContent, insName; 
 	private Date notDate, cnDate;
 	
 }
