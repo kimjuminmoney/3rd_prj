@@ -10,9 +10,12 @@ import lombok.ToString;
 @Setter
 @ToString
 public class ManageUsersDomain {
-
-	private String uiId, uiName, uiQuit, insId, insName, insTel, insQuit, couName, examStatus, completionStatus;
-	private int couY, couN, couCnt, progressRate, lecCnt;
-	private Date uiJoindate, uiBirth, insJoindate, registrationDate;
+	
+	private String uiId, uiName, uiQuit, insId, insName, insTel, insQuit, insEmail, couName,
+				insInstrodce, insProfile, inscouName, examStatus, completionStatus, approve, refuseReanson;
+	
+	private int couY, couN, couCnt, progressRate, lecCnt, regCnt, comCnt;
+	
+	private Date uiJoindate, uiBirth, insBirth, insJoindate, registrationDate, opendate;
 	
 }
