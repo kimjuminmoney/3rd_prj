@@ -47,19 +47,10 @@
 <!-- #breadcrumb:common/_whaleclass_header.gsp -->
 <header id="header" class="default_ly2 ">
     <div class="header_wrap">
-    
-        
             
-                
-            
-            <h1 class="bi_school"
-                >
+            <h1 class="bi_school">
                 <a href="/myPage/openClass?isHomeLogo=true">
-                    <img src="https://ssl.pstatic.net/static/m/mooc/p/partner/next/logo_v4.png"
-                        
-                            style="max-height:24px;"
-                        
-                         alt="edwith">
+                    <img src="https://ssl.pstatic.net/static/m/mooc/p/partner/next/logo_v4.png"style="max-height:24px;"alt="edwith">
                 </a>
             </h1>
         
@@ -220,7 +211,41 @@
     <div class="course_lst class_area">
         
             <ul data-course-card-ul>
-                    
+                    <%-- <c:forEach var="cl" items="${ List }" varStatus="i">
+                    <li class="" >
+                        <div class="info_area">
+                            <div class="thumb">
+                                    <a href="javascript:void(0)" onclick="open_course(${i.count})">
+                                    <img src="${ course.bannerImg }" width="88" height="48" alt="강좌 썸네일">
+                                </a>
+                            </div>
+                            
+                            <div class="tit">
+                                    <a href="javascript:void(0)" onclick="open_course(${i.count})">
+                                    <strong class="title"><c:out value="${ course.couName }"/></strong>
+                                </a>
+                            </div>
+                            <div class="author">
+                                    <span class="name">조회수</span>
+                                        <span class="bar"></span>
+                                       ${ course.hits }
+                                </div>
+                            <div class="info_btns" >
+                                <!-- 김주민 참고-->
+                    				<button type="button" class="btn_type" data-course-join-btn><span class="btn_txt">강좌 참여하기</span></button>
+                                <input type="button" onclick="open_course(${i.count})" class="btn btn-success" value="강좌 수정" style="border:#000; width:100%; height:10%; background-color:#00AB50; font-size:16px; font:Nanumsquare"/>
+                                <input type="hidden" id="course${i.count}" name="course${i.count}" value="${ course.couCode }"/>
+                            </div>
+                        </div>
+
+                                <div class="info_btns">
+                                    <strong class="title">상태 : </strong>
+                                    <strong class="title">신청 </strong>
+                                </div>
+                        	</div>
+                        </div>
+                   	</li>
+                    </c:forEach> --%>
                     <li class="" data-course="4317" data-course-uri="web326" data-course-name="웹 백엔드">
                         <div class="info_area">
                             <div class="thumb">

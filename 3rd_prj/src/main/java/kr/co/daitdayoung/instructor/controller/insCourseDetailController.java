@@ -58,12 +58,25 @@ public class insCourseDetailController {
 	@RequestMapping("/insCourseTest.do")
 	public String courseTest() {
 		System.out.println("시험");
+		
+		
+		
+		
+		
+		
+		
 		return "instructor/MyClass/course/insCourseTest";
 	}//courseDetail
 
 	@RequestMapping("/insCourseTestQuestion.do")
 	public String courseTestQuestion() {
 		System.out.println("문제관리");
+		
+		
+		
+		
+		
+		
 		return "instructor/MyClass/course/insCourseTestQuestion";
 	}//courseDetail
 

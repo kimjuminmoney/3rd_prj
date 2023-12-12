@@ -20,6 +20,7 @@ public class MyClassDAO {
 		List<CourseDomain> cdList=ss.selectList("kr.co.daitdayoung.instructor.insMyClass.selectMyCourses",insId);
 		System.out.println(cdList);
 		
+		mbh.closeHandler(ss);
 		return cdList;
 	}
 	
@@ -28,14 +29,11 @@ public class MyClassDAO {
 		
 		
 		
-		
-		
 		return cnt;
 	}
 
 	public List<CourseDomain> SearchAddedCourses(CourseVO cVO) {
 		List<CourseDomain> cdList=null;
-		
 		
 		
 		

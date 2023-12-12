@@ -2,23 +2,40 @@ package kr.co.daitdayoung.instructor.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import kr.co.daitdayoung.instructor.domain.CourseDomain;
-import kr.co.daitdayoung.instructor.service.MyClassService;
-import kr.co.daitdayoung.instructor.vo.CourseVO;
+import com.oreilly.servlet.MultipartRequest;
 
-@SessionAttributes("insId")
+import kr.co.daitdayoung.instructor.domain.CourseDomain;
+import kr.co.daitdayoung.instructor.domain.MainCategoryDomain;
+import kr.co.daitdayoung.instructor.domain.SubCategoryDomain;
+import kr.co.daitdayoung.instructor.service.CategoryService;
+import kr.co.daitdayoung.instructor.service.MyClassService;
+import kr.co.daitdayoung.instructor.service.insAddCourseService;
+import kr.co.daitdayoung.instructor.vo.CourseVO;
+import kr.co.daitdayoung.instructor.vo.LectureVO;
+
+@SessionAttributes({"insId","cVO"})
 @Controller
 public class InsMyClassController {
 
 	@Autowired
 	private MyClassService mcs;
 	
+	@Autowired
+	private CategoryService css;
+
+	@Autowired
+	private insAddCourseService iacs;
 	
 	
 	@RequestMapping("/insMyCourse.do")
@@ -37,36 +54,68 @@ public class InsMyClassController {
 	}//myCourses
 	
 	
-	@RequestMapping("/insTest2.do")
-	public String test2() {
-		
-		return "instructor/MyClass/test2";
-	}
-	
 	@RequestMapping("/insAddCourse.do")
-	public String addCourse() {
+	public String addCourse(Model model) {
+		
+		List<MainCategoryDomain> mcList=css.searchMainCategory();
+		model.addAttribute("mcList",mcList);
 		
 		return "instructor/MyClass/insAddCourse";
 	}
 
-	@RequestMapping("/insAddCourseList2.do")
-	public String addCourseList2(CourseVO cVO, Model model) {
+	@RequestMapping("/subcategory.do")
+	@ResponseBody
+	public String subCategory (String mcCode) {
 		
-		model.addAttribute("cVO",cVO);
+		JSONObject jsonObj=css.searchSubCategory(mcCode);
 		
-		return "instructor/MyClass/insAddCourseList2";
+		return jsonObj.toJSONString();
 	}
-
-//	public String addAjax(CourseVO cVO, List<String> mokcha, Model model) {
-//	
-//		
-//		return 
-//	}
+	
+	@RequestMapping("/insAddCourse2.do")
+	public String addCourse2(CourseVO cVO,HttpServletRequest request, Model model) {
+		
+		cVO.setInsId((String)request.getAttribute("insId"));
+		System.out.println("ac2 / "+cVO);
+		
+		model.addAttribute("cVO", cVO);
+		
+		return "instructor/MyClass/insAddCourse2";
+	}
+	
+	@RequestMapping("/insAddCourseTry.do")
+	public String addCourseTry(HttpSession session, String[] contentsList, Model model) {
+		CourseVO cVO = (CourseVO)(session.getAttribute("cVO"));
+		
+		cVO.setContentList(contentsList);
+		System.out.println( "act / "+cVO );
+		System.out.println( "act / "+cVO.getContentList() );
+		
+		int cnt=0;
+		cnt = iacs.addCourse(cVO);
+		
+//		session.removeAttribute("cVO");
+		
+		return "forward:insAddCourseList.do";
+	}
+	//신청목록
 	@RequestMapping("/insAddCourseList.do")
 	public String addCourseList() {
 		
 		return "instructor/MyClass/insAddCourseList";
 	}
+	
+	@RequestMapping("/insAddCourseList2.do")
+	public String addCourseList2(CourseVO cVO, Model model) {
+		
+		
+		model.addAttribute("cVO",cVO);
+		
+		
+		return "instructor/MyClass/insAddCourseList2";
+	}
+
+
 	
 	
 }//class
