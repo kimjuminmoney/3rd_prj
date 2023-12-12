@@ -13,8 +13,53 @@
 </style>
 <script type="text/javascript">
 $(function(){
-   
+   $("#addBtn").click(function(){
+	   var param={inqCode: $("#inqCode2").val(),
+			   inqAnswer: $("#inqAnswer").val()}
+	   $.ajax({
+		   url:"addInquery.do",
+		   type:"GET",
+		   data: param,
+		   dataType:"json",
+		   error:function( xhr ){
+			   alert( xhr.status );
+		   },
+		   success:function(jsonObj){
+			   var cnt = jsonObj.cnt;
+			   if(cnt=='1'){
+				   alert("정상적으로 답변이 등록되었습니다.");
+				   window.history.back();
+			   }else{
+				   alert("정상적으로 답변이 등록되지 않았습니다. 다시 한번 시도해주세요.");
+			   }
+		   }//success
+	   });//ajax
+   });//click
+
+   $("#modBtn").click(function(){
+	   var param={inqCode: $("#inqCode").val(),
+			   inqAnswer: $("#inqModAnswer").val()}
+	   $.ajax({
+		   url:"addInquery.do",
+		   type:"GET",
+		   data: param,
+		   dataType:"json",
+		   error:function( xhr ){
+			   alert( xhr.status );
+		   },
+		   success:function(jsonObj){
+			   var cnt = jsonObj.cnt;
+			   if(cnt=='1'){
+				   alert("정상적으로 답변이 수정되었습니다.");
+				   location.reload();
+			   }else{
+				   alert("정상적으로 답변이 수정되지 않았습니다. 다시 한번 시도해주세요.");
+			   }
+		   }//success
+	   });//ajax
+   });//click
 });//ready
+
 </script>
 
 </head>
@@ -58,17 +103,47 @@ $(function(){
 	                <hr>
 	                <p style="color: #5A5C69;"><c:out value="${ requestScope.inqContent }"/></p>
                 </div>
-                <div id="addInquery" style="width:1000px; margin: 0 auto; margin-top: 50px">
+                <c:if test="${ param.answerStat=='Y' }">
+                <div id="inqueryAnswer" style="width:1000px; margin: 0 auto; margin-top: 50px">
+	                <hr style="background-color:#1CC88A;">
+        			<div id="inqueryAnswerFrm" class="form-floating" style="margin-top: 50px">
+        				<h6 id="answerTitle" class="h3 mb-4 text-gray-800" style="font-size: 20px">답변</h6>
+	        			<table>
+						<tr>
+							<td style="border-right: 1px solid #DFE0E2; padding-right: 10px"><c:out value="${ requestScope.adminName }"/></td>
+							<td style="padding-left: 10px"><c:out value="${ requestScope.inqAnswerdate }"/></td>
+						</tr>				
+						</table>
+						<hr>
+						<p style="color: #5A5C69;"><c:out value="${ requestScope.inqAnswer }"/></p>
+					</div>
+                </div>
+                <div id="modifyInquery" style="width:1000px; margin: 0 auto; margin-top: 50px">
 	                <hr style="background-color:#1CC88A;">
         		<!--<h6 id="inqueryAdd" class="h3 mb-4 text-gray-800" style="font-size: 20px">답변</h6> -->        	
-        			<div id="addInqueryFrm" class="form-floating">
-					  <textarea class="form-control" placeholder="문의에 대한 답변을 입력해주세요." id="floatingTextarea2" style="height: 200px"></textarea>
-					</div>
-					<div style="margin-top: 50px;">
-					  <button type="button" class="btn btn-outline-success">등록</button>
+	        			<div id="modifyInqueryFrm" class="form-floating">
+						  <textarea class="form-control" placeholder="수정할 답변을 입력해주세요." name="inqAnswer" id="inqModAnswer" style="height: 200px"></textarea>
+						  <input type="hidden" id="inqCode" value="${ param.inqCode }" name="inqCode"> 
+						</div>
+					<div style="margin-top: 50px; margin-bottom: 50px;">
+					  <button id="modBtn" type="button" class="btn btn-outline-success">수정</button>
 					  <button type="button" class="btn btn-outline-danger">취소</button>
 					</div>
                 </div>
+                </c:if>
+                <c:if test="${ param.answerStat=='N' }">
+                <div id="addInquery" style="width:1000px; margin: 0 auto; margin-top: 50px">
+	                <hr style="background-color:#1CC88A;">
+        			<div id="addInqueryFrm" class="form-floating">
+					  <textarea class="form-control" placeholder="문의에 대한 답변을 입력해주세요." name="inqAnswer" id="inqAnswer" style="height: 200px"></textarea>
+					  <input type="hidden" id="inqCode2" value="${ param.inqCode }" name="inqCode"> 
+					</div>
+					<div style="margin-top: 50px; margin-bottom: 50px;">
+					  <button id="addBtn" type="button" class="btn btn-outline-success">등록</button>
+					  <button type="button" class="btn btn-outline-danger">취소</button>
+					</div>
+                </div>
+                </c:if>
 
             </div>
             <!-- End of Main Content -->
