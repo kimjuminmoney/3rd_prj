@@ -7,40 +7,52 @@
 	<!-- 나의 강의실 수강상세, 대시보드 -->
 	<select id="coursesInfo" resultType="kr.co.daitdayoung.user.domain.UserCoursesDomain" parameterType="kr.co.daitdayoung.user.vo.UserCoursesVO">
 	select  c.cou_code,i.INS_ID, COU_NAME, CONTENT, OPENDATE, BANNER_IMG, COU_PERIOD, SAMPLE_VIDEO, HITS, FINAL_APPROVE,
-			i.ins_name, i.ins_profile,(crg.registrationdate+c.cou_period) courseperiod,completion_status,
-			cc.enroll_rate, cc.exam_results, crg.registrationdate,progress_Rate
+			i.ins_name, i.ins_profile,(crg.registrationdate+c.cou_period) courseperiod,completion_status, c.cou_code,
+			cc.enroll_rate, cc.exam_results, crg.registrationdate,progress_Rate, CR_COUNT
 			,(select count(*)
 			from COURSE_REGISTRATION
 			where cou_code = #{couCode} and COMPLETION_STATUS = 'Y') completeCnt
 	from    COURSES c, INSTRUCTOR i,course_registration crg, completion_criteria cc
-	where 	c.ins_id = i.ins_id and c.cou_code = #{couCode} and 
+	where 	c.ins_id = i.ins_id and crg.crg_code = #{crgCode}and
 			crg.ui_id = #{uiId} and c.cou_code = crg.cou_code
 	</select>
-<!-- 	<select id="coursesInfo" resultType="kr.co.daitdayoung.user.domain.UserCoursesDomain" parameterType="String">
-	select  i.INS_ID, COU_NAME, CONTENT, OPENDATE, BANNER_IMG, COU_PERIOD, SAMPLE_VIDEO, HITS, FINAL_APPROVE,
-			i.ins_name, i.ins_profile,(crg.registrationdate+c.cou_period) courseperiod,completion_status,
-			cc.enroll_rate, cc.exam_results, crg.registrationdate
-			,(select count(*)
-			from COURSE_REGISTRATION
-			where cou_code = #{couCode}) cnt 
-	from    COURSES c, INSTRUCTOR i,course_registration crg, completion_criteria cc
-	where 	c.ins_id = i.ins_id and cou_code = #{couCode}
-	</select> -->
 	
-	<!-- 강의 공지사항리스트, 상세 -->
-	<select id="coursesNotice" resultType="kr.co.daitdayoung.user.domain.UserCoursesNoticeDomain" parameterType="String">
-	select  CN_CODE, i.INS_ID, CN_TITLE, CN_DATE, CN_CONTENT, INS_NAME,ROW_NUMBER() OVER (ORDER BY CN_DATE) ind
+	<!-- 강의 공지사항리스트 -->
+	<select id="coursesNoticeList" resultType="kr.co.daitdayoung.user.domain.UserCoursesNoticeDomain" parameterType="String">
+	select  CN_CODE, i.INS_ID, CN_TITLE, CN_DATE, cou_code, CN_CONTENT, INS_NAME,ROW_NUMBER() OVER (ORDER BY CN_DATE) ind
 	from	COURSES_NOTICE cn, INSTRUCTOR i
 	where   cou_code = #{couCode} and i.ins_id = cn.ins_id
 	order by ind desc
 	</select>
 	
-	<!-- 강의목록리스트, 상세 -->
-	<select id="coursesLecture" resultType="kr.co.daitdayoung.user.domain.UserCoursesLectureDomain" parameterType="kr.co.daitdayoung.user.vo.UserCoursesVO">
-	select  lec.LEC_CODE, LEC_NAME, LEC_CONTENT, VIDEO_NAME, COURSE_STATUS
-	from 	LECTURES lec, COURSE_RECORD cr
-	where 	lec.cou_code = #{couCode} and lec.lec_code = cr.lec_code and cr.ui_id = #{uiId}
+	<!-- 강의 공지사항리스트상세 -->
+	<select id="coursesNoticeDetail" resultType="kr.co.daitdayoung.user.domain.UserCoursesNoticeDomain" parameterType="String">
+	select  CN_CODE, CN_TITLE, CN_DATE, CN_CONTENT, i.ins_name
+	from	COURSES_NOTICE cn, INSTRUCTOR i
+	where   cn_code = #{cnCode} and i.ins_id = cn.ins_id
+	</select>
+	
+	<!-- 강의목록리스트 -->
+	<select id="coursesLectureList" resultType="kr.co.daitdayoung.user.domain.UserCoursesLectureDomain" parameterType="kr.co.daitdayoung.user.vo.UserCoursesVO">
+	select  lec.LEC_CODE, LEC_NAME, LEC_CONTENT, VIDEO_NAME, COURSE_STATUS, crg.crg_code
+	from 	LECTURES lec, COURSE_RECORD cr, COURSE_REGISTRATION  crg
+	where 	lec.cou_code = #{couCode} and cr.ui_id = #{uiId} and crg.crg_code = #{crgCode} and
+			lec.lec_code = cr.lec_code  and crg.crg_code = cr.crg_code
 	order by lec.lec_Code desc
+	</select>
+	
+	<!-- 강의 상세 -->
+	<select id="coursesLectureDetail" resultType="kr.co.daitdayoung.user.domain.UserCoursesLectureDomain" parameterType="kr.co.daitdayoung.user.vo.UserCoursesVO">
+	select  lec.LEC_CODE, LEC_NAME, LEC_CONTENT, VIDEO_NAME, COURSE_STATUS, lec.cou_code, lec.ins_id
+	from 	LECTURES lec, COURSE_RECORD cr
+	where 	lec.cou_code = #{couCode} and lec.lec_code = cr.lec_code and cr.ui_id = #{uiId} and lec.lec_code = #{lecCode}
+	</select>
+	
+	<!-- 강의 시험 정보 -->
+	<select id="coursesExam" resultType="kr.co.daitdayoung.user.domain.UserCoursesExamDomain" parameterType="String">
+	select	EXAM_CODE, EXAM_CONTENT, EXAM_TIMELIMIT
+	from 	EXAM
+	where	COU_CODE = #{couCode}
 	</select>
 	
 	

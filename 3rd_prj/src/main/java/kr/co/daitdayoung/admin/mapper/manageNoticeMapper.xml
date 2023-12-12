@@ -16,6 +16,18 @@
 	where cn.cou_code=c.cou_code and cn.ins_id=i.ins_id
 </select>
 
+<select id="selectDetailNot" resultType="kr.co.daitdayoung.admin.domain.ManageNoticeDomain" parameterType="String">
+	select n.not_title, n.not_date, n.not_content, a.admin_name
+	from notice n, admin a
+	where n.admin_id=a.admin_id and n.not_code=#{ not_code }
+</select>
+
+<select id="selectDetailCn" resultType="kr.co.daitdayoung.admin.domain.ManageNoticeDomain" parameterType="String">
+	select cn.cn_title, cn.cn_date, cn.cn_content, i.ins_name, c.cou_name
+	from instructor i, courses_notice cn, courses c
+	where i.ins_id=cn.ins_id and cn.cou_code=c.cou_code and cn_code=#{ cn_code }
+</select>
+
 </mapper>
 
 

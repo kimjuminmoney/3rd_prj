@@ -5,20 +5,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class UserMyExamController {
+public class UserExamController {
 	
-	public String examRecodeList(String str, Model model ) {
-		return "";
-	}
-	
-	@GetMapping("/user/myExam.do")
+	@GetMapping("/user/userExam.do")
 	public String userMyExam() {
+		System.out.println("시험맵핑이라라요");
 		return "user/myExam/myExam";
 	}
 	
-	@GetMapping("/user/myExam2.do")
-	public String userMyExam2() {
-		return "user/myExam/myExam2";
-	}
 
 }

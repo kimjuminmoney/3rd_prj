@@ -43,4 +43,16 @@ public class ManageUsersService {
 		return list;
 	}//searchDetailStu1
 	
+	public ManageUsersDomain searchDetailIns1(String insId) throws PersistenceException{
+		ManageUsersDomain detailIns=mud.selectDetailIns1(insId);
+		
+		return detailIns;
+	}//searchDetailIns1
+	
+	public List<ManageUsersDomain> searchDetailIns2(String uiID) throws PersistenceException{
+		List<ManageUsersDomain> list = mud.selectDetailIns2(uiID);
+		
+		return list;
+	}//searchDetailStu1
+	
 }

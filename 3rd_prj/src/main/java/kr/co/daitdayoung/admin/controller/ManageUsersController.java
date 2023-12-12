@@ -50,7 +50,20 @@ public class ManageUsersController {
 
 	//강사 상세
 	@GetMapping("/admin/admin_users/detailInstructor.do")
-	public String detailInstrurtor() {
+	public String detailInstrurtor(Model model, String insId, HttpServletRequest request) {
+		
+		insId = request.getParameter("insId");
+		
+		ManageUsersDomain detailIns = mus.searchDetailIns1(insId);
+		List<ManageUsersDomain> detailInsList = mus.searchDetailIns2(insId);
+		
+		model.addAttribute("insId", detailIns.getInsId());
+		model.addAttribute("insName", detailIns.getInsName());
+		model.addAttribute("insBirth", detailIns.getInsBirth());
+		model.addAttribute("insTel", detailIns.getInsTel());
+		model.addAttribute("insJoindate", detailIns.getInsJoindate());
+		model.addAttribute("insEmail", detailIns.getInsEmail());
+		model.addAttribute("detailInsList", detailInsList);
 		
 		return "admin/admin_users/detailInstructor";
 	}

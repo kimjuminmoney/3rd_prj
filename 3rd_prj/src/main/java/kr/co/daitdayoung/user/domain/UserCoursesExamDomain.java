@@ -7,8 +7,9 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class UserCoursesLectureDomain {
+public class UserCoursesExamDomain {
+	private String examCode, examContent;
+	private int examTimelimit;
 	
-	private String lecCode, lecName, lecContent, videoName,courseStatus, couCode, insId, crgCode;
-	
+
 }

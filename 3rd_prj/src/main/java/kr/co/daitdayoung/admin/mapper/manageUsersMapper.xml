@@ -38,6 +38,23 @@
 	where cr.cou_code=c.cou_code and c.ins_id=i.ins_id and cr.cou_code=e.cou_code and cr.ui_id=#{ ui_id }
 </select>
 
+<select id="selectDetailIns1" resultType="kr.co.daitdayoung.admin.domain.ManageUsersDomain" parameterType="String">
+	select ins_id, ins_name, ins_email, ins_birth, ins_tel, ins_joindate, ins_introdce, ins_profile
+	from instructor
+	where ins_id=#{ ins_id }
+</select>
+
+<select id="selectDetailIns2" resultType="kr.co.daitdayoung.admin.domain.ManageUsersDomain" parameterType="String">
+	select cou_name, opendate, approve, refuse_reanson,
+					( select count(*)
+					  from course_registration
+					  where cou_code=c.cou_code) reg_cnt,
+					( select count(*)
+					  from course_registration
+					  where completion_status = 'Y' and cou_code=c.cou_code) com_cnt
+	from courses c
+	where ins_id=#{ ins_id }
+</select>
 
 </mapper>
 

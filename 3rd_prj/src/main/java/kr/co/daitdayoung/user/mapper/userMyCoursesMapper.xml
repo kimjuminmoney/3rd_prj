@@ -6,13 +6,13 @@
 
 	<!-- 나의 강의실 수강 List -->
 	<select id="myCoursesList" resultType="kr.co.daitdayoung.user.domain.UserMyCoursesDomain" parameterType="String">
-	select 	c.cou_code, c.cou_name, c.cou_period,i.ins_name, c.banner_img, crg.crg_code, ui.ui_name,
-			crg.progress_rate, crg.registrationdate, crg.completiondate, (crg.registrationdate+c.cou_period) coursePeriod,
-			cc.enroll_rate, cc.exam_results,ep.exam_score, ep.exam_status, completion_status,PROGRESS_RATE
-	from   	course_registration crg, courses c, user_info ui, instructor i ,
-			completion_criteria cc, exam_participation ep
-	where  	crg.ui_id = #{userId} and c.cou_code = crg.cou_code and i.ins_id = c.ins_id and
-			c.cc_code = cc.cc_code and c.cou_code = ep.cou_code
+	select 	c.cou_code, c.cou_name, c.cou_period,i.ins_name, c.banner_img, crg.crg_code, ui.ui_name, crg.crg_code,
+				crg.progress_rate, crg.registrationdate, crg.completiondate, (crg.registrationdate+c.cou_period) coursePeriod,
+				cc.enroll_rate, cc.exam_results,ep.exam_score, ep.exam_status, completion_status,PROGRESS_RATE
+	from 	 	course_registration crg, courses c, user_info ui, instructor i ,
+					completion_criteria cc, exam_participation ep
+	where	 	crg.ui_id = #{uiId} and c.cou_code = crg.cou_code and i.ins_id = c.ins_id and
+				c.cc_code = cc.cc_code and crg.crg_code = ep.crg_code
 	
 	</select>
 	

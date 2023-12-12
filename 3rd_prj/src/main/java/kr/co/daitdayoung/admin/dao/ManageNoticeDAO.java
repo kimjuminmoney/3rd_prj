@@ -40,4 +40,32 @@ public class ManageNoticeDAO {
 		return list;
 	}
 	
+	public ManageNoticeDomain selectDetailNot(String notCode) throws PersistenceException{
+		ManageNoticeDomain detailNot = null;
+		
+		MyBatisHandler mbh = MyBatisHandler.getInstance();
+		
+		SqlSession ss = mbh.getMyBatisHandler(false);
+		
+		detailNot = ss.selectOne("kr.co.daitdayoung.admin.mn.selectDetailNot",notCode);
+		
+		mbh.closeHandler(ss);
+		
+		return detailNot;
+	}
+
+	public ManageNoticeDomain selectDetailCn(String cnCode) throws PersistenceException{
+		ManageNoticeDomain detailCn = null;
+		
+		MyBatisHandler mbh = MyBatisHandler.getInstance();
+		
+		SqlSession ss = mbh.getMyBatisHandler(false);
+		
+		detailCn = ss.selectOne("kr.co.daitdayoung.admin.mn.selectDetailCn",cnCode);
+		
+		mbh.closeHandler(ss);
+		
+		return detailCn;
+	}
+	
 }

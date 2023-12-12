@@ -68,9 +68,36 @@ public class ManageUsersDAO {
 		return list;
 	}//selectDetailStu2
 
+	public ManageUsersDomain selectDetailIns1(String insId) throws PersistenceException{
+		ManageUsersDomain detailStu = null;
+		
+		MyBatisHandler mbh = MyBatisHandler.getInstance();
+		
+		SqlSession ss = mbh.getMyBatisHandler(false);
+		
+		detailStu = ss.selectOne("kr.co.daitdayoung.admin.mu.selectDetailIns1",insId);
+		
+		mbh.closeHandler(ss);
+		
+		return detailStu;
+	}//selectDetailStu1
+	
+	public List<ManageUsersDomain> selectDetailIns2(String uiID) throws PersistenceException{
+		List<ManageUsersDomain> list = null;
+		
+		MyBatisHandler mbh = MyBatisHandler.getInstance();
+		
+		SqlSession ss = mbh.getMyBatisHandler(false);
+		
+		list = ss.selectList("kr.co.daitdayoung.admin.mu.selectDetailIns2",uiID);
+		
+		mbh.closeHandler(ss);
+		
+		return list;
+	}//selectDetailStu2
 	
 	public static void main(String[] args) {
-		System.out.println(new ManageUsersDAO().selectDetailStu1("ui_test"));
+		System.out.println(new ManageUsersDAO().selectDetailIns2("ins1"));
 		
 	}
 	
