@@ -27,6 +27,7 @@
   	<mapper resource="kr/co/daitdayoung/user/mapper/userToDoListMapper.xml"/>
   	<mapper resource="kr/co/daitdayoung/user/mapper/userCoursesMapper.xml"/>
   	<mapper resource="kr/co/daitdayoung/user/mapper/userCoursesInquiryMapper.xml"/>
+  	<mapper resource="kr/co/daitdayoung/user/mapper/userExamMapper.xml"/>
   <!-- 주민 -->
   <!-- 나 -->
   	<mapper resource="kr/co/daitdayoung/instructor/mapper/insCourseMapper.xml"/>

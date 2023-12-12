@@ -23,7 +23,7 @@ session.setAttribute("uiId", "ui_test");
 <script type="text/javascript" src="https://wcs.naver.net/wcslog.js"></script>
 <script src="https://vliveplus.pstatic.net/0/mobile/2020/04/standby/f1.1.0.8.js"></script>
 <script>
-  function toggleTab(dataComplete) {
+  /* function toggleTab(dataComplete) {
       // 모든 tab_content를 숨김
       $('.tab_content').hide();
 
@@ -35,6 +35,24 @@ session.setAttribute("uiId", "ui_test");
 
       // 클릭한 링크의 부모 li의 aria-selected 속성을 true로 설정
       $('.tab_list li[data-complete="' + dataComplete + '"]').attr('aria-selected', 'true');
+    } */
+    function toggleTab(dataComplete) {
+        // 모든 tab_content를 숨김
+        $('.tab_content').hide();
+
+        // 전체 강좌를 클릭한 경우
+        if (dataComplete === 'all') {
+            $('.tab_content').show(); // 모든 강좌를 보이게 함
+        } else {
+            // 클릭한 data-complete에 해당하는 tab_content를 보이게 함
+            $('.tab_content[data-complete="' + dataComplete + '"]').show();
+        }
+
+        // 모든 탭의 aria-selected 속성을 false로 설정
+        $('.tab_list li').attr('aria-selected', 'false');
+
+        // 클릭한 링크의 부모 li의 aria-selected 속성을 true로 설정
+        $('.tab_list li[data-complete="' + dataComplete + '"]').attr('aria-selected', 'true');
     }
 </script>
 <body class="win chrome chrome119 re_pack new_color edwith">
@@ -66,6 +84,7 @@ session.setAttribute("uiId", "ui_test");
             <ul class="tab_list" role="tablist">
 	            <li role="tab" aria-selected="true" data-complete="ongoing"><a href="#void" id="ongoing" onclick="toggleTab('ongoing')">참여중인 강좌</a></li>
 	    		<li role="tab" aria-selected="false" data-complete="completed"><a href="#void" id="completed" onclick="toggleTab('completed')">수료한 강좌</a></li>
+	    		<li role="tab" aria-selected="false" data-complete="all"><a href="#void" id="all" onclick="toggleTab('all')">전체 강좌</a></li>
             </ul>
         </div>
 
@@ -76,11 +95,22 @@ session.setAttribute("uiId", "ui_test");
             <ul class="tab_content_list" data-course-card-ul>
                     <!-- div each -->
                     <c:forEach var="courses" items="${ coursesList }" >
-                    <li class="tab_content"  ${ courses.completionStatus == 'N' ? " data-complete='ongoing' style='display: block;'"  : " data-complete='completed' style='display: none;'" }  data-course="5094" data-course-uri="onlineclass-tutorial" data-course-name="누구나 쉽게 준비하는 에드위드 온라인클래스!">
+                    
+                    <c:choose>
+                    <c:when test="${ courses.completionStatus == 'Y'}">
+                    <li class="tab_content"  data-complete='completed' data-all='all' style='display: none;'  >
+                    
+                    </c:when>
+					<c:when test="${ courses.completionStatus == 'N'}">
+                    <li class="tab_content"  data-complete='ongoing' data-all='all'  style='display: block;'  >
+					
+					</c:when>
+                        
+                    </c:choose>    
                         <div class="info_area ">
                             <div class="thumb">
                                 <!-- 배너랑 강좌 링크 넣기 -->
-                                <a href="courses.do?crgCode=${ courses.crgCode }">
+                                <a href="courses.do?crgCode=${ courses.crgCode }&couCode=${ courses.couCode }">
 	                            	<img src="http://localhost/daitdayoung/courses_data/${ courses.couCode }/${ courses.bannerImg }" width="88" height="48" alt="강좌 썸네일">
                                 </a>
                             </div>

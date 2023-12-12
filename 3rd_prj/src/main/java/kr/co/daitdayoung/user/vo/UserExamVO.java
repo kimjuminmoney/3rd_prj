@@ -7,6 +7,6 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class UserQuestionVO {
-	private String examCode, epCode;
+public class UserExamVO {
+	private String examCode, epCode, couCode;
 }
