@@ -25,7 +25,7 @@
 <!-- courses_notice_table css -->
 <link rel="stylesheet" href="http://localhost/daitdayoung/common/css/user/courses_notice_table.css" type="text/css">
 
-        <title>강의실 공지사항 : edwith </title>
+        <title>강의실 성적조회 : edwith </title>
 <!-- jQuery CDN시작 -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         
@@ -46,40 +46,64 @@
 <!-- nav -->
 
 	<div id="content">
-	<section class="page mg_menu">
+	<section class="page gradecheck">
 	
 	<!--//page_header-->
 <header class="page_header">
 	<div class="group_lr">
 		<div class="group_l">
-			<h1 class="page_title"><c:out value="${ ucnDomain.cnTitle }"/></h1>
+			<h1 class="page_title">성적조회</h1>
 		</div>
 	</div>
 </header>
-<article class="forum_view">
-        <!-- [D] 권한에 따라 노출되는 UI가 다름 -->
-        <div class="forum_func group_lr" style="margin-top: 20px; margin-bottom: 20px;">
+<p class="notice_txt">이 강좌를 수료하시려면 진도율 <em>100</em>%이상을 획득하셔야 합니다.</p>
+<div class="progress_rate">
+      <div class="progress_area">
+          <strong class="title">진도율</strong>
+          <div class="graph_area">
+              <span class="standard" style="left: 100%"></span>
+              <span class="rate" style="width: 100%"></span>
+          </div>
+          <strong class="txt">0%</strong>
+      </div>
+</div>
+<div class="grade_overall">
+        <div class="group_lr mab10">
             <div class="group_l">
-                <div class="user_info">
-                        <span class="ic_ad vamiddle"><c:out value="${ ucnDomain.insName }"/></span>
-                    <time class="time" ><c:out value="${ ucnDomain.cnDate }"/></time>
-                </div>
+                <h2 class="tit">종합 성적</h2>
             </div>
         </div>
-        <div class="ce ce_view">
-            <article class="material_view material_text">
-                <div class="material_desc editor_reset" style="min-height: 300px;">
-                    <c:out value="${ ucnDomain.cnContent }"/>
-                </div>
-                <hr>
-                <div class="group_lr" style="border-bottom: 1px">
-        		<div class="group_r">
-            		<a href="courses.do?crgCode=${ param.crgCode}&couCode=${ param.couCode }" class="btn btn_type2 bold N=a:lec.list" data-selector="backToListBtn">메인으로</a>
-        		</div>
-    		</div>
-            </article>
-        </div>
-    </article>
+        <!-- [D] 수강생 강좌 진행 중 -->
+        <table class="table table_type5 stretch fixed">
+            <caption><span class="sr_only">종합 성적</span>
+            </caption>
+            <colgroup>
+                <col width="115">
+                <col>
+                <col width="115">
+                <col>
+            </colgroup>
+            <tbody>
+            <tr>
+                <th scope="row" class="ta_c">수료여부</th>
+                <td class="ta_c">
+                    <span class="grade_txt">
+                            -
+                    </span>
+                </td>
+                <th scope="row" class="ta_c">
+                        진도율
+                </th>
+                <td class="ta_c">
+                    <span class="grade_txt">
+                            0%
+                    </span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        
+    </div>
 </section>
 
 </div>

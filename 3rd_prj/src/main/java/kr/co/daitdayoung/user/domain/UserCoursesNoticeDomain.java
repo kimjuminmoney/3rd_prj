@@ -11,7 +11,7 @@ import lombok.ToString;
 @ToString
 public class UserCoursesNoticeDomain {
 	
-	private String cnCode, insId, cnTitle,  cnContent, insName;
+	private String cnCode, insId, cnTitle,  cnContent, insName, couCode;
 	private Date cnDate;
 	private int ind;
 	

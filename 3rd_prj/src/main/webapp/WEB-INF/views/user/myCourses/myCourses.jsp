@@ -80,13 +80,13 @@ session.setAttribute("uiId", "ui_test");
                         <div class="info_area ">
                             <div class="thumb">
                                 <!-- 배너랑 강좌 링크 넣기 -->
-                                <a href="courses.do?couCode=${ courses.couCode }">
+                                <a href="courses.do?crgCode=${ courses.crgCode }">
 	                            	<img src="http://localhost/daitdayoung/courses_data/${ courses.couCode }/${ courses.bannerImg }" width="88" height="48" alt="강좌 썸네일">
                                 </a>
                             </div>
                             <div class="tit">
                                 <!-- 강좌 링크 넣기 -->
-                                    <a href="courses.do?couCode=${ courses.couCode }">
+                                    <a href="courses.do?crgCode=${ courses.crgCode }&couCode=${ courses.couCode }">
                                     <strong class="title"><c:out value="${ courses.couName }"/></strong>
                                 </a>
                                 <div class="author">

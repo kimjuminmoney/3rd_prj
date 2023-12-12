@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import kr.co.daitdayoung.dao.MyBatisHandler;
 import kr.co.daitdayoung.user.domain.UserCoursesDomain;
+import kr.co.daitdayoung.user.domain.UserCoursesExamDomain;
 import kr.co.daitdayoung.user.domain.UserCoursesLectureDomain;
 import kr.co.daitdayoung.user.domain.UserCoursesNoticeDomain;
 import kr.co.daitdayoung.user.domain.UserMyCoursesDomain;
@@ -33,32 +34,61 @@ public class UserCoursesDAO {
 	}//selectCourseReristration
 	
 	public List<UserCoursesNoticeDomain> selectCourseNoticeList(String couCode) throws PersistenceException{
-		
 		mbh = MyBatisHandler.getInstance();
 		SqlSession ss = mbh.getMyBatisHandler(false);
-		List<UserCoursesNoticeDomain> list = ss.selectList("kr.co.daitdayoung.user.courses.coursesNotice",couCode);
+		List<UserCoursesNoticeDomain> list = ss.selectList("kr.co.daitdayoung.user.courses.coursesNoticeList",couCode);
+		mbh.closeHandler(ss);
 		return list;
+	}//selectCourseNotice
+	
+	public UserCoursesNoticeDomain selectCourseNoticeDetail(String cnCode) throws PersistenceException{
+		mbh = MyBatisHandler.getInstance();
+		SqlSession ss = mbh.getMyBatisHandler(false);
+		UserCoursesNoticeDomain ucnDomain = ss.selectOne("kr.co.daitdayoung.user.courses.coursesNoticeDetail",cnCode);
+		mbh.closeHandler(ss);
+		return ucnDomain;
 	}//selectCourseNotice
 	
 	public List<UserCoursesLectureDomain> selectCourseLectureList(UserCoursesVO cuVO) throws PersistenceException{
 		
 		mbh = MyBatisHandler.getInstance();
 		SqlSession ss = mbh.getMyBatisHandler(false);
-		List<UserCoursesLectureDomain> list = ss.selectList("kr.co.daitdayoung.user.courses.coursesLecture",cuVO);
+		List<UserCoursesLectureDomain> list = ss.selectList("kr.co.daitdayoung.user.courses.coursesLectureList",cuVO);
+		mbh.closeHandler(ss);
 		return list;
 	}//selectCourseNotice
 	
+	public UserCoursesLectureDomain selectCourseLectureDetail(UserCoursesVO cuVO) throws PersistenceException{
+		
+		mbh = MyBatisHandler.getInstance();
+		SqlSession ss = mbh.getMyBatisHandler(false);
+		UserCoursesLectureDomain uclDomain = ss.selectOne("kr.co.daitdayoung.user.courses.coursesLectureDetail",cuVO);
+		mbh.closeHandler(ss);
+		return uclDomain;
+	}//selectCourseNotice
 	
+	public UserCoursesExamDomain selectCourseExam(String couCode) throws PersistenceException{
+		
+		mbh = MyBatisHandler.getInstance();
+		SqlSession ss = mbh.getMyBatisHandler(false);
+
+		UserCoursesExamDomain uceDomain = ss.selectOne("kr.co.daitdayoung.user.courses.coursesExam", couCode);
+
+		mbh.closeHandler(ss);
+		return uceDomain;
+	}//selectCourseReristration
 	
 	
 	public static void main(String[] args) {
-		UserCoursesVO cuVO = new UserCoursesVO("COU_999999","ui_test");
-		List<UserCoursesLectureDomain> list = new UserCoursesDAO().selectCourseLectureList(cuVO);
+		System.out.println(new UserCoursesDAO().selectCourseExam("COU_999999"));
+		//UserCoursesVO cuVO = new UserCoursesVO("COU_999999","ui_test","LEC_999999");
+		//List<UserCoursesLectureDomain> list = new UserCoursesDAO().selectCourseLectureList(cuVO);
 		//System.out.println(new UserCoursesDAO().selectCourseNoticeList("COU_999999"));
 		//System.out.println(new UserCoursesDAO().selectCourseInfo(cuVO));
-		for(UserCoursesLectureDomain uc : list) {
-			System.out.println(uc);
-		}
+//		for(UserCoursesLectureDomain uc : list) {
+//			System.out.println(uc);
+//		}
+		//System.out.println(new UserCoursesDAO().selectCourseLectureDetail(cuVO));
 	}
 	
 

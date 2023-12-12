@@ -25,7 +25,7 @@
 <!-- courses_notice_table css -->
 <link rel="stylesheet" href="http://localhost/daitdayoung/common/css/user/courses_notice_table.css" type="text/css">
 
-        <title>강의실 공지사항 : edwith </title>
+        <title>강의실 시험 : edwith </title>
 <!-- jQuery CDN시작 -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         
@@ -52,7 +52,7 @@
 <header class="page_header">
 	<div class="group_lr">
 		<div class="group_l">
-			<h1 class="page_title"><c:out value="${ ucnDomain.cnTitle }"/></h1>
+			<h1 class="page_title">시험</h1>
 		</div>
 	</div>
 </header>
@@ -61,20 +61,20 @@
         <div class="forum_func group_lr" style="margin-top: 20px; margin-bottom: 20px;">
             <div class="group_l">
                 <div class="user_info">
-                        <span class="ic_ad vamiddle"><c:out value="${ ucnDomain.insName }"/></span>
-                    <time class="time" ><c:out value="${ ucnDomain.cnDate }"/></time>
+                <span class="ic_ad vamiddle" style="font-size: 15px; font-weight: bold;">시험시간 : <c:out value="${ uceDomain.examTimelimit }"/>분</span>
                 </div>
             </div>
         </div>
         <div class="ce ce_view">
             <article class="material_view material_text">
                 <div class="material_desc editor_reset" style="min-height: 300px;">
-                    <c:out value="${ ucnDomain.cnContent }"/>
+                     <span style="font-size: 18px"><c:out value="${ uceDomain.examContent }"/></span>
                 </div>
                 <hr>
                 <div class="group_lr" style="border-bottom: 1px">
         		<div class="group_r">
             		<a href="courses.do?crgCode=${ param.crgCode}&couCode=${ param.couCode }" class="btn btn_type2 bold N=a:lec.list" data-selector="backToListBtn">메인으로</a>
+            		<a href="courses.do?crgCode=${ param.crgCode}&couCode=${ param.couCode }" class="btn btn_type2 bold N=a:lec.list" data-selector="backToListBtn">시험응시</a>
         		</div>
     		</div>
             </article>
