@@ -4,12 +4,15 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import kr.co.daitdayoung.user.domain.UserCoursesExamDomain;
+import kr.co.daitdayoung.user.domain.UserQuestionsDomain;
 import kr.co.daitdayoung.user.service.UserExamService;
 import kr.co.daitdayoung.user.vo.UserExamVO;
 
@@ -24,7 +27,7 @@ public class UserExamController {
 		
 		
 		System.out.println(ucVO);
-		List<UserCoursesExamDomain> uceList = ues.searchQuestionList(ucVO.getCouCode());
+		List<UserQuestionsDomain> uceList = ues.searchQuestionList(ucVO.getCouCode());
 		
 		model.addAttribute("uceList",uceList);
 		
@@ -32,5 +35,13 @@ public class UserExamController {
 		return "user/myExam/userExam";
 	}
 	
+	@ResponseBody
+	@PostMapping(value = "/user/userExamProcess.do",produces="application/text;charset=utf-8")
+	public String userExamProcess(String queCode,Model model) {
+		System.out.println(queCode);
+		JSONObject json = ues.searchQuestion(queCode);
+		
+		return json.toJSONString();
+	}
 
 }

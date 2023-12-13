@@ -8,8 +8,10 @@
 	<select id="toDOList" resultType="kr.co.daitdayoung.user.domain.UserToDoDomain" parameterType="String">
 	select 	c.cou_code, c.cou_name, crg.COMPLETION_STATUS, EXAM_STATUS, crg.crg_code,
 			TRUNC(REGISTRATIONDATE + COU_PERIOD - SYSDATE) AS remainingperiod
-	from  	COURSES c, COURSE_REGISTRATION crg , EXAM_PARTICIPATION ep
-	where	crg.ui_id = #{userId} and c.cou_code = ep.cou_code and c.cou_code = crg.cou_code
+	from 	COURSES c , COURSE_REGISTRATION crg, EXAM_PARTICIPATION ep
+	where 	crg.ui_id = #{uiId} and crg.crg_code = ep.crg_code and 
+			c.cou_code = crg.cou_code and crg.COMPLETION_STATUS = 'N'
+
 	</select>
 	
 	

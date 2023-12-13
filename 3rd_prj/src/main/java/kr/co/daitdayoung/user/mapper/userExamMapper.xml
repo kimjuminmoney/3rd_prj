@@ -9,6 +9,12 @@
 	from 	QUESTIONS
 	where 	cou_code = #{couCode}
 	</select>
+	
+	<select id="questionDetail" resultType="kr.co.daitdayoung.user.domain.UserQuestionsDomain" parameterType="String">
+	select 	QUE_CODE, EXAM_CODE, COU_CODE, INS_ID, QUE_CONTENT, QUE_1, QUE_2, QUE_3, QUE_4
+	from 	QUESTIONS
+	where 	que_code = #{queCode}
+	</select>
 
 	
 	

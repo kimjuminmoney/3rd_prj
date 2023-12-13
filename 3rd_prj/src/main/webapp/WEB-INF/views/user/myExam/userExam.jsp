@@ -66,10 +66,6 @@
 <script src="https://vliveplus.pstatic.net/0/mobile/2020/04/standby/f1.1.0.8.js"></script>
 <body class="re_pack win chrome chrome120">
 
-<!-- <script src="/static/js/vendor/vendor.compressed.min.js?231207_3adce7d7"></script>
-<script src="/static/js/src/entries/common/_head.entry.browserfied.min.js?231207_3adce7d7"></script>
-<script type="text/javascript" src="https://wcs.naver.net/wcslog.js"></script>
-<script src="https://vliveplus.pstatic.net/0/mobile/2020/04/standby/f1.1.0.8.js"></script> -->
 <div id="wrap"> 
 <div id="container">
 <!-- 네비바------------------------------------------------------ -->
@@ -86,7 +82,7 @@
                 </h1>
                 <span class="name"style="color: #fff"><c:out value="${ ucDomain.insName }"/></span>
                     <div class="profile"style="padding-left: 0px;">
-                    <span class="name">응시자명</span>
+                    <span class="name"><c:out value="${ ucDomain.uiName }"/></span>
                     </div>
     
             </div>
@@ -104,6 +100,7 @@
     </div>
         <!-- 신규 boostcourse SNB -->
 <div id="snb" class="default ">
+
 <nav class="nav_menu">
     <h2 class="sr_only">하위 메뉴</h2>
     <!-- <ul class="NE=a:lmn"> -->
@@ -115,8 +112,12 @@
     </thead>
     <tbody>
     	<c:forEach var="uce" items="${ uceList }" varStatus="i">
-    	<tr>
-			<td><c:out value="${ i.count }"/></td><td></td>
+    	<tr class="clickable-tr" style="cursor: pointer;">
+			<td>
+			<c:out value="${ i.count }"/><input type="hidden" class="hidden-value" value="${ uce.queCode }"/>
+			<input type="hidden" class="hidden-ind" value="${ i.count }"/>
+			</td>
+			<td></td>
 		</tr>
 		</c:forEach>
     </tbody>
@@ -176,81 +177,155 @@ window.onload = function () {
 			</div>
         </div>
 	</header>
-	<p id="_wrap_quiz_explain_area" class="quiz_desc mat40"></p>
+	<!-- <p id="_wrap_quiz_explain_area" class="quiz_desc mat40"></p>
 
 	<div id="_wrap_loading_quiz" style="display: none;">
 		<div class="loading type2"><span class="sr_only">로딩 중입니다.</span></div>
-	</div>
+	</div> -->
 
 	<div id="_wrap_quiz_content" style="" class="quiz_add_wrap">
-		<div class="q_header">
-			<ul class="q" id="_wrap_quiz_nav_area" data-coach="step_2"><!--  #breadcrumb:quiz/quiz.view/template/quiz.nav.item.html-->
-<!-- [D]class[incorrect | correct] -->
-<li class="on current"><a href="#"><em>1</em></a></li><!--  #breadcrumb:quiz/quiz.view/template/quiz.nav.item.html-->
-<!-- [D]class[incorrect | correct] -->
-<li><a href="#"><em>2</em></a></li><!--  #breadcrumb:quiz/quiz.view/template/quiz.nav.item.html-->
-<!-- [D]class[incorrect | correct] -->
-<li><a href="#"><em>3</em></a></li><!--  #breadcrumb:quiz/quiz.view/template/quiz.nav.item.html-->
-<!-- [D]class[incorrect | correct] -->
-<li><a href="#"><em>4</em></a></li><!--  #breadcrumb:quiz/quiz.view/template/quiz.nav.item.html-->
-<!-- [D]class[incorrect | correct] -->
-<li><a href="#"><em>5</em></a></li><!--  #breadcrumb:quiz/quiz.view/template/quiz.nav.item.html-->
-<!-- [D]class[incorrect | correct] -->
-<li><a href="#"><em>6</em></a></li><!--  #breadcrumb:quiz/quiz.view/template/quiz.nav.item.html-->
-<!-- [D]class[incorrect | correct] -->
-<li><a href="#"><em>7</em></a></li></ul>
+		<!-- <div class="q_header">
+			<ul class="q" id="_wrap_quiz_nav_area" data-coach="step_2"> #breadcrumb:quiz/quiz.view/template/quiz.nav.item.html
+				[D]class[incorrect | correct]
+				<li class="on current"><a href="#"><em>1</em></a></li> #breadcrumb:quiz/quiz.view/template/quiz.nav.item.html
+				[D]class[incorrect | correct]
+				<li><a href="#"><em>2</em></a></li> #breadcrumb:quiz/quiz.view/template/quiz.nav.item.html
+				[D]class[incorrect | correct]
+				<li><a href="#"><em>3</em></a></li> #breadcrumb:quiz/quiz.view/template/quiz.nav.item.html
+				[D]class[incorrect | correct]
+				<li><a href="#"><em>4</em></a></li> #breadcrumb:quiz/quiz.view/template/quiz.nav.item.html
+				[D]class[incorrect | correct]
+				<li><a href="#"><em>5</em></a></li> #breadcrumb:quiz/quiz.view/template/quiz.nav.item.html
+				[D]class[incorrect | correct]
+				<li><a href="#"><em>6</em></a></li> #breadcrumb:quiz/quiz.view/template/quiz.nav.item.html
+				[D]class[incorrect | correct]
+				<li><a href="#"><em>7</em></a></li></ul>
 			<p class="total_score" id="_wrap_remain_question_count">남은 문제 : <strong>6</strong> 문제</p>
-		</div>
-		<div id="_wrap_question_area" class="q_body mal30 mar30" data-coach="step_3"><!--  #breadcrumb:quiz/question.view/template/question.view.multichoice.html-->
+		</div> -->
+<script type="text/javascript">
+// JavaScript로 클릭 이벤트 처리
+$(document).ready(function () {
+	first()
+	function first(){
+		// 페이지가 로드될 때 첫 번째 clickable-tr의 값을 가져오기
+	    var firstTr = $('.clickable-tr').first();
+	    var hiddenValue = firstTr.find('.hidden-value').val();
+	    var hiddenInd = firstTr.find('.hidden-ind').val();
+	    queAjax(hiddenValue, hiddenInd);
+	}
+	
+	// 네이바 tr을 누를떄마다 문제 갱신
+   	// 클릭한 행에서 hidden-value 클래스를 가진 input 요소를 찾아 값을 가져옴
+    $('.clickable-tr').click(function () {
+        var hiddenValue = $(this).find('.hidden-value').val();
+        var hiddenInd = $(this).find('.hidden-ind').val();
+    	queAjax(hiddenValue, hiddenInd);
+    });
+    
+    function queAjax(hiddenValue, hiddenInd){
+		var param = {queCode: hiddenValue}
+			$.ajax({
+				url:"userExamProcess.do",
+				type:"POST",
+				data: param,
+				dataType:"json",
+				error:function(xhr){
+					alert(xhr.status);
+				},
+				success:function(jsonObj){
+					
+					var content = $('#queContent');
+					var que1 = $('#que1');
+					var que2 = $('#que2');
+					var que3 = $('#que3');
+					var que4 = $('#que4');
+					var ind = $("#ind");
+					
+					ind.text("Q " + hiddenInd);
+					content.text(jsonObj.content);
+					que1.text(jsonObj.que1);
+					que2.text(jsonObj.que2);
+					que3.text(jsonObj.que3);
+					que4.text(jsonObj.que4);
+					
+				}//success
+				
+			});//ajax
+    }
+});
+
+</script>
+
+
+<div id="_wrap_question_area" class="q_body mal30 mar30" data-coach="step_3"><!--  #breadcrumb:quiz/question.view/template/question.view.multichoice.html-->
 <p class="q_txt">
-    <span class="l">
+    <span class="l" id="ind">
         <span class="_wrap_print_correct_icon">
 
         </span>
-        Q
-    </span> 1(단일선택, 10점)
+    </span>
 </p>
 
 <div class="editor_reset _question_area">
-    <p>미국연방정부 조달규정은</p>
+    <p id="queContent"></p>
 </div>
 
 <ul class="a_sel _answer_area">
     
     <li data-selector="Federal Procurement Regulation’">
         <label class="ick" data-ychecker="quiz">
-            <span class="radio checked"><input type="radio" name="answer" value="Federal Procurement Regulation’"></span>
-            <span class="ph">Federal Procurement Regulation’</span>
+            <span class="radio checked"><input type="hidden" name="answer" value="1"></span>
+            <span class="ph" id="que1"></span>
         </label>
         <!--<em class="_feedback" style="display: none;">(정답에 대한 피드백이 출력됩니다.)</em>-->
     </li>
     
     <li data-selector="Buy American Act">
         <label class="ick" data-ychecker="quiz">
-            <span class="radio"><input type="radio" name="answer" value="Buy American Act"></span>
-            <span class="ph">Buy American Act</span>
+            <span class="radio"><input type="hidden" name="answer" value="2"></span>
+            <span class="ph" id="que2"></span>
         </label>
         <!--<em class="_feedback" style="display: none;">(정답에 대한 피드백이 출력됩니다.)</em>-->
     </li>
     
     <li data-selector="Federal Acquisition Regulation">
         <label class="ick" data-ychecker="quiz">
-            <span class="radio"><input type="radio" name="answer" value="Federal Acquisition Regulation"></span>
-            <span class="ph">Federal Acquisition Regulation</span>
+            <span class="radio"><input type="hidden" name="answer" value="3"></span>
+            <span class="ph" id="que3"></span>
         </label>
         <!--<em class="_feedback" style="display: none;">(정답에 대한 피드백이 출력됩니다.)</em>-->
     </li>
     
     <li data-selector="Federal Acquisition Law">
         <label class="ick" data-ychecker="quiz">
-            <span class="radio"><input type="radio" name="answer" value="Federal Acquisition Law"></span>
-            <span class="ph">Federal Acquisition Law</span>
+            <span class="radio"><input type="hidden" name="answer" value="4"></span>
+            <span class="ph" id="que4"></span>
         </label>
         <!--<em class="_feedback" style="display: none;">(정답에 대한 피드백이 출력됩니다.)</em>-->
     </li>
     
 </ul>
-
+<script>
+    $(document).ready(function () {
+        // 라벨을 클릭했을 때 처리
+        $('.ick').off('click').on('click', function (event) {
+            // 클릭된 라벨 내부의 라디오 버튼 찾기
+            var radioInput = $(this).find('input[type="radio"]');
+            
+            // 다른 라벨의 라디오 버튼에서 checked 클래스 제거
+            $('.ick').not(this).find('.radio').removeClass('checked');
+            
+            // 라디오 버튼의 체크 상태 토글
+            radioInput.prop('checked', !radioInput.prop('checked'));
+            
+            // 클릭된 라벨 내부의 라디오 버튼에 checked 클래스 추가
+            $(this).find('.radio').toggleClass('checked', radioInput.prop('checked'));
+            console.log('Click event handled!')
+            // 이벤트 전파 중단
+            event.stopPropagation();
+        });
+    });
+</script>
 <div class="bx type2 _wrap_answer_area" style="display:none;">
 
 </div></div>
