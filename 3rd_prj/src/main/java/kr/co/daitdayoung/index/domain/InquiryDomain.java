@@ -12,7 +12,7 @@ import lombok.ToString;
 
 public class InquiryDomain {
 
-	private String inqCode, itCode, uiId, insId, inqTitle, inqContent, adminId, inqAnswer, uiName,  insName;
+	private String inqCode, itCode, uiId, insId, inqTitle, inqContent, adminId, inqAnswer, uiName,  insName, itName;
 	private int inquiryIndex;
 	private Date inqDate, inqAnswerdate;
 	

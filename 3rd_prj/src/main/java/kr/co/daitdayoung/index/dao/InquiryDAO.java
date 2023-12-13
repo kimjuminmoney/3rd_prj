@@ -16,12 +16,14 @@ public class InquiryDAO {
 	@Autowired
 	private MyBatisHandler mbh;
 	
-	public List<InquiryDomain> selectInquiryList(LoginVO lVO) {
+	public List<InquiryDomain> selectInquiryList(LoginVO lqVO) {
 		mbh = MyBatisHandler.getInstance();
 		
 		SqlSession ss = mbh.getMyBatisHandler(false);
 		
-		List<InquiryDomain> iqList = ss.selectList("kr.co.daitdayoung.index.allInquiry", lVO);
+		List<InquiryDomain> iqList = ss.selectList("kr.co.daitdayoung.index.allInquiry", lqVO);
+		
+		mbh.closeHandler(ss);
 		
 		return iqList;
 		
@@ -36,9 +38,14 @@ public class InquiryDAO {
 		
 		InquiryDomain iqList = ss.selectOne("kr.co.daitdayoung.index.selectInquiry", inqCode);
 		
+		mbh.closeHandler(ss);
+		
 		return iqList;
 		
-	} //searchInquiry
+		
+	} //selectInquiry
+	
+	
 	
 	public static void main (String[] agrs) {
 		LoginVO lVO = new LoginVO("ui_test",null);

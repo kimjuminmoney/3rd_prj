@@ -12,6 +12,17 @@
     
     <meta name="layout" content="index"/>
 
+<style>
+
+footer#footer {
+	background: #fff;
+	clear:both;
+	position:relative;
+	width:100%;
+}
+
+</style>
+
 
 <body>
 
@@ -23,10 +34,6 @@
     <div class="f_noti">
         <div class="layout_in NE=a:not">
             <strong class="tit">공지사항</strong>
-            
-                <a href="http://blog.naver.com/edwith" class="dsc NPI=a:notice" target="_blank">공지사항 바로가기</a>
-            
-            <a href="http://blog.naver.com/edwith" class="more NPI=a:blog" target="_blank">공식 블로그 바로가기</a>
         </div>
     </div>
 
@@ -34,33 +41,22 @@
     
     <div class="layout_in NE=a:fot" id="_layer">
         <ul class="f_lst">
-            <li><a href="https://blog.naver.com/PostList.nhn?blogId=edwith&amp;from=postList&amp;categoryNo=1&amp;parentCategoryNo=1" data-nclk="foot.service">공지사항</a></li>
-            <li><a href="/introduce" class="NPI=a:introduce">서비스 소개</a></li>
-            <li><a href="/help/advice-info" class="NPI=a:help">도움말</a></li>
-            <li><a href="/voc" class="NPI=a:request">서비스 문의</a></li>
+            <li><a href="notice.do" data-nclk="foot.service">공지사항</a></li>
+            <li><a href="inquiry.do" class="NPI=a:request">서비스 문의</a></li>
         </ul>
-        <dl class="f_terms">
-            <dt class="sr_only">edwith 정책 및 이용약관</dt>
-            <dd>
-                <a href="/rules/intg/service">이용약관</a>
-                <span class="bar"></span>
-                <a href="/rules/intg/privacy"><strong>개인정보처리방침</strong></a>
-            </dd>
-        </dl>
         <div class="f_terms_addres_box">
             <ul class="addres_list">
                 <li>상호: 재단법인 네이버 커넥트</li>
-                <li>소재지: 경기도 성남시 분당구 황새울로 246 도담빌딩 2층</li>
-                <li>대표자명 : 조규찬</li>
-                <li><a href="https://www.ftc.go.kr/bizCommPop.do?wrkr_no=1298212249&amp;apv_perm_no=2015378021930200754" class="link" target="_blank">사업자정보확인</a></li>
+                <li>소재지: 서울특별시 역삼동 한독빌딩 4층 4강의실</li>
+                <li>대표자명 : 홍지성</li>
                 <li>사업자 등록번호: 129-82-12249</li>
                 <li>통신판매신고 번호: 제2015-경기성남-0754호</li>
-                <li>고객센터: support@boostcourse.org</li>
+                <li>고객센터: support@didyeducation.org</li>
             </ul>
         </div>
         <p class="copyright">
             
-                © NAVER Connect All Rights Reserved. Powered by NAVER
+               © DIDY Connect All Rights Reserved. Powered by DIDY
             
         </p>
     </div>

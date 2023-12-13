@@ -11,11 +11,12 @@
 <h3 class="class_list_title">똑똑한 직장인의 비결, 대공개!</h3>
 <div class="link_wrap" curation-wrap="">
     
-        <a href="courses_ce.do" class="title_box" target="" data-nclk="mc.title20">
-            <span class="thumb" style="background-image: url(https://cphinf.pstatic.net/mooc/20201215_132/1608026284610nDLQS_PNG/q_box_bg_01.png?type=ff252_286)"></span>
-            <em class="title">의무교육        </em>
-            <p class="text">근로기준법에 의거한 법정 의무교육으로 똑똑한 직장인 도전!</p>
-        </a>
+<c:forEach var="index" items="${ CList }">    
+	<a href="courses.do?mcCode=${index.mcCode }" class="title_box" target="" data-nclk="mc.title20">  
+   <span class="thumb" style="background-image: url(https://cphinf.pstatic.net/mooc/20201215_132/1608026284610nDLQS_PNG/q_box_bg_01.png?type=ff252_286)"></span>
+   <em class="title">${index.mcName }</em>
+   <p class="text">근로기준법에 의거한 법정 의무교육으로 똑똑한 직장인 도전!</p>
+    </a> 
     
 <div><!-- #breadcrumb: /modules/main/template/manual.curation.item.html -->
 
@@ -27,92 +28,42 @@
                 <div class="badge">
                     
                 </div>
-                <em class="class_name">컴퓨터비전, 머신러닝, 딥러닝을 이용한 의료영상분석</em>
+                <em class="class_name">${index.couName }</em>
                 <div class="info">
-                    <span>박상현 교수</span><span>DGIST</span>
+                   <span>${index.insName}</span>
                 </div>
-                <span class="thumb" style="background-image: url(https://cphinf.pstatic.net/mooc/20200406_208/15861576082284DTXU_JPEG/_.JPG?type=ff220_88)">&nbsp;</span>
+                <span class="thumb">
+                <%-- <a href="courses_detail.do?couCode=${index.couCode }"><img src="${ index.bannerImg }"/></a> --%>
+           <%-- <a><img src="http://localhost/daitdayoung/courses_data/${ index.couCode }/${ index.bannerImg }" 
+           width="804" height="240"></a> --%>
+           <a><img src="http://localhost/daitdayoung/courses_data/COU_999999/hcy_tech.PNG" width="220" height="88"></a> &nbsp;</a></span>
             </a>
             <div class="lecture_count">
-                <div class="favorite"><span class="ic_heart">좋아요</span>1295</div>
-                <div class="student"><span class="ic_student">수강생 수</span>3799</div>
-
-                
+                <div class="favorite"><span class="ic_heart">${index.hit }</span></div>
             </div>
+        
+        
+        
         </li>
         
-        <li class="list_item">
-            <a href="/blockchain-and-society" class="link" target="" data-nclk="mc.lec22">
-                <div class="badge">
-                    
-                </div>
-                <em class="class_name">블록체인과 암호화폐가 여는 미래</em>
-                <div class="info">
-                    <span>이흥노 교수</span><span>GIST</span>
-                </div>
-                <span class="thumb" style="background-image: url(https://cphinf.pstatic.net/mooc/20200319_294/1584596494784QueT7_JPEG/01_--_.jpg?type=ff220_88)">&nbsp;</span>
-            </a>
-            <div class="lecture_count">
-                <div class="favorite"><span class="ic_heart">좋아요</span>46</div>
-                <div class="student"><span class="ic_student">수강생 수</span>1270</div>
-
-                
-            </div>
-        </li>
-        
-        <li class="list_item">
-            <a href="/nanotechnology-p1" class="link" target="" data-nclk="mc.lec23">
-                <div class="badge">
-                    
-                </div>
-                <em class="class_name">나노과학과 미래기술: 원리와 기초</em>
-                <div class="info">
-                    <span>노준석 교수</span><span>POSTECH 포항공과대학교</span>
-                </div>
-                <span class="thumb" style="background-image: url(https://cphinf.pstatic.net/mooc/20200402_230/1585795741622JnQuc_JPEG/_1.jpg?type=ff220_88)">&nbsp;</span>
-            </a>
-            <div class="lecture_count">
-                <div class="favorite"><span class="ic_heart">좋아요</span>137</div>
-                <div class="student"><span class="ic_student">수강생 수</span>766</div>
-
-                
-            </div>
-        </li>
-        
-        <li class="list_item">
-            <a href="/data-science-2020" class="link" target="" data-nclk="mc.lec24">
-                <div class="badge">
-                    
-                </div>
-                <em class="class_name">Data Science</em>
-                <div class="info">
-                    <span>UNIST 임치현 교수 외</span><span>울산과학기술원(UNIST)</span>
-                </div>
-                <span class="thumb" style="background-image: url(https://cphinf.pstatic.net/mooc/20200428_28/15880374141372lTBr_PNG/Data_Science_1.PNG?type=ff220_88)">&nbsp;</span>
-            </a>
-            <div class="lecture_count">
-                <div class="favorite"><span class="ic_heart">좋아요</span>203</div>
-                <div class="student"><span class="ic_student">수강생 수</span>1224</div>
-
-                
-            </div>
-        </li>
         
     </ul>
     
-        <a href="#" class="list_prev_btn" slide-btn-prev="" data-nclk="mc.before" style="display: none;"><span class="blind">이전</span></a>
-        <a href="#" class="list_next_btn" slide-btn-next="" data-nclk="mc.after1"><span class="blind">다음</span></a>
+      <!--   <a href="#" class="list_prev_btn" slide-btn-prev="" data-nclk="mc.before" style="display: none;"><span class="blind">이전</span></a>
+        <a href="#" class="list_next_btn" slide-btn-next="" data-nclk="mc.after1"><span class="blind">다음</span></a> -->
     
 </div>
-<div class="pagination">
+<!-- <div class="pagination">
     
         <a href="#" class="dot on" slide-btn-page="" data-page="0" data-nclk="mc.move"><span class="blind">0</span></a>
     
         <a href="#" class="dot " slide-btn-page="" data-page="1" data-nclk="mc.move"><span class="blind">1</span></a>
     
+</div> -->
 </div>
 </div>
-</div>
+</c:forEach>
+
 </div>
 
 

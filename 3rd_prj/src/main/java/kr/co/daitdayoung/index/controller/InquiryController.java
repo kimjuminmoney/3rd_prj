@@ -2,6 +2,7 @@ package kr.co.daitdayoung.index.controller;
 
 import java.util.List;
 
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,9 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import kr.co.daitdayoung.index.domain.InquiryDomain;
-import kr.co.daitdayoung.index.domain.NoticeDomain;
 import kr.co.daitdayoung.index.service.InquiryService;
-import kr.co.daitdayoung.index.service.NoticeService;
 import kr.co.daitdayoung.index.vo.LoginVO;
 
 /**
@@ -31,8 +30,9 @@ public class InquiryController {
 		
 		String usId = (String)session.getAttribute("usId");
 		String insId = (String)session.getAttribute("insId");
-		//usId = "ui_test";
-		insId = "ins_test";
+		String itName = (String)session.getAttribute("itName");
+		usId = "ui_test";
+		//insId = "ins_test";
 		LoginVO lVO = new LoginVO(usId,insId);
 		
 		List<InquiryDomain> list = is.searchInquiry(lVO);
@@ -43,11 +43,12 @@ public class InquiryController {
 	}
 	
 	@RequestMapping(value = "/inquiry_detail.do", method = RequestMethod.GET)
-	public String inquiryDetail(Model model) {
+	public String inquiryDetail(String inqCode, Model model) {
 		
+		InquiryDomain inqDomain = is.searchInquiryDetail(inqCode);
+		model.addAttribute("inqDomain",inqDomain);
 		return "/inquiry/inquiry_detail";
 	} //문의
 	
-	
-	
 }
+	

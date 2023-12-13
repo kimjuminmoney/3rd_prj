@@ -9,12 +9,13 @@
 	select 	it.it_name, iq.inq_code, iq.inq_title, to_char(iq.inq_date, 'yyyy-mm-dd') as inq_date,
 	    	iq.ui_id, iq.ins_id, row_number() over (order by it.it_code desc) as inquiry_index,
 	    	
-	<if test="uiId neq null"> 
-	ui.ui_name
-	</if>
-	<if test="insId neq null"> 
-	ins.ins_name 
-	</if>
+			<if test="uiId neq null"> 
+			ui.ui_name
+			</if>
+			<if test="insId neq null"> 
+			ins.ins_name 
+			</if>
+			
 	from 	inquiry iq,inquiry_type it,
 	<if test="uiId neq null"> 
 	user_info ui
@@ -41,8 +42,15 @@
 			inq_title, inq_content,
 			it_name,  to_char(inq_answerdate, 'yyyy-mm-dd') as  inq_answerdate, inq_answer
 	from 	inquiry iq, inquiry_type it
-	where	iq.it_code = it.it_code and iq.inq_code = ${inqCode}
+	where	iq.it_code = it.it_code and iq.inq_code = #{inqCode}
 	</select>
+	
+	<!-- 문의 유형 -->
+	<select id="selectCategory" resultType="kr.co.daitdayoung.index.domain.InquiryDomain" parameterType="String">
+	select 	it_name
+	from 	inquiry_type
+	</select>
+	
 	
 	
 </mapper>

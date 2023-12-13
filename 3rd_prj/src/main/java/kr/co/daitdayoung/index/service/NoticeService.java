@@ -14,9 +14,15 @@ public class NoticeService {
 	@Autowired
 	private NoticeDAO nDAO;
 	
-	public List<NoticeDomain> searchNotice() {
+	public List<NoticeDomain> searchNotice() {//전체
+		
 		 List<NoticeDomain> list = nDAO.selectNoticeList();
 		 return list;
 	}
 
+	public NoticeDomain searchNoticeDetail(String notCode) { //상세로 하나
+		
+		return nDAO.searchNotice(notCode);
+	} //searchNoticeDetail
+	
 }

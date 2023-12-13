@@ -320,16 +320,16 @@
         <div class="layout_in" data-wrap-gnb-menu="">
         
     <h1 class="logo">
-        <a class="N=a:gnb.edwith" href="/">
+        <a class="N=a:gnb.edwith" href="index.do">
             <img height="" src="https://ssl.pstatic.net/static/m/mooc/p/partner/next/logo_v4.png?_=?231130_26709717" alt="edwith">
         </a>
     </h1>
 
 <ul class="lnk">
     
-        <li><a href="courses_ce.do">의무교육</a></li>
-        <li><a href="courses_se.do">자기개발교육</a></li>
-        <li><a href="courses_ose.do">산업안전교육</a></li>
+	   	<c:forEach var="indexMC" items="${ MCList }">
+	    <li><a href="courses.do?mcCode=${indexMC.mcCode }"><c:out value="${indexMC.mcName }"/></a></li>
+	    </c:forEach>
     
 </ul>
 

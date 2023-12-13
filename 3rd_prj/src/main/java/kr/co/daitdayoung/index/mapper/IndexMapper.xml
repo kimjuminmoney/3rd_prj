@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.daitdayoung.index">
+
+	<!-- 대분류 -->
+	<select id="allMainCou" resultType= "kr.co.daitdayoung.index.domain.IndexDomain" >
+	select 	mc_name, mc_code
+	from 	maincategory 
+	</select>
+
+	<!-- 조회수 높은 배너이미지 -->
+	<select id="highBIMG" resultType="kr.co.daitdayoung.index.domain.IndexDomain">
+	select banner_img
+	from courses
+	order by hits desc
+	fetch first 3 rows only
+	</select>
+
+	<!-- 대분류랑 소뷴류 -->
+	<!-- <select id="couCategory" resultType= "kr.co.daitdayoung.index.domain.IndexDomain" parameterType="String">
+	select 	distinct mc.mc_name, sc.sc_name
+	from 	maincategory mc
+	join 	subcategory sc on mc.mc_code = sc.mc_code
+	where 	mc.mc_code = #{mc_code}
+	</select> -->
+	
+	<!-- 강좌명, 배너이미지, 교수명, 조회수 -->
+	<select id="MainCouList" resultType="kr.co.daitdayoung.index.domain.IndexDomain">
+	select 		c.cou_name, c.banner_img, c.hits, i.ins_name, c.ins_id, c.mc_code
+	from 		courses c
+	join 		instructor i on c.ins_id = i.ins_id
+	join 		maincategory m on c.mc_code = m.mc_code
+	where 		c.mc_code = #{mc_code}
+	order by 	c.hits desc
+	fetch first 3 rows only
+	</select>
+	
+</mapper>

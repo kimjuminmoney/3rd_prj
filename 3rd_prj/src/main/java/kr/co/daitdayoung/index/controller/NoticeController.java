@@ -35,7 +35,11 @@ public class NoticeController {
 	} //공지
 	
 	@RequestMapping(value = "/notice_detail.do", method = RequestMethod.GET)
-	public String noticeDetail(Model model) {
+	public String noticeDetail(String notCode, Model model) {
+		
+		NoticeDomain notDomain = ns.searchNoticeDetail(notCode);
+		
+		model.addAttribute("notDomain",notDomain);
 		
 		return "/notice/notice_detail";
 	} //공지

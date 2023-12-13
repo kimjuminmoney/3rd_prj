@@ -1,9 +1,13 @@
+<%@page import="kr.co.daitdayoung.admin.dao.ManageUsersDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
 <head>
 <jsp:include page="../index_nav/courses_detail_head.jsp"/>
 </head>
+ 
+<script type="text/javascript">
+</script> 
     
     <div id="container">
         
@@ -169,34 +173,6 @@
     }
 </style>
 
-<script>
-    $(document).ready(function(){
-        var entry = require("/entries/common/_material.entry.js");
-        entry.initialize({
-            welTarget: $(".ce_view"),
-            data: {
-                courseName: $("#__COURSENAME").val(),
-                materials: $.parseJSON($("#__MATERIALS").val()),
-                isEditable: false,
-                userId: '0',
-                courseId: '67376',
-                lectureId: '',
-                videoType: 'LECTURE',    // 강의 상세페이지와 정보 페이지는 이 곳을 같이 사용하고 있네요.
-                videoTypeId: '',
-                isOpenAll: false,
-                liveInfo: {
-                    isLiveOpened: false,
-                    recentLiveStartTime: "",
-                    recentLiveEndTime: "",
-                    reservationStartTime: "",
-                    reservationEndTime: "",
-                    streamType: "NOVA",
-                    isShowLiveMaterial: false
-                }
-            }
-        });
-    });
-</script>
 <script src="https://www.edwith.org/static/js/plugins/ntsYoutubeConnecter.1.0.min.js"></script>
 
 	<article class="material_view material_text"><!-- #breadcrumb:item/template/material.text.html -->
@@ -212,15 +188,14 @@
 <div data-selector="playerContainer" class="material_item" style="width: 100%;">
     <div data-selector="movieArea" style="position:relative;left:0;top:0;width:762px;height:479px;">
     <div aria-label="비디오 플레이어" tabindex="0" class="pzp pzp-pc pzp-pc--beforeplay pzp-pc--controls pzp-pc--vod pzp-pc--size-m"><!----> 
+	<video src="../../common/video/runDog.mp4"/>
     	<canvas width="854" height="480" class="pzp-space-creator pzp-pc__space-creator"></canvas> 
-
 	<div class="pzp-pc__loading-indicator pzp-loading-indicator pzp-loading-indicator--medium">
 	<div class="pzp-loading-indicator__icon">
 		<span class="pzp-loading-indicator__icon-left pzp-icon pzp-icon__left"></span> 
 		<span class="pzp-loading-indicator__icon-right pzp-icon pzp-icon__right"></span>
 	</div>
 	</div> 
-	
 	<div><!----> <!----> <!----> <!----> <!----></div> 
 	<div><!----> <!----> <!----> <!----> <!----> <!----></div>
 	</div>
@@ -241,19 +216,15 @@
             <li>
          <div class="prof_thumb bgnone">
          <img src="https://cphinf.pstatic.net/mooc/20220307_149/1646636219016hqEI7_JPEG/%B1%D7%B8%B21.jpg?type=ff72_72_r" width="72" height="72" alt=""></div>
-            </a>
-                        
                     
            <div class="prof_info">
                
-                   
-                   
-                   <b>원광대학교SW중심대학사업단</b>
-                   
-                   </a>
-                   
-               
                <p class="prof_txt">원광대학교&nbsp;소&nbsp;인&nbsp;미&nbsp;교수<br>선문대학교&nbsp;김&nbsp;영&nbsp;애&nbsp;교수<br>대전오류초등학교&nbsp;반창모&nbsp;선생님</p>
+          	<label class="form-label 교수명"></label>
+			<input type="hidden" id="idFrm" class="form-control" value="${ requestScope.insName }" disabled readonly><br/>
+               <label class="form-label 자기소개"></label>
+			<input type="hidden" id="joinFrm" class="form-control" value="${ requestScope.insIntroduce }" disabled readonly><br/>
+      
            </div>
            </li>
             
@@ -263,17 +234,6 @@
 
 <!-- // 교수자 소개 -->
 
-<!-- 운영진 소개 -->
-<div id="operatorView" class="con" style="display:none">
-    <div class="title_area">
-        <h3>운영진 소개</h3>
-    </div>
-    <div class="info_area">
-        <ul class="prof_lst _operator_list">
-        </ul>
-    </div>
-</div>
-<!-- // 운영진 소개 -->
 
 <!-- 강의계획 -->
 

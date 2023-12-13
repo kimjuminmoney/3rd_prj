@@ -1,12 +1,13 @@
 package kr.co.daitdayoung.index.controller;
 
 
-
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import kr.co.daitdayoung.index.service.CoursesService;
 
 /**
  * Handles requests for the application home page.
@@ -14,26 +15,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class CoursesController {
 	
+	@Autowired
+	private CoursesService cs;
 	
-	@RequestMapping(value = "/courses_ce.do", method = RequestMethod.GET)
+	
+	@RequestMapping(value = "/courses.do", method = RequestMethod.GET)
 	public String coursesCe(Model model) {
 		
-		return "/courses/courses_ce";
+		
+		return "/courses/courses";
 	} //의무교육
 	
 	
-	@RequestMapping(value = "/courses_se.do", method = RequestMethod.GET)
-	public String coursesSe(Model model) {
-		
-		return "/courses/courses_se";
-	} //자기개발
 	
-	
-	@RequestMapping(value = "/courses_ose.do", method = RequestMethod.GET)
-	public String coursesOse(Model model) {
-		
-		return "/courses/courses_ose";
-	} //산업안전교육
 	
 	@RequestMapping(value = "/courses_detail.do", method = RequestMethod.GET)
 	public String coursesDetail(Model model) {

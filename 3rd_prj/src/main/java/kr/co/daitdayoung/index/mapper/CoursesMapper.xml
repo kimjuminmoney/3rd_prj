@@ -4,16 +4,13 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.daitdayoung.index">
 
-	<!-- 문의글이 적힌 게시판의 모든 내용 조회 -->
-	<select id="" resultType="" parameterType="String">
 	
-	SELECT COU_CODE, INS_ID, COU_NAME, CONTENT, TO_CHAR(OPENDATE, 'YYYY-MM-DD')AS OPENDATE,
-				BANNER_IMG, COU_PERIOD, SAMPLE_VIDEO, APPROVE, REFUSE_REANSON, HITS, CC_CODE, ADMIN_ID, 
-				SC_CODE, MC_CODE
-	FROM   COURSES
-	ORDER BY COU_CODE ASC;
-	
-	
-	</select>
+	<!-- 같은 대분류에 속한 소분류만 -->
+	<select id="coursesCate" resultType="kr.co.daitdayoung.index.domain.CoursesDomain">
+	select 	distinct mc.mc_name, sc.sc_name
+	from 	maincategory mc
+	join 	subcategory sc on mc.mc_code = sc.mc_code
+	where 	mc.mc_code = #{mc_code}
+</select>
 	
 </mapper>

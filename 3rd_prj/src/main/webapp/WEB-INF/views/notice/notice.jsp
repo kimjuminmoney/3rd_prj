@@ -5,7 +5,7 @@
 <html lang="ko" itemscope itemtype="http://schema.org/Article">
 <head>
 
-<title id="titleJoin">문의</title>
+<title id="titleJoin">공지사항</title>
 
 <script type="text/javascript" src="https://www.starbucks.co.kr/common/js/esabsbuxkr.js?single"></script> 
 
@@ -24,9 +24,48 @@
 
 <link href="https://www.starbucks.co.kr/common/css/style_whatsnew.css?v=20220221" rel="stylesheet">
 </head>
-<body>
 
+<style>
+
+.ct_center #container {
+	width: 1056px;
+	margin: 0 auto;
+	padding-top: 20px;
+	padding-bottom: 236px;
+	background-color: #fff;
+}
+
+.news_sch_wrap { 
+	padding:20px 30px; 
+	height:38px; 
+	background:#fff; 
+	border-radius:3px; 
+	margin-bottom:40px; 
+	position:relative; 
+}
+
+.notice_wrap { 
+	width:1100px; 
+	padding-bottom:80px; 
+	margin:0 auto; 
+	background-color: #fff
+}
+
+footer#footer {
+	background: #fff;
+	clear:both;
+	position:relative;
+	width:100%;
+	padding: 0px
+}
+
+
+</style>
+
+<body>
+<body style = "background-color: #fff" >
 </body>
+
 </head>
 
 <body class="w1080 ct_center win chrome chrome119 next">
@@ -43,7 +82,7 @@
 	</div>
 </div>
 
-	<div id="container">
+	<div id="container" style="background-color: #fff" >
 	    <div class="notice_wrap">
 	    	
 	    	<div class="news_sch_wrap">
@@ -70,19 +109,23 @@
                          <th scope="col">NO</th>
                          <th scope="col">제목</th>
                          <th scope="col">날짜</th>
-                         <th scope="col">작성자</th>
                      </tr>
                  </thead>
                  
                  
                <!-- 전체 공지 -->  
                <tbody id="notice">
+               <c:if test="${ listSize == 0 }">
+                       <tr>
+                             <!-- 공지가 없을 때 보여줄 페이지 -->
+                             <th colspan="3">공지사항이 없습니다.</th>
+                       </tr>   
+                       </c:if>
                <c:forEach var="notice" items="${ noticeList }">
                  <tr>     
                  <td><c:out value= "${ notice.noticeIndex }"/></td>
-                 <td><c:out value= "${ notice.notTitle }"/></td>
+                 <td><a href="notice_detail.do?notCode=${notice.notCode }"><c:out value="${notice.notTitle }"/> </a>
                  <td><c:out value= "${ notice.notDate }"/></td>
-                 <td><c:out value= "${ notice.adminId }"/></td>
                  </tr>
                </c:forEach>
             	</table>

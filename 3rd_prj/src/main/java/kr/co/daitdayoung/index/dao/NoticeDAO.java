@@ -25,18 +25,23 @@ public class NoticeDAO {
 		
 		List<NoticeDomain> ndList = ss.selectList("kr.co.daitdayoung.index.allNotice");
 		
+		mbh.closeHandler(ss);
+		
 		return ndList;
 		
 	} //searchNotice
 	
 	
-	public List<NoticeDomain> searchNotice (String notCode) {
+	public NoticeDomain searchNotice (String notCode) {
 		
 		mbh = MyBatisHandler.getInstance();
 		
 		SqlSession ss = mbh.getMyBatisHandler(false);
 		
-		List<NoticeDomain> ndList = ss.selectOne("kr.co.daitdayoung.index.selectNotice", notCode);
+		NoticeDomain ndList = ss.selectOne("kr.co.daitdayoung.index.selectNotice", notCode);
+		
+		mbh.closeHandler(ss);
+		
 		System.out.println(ndList);
 		
 		return ndList;

@@ -15,12 +15,16 @@ public class InquiryService {
 	@Autowired
 	private InquiryDAO iDAO;
 	
-	public List<InquiryDomain> searchInquiry (LoginVO lVO) {
-		List<InquiryDomain> list = iDAO.selectInquiryList(lVO);
+	public List<InquiryDomain> searchInquiry (LoginVO lqVO) { //전체
+		List<InquiryDomain> list = iDAO.selectInquiryList(lqVO);
 		return list;
 		
 	} //searchInquiry
 	
-	
+	public InquiryDomain searchInquiryDetail (String inqCode) { //상세 하나
 
+		return iDAO.selectInquiry(inqCode);
+	}
+	
+	
 } //class

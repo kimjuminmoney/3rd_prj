@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ko" itemscope itemtype="http://schema.org/Article">
+
 <head>
     
         
@@ -15,46 +17,7 @@
         var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
         j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-P2H76TF');</script>
-    
-    <!-- // Google Tag Manager -->
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <meta http-equiv="Cache-Control" content="max-age=86400, public">
-    <meta http-equiv="origin-trial" content="Ati2DWxlgboPVi6vklPLcKgvC/IgtfpOtYAvD8L+1jONtKz6NAFzU4c+2yCTCypQPs4MNTbytrfX4JlQBsk73g8AAACGeyJvcmlnaW4iOiJodHRwczovL2Vkd2l0aC5vcmc6NDQzIiwiZmVhdHVyZSI6IkRpc2FibGVEaWZmZXJlbnRPcmlnaW5TdWJmcmFtZURpYWxvZ1N1cHByZXNzaW9uIiwiZXhwaXJ5IjoxNjM5NTI2Mzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZX0=">
-
-
-    
-    
-    <meta property="og:url" content="http://www.edwith.org">
-    
-    <meta property="og:type" content="article">
-    
-    <meta property="og:title" content="에듀케이션위드 : edwith">
-    
-    <meta property="og:description" content="에드위드(edwith)는 네이버(NAVER)와 네이버 커넥트재단(NAVER Connect)이 제공하는 온라인 강좌(MOOC : Massive Online Open Course) 교육 플랫폼입니다. 에듀케이션위드(education with) 에드위드(edwith)로 분야별 명품 강좌를 무료(Free Course)로 수강하세요.">
-    
-    <meta property="og:site_name" content="edwith : 에듀케이션위드">
-    
-    <meta property="og:image" content="https://ssl.pstatic.net/static/connectfdn/edwith/hold_images/SNS_LOGO_1024x1024.png">
-    
-    <meta property="fb:app_id" content="1441124829481137">
-    
-
-    
-    <meta name="keywords" content="KAIST, 서강대학교, 경북대학교, NAVER PARTNER SQUARE online, edwith math, entry, 에듀케이션위드 에드위드,edwith,무크,mooc, free online course">
-    
-    <meta name="description" content="에드위드(edwith)는 네이버(NAVER)와 네이버 커넥트재단(NAVER Connect)이 제공하는 온라인 강좌(MOOC : Massive Online Open Course) 교육 플랫폼입니다. 에듀케이션위드(education with) 에드위드(edwith)로 분야별 명품 강좌를 무료(Free Course)로 수강하세요.">
-    
-
-    
-        <meta itemprop="name" content="에듀케이션위드 : edwith">
-    
-        <meta itemprop="description" content="에드위드(edwith)는 네이버(NAVER)와 네이버 커넥트재단(NAVER Connect)이 제공하는 온라인 강좌(MOOC : Massive Online Open Course) 교육 플랫폼입니다. 에듀케이션위드(education with) 에드위드(edwith)로 분야별 명품 강좌를 무료(Free Course)로 수강하세요.">
-    
-        <meta itemprop="image" content="https://ssl.pstatic.net/static/connectfdn/edwith/hold_images/SNS_LOGO_1024x1024.png">
-    
-
+   
 
 <!-- serverURL : https://www.edwith.org -->
 <!-- i18n locale : ko -->
@@ -142,16 +105,14 @@
 
     <input type="hidden" id="__MESSAGE_CODE" value="" />
 
-<script src="/static/js/vendor/vendor.compressed.min.js?231130_26709717"></script>
-<script src="/static/js/src/entries/common/_head.entry.browserfied.min.js?231130_26709717"></script>
 <script type="text/javascript" src="https://wcs.naver.net/wcslog.js"></script>
 <script src="https://vliveplus.pstatic.net/0/mobile/2020/04/standby/f1.1.0.8.js"></script>
 <script>
     var title = document.title;
-    document.title = _.unescape(title);
+    //document.title = _.unescape(title);
 
-    var entry = require("/entries/common/_head.entry.js");
-    entry.initialize();
+   // var entry = require("/entries/common/_head.entry.js");
+   // entry.initialize();
 
     // 부코 진입시, 통합 회원 약관 동의하지 않았으면 약관 페이지로 이동하는 즉시 실행 함수
     (function connectMemberIntegration() {
@@ -227,7 +188,7 @@
         homeUrl : "https://edwith.org",
         cookieTime : getStandbyCookieTime()
     };
-
+    /*
     var oSequenceManager = new SequenceManager({
         serviceId : htInfo.serviceId,
         apiHost: htInfo.seqApi,
@@ -243,7 +204,6 @@
             setTimeout(oSequenceManager.requestSequence , 3000);
         }
     });
-
     var oHeartbeat = new Heartbeat(oSequenceManager,{
         serviceId: htInfo.serviceId,
         apiHost: htInfo.heartBeatApi,
@@ -254,32 +214,14 @@
         },
         successRun : true //대기열 진입 시에도 계속 heartbeat 호출할 필요가 있을 경우 true(상품 품절 체크 등의 이슈)
     });
+*/
 
     //dom 로드된 후 아래 코드 호출
     //oSequenceManager.requestSequence();
 </script>
 
-
-    <input type="hidden" id="GA_VIEW_ID" value="UA-93980439-1" />
-
-
-
-    <input type="hidden" id="GA_USER_ID" value="" />
-    <input type="hidden" id="GA_DIMENSION01" value="" /> 
-
-
-    <input type="hidden" id="GA_DIMENSION02" value="" /> 
-    <input type="hidden" id="GA_DIMENSION03" value="" /> 
-    <input type="hidden" id="GA_DIMENSION04" value="" /> 
-    <input type="hidden" id="GA_DIMENSION07" value="" /> 
-    <input type="hidden" id="GA_DIMENSION08" value="" /> 
-    <input type="hidden" id="GA_DIMENSION09" value="" /> 
-
-<input type="hidden" id="GA_DIMENSION05" value="NEXT" /> 
-<input type="hidden" id="GA_DIMENSION06" value="PC_WEB" /> 
-
 <script>
-    
+/*    
 		
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -334,15 +276,16 @@
         window.gaHitPageView = gaSimpleHitPageView;
 
         
-        /*ga('send', {
+        ga('send', {
             hitType: 'event',
             eventCategory: 'video',
             eventAction: 'play',
             eventLabel: 'media play'
-        });*/
+        });
 
         gaHitPageView();
     })();
+    */
 </script>
 
 
@@ -392,14 +335,15 @@
     <section class="header_cont" data-wrap-gnb-main-menu>
         <div class="base_layout">
             <h1 class="header_logo">
-                <a class="N=a:gnb.edwith" href="/" data-nclk="gnb.edwith" data-nclk="gnb.edwith"﻿>edwith</a>
+                <a class="N=a:gnb.edwith" href="index.do" data-nclk="gnb.edwith" data-nclk="gnb.edwith"﻿>DitDyoung</a>
             </h1>
             <ul class="navi">
                 <!-- [D] 활성시 li 요소에 on 클래스 추가 -->
-                <li data-gnb-main-menu="ce"><a href="courses_ce.do" data-nclk="gnb.ce">의무교육</a></li>
-                <li data-gnb-main-menu="se"><a href="courses_se.do" data-nclk="gnb.se">자기개발교육</a></li>
-                <li data-gnb-main-menu="ose"><a href="courses_ose.do" data-nclk="gnb.ose">산업안전교육</a></li>
+                <c:forEach var="indexMC" items="${ MCList }">
+                <li><a href="courses.do?mcCode=${indexMC.mcCode }"><c:out value="${indexMC.mcName }"/></a></li>
+                </c:forEach>
             </ul>
+            
 
             <!-- 전체강좌 리스트 -->
             <div class="sub_category"  data-gnb-sub-category="total" style="display: none">

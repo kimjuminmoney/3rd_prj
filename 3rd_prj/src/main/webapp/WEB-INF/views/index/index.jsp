@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="ko" itemscope itemtype="http://schema.org/Article">
 <head>
@@ -24,41 +26,16 @@
     
     <!-- KV 배너 -->
     <div class="kv_banner mooc_spot" id="kv_banner"><!-- #breadcrumb: /modules/main/template/keyvisual.html -->
-
-	<div class="slide_wrap NE=a:mkv">
-	    <ul class="list items" slide-list-container="" style="position: absolute; width: 4020px; left: -1608px;">
-	    	<li>
-	          <a href="https://www.edwith.org/boost-course/intro" target="_blank" data-nclk="kv.go">
-	              <img src="https://cphinf.pstatic.net/mooc/20190312_185/1552382144605sAeJd_PNG/KV1.png?type=ff804_240">
-	          </a>
-	      	</li>
-	      
-	      	<li>
-	          <a href="https://www.edwith.org/introduce" target="" data-nclk="kv.go">
-	              <img src="https://cphinf.pstatic.net/mooc/20201215_289/16080231869905j06x_PNG/_1_1215.png?type=ff804_240">
-	          </a>
-	      	</li>
-	      
-	      	<li>
-	          <a href="https://www.edwith.org/onlineclass" target="_blank" data-nclk="kv.go">
-	              <img src="https://cphinf.pstatic.net/mooc/20201215_14/1608023378972kayQE_PNG/_2_1215.png?type=ff804_240">
-	          </a>
-	      	</li>
-	      
-	      	<li>
-	          <a href="https://www.edwith.org/boost-course/intro" target="_blank" data-nclk="kv.go">
-	              <img src="https://cphinf.pstatic.net/mooc/20190312_185/1552382144605sAeJd_PNG/KV1.png?type=ff804_240">
-	          </a>
-	      </li>
-	      
-	      <li>
-	          <a href="https://www.edwith.org/introduce" target="" data-nclk="kv.go">
-	              <img src="https://cphinf.pstatic.net/mooc/20201215_289/16080231869905j06x_PNG/_1_1215.png?type=ff804_240">
-	          </a>
-	      </li>
-	  </ul>
-	  
-      <a href="#" class="bnr_btn_left" slide-btn-prev="" data-nclk="kv.before" style="display: none;"><span class="blind">이전 배너로 이동</span></a>
+     <c:forEach var="index" items="${ BIList }">
+           <%-- <a href="courses_detail.do?couCode=${index.couCode }"><img src="${ index.bannerImg }"/></a> --%>
+           <%-- <a><img src="http://localhost/daitdayoung/courses_data/${ index.couCode }/${ index.bannerImg }" 
+           width="804" height="240"></a> --%>
+           <a><img src="http://localhost/daitdayoung/courses_data/COU_999999/hcy_tech.PNG" 
+           width="804" height="240"></a>
+     </c:forEach>
+     <!--  
+     <ul class="listImg" style="position: absolute; width: 4020px; left: -1608px;">
+     <a href="#" class="bnr_btn_left" slide-btn-prev="" data-nclk="kv.before" style="display: none;"><span class="blind">이전 배너로 이동</span></a>
       <a href="#" class="bnr_btn_right" slide-btn-next="" data-nclk="kv.after" style="display: none;"><span class="blind">다음 배너로 이동</span></a>
 	      
 	 <div class="pagination">
@@ -68,8 +45,10 @@
        <a href="#" class="dot" slide-btn-page="" data-page="2" data-nclk="kv.move"><span class="blind">2</span></a>
        <a href="#" class="btn_pause" slide-btn-pause="" data-nclk="kv.pause" style="display: none;"><span class="blind">배너 정지</span></a>
        <a href="#" class="btn_play" slide-btn-play="" style="" data-nclk="kv.play"><span class="blind">배너 재생</span></a>
-     </div>
-	    
+     </div> slide-list-container=""
+     
+     </ul>-->
+	<div class="slide_wrap NE=a:mkv">   
 	</div>
 	
 	</div>
