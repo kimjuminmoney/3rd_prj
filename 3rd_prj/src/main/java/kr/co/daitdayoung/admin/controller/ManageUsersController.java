@@ -3,14 +3,18 @@ package kr.co.daitdayoung.admin.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.daitdayoung.admin.domain.ManageUsersDomain;
 import kr.co.daitdayoung.admin.service.ManageUsersService;
+import kr.co.daitdayoung.admin.vo.ManageUsersVO;
 
 @Controller
 public class ManageUsersController {
@@ -66,6 +70,36 @@ public class ManageUsersController {
 		model.addAttribute("detailInsList", detailInsList);
 		
 		return "admin/admin_users/detailInstructor";
+	}
+	
+	@ResponseBody
+	@GetMapping("/admin/admin_users/modstu.do")
+	public String modifyStuProcess(Model model, ManageUsersVO muVO, HttpSession session) {
+		JSONObject jsonObj = new JSONObject();
+		
+		int cnt=0;
+		
+		String adminId = (String)session.getAttribute("adminId");
+		muVO.setAdminId(adminId);
+		cnt=mus.modifyStu(muVO);
+		jsonObj.put("cnt", cnt);
+		
+		return jsonObj.toJSONString();
+	}
+
+	@ResponseBody
+	@GetMapping("/admin/admin_users/modins.do")
+	public String modifyInsProcess(Model model, ManageUsersVO muVO, HttpSession session) {
+		JSONObject jsonObj = new JSONObject();
+		
+		int cnt=0;
+		
+		String adminId = (String)session.getAttribute("adminId");
+		muVO.setAdminId(adminId);
+		cnt=mus.modifyIns(muVO);
+		jsonObj.put("cnt", cnt);
+		
+		return jsonObj.toJSONString();
 	}
 	
 }

@@ -34,7 +34,31 @@
 </style>
 <script type="text/javascript">
 $(function(){
-   
+	$("#modBtn").click(function(){
+		alert("123123");
+		   var param={insName: $("#nameFrm").val(),
+				   	insBirth: $("#birthFrm").val(),
+				   	insTel: $("#telFrm").val(),
+				   	insId: $("#idFrm").val()}
+		   $.ajax({
+			   url:"modins.do",
+			   type:"GET",
+			   data: param,
+			   dataType:"json",
+			   error:function( xhr ){
+				   alert( xhr.status );
+			   },
+			   success:function(jsonObj){
+				   var cnt = jsonObj.cnt;
+				   if(cnt=='1'){
+					   alert("강사회원정보가 수정되었습니다.");
+					   location.reload();
+				   }else{
+					   alert("강사회원정보가 수정되지 않았습니다. 다시 한번 시도해주세요.");
+				   }
+			   }//success
+		   });//ajax
+	   });//click
 });//ready
 </script>
 
@@ -84,7 +108,7 @@ $(function(){
 							<input type="text" id="telFrm" class="form-control" value="${ requestScope.insTel }"><br/>
 		                </div>
 						<div style="margin-top: 10px; margin-left: 25px">
-					  		<button type="button" class="btn btn-outline-success">수정</button>
+					  		<button id="modBtn" type="button" class="btn btn-outline-success">수정</button>
 					  		<button type="button" class="btn btn-outline-danger">탈퇴</button>
 						</div>
                     </div>

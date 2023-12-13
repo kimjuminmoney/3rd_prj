@@ -56,6 +56,18 @@
 	where ins_id=#{ ins_id }
 </select>
 
+<update id="updateStu" parameterType="kr.co.daitdayoung.admin.vo.ManageUsersVO">
+	update user_info
+	set ui_name=#{ uiName }, ui_birth=#{ uiBirth }
+	where ui_id=#{ uiId }
+</update>
+
+<update id="updateIns" parameterType="kr.co.daitdayoung.admin.vo.ManageUsersVO">
+	update	instructor
+	set		ins_name=#{ insName }, ins_birth=#{ insBirth }, ins_tel=#{ insTel }
+	where   ins_id=#{ insId }
+</update>
+
 </mapper>
 
 

@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Component;
 
 import kr.co.daitdayoung.admin.domain.ManageUsersDomain;
+import kr.co.daitdayoung.admin.vo.ManageUsersVO;
 import kr.co.daitdayoung.dao.MyBatisHandler;
 
 @Component
@@ -95,6 +96,44 @@ public class ManageUsersDAO {
 		
 		return list;
 	}//selectDetailStu2
+	
+	public int updateStu(ManageUsersVO muVO) throws PersistenceException{
+		
+		int cnt=0;
+		
+		MyBatisHandler mbh = MyBatisHandler.getInstance();
+		
+		SqlSession ss = mbh.getMyBatisHandler(false);
+		
+		cnt=ss.update("kr.co.daitdayoung.admin.mu.updateStu", muVO);
+		
+		if(cnt==1) {
+			ss.commit();
+		}//end if
+		
+		mbh.closeHandler(ss);
+		
+		return cnt;
+	}//updateStu
+	
+	public int updateIns(ManageUsersVO muVO) throws PersistenceException{
+		
+		int cnt=0;
+		
+		MyBatisHandler mbh = MyBatisHandler.getInstance();
+		
+		SqlSession ss = mbh.getMyBatisHandler(false);
+		
+		cnt=ss.update("kr.co.daitdayoung.admin.mu.updateIns", muVO);
+		
+		if(cnt==1) {
+			ss.commit();
+		}//end if
+		
+		mbh.closeHandler(ss);
+		
+		return cnt;
+	}//updateStu
 	
 	public static void main(String[] args) {
 		System.out.println(new ManageUsersDAO().selectDetailIns2("ins1"));
