@@ -88,7 +88,7 @@
 							  <button type="button" class="btn btn-outline-primary" onclick="showNotTable()">일반</button>
 							  <button type="button" class="btn btn-outline-primary" onclick="showCnTable()">강좌</button>
 							</div>
-							<button type="button" id="addNoticeBtn" class="btn btn-outline-primary" style="margin-left: 1350px;">공지사항 쓰기</button>
+							<button type="button" id="addNoticeBtn" class="btn btn-outline-primary" style="margin-left: 1330px;">공지사항 쓰기</button>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">

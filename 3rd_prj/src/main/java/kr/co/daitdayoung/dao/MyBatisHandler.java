@@ -15,7 +15,7 @@ public class MyBatisHandler {
 	private static SqlSessionFactory ssf; 
 	
 	private MyBatisHandler() {
-		org.apache.ibatis.logging.LogFactory.useLog4JLogging();
+		org.apache.ibatis.logging.LogFactory.useLog4J2Logging();
 	}//MyBatisHandler
 	
 	public static MyBatisHandler getInstance() {
