@@ -33,9 +33,10 @@ public class InquiryService {
 		
 	} //searchInquiry
 	
-	public List<InquiryDomain> searchInqWrite (InquiryVO inqVO) {
-		List<InquiryDomain> list = iDAO.searchInqWrite(inqVO);
-		return list;
+
+	public List<InquiryDomain> searchInqWrite(LoginVO lVO) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 } //class

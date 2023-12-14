@@ -60,13 +60,13 @@ public class InquiryDAO {
 		
 	} //selectInquiry
 	
-	public List<InquiryDomain> searchInqWrite(InquiryVO inqVO) {
+	public List<InquiryDomain> searchInqWrite(LoginVO lVO) {
 		
 		mbh = MyBatisHandler.getInstance();
 		
 		SqlSession ss = mbh.getMyBatisHandler(false);
 		
-		List<InquiryDomain> iqList = ss.selectList("kr.co.daitdayoung.index.allInquiry", inqVO);
+		List<InquiryDomain> iqList = ss.selectList("kr.co.daitdayoung.index.writeInquiry", lVO);
 		
 		mbh.closeHandler(ss);
 		

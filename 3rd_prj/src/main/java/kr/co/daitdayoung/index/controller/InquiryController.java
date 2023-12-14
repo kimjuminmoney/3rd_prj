@@ -56,11 +56,10 @@ public class InquiryController {
 	public String inquiryWrite(HttpSession session, Model model) {
 		String usId = (String)session.getAttribute("usId");
 		String insId = (String)session.getAttribute("insId");
-		InquiryVO inqVO = new InquiryVO(usId,insId);
 		
-		List<InquiryDomain> list = is.searchInqWrite(inqVO);
+		LoginVO lVO = new LoginVO(usId,insId);
 		
-		
+		List<InquiryDomain> list = is.searchInqWrite(lVO);
 		
 		
 		return "/inquiry/inquiry_write";
