@@ -60,6 +60,27 @@ footer#footer {
 </style>
 </head>
 
+<script>
+
+$(function(){
+	$("#sch_bar").click(function(){
+		var param={ title : $("#title").val()};
+		$.ajax ({
+			url:"inquiry.do",
+			type:"GET",
+			dara: param,
+			dataType:"json",
+			error:function(xhr) {
+				alert(xhr.status);
+			},
+			
+			success: function (inquiryList) {
+				$("#output").html(output);
+}); 
+	
+
+
+</script>
 
 <body style="background-color: #fff" class="w1080 ct_center win chrome chrome119 next" cz-shortcut-listen="true">
 
@@ -95,7 +116,7 @@ footer#footer {
 					
                       <p><label for="sch_bar" class="a11y">검색어</label><!-- 접근성_20171123 label 추가 -->
                       <input type="text" name="sch_bar" id="sch_bar" placeholder="검색어를 입력해 주세요."> 
-                      <a href="javascript:void(0)" class="newBoardSearchBtn">검색</a></p>
+                      <a href="javascript:void(0)" class="newBoardSearchBtn" id="btn">검색</a></p>
                    </div>
                    
                     <table summary="문의" class="notice_tb">
