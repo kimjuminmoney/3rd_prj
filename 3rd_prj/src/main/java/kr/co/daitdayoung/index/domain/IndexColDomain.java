@@ -1,4 +1,5 @@
-package kr.co.daitdayoung.index.vo;
+package kr.co.daitdayoung.index.domain;
+
 
 import lombok.Getter;
 import lombok.Setter;
@@ -7,10 +8,8 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class IndexVO {
-
+public class IndexColDomain {
 	private String	 mcCode, mcName, scName, bannerImg, couCode, couName, insName;
 	private int hit;
-	private String completionStatus = "Y";
 
-} //CoursesVO
+}

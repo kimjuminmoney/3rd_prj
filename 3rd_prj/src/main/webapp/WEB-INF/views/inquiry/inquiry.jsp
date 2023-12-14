@@ -14,6 +14,8 @@
 <link href="https://www.starbucks.co.kr/common/css/jquery.bxslider.css" rel="stylesheet">
 <link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/common1.css" type="text/css">
 <link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/boostcourse_common.css" type="text/css">
+<link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/edwith.css" type="text/css">
+<link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/nanumsquare_webfont.css" type="text/css">
    
 
  <!-- 20230206 수정 -->
@@ -90,7 +92,7 @@ $(function(){
 <jsp:include page="../index_nav/index_in_head.jsp"></jsp:include>
 </header>
     
-
+<body class="fs win chrome chrome120" cz-shortcut-listen="true">
 
 <div class="sub_tit_wrap">
 	<div class="sub_tit_inner">
@@ -190,6 +192,17 @@ $(function(){
                     
                 </div>
                 <!-- 문의사항 end -->
+                
+<section class="service_faq">
+<div class="faq_cont">
+                
+	<div class="faq_more">
+	    <strong class="sjt">더 궁금한 점이 있으신가요?</strong>
+	    <p class="dsc">1:1 문의하기에 남겨주시면 답변 드리겠습니다.</p>
+	    <a href="inquiry_write.do" class="link NPI=a:request" data-inquiry-button="">1:1 문의하기</a>
+	</div>
+</div>
+</section>                
 </div>
    
            

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 import kr.co.daitdayoung.index.dao.InquiryDAO;
 import kr.co.daitdayoung.index.domain.InquiryDomain;
+import kr.co.daitdayoung.index.vo.InquiryVO;
 import kr.co.daitdayoung.index.vo.LoginVO;
 
 @Component
@@ -26,5 +27,15 @@ public class InquiryService {
 		return iDAO.selectInquiry(inqCode);
 	}
 	
+	public List<InquiryDomain> searchInqCategory (String inName) { //전체
+		List<InquiryDomain> list = iDAO.searchInqCategory(inName);
+		return list;
+		
+	} //searchInquiry
+	
+	public List<InquiryDomain> searchInqWrite (InquiryVO inqVO) {
+		List<InquiryDomain> list = iDAO.searchInqWrite(inqVO);
+		return list;
+	}
 	
 } //class

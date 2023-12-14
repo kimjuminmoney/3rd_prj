@@ -328,7 +328,8 @@
 <ul class="lnk">
     
 	   	<c:forEach var="indexMC" items="${ MCList }">
-	    <li><a href="courses.do?mcCode=${indexMC.mcCode }"><c:out value="${indexMC.mcName }"/></a></li>
+	    <li><a href="courses.do?mcCode=${indexMC.mcCode }">
+	    <c:out value="${indexMC.mcName }"/></a></li>
 	    </c:forEach>
     
 </ul>

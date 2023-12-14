@@ -10,7 +10,6 @@ import lombok.ToString;
 @Setter
 @ToString
 public class InquiryVO {
-
 	private String inqCode, itCode, itName, uiId, insId, inqTitle, inqContent, adminId, inqAnswer, uiName;
 	private Date inqDate, inqAnswerdate;
 	
