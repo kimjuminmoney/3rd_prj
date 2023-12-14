@@ -56,4 +56,20 @@ public class ManageNoticeService {
 		
 	}//modifyNotice
 	
+	public String searchAdminName(String adminId) throws PersistenceException{
+		
+		String adminName = mnd.selectAdminName(adminId);
+		
+		return adminName;
+		
+	}//searchAdminName
+	
+	public int addNotice(ManageNoticeVO mnVO) throws PersistenceException {
+		
+		int cnt = mnd.insertNot(mnVO);
+		
+		return cnt;
+		
+	}//addNotice
+	
 }//class

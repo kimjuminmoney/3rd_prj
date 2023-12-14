@@ -1,5 +1,7 @@
 package kr.co.daitdayoung.admin.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -70,7 +72,18 @@ public class ManageNoticeController {
 	
 	//공지사항 추가
 	@GetMapping("/admin/admin_notice/addNotice.do")
-	public String addNoticeFrm() {
+	public String addNoticeFrm(Model model, HttpSession session) {
+		
+		String adminId = (String)session.getAttribute("adminId");
+		
+	    Date date = new Date();
+	    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+	    String currentDate = dateFormat.format(date);
+	    
+	    String adminName = mns.searchAdminName(adminId);
+	    
+	    model.addAttribute("currentDate", currentDate);
+	    model.addAttribute("adminName", adminName);
 		
 		return "admin/admin_notice/addNotice";
 	}//addNoticeFrm
@@ -87,6 +100,20 @@ public class ManageNoticeController {
 		cnt=mns.modifyNotice(mnVO);
 		jsonObj.put("cnt", cnt);
 		return jsonObj.toJSONString();
-	}
+	}//modifyNoticeProcess
 	
-}
+	@ResponseBody
+	@GetMapping("/admin/admin_notice/addnot.do")
+	public String addNoticeProcess(Model model, ManageNoticeVO mnVO, HttpSession session) {
+		JSONObject jsonObj = new JSONObject();
+		
+		int cnt=0;
+		
+		String adminId = (String)session.getAttribute("adminId");
+		mnVO.setAdminId(adminId);
+		cnt=mns.addNotice(mnVO);
+		jsonObj.put("cnt", cnt);
+		return jsonObj.toJSONString();
+	}//addNoticeProcess
+	
+}//class

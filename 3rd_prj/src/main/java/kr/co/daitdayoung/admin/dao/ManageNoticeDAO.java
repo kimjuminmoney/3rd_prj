@@ -87,13 +87,47 @@ public class ManageNoticeDAO {
 		return cnt;
 	}//updateNot
 	
+	public String selectAdminName(String adminId) throws PersistenceException{
+		String adminName = null;
+		
+		MyBatisHandler mbh = MyBatisHandler.getInstance();
+		
+		SqlSession ss = mbh.getMyBatisHandler(false);
+		
+		adminName = ss.selectOne("kr.co.daitdayoung.admin.mn.selectAdminName", adminId);
+		
+		mbh.closeHandler(ss);
+		
+		return adminName;
+	}
+	
+	public int insertNot(ManageNoticeVO mnVO) throws PersistenceException{
+		int cnt = 0;
+		
+		MyBatisHandler mbh = MyBatisHandler.getInstance();
+		
+		SqlSession ss = mbh.getMyBatisHandler(false);
+		
+		cnt = ss.insert("kr.co.daitdayoung.admin.mn.insertNot", mnVO);
+		
+		if(cnt>0) {
+			ss.commit();
+		}//end if
+		
+		mbh.closeHandler(ss);
+		
+		return cnt;
+	}
+	
 	public static void main(String[] args) {
 		ManageNoticeVO mnVO = new ManageNoticeVO();
 		mnVO.setAdminId("admin");
-		mnVO.setNotCode("NOT_999999");
-		mnVO.setNotContent("테스트111111111");
-		mnVO.setNotTitle("테스트공지1");
-		new ManageNoticeDAO().updateNot(mnVO);
+//		mnVO.setNotCode("NOT_999999");
+		mnVO.setNotContent("테스트3333");
+		mnVO.setNotTitle("테스트공지3");
+//		new ManageNoticeDAO().updateNot(mnVO);
+//		new ManageNoticeDAO().selectAdminName("admin");
+		new ManageNoticeDAO().insertNot(mnVO);
 	}
 	
 }//class

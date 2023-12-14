@@ -12,9 +12,9 @@
 
 </style>
 <script type="text/javascript">
+
 $(function(){
 	$("#modBtn").click(function(){
-		alert("asdf");
 		   var param={notTitle: $("#notTitleFrm").val(),
 				   	notContent: $("#notContentFrm").val(),
 				   	notCode: $("#notCode").val()}

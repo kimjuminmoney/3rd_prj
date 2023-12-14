@@ -15,3 +15,8 @@
     
     <!-- jQuery CDN -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	
+	<%
+	String adminId=(String)session.getAttribute("adminId");
+	pageContext.setAttribute("adminId", adminId);
+	%>
