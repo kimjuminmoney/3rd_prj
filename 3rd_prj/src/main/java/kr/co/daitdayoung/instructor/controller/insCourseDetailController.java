@@ -61,11 +61,7 @@ public class insCourseDetailController {
 		return "instructor/MyClass/course/insCourseLecture";
 	}//courseDetail
 	
-	@RequestMapping("/insCourseInquiry.do")
-	public String courseInquiry() {
-		System.out.println("문의");
-		return "instructor/MyClass/course/insCourseInquiry";
-	}//courseDetail
+	
 	
 	@RequestMapping("/insCourseTest.do")
 	public String courseTest() {

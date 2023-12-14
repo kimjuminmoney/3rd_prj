@@ -33,7 +33,12 @@
 <script type="text/javascript">
 
 $(function(){
-   
+   	var text="1"
+	$.each(jsonObj.mid,function(iaskdfljskf){
+	 
+	   
+   })
+	   $("#output").html=  
 });//ready
 </script>
 

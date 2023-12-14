@@ -4,13 +4,13 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.daitdayoung.instructor.course.inquiry">
 
-<select id="selectAllCourseNotice" resultType="kr.co.daitdayoung.instructor.domain.CourseNoticeDomain" parameterType="String">
-	select * 
-	from COURSES_NOTICE
-	where cou_code = #{ couCode }
+<select id="selectAllCourseInquiry" resultType="kr.co.daitdayoung.instructor.domain.CourseNoticeDomain" parameterType="String">
+	select ci.CI_CODE, ci.UI_ID, ci.CIT_CODE, ci.CI_TITLE, ci.CI_CONTENT, ci.CI_DATE, ci.CI_ANSWER, ci.CI_ANSWERDATE, ci.COU_CODE, ci.INS_ID 
+	from COURSES_INQUIRY ci, COURSES_INQUIRY_TYPE cit
+	where ( ci.cou_code = #{ couCode } ) and ( ci.cit_code = cit.cit_code )
 	</select>
 
-	<select id="selectOneCourseNotice" resultType="kr.co.daitdayoung.instructor.domain.CourseNoticeDomain" parameterType="String">
+<!-- 	<select id="selectOneCourseNotice" resultType="kr.co.daitdayoung.instructor.domain.CourseNoticeDomain" parameterType="String">
 	select * 
 	from COURSES_NOTICE
 	where cn_code = #{ cn_code }
@@ -25,6 +25,6 @@
 	update COURSES_NOTICE
 	set CN_CONTENT = #{ cnContent }
 	where CN_CODE = #{ cnCode }  and COU_CODE = #{ couCode }
-	</update>
+	</update> -->
 
 </mapper>
