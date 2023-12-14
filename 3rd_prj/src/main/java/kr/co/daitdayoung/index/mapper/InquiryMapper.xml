@@ -46,11 +46,12 @@
 	</select>
 	
 	<!-- 문의 유형 -->
-	<select id="selectCategory" resultType="kr.co.daitdayoung.index.domain.InquiryDomain" parameterType="String">
+	<select id="selectCategory" resultType="kr.co.daitdayoung.index.domain.InquiryDomain">
 	select 	it_name
 	from 	inquiry_type
 	</select>
 	
+	<!-- 문의글 추가 -->
 	
 	
 </mapper>

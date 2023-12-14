@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import kr.co.daitdayoung.dao.MyBatisHandler;
+import kr.co.daitdayoung.index.controller.IndexColDomain;
 import kr.co.daitdayoung.index.domain.CoursesDomain;
 import kr.co.daitdayoung.index.domain.IndexDomain;
 import kr.co.daitdayoung.index.domain.NoticeDomain;
@@ -47,13 +48,13 @@ public class IndexDAO {
 		
 	}
 	
-	public List<IndexDomain> selectCouList() {
+	public List<IndexColDomain> selectCouList(String mcCode) {
 		
 		mbh = MyBatisHandler.getInstance();
 		
 		SqlSession ss = mbh.getMyBatisHandler(false);
 		
-		List<IndexDomain> idList = ss.selectList("kr.co.daitdayoung.index.MainCouList");
+		List<IndexColDomain> idList = ss.selectList("kr.co.daitdayoung.index.MainCouList", mcCode);
 		
 		mbh.closeHandler(ss);
 		
@@ -63,7 +64,7 @@ public class IndexDAO {
 	
 	
 	public static void main(String[] agrs) {
-		System.out.println(new IndexDAO().selectCouList());
+		System.out.println(new IndexDAO().selectCouList("MC_999999"));
 	}
 
 } //class00

@@ -1,6 +1,9 @@
 package kr.co.daitdayoung.index.controller;
 
 
+import java.nio.file.spi.FileSystemProvider;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import kr.co.daitdayoung.index.dao.IndexDAO;
+import kr.co.daitdayoung.index.domain.IndexColDomain;
 import kr.co.daitdayoung.index.domain.IndexDomain;
 import kr.co.daitdayoung.index.domain.InquiryDomain;
 import kr.co.daitdayoung.index.domain.NoticeDomain;
@@ -30,14 +34,17 @@ public class IndexController {
 		
 		List<IndexDomain> MCList = ins.searchMC();
 		List<IndexDomain> BIList = ins.searchBI();
-		List<IndexDomain> CList = ins.searchCouList();
-		
+		List<IndexColDomain> tempList = null; 
+		for(IndexDomain iDomain : MCList) {
+			iDomain.setList(ins.searchCouList(iDomain.getMcCode()));
+		}
 		model.addAttribute("BIList", BIList);
 		model.addAttribute("MCList", MCList);
-		model.addAttribute("CList",CList);
 		
 		return "/index/index";
 	}
+	
+	
 	
 	
 }

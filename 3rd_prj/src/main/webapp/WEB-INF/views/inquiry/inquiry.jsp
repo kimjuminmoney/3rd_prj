@@ -14,6 +14,8 @@
 <link href="https://www.starbucks.co.kr/common/css/jquery.bxslider.css" rel="stylesheet">
 <link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/common1.css" type="text/css">
 <link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/boostcourse_common.css" type="text/css">
+<link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/edwith.css" type="text/css">
+<link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/nanumsquare_webfont.css" type="text/css">
    
 
  <!-- 20230206 수정 -->
@@ -60,6 +62,27 @@ footer#footer {
 </style>
 </head>
 
+<script>
+
+$(function(){
+	$("#sch_bar").click(function(){
+		var param={ title : $("#title").val()};
+		$.ajax ({
+			url:"inquiry.do",
+			type:"GET",
+			dara: param,
+			dataType:"json",
+			error:function(xhr) {
+				alert(xhr.status);
+			},
+			
+			success: function (inquiryList) {
+				$("#output").html(output);
+}); 
+	
+
+
+</script>
 
 <body style="background-color: #fff" class="w1080 ct_center win chrome chrome119 next" cz-shortcut-listen="true">
 
@@ -69,7 +92,7 @@ footer#footer {
 <jsp:include page="../index_nav/index_in_head.jsp"></jsp:include>
 </header>
     
-
+<body class="fs win chrome chrome120" cz-shortcut-listen="true">
 
 <div class="sub_tit_wrap">
 	<div class="sub_tit_inner">
@@ -95,7 +118,7 @@ footer#footer {
 					
                       <p><label for="sch_bar" class="a11y">검색어</label><!-- 접근성_20171123 label 추가 -->
                       <input type="text" name="sch_bar" id="sch_bar" placeholder="검색어를 입력해 주세요."> 
-                      <a href="javascript:void(0)" class="newBoardSearchBtn">검색</a></p>
+                      <a href="javascript:void(0)" class="newBoardSearchBtn" id="btn">검색</a></p>
                    </div>
                    
                     <table summary="문의" class="notice_tb">
@@ -169,6 +192,17 @@ footer#footer {
                     
                 </div>
                 <!-- 문의사항 end -->
+                
+<section class="service_faq">
+<div class="faq_cont">
+                
+	<div class="faq_more">
+	    <strong class="sjt">더 궁금한 점이 있으신가요?</strong>
+	    <p class="dsc">1:1 문의하기에 남겨주시면 답변 드리겠습니다.</p>
+	    <a href="inquiry_write.do" class="link NPI=a:request" data-inquiry-button="">1:1 문의하기</a>
+	</div>
+</div>
+</section>                
 </div>
    
            

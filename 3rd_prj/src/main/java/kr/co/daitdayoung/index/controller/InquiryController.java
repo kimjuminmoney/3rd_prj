@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import kr.co.daitdayoung.index.domain.InquiryDomain;
 import kr.co.daitdayoung.index.service.InquiryService;
+import kr.co.daitdayoung.index.vo.InquiryVO;
 import kr.co.daitdayoung.index.vo.LoginVO;
+import kr.co.daitdayoung.user.domain.UserCoursesInquiryDomain;
 
 /**
  * Handles requests for the application home page.
@@ -49,6 +51,20 @@ public class InquiryController {
 		model.addAttribute("inqDomain",inqDomain);
 		return "/inquiry/inquiry_detail";
 	} //문의
+	
+	@RequestMapping(value = "/inquiry_write.do", method = RequestMethod.GET)
+	public String inquiryWrite(HttpSession session, Model model) {
+		String usId = (String)session.getAttribute("usId");
+		String insId = (String)session.getAttribute("insId");
+		InquiryVO inqVO = new InquiryVO(usId,insId);
+		
+		List<InquiryDomain> list = is.searchInqWrite(inqVO);
+		
+		
+		
+		
+		return "/inquiry/inquiry_write";
+	}
 	
 }
 	
