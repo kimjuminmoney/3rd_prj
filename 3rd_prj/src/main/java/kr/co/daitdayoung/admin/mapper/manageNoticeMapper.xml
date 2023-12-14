@@ -28,6 +28,12 @@
 	where i.ins_id=cn.ins_id and cn.cou_code=c.cou_code and cn_code=#{ cn_code }
 </select>
 
+<update id="updateNot" parameterType="kr.co.daitdayoung.admin.vo.ManageNoticeVO">
+	update	notice
+	set		not_title=#{ notTitle }, admin_id=#{ adminId }, not_date=sysdate, not_content=#{ notContent }
+	where   not_code=#{ notCode }
+</update>
+
 </mapper>
 
 
