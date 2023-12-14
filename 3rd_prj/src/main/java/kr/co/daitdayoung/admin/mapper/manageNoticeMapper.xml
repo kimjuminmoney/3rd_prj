@@ -28,6 +28,23 @@
 	where i.ins_id=cn.ins_id and cn.cou_code=c.cou_code and cn_code=#{ cn_code }
 </select>
 
+<update id="updateNot" parameterType="kr.co.daitdayoung.admin.vo.ManageNoticeVO">
+	update	notice
+	set		not_title=#{ notTitle }, admin_id=#{ adminId }, not_date=sysdate, not_content=#{ notContent }
+	where   not_code=#{ notCode }
+</update>
+
+<select id="selectAdminName" resultType="String" parameterType="String">
+	select admin_name
+	from admin
+	where admin_id=#{ adminId }
+</select>
+
+<insert id="insertNot" parameterType="kr.co.daitdayoung.admin.vo.ManageNoticeVO">
+	insert into notice (not_code, admin_id, not_title, not_date, not_content)
+	values ('NOT_'||LPAD(NOT_SEQ.nextVal, 6, '0'), #{ adminId }, #{ notTitle }, sysdate, #{ notContent })
+</insert>
+
 </mapper>
 
 

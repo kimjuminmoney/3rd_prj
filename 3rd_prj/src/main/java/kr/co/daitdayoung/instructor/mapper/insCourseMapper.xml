@@ -6,11 +6,30 @@
 
 	<select id="selectOneCourse" resultType="kr.co.daitdayoung.instructor.domain.CourseDomain" parameterType="kr.co.daitdayoung.instructor.vo.CourseVO">
 	select *
-	from COURSES c, COMPLETION_CRITERIA cr
-	where (c.cc_code = cr.cc_code) and ( ins_id=#{ insId } and cou_code=#{ couCode } ) 
+	from COURSES c, COMPLETION_CRITERIA cc
+	where (c.cc_code = cc.cc_code) and ( c.ins_id=#{ insId } and c.cou_code=#{ couCode } ) 
 	</select>
 
-
-
-
+<!-- 	<select id="selectLectureList" resultType="kr.co.daitdayoung.instructor.domain.LectureDomain" >
+	select *
+	from Lectures
+	where cou_code= #{ couCode}
+	</select>
+	
+	<select id="selectCC" resultType="kr.co.daitdayoung.instructor.domain.CCDomain">
+	select cc.cc_code, cc.enroll_Rate  cc.exam_Result  
+	from Courses c,COMPLETION_CRITERIA cc
+	where (c.cc_code = cc.cc_code) and ( c.cou_code=#{ couCode } ) 
+	</select>
+	
+	<select id="selectAllCourseInquiry" resultType="kr.co.daitdayoung.instructor.domain.CourseInquiryDomain">
+	select ci.CI_CODE, ci.UI_ID, ci.CIT_CODE, ci.CI_TITLE, ci.CI_CONTENT, ci.CI_DATE, ci.CI_ANSWER, ci.CI_ANSWERDATE, ci.COU_CODE, ci.INS_ID
+	from COURSES_INQUIRY ci, COURSES_INQUIRY_TYPE cit
+	where ( cou_code = #{ couCode } ) and  ( ci.CIT_CODE = cit.CIT_CODE)
+	</select> -->
+	
+	
+	
+	
+	
 </mapper>

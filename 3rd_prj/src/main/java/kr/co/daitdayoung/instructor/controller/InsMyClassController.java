@@ -73,10 +73,10 @@ public class InsMyClassController {
 	}
 	
 	@RequestMapping("/insAddCourse2.do")
-	public String addCourse2(CourseVO cVO,HttpServletRequest request, Model model) {
-		
-		cVO.setInsId((String)request.getAttribute("insId"));
-		System.out.println("ac2 / "+cVO);
+	public String addCourse2(CourseVO cVO,HttpSession session, Model model) {
+
+		cVO.setInsId((String)session.getAttribute("insId"));
+		System.out.println(cVO.getInsId());
 		
 		model.addAttribute("cVO", cVO);
 		
@@ -89,7 +89,6 @@ public class InsMyClassController {
 		
 		cVO.setContentList(contentsList);
 		System.out.println( "act / "+cVO );
-		System.out.println( "act / "+cVO.getContentList() );
 		
 		int cnt=0;
 		cnt = iacs.addCourse(cVO);

@@ -12,8 +12,31 @@
 
 </style>
 <script type="text/javascript">
+
 $(function(){
-   
+	$("#modBtn").click(function(){
+		   var param={notTitle: $("#notTitleFrm").val(),
+				   	notContent: $("#notContentFrm").val(),
+				   	notCode: $("#notCode").val()}
+		   $.ajax({
+			   url:"modnot.do",
+			   type:"GET",
+			   data: param,
+			   dataType:"json",
+			   error:function( xhr ){
+				   alert( xhr.status );
+			   },
+			   success:function(jsonObj){
+				   var cnt = jsonObj.cnt;
+				   if(cnt=='1'){
+					   alert("공지사항이 수정되었습니다.");
+					   location.reload();
+				   }else{
+					   alert("공지사항이 수정되지 않았습니다. 다시 한번 시도해주세요.");
+				   }
+			   }//success
+		   });//ajax
+	   });//click
 });//ready
 </script>
 
@@ -61,11 +84,12 @@ $(function(){
 	                <hr style="background-color:#1CC88A;">
         		<!--<h6 id="inqueryAdd" class="h3 mb-4 text-gray-800" style="font-size: 20px">답변</h6> -->        	
         			<div id="addInqueryFrm" class="form-floating" style="margin-top: 30px">
-        				<input class="form-control" type="text" placeholder="수정할 제목을 입력해주세요."><br/>
-					  	<textarea class="form-control" placeholder="수정할 내용을 입력해주세요." id="floatingTextarea2" style="height: 200px"></textarea>
+        				<input type="hidden" id="notCode" value="${ param.notCode }"><br/>
+        				<input class="form-control" id="notTitleFrm" type="text" placeholder="수정할 제목을 입력해주세요."><br/>
+					  	<textarea class="form-control" id="notContentFrm" placeholder="수정할 내용을 입력해주세요." id="floatingTextarea2" style="height: 200px"></textarea>
 					</div>
 					<div style="margin-top: 50px;">
-					  <button type="button" class="btn btn-outline-success">수정</button>
+					  <button type="button" class="btn btn-outline-success" id="modBtn">수정</button>
 					  <button type="button" class="btn btn-outline-danger">취소</button>
 					</div>
                 </div>

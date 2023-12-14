@@ -14,15 +14,24 @@
 	from SUBCATEGORY
 	where mc_code=#{ mcCode } 
 	</select>
-	
+
+	<insert id="insertCC" parameterType="kr.co.daitdayoung.instructor.vo.CourseVO">
+	insert into COMPLETION_CRITERIA
+	values ( 'CC_'||LPAD(CC_SEQ.nextVal, 6, '0'), #{ enrollRate }, #{ examResult }  )	
+	</insert>
+
+	<select id="selectCC"  resultType="String">
+		SELECT CC_SEQ.CURRVAL FROM DUAL       	
+	</select>
+
 	<insert id="insertCourse" parameterType="kr.co.daitdayoung.instructor.vo.CourseVO">
-	insert into Courses
-	values( #{ couCode }, #{ insId }, #{ couName}, #{ content }, #{ bannerImg }, #{ couPeriod }, #{ sampleVideo }, #{ ccCode }, #{ scCode }, #{ mcCode } )
+	insert into Courses( COU_CODE, INS_ID, COU_NAME, CONTENT,BANNER_IMG, COU_PERIOD, SAMPLE_VIDEO, CC_CODE, SC_CODE, MC_CODE)
+	values( 'cou_'||LPAD(COU_SEQ.nextVal, 6, '0') , #{ insId }, #{ couName}, #{ content }, #{ bannerImg }, #{ couPeriod }, #{ sampleVideo }, #{ ccCode }, #{ scCode }, #{ mcCode } )
 	</insert>
 
 	<insert id="insertLecture" parameterType="kr.co.daitdayoung.instructor.vo.LectureVO">
 	insert into Lectures(LEC_CODE, COU_CODE, INS_ID, LEC_NAME ) 
-	values (  #{ lecCode }, #{ couCode }, #{ insId }, #{ lecName } )
+	values (  'QUE_'||LPAD(QUE_SEQ.nextVal, 6, '0'), #{ couCode }, #{ insId }, #{ lecName } )
 	</insert>
 
 

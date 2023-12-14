@@ -13,7 +13,28 @@
 </style>
 <script type="text/javascript">
 $(function(){
-   
+	$("#addBtn").click(function(){
+		   var param={notTitle: $("#notTitleFrm").val(),
+				   	notContent: $("#notContentFrm").val()}
+		   $.ajax({
+			   url:"addnot.do",
+			   type:"GET",
+			   data: param,
+			   dataType:"json",
+			   error:function( xhr ){
+				   alert( xhr.status );
+			   },
+			   success:function(jsonObj){
+				   var cnt = jsonObj.cnt;
+				   if(cnt=='0'){
+					   alert("공지사항이 추가되지 않았습니다. 다시 한번 시도해주세요.");
+				   }else{
+					   alert("공지사항이 추가되었습니다.");
+					   location.href="manageNotice.do";
+				   }
+			   }//success
+		   });//ajax
+	   });//click
 });//ready
 </script>
 
@@ -49,17 +70,17 @@ $(function(){
                 <div id="inqueryDetail" style="width:1000px; margin: 0 auto; margin-top: 100px">
 					<table style="margin-bottom: 10px;">
 					<tr>
-						<td style="border-right: 1px solid #DFE0E2; padding-right: 10px">작성자</td>
-						<td style="padding-left: 10px">날짜</td>
+						<td style="border-right: 1px solid #DFE0E2; padding-right: 10px"><c:out value="${ requestScope.adminName }"/></td>
+						<td style="padding-left: 10px"><c:out value="${ requestScope.currentDate }"/></td>
 					</tr>				
 					</table>
-					<input class="form-control" type="text" placeholder="제목을 입력해주세요.">
+					<input class="form-control" id="notTitleFrm" type="text" placeholder="제목을 입력해주세요.">
 	                <hr>
-	                <textarea class="form-control" placeholder="문의에 대한 답변을 입력해주세요." id="floatingTextarea2" style="height: 200px"></textarea>
+	                <textarea class="form-control" id="notContentFrm" placeholder="문의에 대한 답변을 입력해주세요." id="floatingTextarea2" style="height: 200px"></textarea>
                 </div>
                 <div id="addInquery" style="width:1000px; margin: 0 auto; margin-top: 50px">
 					<div style="margin-top: 50px;">
-					  <button type="button" class="btn btn-outline-success">등록</button>
+					  <button type="button" id="addBtn" class="btn btn-outline-success">등록</button>
 					  <button type="button" class="btn btn-outline-danger">취소</button>
 					</div>
                 </div>
