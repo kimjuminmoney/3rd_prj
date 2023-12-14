@@ -1,7 +1,6 @@
 package kr.co.daitdayoung.instructor.vo;
 
 import java.sql.Date;
-import java.util.List;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,6 +17,6 @@ public class CourseVO {
 	private Date openDate;
 	private int couPeriod,hits;
 	
-	private List<String> contentList;
-	
+	private String[] contentList;
+	private String enrollRate,examResult; 
 }

@@ -18,6 +18,37 @@
  </style>
  <script type="text/javascript">
  $(function(){
+	 $("#addContent_btn").click(function(){
+		
+		var cnt = $("#contentList li").length+1;
+		
+		var li="<li><label style='font-size:30px; text-align:center;'><strong>"+cnt+".</strong></label><input type='text' name='contentsList' class='input_txt' style='width:30%; height:48px; font-size:16px; margin-left:5%;'></li>"
+		 $("#contentList").append(li);
+		
+	 });//click
+	 
+	 $("#delContent_btn").click(function(){
+		 
+		 $("#contentList").children("li:last").remove();
+		 
+	 });//click
+	 
+	 $("#back_btn").click(function(){
+		 
+		 
+	 });//click
+
+	 $("#addCourse_btn").click(function(){
+		 var frm=$("#contents_frm")[0];
+			frm.action="insAddCourseTry.do";
+			frm.method="post"
+		 alert(frm.action);
+		 alert(frm.method);
+			frm.submit();
+	 
+	 });//click
+	 
+	 
 	 
  });//ready
  </script>
@@ -35,31 +66,20 @@
 <input type="hidden" id="__isLogged" value="org.nhnnext.mooc.user.SecUser : 2674262">
 
 
-    
-
 <body class="win chrome chrome119 re_pack new_color edwith">
     <div class="wrap">
         <!-- container -->
         <div class="container new_layout ">
             <!-- HEADER -->
             
-
 <!-- #breadcrumb:common/_whaleclass_header.gsp -->
 <header id="header" class="default_ly2 ">
     <div class="header_wrap">
-    
-        
             
-                
-            
-            <h1 class="bi_school"
-                >
+            <h1 class="bi_school">
                 <a href="/myPage/openClass?isHomeLogo=true">
                     <img src="https://ssl.pstatic.net/static/m/mooc/p/partner/next/logo_v4.png"
-                        
-                            style="max-height:24px;"
-                        
-                         alt="edwith">
+                            style="max-height:24px;"alt="edwith">
                 </a>
             </h1>
         
@@ -141,7 +161,7 @@
                     </li>
                 
                 <li class="search">
-                    <div class="group">
+                    <div class="group">,
                         <div class="input">
                             <span class="input_area"><input type="text" data-claus-search-text></span>
                             <span class="added"><button type="submit" class="btn" data-claus-search-btn><span class="sr_only">검색</span></button></span>
@@ -210,26 +230,27 @@
 
 <div class="course_group course_join" data-course-group>
     <div class="course_lst class_area">
-            <ul data-course-card-ul>
+            <ul class="data-course-card-ul">
         		<li>
         			<div id="wrap" style="margin-left:5%">
         				<div id="content">
         					<label style="font-size:30px; text-align:center;"><strong>목차</strong></label><br/>
 	        				<div>
-	        					<label style="font-size:30px; margin-top:5px;"><strong>1.</strong></label><input type="text" class="input_txt" style="width:30%; height:48px; font-size:16px; margin-left:5%;"><br/>
-	        					<label style="font-size:30px;margin-top:5px;"><strong>2.</strong></label><input type="text" class="input_txt" style="width:30%; height:48px; font-size:16px; margin-left:5%;"><br/>
-	        					<label style="font-size:30px;margin-top:5px;"><strong>3.</strong></label><input type="text" class="input_txt" style="width:30%; height:48px; font-size:16px; margin-left:5%;"><br/>
-	        					<label style="font-size:30px;margin-top:5px;"><strong>4.</strong></label><input type="text" class="input_txt" style="width:30%; height:48px; font-size:16px; margin-left:5%;"><br/>
+	        				<form id="contents_frm" name="contents_frm" action="#void">
+		        				<ol id="contentList">
+		        					<li><label style="font-size:30px; text-align:center;"><strong>1.</strong></label><input type="text" name="contentsList" class="input_txt" style="width:30%; height:48px; font-size:16px; margin-left:5%;"></li>
+		        				</ol>
+		        			</form>
 	        				</div>
         				
-	        				<div id="mokcha-btn" style="margin-top:3%;">
-	        					<input type="button" class="btn btn-success" value="목차 추가"/>
-	        					<input type="button" class="btn btn-secondary" value="목차 삭제"/>
+	        				<div id="content-btn" style="margin-top:3%;">
+	        					<input type="button" id="addContent_btn" name="addContent_btn" class="btn btn-success" value="목차 추가"/>
+	        					<input type="button" id="delContent_btn" name="delContent_btn" class="btn btn-secondary" value="목차 삭제"/>
 	        				</div>
 						</div>
         				<div style="margin-top:5%">
-        					<input type="button" class="btn btn-info btn-lg" value="이전으로"/>
-        					<input type="button" class="btn btn-success btn-lg" value="강좌신청"/>
+        					<input type="button" id="back_btn" name="back_btn" class="btn btn-info btn-lg" value="이전으로"/>
+        					<input type="button" id="addCourse_btn" name="addCourse_btn" class="btn btn-success btn-lg" value="강좌신청"/>
         				</div>
         			</div>
         		</li>
@@ -243,7 +264,6 @@
             
         
     </div>
-</div>
 
 
 <!-- lcs file -->
@@ -357,7 +377,6 @@
             </div>
             
                 <button type="button" class="btn_logout"><a href="/logout">로그아웃</a></button>
-            
         </div>
     </div>
 
@@ -435,6 +454,3 @@
         })
     });
 </script>
-
-</body>
-</html>

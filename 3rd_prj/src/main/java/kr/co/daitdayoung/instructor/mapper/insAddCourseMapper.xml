@@ -14,6 +14,16 @@
 	from SUBCATEGORY
 	where mc_code=#{ mcCode } 
 	</select>
+	
+	<insert id="insertCourse" parameterType="kr.co.daitdayoung.instructor.vo.CourseVO">
+	insert into Courses
+	values( #{ couCode }, #{ insId }, #{ couName}, #{ content }, #{ bannerImg }, #{ couPeriod }, #{ sampleVideo }, #{ ccCode }, #{ scCode }, #{ mcCode } )
+	</insert>
+
+	<insert id="insertLecture" parameterType="kr.co.daitdayoung.instructor.vo.LectureVO">
+	insert into Lectures(LEC_CODE, COU_CODE, INS_ID, LEC_NAME ) 
+	values (  #{ lecCode }, #{ couCode }, #{ insId }, #{ lecName } )
+	</insert>
 
 
 </mapper>

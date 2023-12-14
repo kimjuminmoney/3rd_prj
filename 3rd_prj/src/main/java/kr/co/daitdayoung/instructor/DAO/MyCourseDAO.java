@@ -18,9 +18,10 @@ public class MyCourseDAO {
 
 		cd=ss.selectOne("kr.co.daitdayoung.instructor.course.selectOneCourse",cVO);
 		
-		if(ss != null) {
-			ss.close();
-		}
+		
+			
+		mbh.closeHandler(ss);
+		
 		return cd;
 	}
 	

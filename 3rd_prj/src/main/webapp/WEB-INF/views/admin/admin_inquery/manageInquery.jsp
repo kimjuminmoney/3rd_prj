@@ -31,6 +31,7 @@
 	}
 </style>
 <script type="text/javascript">
+
 $(function(){
    
 });//ready
@@ -91,10 +92,14 @@ $(function(){
                                         <tr>
                                             <td><c:out value="${ inquiry.inqCode }"/></td>
                                             <td><c:out value="${ inquiry.itName }"/></td>
-                                            <td><a href="detailInquery.do?inqCode=${ inquiry.inqCode }"><c:out value="${ inquiry.inqTitle }"/></a></td>
+                                            <td>
+                                            	<a href="detailInquery.do?inqCode=${ inquiry.inqCode }&answerStat=${ not empty inquiry.inqAnswer ?'Y':'N'}">
+                                            		<c:out value="${ inquiry.inqTitle }"/>
+                                            	</a>
+                                            </td>
                                             <td><c:out value="${ inquiry.uiId }"/></td>
                                             <td><c:out value="${ inquiry.inqDate }"/></td>
-                                            <td>
+                                            <td id="answerStat">
                                             <c:if test="${ not empty inquiry.inqAnswer }">Y</c:if>
                                             <c:if test="${ empty inquiry.inqAnswer }">N</c:if>
                                             </td>

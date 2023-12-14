@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import kr.co.daitdayoung.admin.dao.ManageUsersDAO;
 import kr.co.daitdayoung.admin.domain.ManageUsersDomain;
+import kr.co.daitdayoung.admin.vo.ManageUsersVO;
 
 @Component
 public class ManageUsersService {
@@ -54,5 +55,21 @@ public class ManageUsersService {
 		
 		return list;
 	}//searchDetailStu1
+	
+	public int modifyStu(ManageUsersVO muVO) throws PersistenceException{
+		int cnt=0;
+		
+		cnt=mud.updateStu(muVO);
+		
+		return cnt;
+	}//modifyStu
+
+	public int modifyIns(ManageUsersVO muVO) throws PersistenceException{
+		int cnt=0;
+		
+		cnt=mud.updateIns(muVO);
+		
+		return cnt;
+	}//modifyStu
 	
 }

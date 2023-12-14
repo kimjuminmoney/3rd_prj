@@ -18,6 +18,48 @@
  </style>
  <script type="text/javascript">
  $(function(){
+	 $("#mcCode").change(function(){
+		var param={ mcCode : $("#mcCode").val()	};
+		 
+		 var sel=$("#mcCode")[0]
+			if( sel.selectedIndex == 0 ){
+				return;
+			}//end if
+
+			$.ajax({
+			 url:"subcategory.do",
+			 type:"post",
+			 data:param,
+			 dataType:"json",
+			 error:function(xhr){
+				 alert(xhr.status)
+			 },
+			 success:function( jsonObj ){
+				var scCode=$("#scCode")[0];
+				scCode.length=1;//옵션을 한개만 남겨둠
+
+				$.each(jsonObj.data, function(ind, json){
+			 		scCode.options[ind+1]=new Option(json.scName,json.scCode)
+			 	});//each
+				
+			 }//success
+		 })//ajax
+	 });//change
+	 
+	  $("#next_btn").click(function(){
+		  alert("버튼눌림");
+		/*   if(){
+			return;  
+		  }
+		   */
+		var objFrm=$("#courseVO")[0];
+		objFrm.action="insAddCourse2.do";
+		objFrm.method="post";
+		objFrm.submit();
+		
+	 });//click 
+	 
+	 
 	 
  });//ready
  </script>
@@ -34,20 +76,15 @@
 <input type="hidden" name="partnerUrl" value="https://www.edwith.org/">
 <input type="hidden" id="__isLogged" value="org.nhnnext.mooc.user.SecUser : 2674262">
 
-
-    
-
 <body class="win chrome chrome119 re_pack new_color edwith">
     <div class="wrap">
         <!-- container -->
         <div class="container new_layout ">
             <!-- HEADER -->
             
-
 <!-- #breadcrumb:common/_whaleclass_header.gsp -->
 <header id="header" class="default_ly2 ">
     <div class="header_wrap">
-                
             
             <h1 class="bi_school">
                 <a href="/myPage/openClass?isHomeLogo=true">
@@ -55,12 +92,9 @@
                 </a>
             </h1>
         
-        
         <div class="layout_in " data-wrap-gnb-menu data-is-boostcourse="true">
             <!--[D] 드롭다운 레이어 .ly_type2로 구분 -->
             <ul class="gnb ly_type2" id="gnb">
-                
-                    
                     <!-- 운영 강좌/클래스 -->
                     
                     <!--[D] 나의 클래스.-->
@@ -205,45 +239,49 @@
             <ul data-course-card-ul>
         		<li>
         			<div id="wrap" style="margin-left:5%">
+        			<form action="#void" id="courseVO" name="courseVO">
 						<div>
-	        				<label style="font-size:30px; text-align:center;"><strong>강좌 명</strong></label><input type="text" class="input_txt" style="width:60%; height:48px; font-size:16px; margin-left:5%;">
+	        				<label style="font-size:30px; text-align:center;"><strong>강좌 명</strong></label><input type="text" class="input_txt" id="couName" name="couName" style="width:60%; height:48px; font-size:16px; margin-left:5%;">
 	        				<div style="weight:600px; height:400px;"></div>
 						</div>
 						<div>
-	        				<input type="text" class="input_txt" style="width:60%; height:48px; font-size:16px; margin-left:5%;" placeholder="파일 명"><input type="button" class="btn btn-success" value="파일 등록">
+	        				<input type="text" class="input_txt" id="bannerImg" name="bannerImg" style="width:60%; height:48px; font-size:16px; margin-left:5%;" placeholder="파일 명"><input type="button" class="btn btn-success" value="파일 등록">
 						</div>
-        				<div style="weight:100%; height:5%;;"></div>
+        				<div style="weight:100%; height:5%;"></div>
         				<div>
         					<label style="font-size:30px; text-align:center;"><strong>분류 선택</strong></label>
-	        				<select>
+	        				<select id="mcCode" name="mcCode">
 	        					<option> ----대분류 선택</option>
+	        					<c:forEach var="mc" items="${ mcList }" varStatus="i" >
+	        					<option value="${ mc.mcCode}"><c:out value="${ mc.mcName }"/></option>
+	        					</c:forEach>
 	        				</select>
-	        				<select>
+	        				<select id="scCode" name="scCode">
 	        					<option> ----소분류 선택</option>
 	        				</select>
         				</div>
         				<div>
         					<label style="font-size:30px; text-align:center;"><strong>기한 설정</strong></label>
-        					<input type="text" class="input_txt" style="width:60%; height:48px; font-size:16px; margin-left:5%;">
+        					<input type="text" name="couPeriod" class="input_txt" style="width:60%; height:48px; font-size:16px; margin-left:5%;">
         				</div>
         				<div>
         					<label style="font-size:30px; text-align:center;"><strong>수료 조건</strong></label><br/>
 	        				<div>
-	        					<label style="font-size:30px; text-align:center;"><strong>진도율</strong></label><input type="text" class="input_txt" style="width:30%; height:48px; font-size:16px; margin-left:5%;"><input type="checkbox"><br/>
-	        					<label style="font-size:30px; text-align:center;"><strong>시험</strong></label><input type="text" class="input_txt" style="width:30%; height:48px; font-size:16px; margin-left:5%;"><input type="checkbox"><br/>
+	        					<label style="font-size:30px; text-align:center;"><strong>진도율</strong></label><input type="text" class="input_txt" name="enrollRate" style="width:30%; height:48px; font-size:16px; margin-left:5%;"><input type="checkbox"><br/>
+	        					<label style="font-size:30px; text-align:center;"><strong>시험</strong></label><input type="text" class="input_txt" name="examResult" style="width:30%; height:48px; font-size:16px; margin-left:5%;"><input type="checkbox"><br/>
 	        				</div>
         					<div style="weight:100%; height:5%;;"></div>
 						</div>
         				<label style="font-size:30px; text-align:center;"><strong>과목 설명</strong></label>
-        				<textarea style="width:100%; height: 30%;"></textarea>
+        				<textarea style="width:100%; height: 30%;" name="content"></textarea>
         				<div style="weight:100%; height:5%;;"></div>
         				
         				<label style="font-size:30px; text-align:center;"><strong>샘플 영상</strong></label>
         				<div style="weight:600px; height:400px;"></div>
-        				<input type="text" class="input_txt" style="width:60%; height:48px; font-size:16px; margin-left:5%;" placeholder="파일 명"><input type="button" class="btn btn-success" value="파일 등록">
+        				<input type="text" class="input_txt" style="width:60%; height:48px; font-size:16px; margin-left:5%;" placeholder="파일 명" name="sampleVideo"><input type="button" class="btn btn-success" value="파일 등록">
         				<div style="weight:100%; height:5%;;"></div>
-        				
-        					<input type="button" class="btn btn-info btn-lg" value="다음으로"/>
+        				</form>
+        					<input type="button" class="btn btn-info btn-lg" value="다음으로" id="next_btn" name="next_btn"/>
         				
         			</div>
         		</li>

@@ -3,6 +3,7 @@ package kr.co.daitdayoung.user.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import kr.co.daitdayoung.user.dao.UserCoursesDAO;
@@ -12,7 +13,7 @@ import kr.co.daitdayoung.user.domain.UserCoursesLectureDomain;
 import kr.co.daitdayoung.user.domain.UserCoursesNoticeDomain;
 import kr.co.daitdayoung.user.vo.UserCoursesVO;
 
-@Service
+@Component
 public class UserCoursesService {
 
 	@Autowired

@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import kr.co.daitdayoung.admin.domain.ManageInqueryDomain;
+import kr.co.daitdayoung.admin.vo.ManageInqueryVO;
 import kr.co.daitdayoung.dao.MyBatisHandler;
 
 public class ManageInqueryDAO {
@@ -60,9 +61,32 @@ public class ManageInqueryDAO {
 		
 	}//selectDetailInq
 	
+	public int updateInqAnswer(ManageInqueryVO miVO) throws PersistenceException{
+		int cnt=0;
+		
+		MyBatisHandler mbh = MyBatisHandler.getInstance();
+		
+		SqlSession ss = mbh.getMyBatisHandler(false);
+		
+		cnt=ss.update("kr.co.daitdayoung.admin.mi.updateInqAnswer", miVO);
+		
+		if(cnt==1) {
+			ss.commit();
+		}//end if
+		
+		mbh.closeHandler(ss);
+		
+		return cnt;
+	}
+	
 	public static void main(String[] args) {
 //		System.out.println(new ManageInqueryDAO().selectInquiry());
-		System.out.println(new ManageInqueryDAO().selectDetailInq("1         "));
+//		System.out.println(new ManageInqueryDAO().selectDetailInq("INQ_999999"));
+		ManageInqueryVO miVO = new ManageInqueryVO();
+		miVO.setAdminId("admin");
+		miVO.setInqAnswer("수정했습니다222");
+		miVO.setInqCode("INQ_999998");
+		new ManageInqueryDAO().updateInqAnswer(miVO);
 		
 	}
 	
