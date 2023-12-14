@@ -18,16 +18,22 @@
  </style>
  <script type="text/javascript">
  $(function(){
-	 $("#modify_btn").click(function(){
+	 $("#add_btn").click(function(){
+		alert("등록버튼");
+		var cn=$("#cn")[0];
+		alert(cn)
+		cn.action="addCnProcess.do"
+		alert(cn.action)
+		cn.method="post";
+		alert(cn.method)
+		cn.submit();
+		
 		 
-	 });//click
+		 
+	 })//click
+	 
 	 
  });//ready
- 
- function modifyCN(i){
-	 alert(i)
- location.href="insCourseNoticeSubModify.do?cnCode="+i;
- }
  </script>
 <link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/plugin.css" type="text/css">
 <link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/boostcourse_common.css" type="text/css">
@@ -237,8 +243,6 @@
     
         <a href="#gnb" onclick="document.getElementById('gnb').tabIndex=-1;document.getElementById('gnb').focus();return false;"><span>개인 메뉴 바로가기</span></a>
     
-    
-    
     <a href="#snb" onclick="document.getElementById('snb').tabIndex=-1;document.getElementById('snb').focus();return false;"><span>하위 메뉴 바로가기</span></a>
     
     <a href="#content" onclick="document.getElementById('content').tabIndex=-1;document.getElementById('content').focus();return false;"><span>본문 바로가기</span></a>
@@ -294,68 +298,71 @@
 	<div class="class_manager type2">
 		<!--chapter_list-->
 		<ul>
-		<!-- [D] 진행중 class : on -->
-			<li>
-				<div id="content">
-      				<section class="page mg_menu">
+					<!-- [D] 진행중 class : on -->
+					<li>
+						<div id="content">
+        					
+	        				<section class="page mg_menu">
 	
-						<!--//page_header-->
-					<header class="page_header">
-						<div class="group_lr">
-							<div class="group_l">
-								<h1 class="page_title"><c:out value="${ cnd.cnTitle }"/></h1>
-							</div>
+								<!--//page_header-->
+							<form id="cn">
+							<header class="page_header">
+								<div class="group_lr" style="margin-top:100px;">
+									<div class="group_l">
+										<h1 class="page_title"><input type="text" name="cnTitle" class="inputBox"/></h1>
+									</div>
+								</div>
+							</header>
+							<article class="forum_view">
+							        <!-- [D] 권한에 따라 노출되는 UI가 다름 -->
+							        <div class="forum_func group_lr" style="margin-top: 20px; margin-bottom: 20px;">
+							            <div class="group_l">
+							                <div class="user_info">
+							                        <span class="ic_ad vamiddle"></span>
+							                    <time class="time" ></time>
+							                </div>
+							            </div>
+							        </div>
+							        <div class="ce ce_view">
+							            <article class="material_view material_text">
+							                <div class="material_desc editor_reset" style="min-height: 300px;">
+							                    <textarea name="cnContent"></textarea>
+							                </div>
+							                <hr>
+							                <div class="group_lr" style="border-bottom: 1px;">
+							        		<div class="group_r">
+							            		<input type="button"  id="add_btn"class="btn btn_type2 bold N=a:lec.list" data-selector="backToListBtn" value="작성완료">
+							            		<a href="javascript:history.back()" class="btn btn_type2 bold N=a:lec.list" data-selector="backToListBtn">돌아가기</a>
+							        		</div>
+							    		</div>
+							            </article>
+							        </div>
+							    </article>
+							    		</form>
+							</section>
+								        				
 						</div>
-					</header>
-					<article class="forum_view">
-					        <!-- [D] 권한에 따라 노출되는 UI가 다름 -->
-					        <div class="forum_func group_lr" style="margin-top: 20px; margin-bottom: 20px;">
-					            <div class="group_l">
-					                <div class="user_info">
-					                        <span class="ic_ad vamiddle"></span>
-					                   <div class="time"><c:out value="${ cnd.cnDate }"/></div>
-					                </div>
-					            </div>
-					        </div>
-					        <div class="ce ce_view">
-					            <article class="material_view material_text">
-					                <div class="material_desc editor_reset" style="min-height: 300px;">
-					                    <c:out value="${ cnd.cnContent }"/>
-					                </div>
-					                <hr>
-					                <div class="group_lr" style="border-bottom: 1px">
-					        		<div class="group_r">
-					            		<input type="button" onclick="modifyCN('${ cnd.cnCode}')" class="btn btn_type2 bold N=a:lec.list" data-selector="backToListBtn" value="수정하기"/>
-					            		<a href="insCourseNotice.do" class="btn btn_type2 bold N=a:lec.list" data-selector="backToListBtn">돌아가기</a>
-					        		</div>
-					    		</div>
-					            </article>
-					        </div>
-					    </article>
-					</section>
-	        				
-				</div>
-			</li>
-			
-		</ul>
-		
-		<!--project_list-->
-		<ul id="project_group_area" class="mat30"></ul>
-	</div>
-	<p class="none" style="display:none" data-nodata-message>준비중입니다.</p>
-</section>
-<script src="https://www.edwith.org/static/js/src/entries/chapter/list.entry.browserfied.min.js?231109_47a067d4"></script>
-<script>
-    $(document).ready(function() {
-        var entry = require("/entries/chapter/list.entry.js");
-        entry.initialize({
-            courseId : 2024,
-            course : "python-data",
-            bbsId : "13744",
-            chapterListSize : 6
-        });
-    });
-</script>
+				</li>
+										
+			</ul>
+									
+									<!--project_list-->
+									<ul id="project_group_area" class="mat30"></ul>
+								</div>
+								<p class="none" style="display:none" data-nodata-message>준비중입니다.</p>
+							</section>
+							<script src="https://www.edwith.org/static/js/src/entries/chapter/list.entry.browserfied.min.js?231109_47a067d4"></script>
+							<script>
+							    $(document).ready(function() {
+							        var entry = require("/entries/chapter/list.entry.js");
+							        entry.initialize({
+							            courseId : 2024,
+							            course : "python-data",
+							            bbsId : "13744",
+							            chapterListSize : 6
+							        });
+							    });
+							</script>
 
         </div>
         

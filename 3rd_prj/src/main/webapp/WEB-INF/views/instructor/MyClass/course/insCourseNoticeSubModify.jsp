@@ -18,16 +18,18 @@
  </style>
  <script type="text/javascript">
  $(function(){
-	 $("#modify_btn").click(function(){
-		 
-	 });//click
+	 $("#modifyProcess").click(function(){
+		var cn = $("#cn")[0];
+		alert(cn)
+		cn.method="post"
+		cn.action="insCourseNoticeSubModifyProcess.do"
+		cn.submit();
+	 })
+	 
 	 
  });//ready
  
- function modifyCN(i){
-	 alert(i)
- location.href="insCourseNoticeSubModify.do?cnCode="+i;
- }
+ 
  </script>
 <link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/plugin.css" type="text/css">
 <link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/boostcourse_common.css" type="text/css">
@@ -298,7 +300,7 @@
 			<li>
 				<div id="content">
       				<section class="page mg_menu">
-	
+					<form id="cn">
 						<!--//page_header-->
 					<header class="page_header">
 						<div class="group_lr">
@@ -313,25 +315,28 @@
 					            <div class="group_l">
 					                <div class="user_info">
 					                        <span class="ic_ad vamiddle"></span>
-					                   <div class="time"><c:out value="${ cnd.cnDate }"/></div>
 					                </div>
 					            </div>
 					        </div>
 					        <div class="ce ce_view">
 					            <article class="material_view material_text">
 					                <div class="material_desc editor_reset" style="min-height: 300px;">
-					                    <c:out value="${ cnd.cnContent }"/>
+					                    <textarea id="cnContent" name="cnContent"><c:out value="${ cnd.cnContent }"/></textarea>
+					                    <input type="hidden" value="${ cnd.insId }" name="insId">
+					                    <input type="hidden" value="${ cnd.cnCode }" name="cnCode">
+					                    <input type="hidden" value="${ cnd.couCode }" name="couCode">
 					                </div>
 					                <hr>
 					                <div class="group_lr" style="border-bottom: 1px">
 					        		<div class="group_r">
-					            		<input type="button" onclick="modifyCN('${ cnd.cnCode}')" class="btn btn_type2 bold N=a:lec.list" data-selector="backToListBtn" value="수정하기"/>
+					            		<input type="button" id="modifyProcess" class="btn btn_type2 bold N=a:lec.list" data-selector="backToListBtn" value="수정하기"/>
 					            		<a href="insCourseNotice.do" class="btn btn_type2 bold N=a:lec.list" data-selector="backToListBtn">돌아가기</a>
 					        		</div>
 					    		</div>
 					            </article>
 					        </div>
 					    </article>
+					    </form>
 					</section>
 	        				
 				</div>

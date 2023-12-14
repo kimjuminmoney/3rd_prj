@@ -18,5 +18,5 @@ public class CourseVO {
 	private int couPeriod,hits;
 	
 	private String[] contentList;
-	private String enrollRate,examResult; 
+	private int enrollRate,examResult; 
 }

@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page info="" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,8 +19,18 @@
  </style>
  <script type="text/javascript">
  $(function(){
-	 
+	 $("#add_btn").click(function(){
+		 location.href="insCourseNoticeAdd.do"
+		 
+		 
+		 
+	 })//click
  });//ready
+ 
+ function openCN(i){
+	 alert(i);
+	location.href="insCourseNoticeSub.do?cnCode="+i;
+ }
  </script>
 <link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/plugin.css" type="text/css">
 <link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/boostcourse_common.css" type="text/css">
@@ -298,22 +309,28 @@
 										<th>날짜</th>
 										<th>비고</th>
 									</tr>
-									<tr>
-										<td>1</td>
-										<td>[Web발신]..[더보기]</td>
-										<td>2023-12-04</td>
-										<td></td>
-										<td></td>
-									</tr>
-									<tr>
-										<td>2</td>
-										<td>[Web발신]..[더보기]</td>
-										<td>2023-12-04</td>
-										<td></td>
-										<td></td>
-									</tr>
-
+									<c:choose>
+										<c:when test="${ empty cnList }">
+											<tr>
+												<td colspan="4" >공지사항이 없습니다.</td>
+											</tr>
+										</c:when>
+										<c:otherwise>
+				        					<c:forEach var="CourseNotice" items="${ cnList }" varStatus="i">
+												<tr onclick="openCN( '${CourseNotice.cnCode}' )">
+													<td><c:out value="${ i.count}"/></td>
+													<td><c:out value="${ CourseNotice.cnTitle}"/></td>
+													<td><fmt:formatDate pattern="yyyy-MM-dd" value="${ CourseNotice.cnDate}"/></td>
+													<td></td>
+												</tr>
+											</c:forEach>
+										</c:otherwise>
+									</c:choose>
 	        					</table>
+	        				</div>
+	        				<div class="btn_area">
+	        					<input id="add_btn" type="button" class="btn btn-success btn-lg" value="공지사항 작성">
+	        				
 	        				</div>
 						</div>
 					</li>

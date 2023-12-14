@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.daitdayoung.instructor.course.notice">
+
+<select id="selectAllCourseNotice" resultType="kr.co.daitdayoung.instructor.domain.CourseNoticeDomain" parameterType="String">
+	select * 
+	from COURSES_NOTICE
+	where cou_code = #{ couCode }
+	</select>
+
+	<select id="selectOneCourseNotice" resultType="kr.co.daitdayoung.instructor.domain.CourseNoticeDomain" parameterType="String">
+	select * 
+	from COURSES_NOTICE
+	where cn_code = #{ cn_code }
+	</select>
+	
+	<insert id="insertOneCourseNotice" parameterType="kr.co.daitdayoung.instructor.vo.CourseNoticeVO">
+	insert into COURSES_NOTICE(CN_CODE, COU_CODE, INS_ID, CN_TITLE, CN_CONTENT)
+	values ( 'CN_'||LPAD(CI_SEQ.nextVal, 6, '0') , #{ couCode }, #{ insId }, #{ cnTitle },  #{ cnContent } )
+	</insert>
+
+	<update id="updateOneCourseNotice" parameterType="kr.co.daitdayoung.instructor.vo.CourseNoticeVO">
+	update COURSES_NOTICE
+	set CN_CONTENT = #{ cnContent }
+	where CN_CODE = #{ cnCode }  and COU_CODE = #{ couCode }
+	</update>
+
+</mapper>
