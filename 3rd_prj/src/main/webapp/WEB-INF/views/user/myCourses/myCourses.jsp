@@ -23,19 +23,6 @@ session.setAttribute("uiId", "ui_test");
 <script type="text/javascript" src="https://wcs.naver.net/wcslog.js"></script>
 <script src="https://vliveplus.pstatic.net/0/mobile/2020/04/standby/f1.1.0.8.js"></script>
 <script>
-  /* function toggleTab(dataComplete) {
-      // 모든 tab_content를 숨김
-      $('.tab_content').hide();
-
-      // 클릭한 data-complete에 해당하는 tab_content를 보이게 함
-      $('.tab_content[data-complete="' + dataComplete + '"]').show();
-
-      // 모든 탭의 aria-selected 속성을 false로 설정
-      $('.tab_list li').attr('aria-selected', 'false');
-
-      // 클릭한 링크의 부모 li의 aria-selected 속성을 true로 설정
-      $('.tab_list li[data-complete="' + dataComplete + '"]').attr('aria-selected', 'true');
-    } */
     function toggleTab(dataComplete) {
         // 모든 tab_content를 숨김
         $('.tab_content').hide();
@@ -99,11 +86,14 @@ session.setAttribute("uiId", "ui_test");
                     <c:choose>
                     <c:when test="${ courses.completionStatus == 'Y'}">
                     <li class="tab_content"  data-complete='completed' data-all='all' style='display: none;'  >
-                    
                     </c:when>
+                    
 					<c:when test="${ courses.completionStatus == 'N'}">
                     <li class="tab_content"  data-complete='ongoing' data-all='all'  style='display: block;'  >
+					</c:when>
 					
+					<c:when test="${ courses.completionStatus == 'F'}">
+                    <li class="tab_content"  data-complete='' data-all='all'  style='display: none;'  >
 					</c:when>
                         
                     </c:choose>    
@@ -123,6 +113,17 @@ session.setAttribute("uiId", "ui_test");
                                     <span class="name"><c:out value="${ courses.insName }"/></span>
                                 </div>
                             </div>
+                            <c:if test="${ courses.completionStatus == 'F' }">
+                            <div class="info_btns" style="width: 150px; height: 50px; background-color: #00AB50; font-size: 20px; color: #FFFFFF; border-radius: 10px; line-height: 50px; text-align: center;">
+							    <span class="btn_txt">과 락</span>
+							</div>
+							</c:if>
+                            <c:if test="${ courses.crCount > 1 }">
+                            <div class="info_btns" style="width: 150px; height: 50px; background-color: #00AB50; font-size: 20px; color: #FFFFFF; border-radius: 10px; line-height: 50px; text-align: center;">
+							    <span class="btn_txt">재 수 강</span>
+							</div>
+							</c:if>
+							
                         </div>
                         
                             <div class="desc_area always" style="display: block;" data-info-lec>

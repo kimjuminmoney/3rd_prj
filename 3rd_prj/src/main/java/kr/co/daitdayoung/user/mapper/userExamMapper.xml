@@ -44,8 +44,15 @@
 	<!-- 시험답안지 입력 -->
 	<insert id="answerInsert" parameterType="kr.co.daitdayoung.user.vo.UserAnswerVO">
 	insert into ANSWER_SHEET(AS_CODE, QUE_CODE, EP_CODE, CRG_CODE, UI_ID, COU_CODE, INS_ID, EXAM_CODE, AS_SELECTED, AS_STATUS)
-	values('AS_'||lpad(as_seq.naexval,6,'0'), #{queCode}, #{epCode}, #{crgCode}, #{uiId}, #{couCode}, #{insId}, #{examCode},#{asStatus},#{asSelected})
+	values('AS_'||lpad(as_seq.nextval,6,'0'), #{queCode}, #{epCode}, #{crgCode}, #{uiId}, #{couCode}, #{insId}, #{examCode},#{asSelected},#{asStatus})
 	</insert>
+	
+	<!-- 시험점수 업데이트 -->
+	<update id="examScoreUpdate" parameterType="kr.co.daitdayoung.user.vo.UserExamScoreVO">
+	update 	EXAM_PARTICIPATION
+	set		EXAM_SCORE =  #{examScore}
+	where 	crg_code = #{crgCode}
+	</update>
 	
 
 	

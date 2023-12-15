@@ -15,11 +15,11 @@ public class usermodifyUserPwController {
 		return "login/modifyUserPw";
 	}
 	
-	  @GetMapping("/login/login.do") 
-	  public String loginFrm() {
-		  
-		return "login/login"; 
-	 }
+//	  @GetMapping("/login/login.do") 
+//	  public String loginFrm() {
+//		  
+//		return "login/login"; 
+//	 }
 	 
 
 }

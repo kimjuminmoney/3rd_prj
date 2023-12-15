@@ -147,14 +147,16 @@ function startTimer(duration, display) {
     }
     if(timer === 0) {
       clearInterval(interval);
-      display.textContent = "세션 만료!";
+      display.textContent = "시험 종료";
+      alert("시험시간이 종료되었습니다. \n 답안지로 자동으로 제출되었스니다.");
+      $("#answerFrm").submit();
     }
   }, 1000);
 }
 
 window.onload = function () {
   /* 기본값 10(분)입니다. */
-  var minutes = 10;
+	var minutes = "${ ucDomain.examTimelimit }"; 
 
   var fiveMinutes = (60 * minutes) - 1,
     display = document.querySelector('#MyTimer');

@@ -11,6 +11,7 @@ import kr.co.daitdayoung.dao.MyBatisHandler;
 import kr.co.daitdayoung.user.domain.UserCoursesExamDomain;
 import kr.co.daitdayoung.user.domain.UserQuestionsDomain;
 import kr.co.daitdayoung.user.vo.UserAnswerVO;
+import kr.co.daitdayoung.user.vo.UserExamScoreVO;
 import kr.co.daitdayoung.user.vo.UserExamVO;
 
 @Component
@@ -74,6 +75,19 @@ public class UserExamDAO {
 
 		return cnt;
 	}// insertAnswer
+	
+	public int updateExamScore(UserExamScoreVO uesVO)throws PersistenceException{
+		int cnt = 0;
+		mbh = MyBatisHandler.getInstance();
+		SqlSession ss = mbh.getMyBatisHandler(false);
+		cnt = ss.update("kr.co.daitdayoung.user.exam.examScoreUpdate", uesVO);
+		if (cnt == 1) {
+			ss.commit();
+		} // end if
+		mbh.closeHandler(ss);
+		
+		return cnt;
+	}
 
 	public static void main(String[] args) {
 		System.out.println(new UserExamDAO().selectCorrectList("COU_999999"));

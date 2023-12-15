@@ -14,6 +14,7 @@ import kr.co.daitdayoung.user.dao.UserExamDAO;
 import kr.co.daitdayoung.user.domain.UserCoursesExamDomain;
 import kr.co.daitdayoung.user.domain.UserQuestionsDomain;
 import kr.co.daitdayoung.user.vo.UserAnswerVO;
+import kr.co.daitdayoung.user.vo.UserExamScoreVO;
 import kr.co.daitdayoung.user.vo.UserExamVO;
 
 @Component
@@ -56,7 +57,6 @@ public class UserExamService {
 			uaVO.setCouCode(uaVOtemp.getCouCode());
 			uaVO.setInsId(uaVOtemp.getInsId());
 			uaVO.setExamCode(uaVOtemp.getExamCode());
-			//   asSelected, queCode, asStatus
 			
 			//queCode코드가 같으면
 			if(uceList.get(i).getQueCode().equals(uaVOtemp.getQueCodeArr()[i])) {
@@ -76,11 +76,20 @@ public class UserExamService {
 		return uaList;
 	}
 	
-	public int addAnswer(UserAnswerVO uaVOtemp) throws PersistenceException {
+	public int addAnswer(List<UserAnswerVO> uaList) throws PersistenceException {
 		int cnt = 0;
-		cnt = ueDAO.insertAnswer(uaVOtemp);
+		for(UserAnswerVO uaVO : uaList) {
+			cnt = ueDAO.insertAnswer(uaVO);
+		}
 		return cnt;
 	}// insertAnswer
+	
+	public int modifyExamScore(UserExamScoreVO uesVO) {
+		int cnt = 0;
+		
+		cnt = ueDAO.updateExamScore(uesVO);
+		return	cnt;
+	}
 
 
 }// class
