@@ -53,6 +53,7 @@
 	
 	<!-- 문의글 추가 -->
 	<select id="writeInquiry" resultType="kr.co.daitdayoung.index.domain.InquiryDomain" parameterType="kr.co.daitdayoung.index.vo.LoginVO">
+	insert
 	</select>
 	
 	

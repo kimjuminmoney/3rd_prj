@@ -19,23 +19,29 @@
 	</select>
 
 	<!-- 대분류랑 소뷴류 -->
-	<!-- <select id="couCategory" resultType= "kr.co.daitdayoung.index.domain.IndexDomain" parameterType="String">
+	<select id="couCategory" resultType= "kr.co.daitdayoung.index.domain.IndexDomain" parameterType="String">
 	select 	distinct mc.mc_name, sc.sc_name
 	from 	maincategory mc
 	join 	subcategory sc on mc.mc_code = sc.mc_code
-	where 	mc.mc_code = #{mc_code}
-	</select> -->
+	where 	mc.mc_code = #{mcCode}
+	</select>
 	
-	<!-- 강좌명, 배너이미지, 교수명, 조회수, 수료수 -->
-	<select id="MainCouList" resultType="kr.co.daitdayoung.index.domain.IndexColDomain">
-	select 		c.cou_code, cou_name, c.banner_img, c.hits, i.ins_name, c.ins_id, c.mc_code, cr.completion_status
+	<!-- 강좌명, 배너이미지, 교수명, 조회수 -->
+	<select id="MainCouList" resultType="kr.co.daitdayoung.index.domain.IndexColDomain" parameterType="kr.co.daitdayoung.index.vo.IndexVO"> 
+	select 		c.cou_code, cou_name, c.banner_img, c.hits, i.ins_name, c.ins_id, c.mc_code
 	from 		courses c
 	join 		instructor i on c.ins_id = i.ins_id
 	join 		maincategory m on c.mc_code = m.mc_code
-	join 		course_registration cr on c.cou_code = cr.cou_code
-	where 		c.mc_code =  #{mc_code} and cr.completion_status = 'y' and c.cou_code = #{cou_code}
+	where 		c.mc_code = #{mcCode}
 	order by 	c.hits desc
 	fetch first 3 rows only
+	</select>
+	
+	<!-- 조회수 -->
+	<select id="complete" resultType="int" parameterType="String">
+	select 	count(nvl(completion_status, 0)) as completionCnt
+	from 	course_registration
+	where 	cou_code = #{couCode} and completion_status = 'Y'
 	</select>
 	
 </mapper>

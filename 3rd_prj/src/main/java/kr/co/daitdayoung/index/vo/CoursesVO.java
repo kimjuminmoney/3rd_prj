@@ -15,6 +15,6 @@ public class CoursesVO {
 	private int		couPeriod, hits;
 	private Date	opendate;
 	private String	couCode, insId, couName, content, bannerImg, sampleVideo,
-					approveStatus, refuseReanson, scCode, mcCode;
+					approveStatus, refuseReanson, scCode, mcCode, mcName;
 
 } //CoursesVO

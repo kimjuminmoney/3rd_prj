@@ -83,6 +83,15 @@
 .pzp-pc--fullscreen .pzp-pc-viewmode-button {
     display: none !important;
 }
+
+#header .logo_head {
+	position: relative;
+	z-index: 100;
+	float: left;
+	height: 100%;
+	margin: 0 0 0 40px;
+}
+
 </style>
 
 </head>
@@ -97,49 +106,6 @@
 	</iframe>
 </noscript>
 
-<!-- End Google Tag Manager (noscript) -->
-
-<input type="hidden" id="__PARTNER_CODE" value="NEXT">
-<input type="hidden" id="__PARTNER_COLOR" value="#00AB50">
-<input type="hidden" id="__ADMIN_PARTNER_CODE" value="">
-<input type="hidden" id="__FILEUPLOAD_DOMAIN" value="//upload.edwith.org">
-<input type="hidden" id="__FILEUPLOAD_ENDPOINT" value="//upload.edwith.org/uploadManager/upload">
-<input type="hidden" id="__USER_ROLE" value="ROLE_GUEST">
-<input type="hidden" id="__USER_PRIORITY" value="1">
-<input type="hidden" id="__USER_ID" value="">
-<input type="hidden" id="__COURSE_ID" value="">
-<input type="hidden" id="__COURSE_OPEN_DAY" value="">
-<input type="hidden" id="__COURSE_CLOSE_DAY" value="">
-<input type="hidden" id="__COURSE_URI_PATH" value="">
-<input type="hidden" id="__CURRENT_DATE" value="2023.12.04">
-<input type="hidden" id="__MESSAGE_TITLE" value="알림">
-
-    <input type="hidden" id="__LOCALE_LANGUAGE" value="ko">
-
-<input type="hidden" id="__IS_SHARE_PARTNER_CODE" value="false">
-<input type="hidden" id="__IS_PRIVATE_PARTNER" value="false">
-<input type="hidden" id="__IS_BOOST_COURSE_PARTNER" value="false">
-<input type="hidden" id="__IS_WHALE_CLASS" value="false">
-<input type="hidden" id="__IS_BIZ_CLASS" value="false">
-<input type="hidden" id="__IS_MOBILE" value="false">
-<input type="hidden" id="__USE_LMS_PARTNER" value="true">
-<input type="hidden" id="__I18N_RESOURCES_PATH" value="/i18n/">
-<input type="hidden" id="__COURSE_TERM_TYPE" value="">
-<input type="hidden" id="__RESOURCE_VERSION" value="?231130_26709717">
-<input type="hidden" id="__CONTROLLER_TYPE" value="naverSearch">
-<input type="hidden" id="__GITLAB_URL" value="https://gitlab.edwith.org">
-<input type="hidden" id="__EDWITH_PC_URL" value="https://www.edwith.org">
-<input type="hidden" id="__EDWITH_MOBILE_URL" value="https://m.edwith.org">
-<input type="hidden" id="__EDWITH_API_URL" value="https://api.edwith.org">
-<input type="hidden" id="__CBOX_STATIC_DOMAIN" value="https://ssl.pstatic.net/static.cbox">
-<input type="hidden" id="__CBOX_API_DOMAIN" value="https://apis.naver.com/commentBox/cbox8">
-<input type="hidden" id="__CBOX_TICKET" value="mooc">
-<input type="hidden" id="__STANDBY_CAMPAIGN_DOMAIN" value="https://standby-campaign.naver.com">
-<input type="hidden" id="__VTT_API_URL" value="https://vtt.naver.com">
-<input type="hidden" id="__LOG_CONSUMER_DOMAIN" value="https://log-consumer.edwith.org">
-<input type="hidden" id="__LOG_CONSUMER_ENV" value="">
-
-<input type="hidden" id="__MESSAGE_CODE" value="">
 
 <script src="https://www.edwith.org/static/js/plugins/nclk_v0.4.5.js?231109_47a067d4"></script>
 <script src="https://www.edwith.org/static/js/vendor/vendor.compressed.min.js?231109_47a067d4"></script>
@@ -319,9 +285,9 @@
     <div id="header" class="course_search">
         <div class="layout_in" data-wrap-gnb-menu="">
         
-    <h1 class="logo">
+    <h1 class="logo_head">
         <a class="N=a:gnb.edwith" href="index.do">
-            <img height="" src="https://ssl.pstatic.net/static/m/mooc/p/partner/next/logo_v4.png?_=?231130_26709717" alt="edwith">
+            <img height="" wi src="http://localhost/daitdayoung/common/images/logo_1.png"  >
         </a>
     </h1>
 

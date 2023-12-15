@@ -2,15 +2,17 @@ package kr.co.daitdayoung.index.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.exceptions.PersistenceException;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import kr.co.daitdayoung.dao.MyBatisHandler;
-import kr.co.daitdayoung.index.controller.IndexColDomain;
 import kr.co.daitdayoung.index.domain.CoursesDomain;
+import kr.co.daitdayoung.index.domain.IndexColDomain;
 import kr.co.daitdayoung.index.domain.IndexDomain;
 import kr.co.daitdayoung.index.domain.NoticeDomain;
+import kr.co.daitdayoung.index.vo.IndexVO;
 
 @Component
 public class IndexDAO {
@@ -48,13 +50,13 @@ public class IndexDAO {
 		
 	}
 	
-	public List<IndexColDomain> selectCouList(String mcCode) {
+	public List<IndexColDomain> selectCouList(IndexVO iVO) {
 		
 		mbh = MyBatisHandler.getInstance();
 		
 		SqlSession ss = mbh.getMyBatisHandler(false);
 		
-		List<IndexColDomain> idList = ss.selectList("kr.co.daitdayoung.index.MainCouList", mcCode);
+		List<IndexColDomain> idList = ss.selectList("kr.co.daitdayoung.index.MainCouList", iVO);
 		
 		mbh.closeHandler(ss);
 		
@@ -62,9 +64,27 @@ public class IndexDAO {
 		
 	}
 	
+	public int selectCompletionStatus(String couCode) throws PersistenceException{
+		
+		mbh = MyBatisHandler.getInstance();
+		
+		SqlSession ss = mbh.getMyBatisHandler(false);
+		
+		int cnt= ss.selectOne("kr.co.daitdayoung.index.complete", couCode);
+		
+		mbh.closeHandler(ss);
+		
+		return cnt;
+		
+	}
+	
 	
 	public static void main(String[] agrs) {
-		System.out.println(new IndexDAO().selectCouList("MC_999999"));
+//		IndexVO iVo= new IndexVO();
+//		iVo.setMcCode("MC_999999");
+//		iVo.setCouCode("COU_999999");
+//		System.out.println(new IndexDAO().selectCouList(iVo));
+		System.out.println(new IndexDAO().selectCompletionStatus("COU_999999"));
 	}
 
 } //class00

@@ -1,4 +1,4 @@
-package kr.co.daitdayoung.index.controller;
+  package kr.co.daitdayoung.index.controller;
 
 import java.util.List;
 

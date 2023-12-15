@@ -62,8 +62,9 @@
     <h2 class="login_title">로그인/회원가입</h2>
     <br/>
     
-       <a href="#" class="btn_naver" data-sns-login="naver" data-nclk="log.naver">
-           <span class="text">로그인</span>
+       <a href="#" class="" data-sns-login="naver" data-nclk="log.naver">
+       <br/>
+           <img src="http://localhost/daitdayoung/common/images/login.png">
        </a>
     
     <br/>
@@ -145,7 +146,6 @@
     
 <div><!-- #breadcrumb: /modules/main/template/manual.curation.item.html -->
 
-<%-- <c:forEach var="index" items="${ CList }">     --%>
 <div class="inner_wrap all_list" style="overflow: hidden;">
     <ul class="class_list"  style="width: 1104px;">
         <c:forEach var="cou" items="${ indexMC.list }"> 
@@ -168,15 +168,14 @@
               </span> --%>
            </a>
             <div class="lecture_count">
-                <div class="favorite"><span class="ic_heart"></span>${cou.hits }</div>
-                <div class="clear"><span class="ic_student"></span><%-- ${cou.completionStatus } --%></div>
+                <div class="favorite"><span class="ic_heart"></span><c:out value="${cou.hits }"/></div>
+                <div class="clear"><span class="ic_student"></span><c:out value="${cou.completionCnt != null ? cou.completionCnt : 0}"/></div>
             </div>
         </li>
         </c:forEach>
     </ul>
     
 </div>
-<%-- </c:forEach> --%>
 
 </div>
 </div>

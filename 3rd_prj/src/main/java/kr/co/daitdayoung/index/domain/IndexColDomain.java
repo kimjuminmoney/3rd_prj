@@ -1,6 +1,5 @@
 package kr.co.daitdayoung.index.domain;
 
-
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -9,7 +8,6 @@ import lombok.ToString;
 @Setter
 @ToString
 public class IndexColDomain {
-	private String	 mcCode, mcName, scName, bannerImg, couCode, couName, insName;
-	private int hit;
-
+	private String couCode, couName, bannerImg, insName, insId, mcCode, completionStatus;
+	private int hits, completionCnt;
 }

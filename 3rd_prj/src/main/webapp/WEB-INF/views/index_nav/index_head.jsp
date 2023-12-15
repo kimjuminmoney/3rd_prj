@@ -48,13 +48,18 @@
     <meta name="layout" content="index"/>
 
 </head>
+
+<style>
+#new_header .head_logo {
+	padding-top: 25px;
+	width: 173px;
+	height: 66px;
+	margin: 0 auto;
+}
+
+</style>
+
 <body class=" main tmp_main win chrome chrome119">
-
-
-
-
-    
-
 
     <!-- Google Tag Manager (noscript) -->
     
@@ -63,47 +68,6 @@
     
     <!-- End Google Tag Manager (noscript) -->
 
-<input type="hidden" id="__PARTNER_CODE" value="NEXT" />
-<input type="hidden" id="__PARTNER_COLOR" value="#00AB50" />
-<input type="hidden" id="__ADMIN_PARTNER_CODE" value="" />
-<input type="hidden" id="__FILEUPLOAD_DOMAIN" value="//upload.edwith.org" />
-<input type="hidden" id="__FILEUPLOAD_ENDPOINT" value="//upload.edwith.org/uploadManager/upload" />
-<input type="hidden" id="__USER_ROLE" value="ROLE_GUEST" />
-<input type="hidden" id="__USER_PRIORITY" value="1" />
-<input type="hidden" id="__USER_ID" value="">
-<input type="hidden" id="__COURSE_ID" value="" />
-<input type="hidden" id="__COURSE_OPEN_DAY" value="" />
-<input type="hidden" id="__COURSE_CLOSE_DAY" value="" />
-<input type="hidden" id="__COURSE_URI_PATH" value="" />
-<input type="hidden" id="__CURRENT_DATE" value="2023.12.06" />
-<input type="hidden" id="__MESSAGE_TITLE" value="알림" />
-
-    <input type="hidden" id="__LOCALE_LANGUAGE" value="ko" />
-
-<input type="hidden" id="__IS_SHARE_PARTNER_CODE" value="false" />
-<input type="hidden" id="__IS_PRIVATE_PARTNER" value="false" />
-<input type="hidden" id="__IS_BOOST_COURSE_PARTNER" value="false" />
-<input type="hidden" id="__IS_WHALE_CLASS" value="false" />
-<input type="hidden" id="__IS_BIZ_CLASS" value="false" />
-<input type="hidden" id="__IS_MOBILE" value="false" />
-<input type="hidden" id="__USE_LMS_PARTNER" value="true" />
-<input type="hidden" id="__I18N_RESOURCES_PATH" value="/i18n/" />
-<input type="hidden" id="__COURSE_TERM_TYPE" value="" />
-<input type="hidden" id="__RESOURCE_VERSION" value="?231130_26709717" />
-<input type="hidden" id="__CONTROLLER_TYPE" value="main" />
-<input type="hidden" id="__GITLAB_URL" value="https://gitlab.edwith.org" />
-<input type="hidden" id="__EDWITH_PC_URL" value="https://www.edwith.org" />
-<input type="hidden" id="__EDWITH_MOBILE_URL" value="https://m.edwith.org" />
-<input type="hidden" id="__EDWITH_API_URL" value="https://api.edwith.org" />
-<input type="hidden" id="__CBOX_STATIC_DOMAIN" value="https://ssl.pstatic.net/static.cbox" />
-<input type="hidden" id="__CBOX_API_DOMAIN" value="https://apis.naver.com/commentBox/cbox8" />
-<input type="hidden" id="__CBOX_TICKET" value="mooc" />
-<input type="hidden" id="__STANDBY_CAMPAIGN_DOMAIN" value="https://standby-campaign.naver.com" />
-<input type="hidden" id="__VTT_API_URL" value="https://vtt.naver.com" />
-<input type="hidden" id="__LOG_CONSUMER_DOMAIN" value="https://log-consumer.edwith.org" />
-<input type="hidden" id="__LOG_CONSUMER_ENV" value="" />
-
-    <input type="hidden" id="__MESSAGE_CODE" value="" />
 
 <script type="text/javascript" src="https://wcs.naver.net/wcslog.js"></script>
 <script src="https://vliveplus.pstatic.net/0/mobile/2020/04/standby/f1.1.0.8.js"></script>
@@ -188,105 +152,10 @@
         homeUrl : "https://edwith.org",
         cookieTime : getStandbyCookieTime()
     };
-    /*
-    var oSequenceManager = new SequenceManager({
-        serviceId : htInfo.serviceId,
-        apiHost: htInfo.seqApi,
-        cookieTime: htInfo.cookieTime, //minute 단위
-        successCallback : function(response){
-            //시퀀스 호출이 성공 하였을 경우 heartbeat 요청 시작~
-            oHeartbeat.start();
-        },
-        failCallback : function(response) {
-        },
-        errorCallback : function(error) {
-            //호출 시 오류가 발생 하였을 경우 3초 후 시퀀스 호출
-            setTimeout(oSequenceManager.requestSequence , 3000);
-        }
-    });
-    var oHeartbeat = new Heartbeat(oSequenceManager,{
-        serviceId: htInfo.serviceId,
-        apiHost: htInfo.heartBeatApi,
-        soldoutCallback: function(response) {
-        },
-        errorCallback : function(response) {
-            //에러가 발생했을 경우 순번 삭제 후 아무것도 하지 않음
-        },
-        successRun : true //대기열 진입 시에도 계속 heartbeat 호출할 필요가 있을 경우 true(상품 품절 체크 등의 이슈)
-    });
-*/
 
-    //dom 로드된 후 아래 코드 호출
-    //oSequenceManager.requestSequence();
 </script>
 
-<script>
-/*    
-		
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-    
 
-    (function() {
-        function gaGetInfo() {
-            var gaInfo = {
-                viewId: document.getElementById('GA_VIEW_ID').value,
-                userId: document.getElementById('GA_USER_ID').value,
-                dimension01: document.getElementById('GA_DIMENSION01').value,
-                dimension02: document.getElementById('GA_DIMENSION02').value,
-                dimension03: document.getElementById('GA_DIMENSION03').value,
-                dimension04: document.getElementById('GA_DIMENSION04').value,
-                dimension05: document.getElementById('GA_DIMENSION05').value,
-                dimension06: document.getElementById('GA_DIMENSION06').value,
-                dimension07: document.getElementById('GA_DIMENSION07').value,
-                dimension08: document.getElementById('GA_DIMENSION08').value,
-                dimension09: document.getElementById('GA_DIMENSION09').value
-            };
-
-            return gaInfo;
-        }
-
-
-        function gaHitPageView() {
-            var gaInfo = gaGetInfo();
-            var ga = window.ga;
-
-            ga('create', gaInfo.viewId, 'auto');
-            ga('set', 'userId', gaInfo.userId);
-            ga('set', 'dimension1', gaInfo.dimension01);
-            ga('set', 'dimension2', gaInfo.dimension02);
-            ga('set', 'dimension3', gaInfo.dimension03);
-            ga('set', 'dimension4', gaInfo.dimension04);
-            ga('set', 'dimension5', gaInfo.dimension05);
-            ga('set', 'dimension6', gaInfo.dimension06);
-            ga('set', 'dimension7', gaInfo.dimension07);
-            ga('set', 'dimension8', gaInfo.dimension08);
-            ga('set', 'dimension9', gaInfo.dimension09);
-
-            ga('send', 'pageview');
-        }
-
-        function gaSimpleHitPageView(page) {
-            ga('set', 'page', page);
-            ga('send', 'pageview');
-        }
-
-        window.gaHitPageView = gaSimpleHitPageView;
-
-        
-        ga('send', {
-            hitType: 'event',
-            eventCategory: 'video',
-            eventAction: 'play',
-            eventLabel: 'media play'
-        });
-
-        gaHitPageView();
-    })();
-    */
-</script>
 
 
 
@@ -334,8 +203,8 @@
 
     <section class="header_cont" data-wrap-gnb-main-menu>
         <div class="base_layout">
-            <h1 class="header_logo">
-                <a class="N=a:gnb.edwith" href="index.do" data-nclk="gnb.edwith" data-nclk="gnb.edwith"﻿>DitDyoung</a>
+            <h1 class="head_logo"><img  src="http://localhost/daitdayoung/common/images/logo_1.png" width="173" height="66" >
+                <a class="N=a:gnb.edwith" href="index.do" data-nclk="gnb.edwith" data-nclk="gnb.edwith"﻿></a>
             </h1>
             <ul class="navi">
                 <!-- [D] 활성시 li 요소에 on 클래스 추가 -->

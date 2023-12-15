@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 
 <html lang="ko" itemscope="" itemtype="http://schema.org/Article">
-<title>의무교육</title>
     
 <div id="wrap">
      <div id="header" class="course_search">

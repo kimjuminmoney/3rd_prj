@@ -3,7 +3,6 @@ package kr.co.daitdayoung.index.domain;
 
 import java.util.List;
 
-import kr.co.daitdayoung.index.controller.IndexColDomain;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
