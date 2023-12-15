@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.daitdayoung.login">
+
+
+	<select id="userPw" resultType="String" parameterType="kr.co.daitdayoung.login.vo.FindPwVO">
+	select ui_pw
+	from user_info
+	where ui_id=#{id} and ui_name= #{name} and ui_birth = #{birth}
+	</select>
+
+
+</mapper>

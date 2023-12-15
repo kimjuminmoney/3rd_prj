@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.daitdayoung.login">
+
+	<insert id="addUser">	
+		insert into UserLoginVO values(#{param1},#{param2})
+	</insert>
+
+	<select id="userLogin" resultType="String" parameterType="kr.co.daitdayoung.login.vo.LoginVO">
+	select ui_id
+	from user_info
+	where ui_id = #{id} and ui_pw = #{pw}
+	</select>
+	
+	<select id="insLogin" resultType="String" parameterType="kr.co.daitdayoung.login.vo.LoginVO">
+	select INS_ID
+	from INSTRUCTOR
+	where INS_ID = #{id} and INS_PW = #{pw}
+	</select>
+	
+	<select id="UserCnt" resultType="int">
+		select count(*) from member where ui_id=#{param1} and ui_pw=#{param2}	
+	</select>
+
+
+
+</mapper>
