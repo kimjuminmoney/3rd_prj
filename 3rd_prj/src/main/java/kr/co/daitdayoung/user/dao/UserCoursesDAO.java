@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import kr.co.daitdayoung.dao.MyBatisHandler;
+import kr.co.daitdayoung.user.domain.CoursesExamInfoDomain;
 import kr.co.daitdayoung.user.domain.UserCoursesDomain;
 import kr.co.daitdayoung.user.domain.UserCoursesExamDomain;
 import kr.co.daitdayoung.user.domain.UserCoursesLectureDomain;
@@ -78,10 +79,22 @@ public class UserCoursesDAO {
 		return uceDomain;
 	}//selectCourseReristration
 	
+	public CoursesExamInfoDomain selectCourseExamInfo(UserCoursesVO ucVO) throws PersistenceException{
+		
+		mbh = MyBatisHandler.getInstance();
+		SqlSession ss = mbh.getMyBatisHandler(false);
+		
+		CoursesExamInfoDomain examInfo = ss.selectOne("kr.co.daitdayoung.user.courses.coursesExamInfo", ucVO);
+		
+		mbh.closeHandler(ss);
+		return examInfo;
+	}//selectCourseReristration
+	
 	
 	public static void main(String[] args) {
-		System.out.println(new UserCoursesDAO().selectCourseExam("COU_999999"));
-		//UserCoursesVO cuVO = new UserCoursesVO("COU_999999","ui_test","LEC_999999");
+		UserCoursesVO cuVO = new UserCoursesVO("COU_999999","ui_test1","LEC_999999","CRG_999999");
+		System.out.println(new UserCoursesDAO().selectCourseExamInfo(cuVO));
+		//System.out.println(new UserCoursesDAO().selectCourseExam("COU_999999"));
 		//List<UserCoursesLectureDomain> list = new UserCoursesDAO().selectCourseLectureList(cuVO);
 		//System.out.println(new UserCoursesDAO().selectCourseNoticeList("COU_999999"));
 		//System.out.println(new UserCoursesDAO().selectCourseInfo(cuVO));

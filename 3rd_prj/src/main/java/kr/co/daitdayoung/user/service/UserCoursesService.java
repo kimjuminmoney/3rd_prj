@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import kr.co.daitdayoung.user.dao.UserCoursesDAO;
+import kr.co.daitdayoung.user.domain.CoursesExamInfoDomain;
 import kr.co.daitdayoung.user.domain.UserCoursesDomain;
 import kr.co.daitdayoung.user.domain.UserCoursesExamDomain;
 import kr.co.daitdayoung.user.domain.UserCoursesLectureDomain;
@@ -44,10 +45,16 @@ public class UserCoursesService {
 		UserCoursesLectureDomain uclDomain = ucDAO.selectCourseLectureDetail(cuVO);
 		return uclDomain;
 	}// searchCoursesLectureDetail
-	
+
 	public UserCoursesExamDomain searchCoursesExam(String couCode) {
 		UserCoursesExamDomain uceDomain = ucDAO.selectCourseExam(couCode);
 		return uceDomain;
-	}
+	}// searchCoursesExam
+
+	public CoursesExamInfoDomain searchCoursesExamInfo(UserCoursesVO cuVO) {
+		CoursesExamInfoDomain examInfo = ucDAO.selectCourseExamInfo(cuVO);
+		
+		return examInfo;
+	}// searchCoursesLectureDetail
 
 }// class

@@ -86,24 +86,23 @@
                     </div>
     
             </div>
-            <div class="lecture_sub_tool">
-                
-                    <div class="count_info">
-                        <span class="count_like"><em>좋아요</em> 376</span>
-                        <span class="count_observe"><em>수강생</em> 456</span>
-                    </div>
-                    <div class="manage_box">
-                        
-                    </div>
-            </div>
         </div>
     </div>
-        <!-- 신규 boostcourse SNB -->
 <div id="snb" class="default ">
 
 <nav class="nav_menu">
     <h2 class="sr_only">하위 메뉴</h2>
-    <!-- <ul class="NE=a:lmn"> -->
+    <input type="hidden" id="maxSize" value="${ maxSize }"/>
+    
+    <form id="answerFrm" action="userExamProcess.do" method="POST">
+    <input type="hidden" name="epCode" value="${ ucDomain.epCode }"/>
+    <input type="hidden" name="crgCode" value="${ ucDomain.crgCode }"/>
+    <input type="hidden" name="couCode" value="${ ucDomain.couCode }"/>
+    <input type="hidden" name="insId" value="${ ucDomain.insId }"/>
+    <input type="hidden" name="examCode" value="${ ucDomain.examCode }"/>
+    <input type="hidden" name="examStatus" value="${ ucDomain.examStatus }"/>
+    <input type="hidden" name="reExam" value="${ ucDomain.reExam }"/>
+    
     <table id="customers" class="forum_list_new bdnone table">
     <thead>
 		<tr>
@@ -114,14 +113,16 @@
     	<c:forEach var="uce" items="${ uceList }" varStatus="i">
     	<tr class="clickable-tr" style="cursor: pointer;">
 			<td>
-			<c:out value="${ i.count }"/><input type="hidden" class="hidden-value" value="${ uce.queCode }"/>
+			<c:out value="${ i.count }"/><input type="hidden" class="hidden-value" value="${ uce.queCode }" name="queCodeArr"/>
 			<input type="hidden" class="hidden-ind" value="${ i.count }"/>
+			<input type="hidden" name="asSelectedArr"/>
 			</td>
-			<td></td>
+			<td class="answer" ></td>
 		</tr>
 		</c:forEach>
     </tbody>
     </table>
+		</form>
         </nav>
         </div>
     
@@ -177,31 +178,8 @@ window.onload = function () {
 			</div>
         </div>
 	</header>
-	<!-- <p id="_wrap_quiz_explain_area" class="quiz_desc mat40"></p>
-
-	<div id="_wrap_loading_quiz" style="display: none;">
-		<div class="loading type2"><span class="sr_only">로딩 중입니다.</span></div>
-	</div> -->
 
 	<div id="_wrap_quiz_content" style="" class="quiz_add_wrap">
-		<!-- <div class="q_header">
-			<ul class="q" id="_wrap_quiz_nav_area" data-coach="step_2"> #breadcrumb:quiz/quiz.view/template/quiz.nav.item.html
-				[D]class[incorrect | correct]
-				<li class="on current"><a href="#"><em>1</em></a></li> #breadcrumb:quiz/quiz.view/template/quiz.nav.item.html
-				[D]class[incorrect | correct]
-				<li><a href="#"><em>2</em></a></li> #breadcrumb:quiz/quiz.view/template/quiz.nav.item.html
-				[D]class[incorrect | correct]
-				<li><a href="#"><em>3</em></a></li> #breadcrumb:quiz/quiz.view/template/quiz.nav.item.html
-				[D]class[incorrect | correct]
-				<li><a href="#"><em>4</em></a></li> #breadcrumb:quiz/quiz.view/template/quiz.nav.item.html
-				[D]class[incorrect | correct]
-				<li><a href="#"><em>5</em></a></li> #breadcrumb:quiz/quiz.view/template/quiz.nav.item.html
-				[D]class[incorrect | correct]
-				<li><a href="#"><em>6</em></a></li> #breadcrumb:quiz/quiz.view/template/quiz.nav.item.html
-				[D]class[incorrect | correct]
-				<li><a href="#"><em>7</em></a></li></ul>
-			<p class="total_score" id="_wrap_remain_question_count">남은 문제 : <strong>6</strong> 문제</p>
-		</div> -->
 <script type="text/javascript">
 // JavaScript로 클릭 이벤트 처리
 $(document).ready(function () {
@@ -212,20 +190,91 @@ $(document).ready(function () {
 	    var hiddenValue = firstTr.find('.hidden-value').val();
 	    var hiddenInd = firstTr.find('.hidden-ind').val();
 	    queAjax(hiddenValue, hiddenInd);
+	    
+		 // 첫 번째 tr의 hidden-value 값을 가져와서 belowHid에 설정
+	    var firstHiddenValue = $(".clickable-tr:eq(1) .hidden-value").val();
+		 
+	    $("#belowHid").val(firstHiddenValue);
 	}
 	
-	// 네이바 tr을 누를떄마다 문제 갱신
-   	// 클릭한 행에서 hidden-value 클래스를 가진 input 요소를 찾아 값을 가져옴
-    $('.clickable-tr').click(function () {
-        var hiddenValue = $(this).find('.hidden-value').val();
-        var hiddenInd = $(this).find('.hidden-ind').val();
-    	queAjax(hiddenValue, hiddenInd);
-    });
-    
+		// 네비바 tr을 누를떄마다 문제 갱신
+	   	// 클릭한 행에서 hidden-value 클래스를 가진 input 요소를 찾아 값을 가져옴
+	   $('.clickable-tr').click(function () {
+		   prc(this);
+	   });
+		
+	   function prc(thisis){
+	    var hiddenValue = $(thisis).find('.hidden-value').val();
+	    var hiddenInd = $(thisis).find('.hidden-ind').val();
+	
+	    // 선택된 tr의 위에 있는 tr의 hidden-value 값 가져오기
+	    var hiddenValueAbove = $(thisis).prev('.clickable-tr').find('.hidden-value').val() || 0;
+	
+	    // 선택된 tr의 아래에 있는 tr의 hidden-value 값 가져오기
+	    var hiddenValueBelow = $(thisis).next('.clickable-tr').find('.hidden-value').val() || 0;
+	    
+	 	// 현재 tr의 class=answer 값을 가져오기
+	    var answerValue = $(thisis).find('.answer').text(); // 이 부분은 td에 값이 텍스트로 들어있는 경우
+
+	    // 현재 선택된 answerValue와 동일한 name="answer"를 가진 라디오 버튼에 checked 클래스 추가
+	    $('input[name="answer"][value="' + answerValue + '"]').closest('.radio').addClass('checked');
+	    
+	 	// 다른 라디오 버튼에서 checked 클래스 모두 제거
+	    $('.radio').not(':has(input[name="answer"][value="' + answerValue + '"])').removeClass('checked');
+
+	    
+	    // 알터로 값 표시
+	    //alert("Selected: " + hiddenValue + "\nAbove: " + hiddenValueAbove + "\nBelow: " + hiddenValueBelow + "\nAnswer: " + answerValue);
+	    // 나머지 로직 수행
+	    queAjax(hiddenValue, hiddenInd);
+	    
+	    // 다음, 이전버튼 히든 값 넣기
+	    var aboveHid = $("#aboveHid");
+	    aboveHid.val(hiddenValueAbove);
+	    var belowHid = $("#belowHid");
+	    belowHid.val(hiddenValueBelow);
+	
+	 // 버튼에 히든 인풋 추가 및 클래스 동적 변경
+	    $('#above').prop('disabled', hiddenValueAbove === 0).toggleClass('disabled', hiddenValueAbove === 0);
+	    $('#below').prop('disabled', hiddenValueBelow === 0).toggleClass('disabled', hiddenValueBelow === 0);
+	};
+	
+	// 이전 버튼 클릭 이벤트
+	   $("#above").click(function(){
+	       var aboveHid = $("#aboveHid");
+	       var ind = $("#ind");
+	       var currentIndex = parseInt(ind.text());
+	
+	       if (currentIndex > 1) {
+	    	   var selectedValue = aboveHid.val();
+		        var selectedRow = $('.hidden-value[value="' + selectedValue + '"]').closest('.clickable-tr');
+		        prc(selectedRow)
+	       } else {
+	    	   alert("이전 버튼이 작동하지 않습니다. 현재 페이지가 마지막 페이지입니다.");
+	    	   //동작안함
+	       }
+	   });
+
+	
+	   $("#below").click(function () {
+		    var belowHid = $("#belowHid");
+		    var ind = $("#ind");
+		    var currentIndex = parseInt(ind.text());
+		    var maxSize = parseInt($("#maxSize").val());
+		    if (currentIndex < maxSize + 1) {
+		        var selectedValue = belowHid.val();
+		        var selectedRow = $('.hidden-value[value="' + selectedValue + '"]').closest('.clickable-tr');
+		        prc(selectedRow);
+		    } else {
+		        alert("다음 버튼이 작동하지 않습니다. 현재 페이지가 마지막 페이지입니다.");
+		    }
+		});
+
+
     function queAjax(hiddenValue, hiddenInd){
 		var param = {queCode: hiddenValue}
 			$.ajax({
-				url:"userExamProcess.do",
+				url:"userQueProcess.do",
 				type:"POST",
 				data: param,
 				dataType:"json",
@@ -234,20 +283,21 @@ $(document).ready(function () {
 				},
 				success:function(jsonObj){
 					
+					var ind = $("#ind");
+					var hidInd = $("#hidInd");
 					var content = $('#queContent');
 					var que1 = $('#que1');
 					var que2 = $('#que2');
 					var que3 = $('#que3');
 					var que4 = $('#que4');
-					var ind = $("#ind");
 					
-					ind.text("Q " + hiddenInd);
+					ind.text(hiddenInd);
+					hidInd.val(hiddenInd);
 					content.text(jsonObj.content);
 					que1.text(jsonObj.que1);
 					que2.text(jsonObj.que2);
 					que3.text(jsonObj.que3);
 					que4.text(jsonObj.que4);
-					
 				}//success
 				
 			});//ajax
@@ -260,21 +310,21 @@ $(document).ready(function () {
 <div id="_wrap_question_area" class="q_body mal30 mar30" data-coach="step_3"><!--  #breadcrumb:quiz/question.view/template/question.view.multichoice.html-->
 <p class="q_txt">
     <span class="l" id="ind">
-        <span class="_wrap_print_correct_icon">
-
-        </span>
+    0
     </span>
+    번 문제
 </p>
 
 <div class="editor_reset _question_area">
     <p id="queContent"></p>
 </div>
 
+<input type="hidden" value="0" id="hidInd"/>
 <ul class="a_sel _answer_area">
     
     <li data-selector="Federal Procurement Regulation’">
         <label class="ick" data-ychecker="quiz">
-            <span class="radio checked"><input type="hidden" name="answer" value="1"></span>
+            <span class="radio"><input type="hidden" name="answer" value="1"></span>
             <span class="ph" id="que1"></span>
         </label>
         <!--<em class="_feedback" style="display: none;">(정답에 대한 피드백이 출력됩니다.)</em>-->
@@ -310,172 +360,71 @@ $(document).ready(function () {
         // 라벨을 클릭했을 때 처리
         $('.ick').off('click').on('click', function (event) {
             // 클릭된 라벨 내부의 라디오 버튼 찾기
-            var radioInput = $(this).find('input[type="radio"]');
+            var radioInput = $(this).find('input[type="hidden"]');
             
             // 다른 라벨의 라디오 버튼에서 checked 클래스 제거
-            $('.ick').not(this).find('.radio').removeClass('checked');
-            
-            // 라디오 버튼의 체크 상태 토글
-            radioInput.prop('checked', !radioInput.prop('checked'));
-            
+            $('.radio').removeClass('checked');
+
             // 클릭된 라벨 내부의 라디오 버튼에 checked 클래스 추가
-            $(this).find('.radio').toggleClass('checked', radioInput.prop('checked'));
-            console.log('Click event handled!')
+            radioInput.closest('.radio').addClass('checked');
+
+            // 클릭된 라벨의 name 값 가져오기
+            var clickedAnswer = '';
+            if (radioInput.attr('name') === 'answer') {
+                clickedAnswer = radioInput.val();
+
+                // 선택된 라벨의 값을 해당 hidden-ind 값과 일치하는 tr에 추가
+                var hidIndValue = $('#hidInd').val();
+                $('#customers .clickable-tr').each(function () {
+                    var hiddenValue = $(this).find('.hidden-ind').val();
+                    if (hiddenValue === hidIndValue) {
+                    	 // 업데이트: 해당 tr 내의 hidden input 값 업데이트
+                        $(this).find('input[name="asSelectedArr"]').val(clickedAnswer);
+                        // 업데이트: 해당 tr 내의 answer 클래스를 가진 td의 텍스트 업데이트
+                        $(this).find('.answer').text(clickedAnswer);
+                        return false; // 더 이상의 반복을 중단
+                    }
+                });
+            }
+
             // 이벤트 전파 중단
             event.stopPropagation();
         });
+	    //시험제출하기
+	    $("#subBtn").click(function(){
+	    	$("#answerFrm").submit();
+	    })
     });
+    
 </script>
 <div class="bx type2 _wrap_answer_area" style="display:none;">
 
 </div></div>
 		<div class="q_foot">
 			
-			<button type="button" class="btn btn_type16 prev _btn_prev_question disabled" data-coach="step_4" disabled="disabled"><span>이전</span></button>
-			<button type="button" class="btn btn_type16 next _btn_next_question"><span>다음</span></button>
+			<input type="hidden" value="" id="aboveHid"/>
+			<button type="button" class="btn btn_type16 prev _btn_prev_question disabled" id="above">
+			<span>이전</span>
+			</button>
+			
+			<input type="hidden" value="" id="belowHid"/>
+			<button type="button" class="btn btn_type16 next _btn_next_question" id="below">
+			<span>다음</span>
+			</button>
 		</div>
-	</div>
-
-	<div id="_wrap_empty_question" style="display: none">
-		<p class="none">등록된 내용이 없습니다.</p>
 	</div>
 
 	<div class="new_boost_btm" style="bottom: 88px;">
 		<div class="group_lr">
-			
-				<div class="group_r">
-					
-						<div class="submit_cnt">
-							제출 횟수 :
-							
-								<em>0&nbsp;</em>/&nbsp;1
-							
-						</div>
-					
-					<button type="button" class="_btn_submit_answer btn btn_type15 clr2" data-coach="step_6" data-quiz-type="test">
-						
-							제출 하기
-						
-					</button>
-				</div>
-			
-			<!--페이지네비게이션 : 이전글/다음글/목록보기-->
-			
-<!-- #breadcrumb:lecture/_pageNavigation.gsp -->
-
-<!--목록URL-->
-
-    
-
-
-
-<!--이전 URL/Title -->
-
-    
-    
-    
-        
-    
-
-
-<!--다음 URL/Title -->
-
-    
-    
-    
-        
-    
-
-
-<!--페이지네비게이션 : 이전글/다음글/목록보기-->
-<div class="group_l">
-    <div class="paginate4">
-        <!--[D] 비활성화 될 시 .disable 클래스 추가해 주세요.-->
-        <div class="pagin l">
-            
-                <a href="/procurement/lecture/63431/?isDesc=false" class="btn_prve" data-btn-prev="">
-            
-                <i class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="#25292F" stroke-width="1.5" d="M16 4l-8 8 8 8"></path>
-                    </svg>
-                </i>
-                <span class="blind">4차시_미국 연방정부 조달 규정(FAR) 계약종류와 방법</span>
-            </a>
-        </div>
-        <div class="pagin r">
-            
-                <a href="/procurement/lecture/264334/?isDesc=false" class="btn_next" data-btn-next="">
-            
-                <i class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="#2A2C2F" stroke-width="1.5" d="M8 20l8-8-8-8"></path>
-                    </svg>
-                </i>
-                <span class="blind">교수님 강의에 대한 별점을 매겨주세요. 여러분의 의견이 많은 도움이 됩니다:D</span>
-            </a>
-        </div>
-    </div>
-</div>
-<!--//페이지네비게이션 -->
-			<!--//페이지네비게이션 -->
-		</div>
-	</div>
-
-	<div class="share">
-        
-		<div class="group_lr">
-			<div class="group_l">
+			<div class="group_r">
+				<input type="button" id="subBtn"class="_btn_submit_answer btn btn_type15 clr2" value="제출 하기" data-coach="step_6" data-quiz-type="test">
 			</div>
 		</div>
 	</div>
-
-	<!--퀴즈 텍스트-->
-	
-
-    <div class="modal_wrap quiz_submit_cfrm" id="_wrap_check_answer" style="display:none;">
-	    <div class="modal_inner">
-		    <!--애니메이션 영역-->
-		    <div class="modal_container" data-md-content="">
-
-		    </div>
-		    <div class="modal_dimmed"><iframe frameborder="0" src="about:blank" title="버그픽스용"></iframe></div>
-	    </div>
-	</div>
 </section>
-
-<!-- SRC -->
-<!-- <script src="/static/js/vendor/tinymce/tinymce.min.js?231207_3adce7d7"></script>
-<script src="/static/js/vendor/tinymce/plugins/textcolor/plugin.min.js?231207_3adce7d7"></script>
-<script src="/static/js/vendor/katex/katex.min.js?231207_3adce7d7"></script>
-<script src="/static/js/src/entries/quiz/show.entry.browserfied.min.js?231207_3adce7d7"></script>
-<script type="text/javascript">
-	$(document).ready(function(){
-		var entry = require("/entries/quiz/show.entry.js");
-		entry.initialize({
-			data : {
-				userId: "2668417",
-				id: "63942",
-				course: "procurement",
-				isAlwaysOpen: true,
-				isRetry: false,
-				isShareGuest: false,
-				isDesc: false,
-                isPeriodEndedTest: false
-			}
-		});
-	});
-</script> -->
-
         </div>
     </div>
-
-    <!-- 개인정보 제3자 제공 동의 모달 -->
     
 </div>
-
-
-
-
 </body>
 </html>

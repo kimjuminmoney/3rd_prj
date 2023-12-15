@@ -4,17 +4,49 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.daitdayoung.user.exam">
 
+	<update id="examParticipationUpdate" parameterType="kr.co.daitdayoung.user.vo.UserExamVO">
+	update 	EXAM_PARTICIPATION
+	<set>
+        <choose>
+            <when test='examStatus eq "N"'>
+                exam_status = 'Y',
+            </when>
+            <when test='examStatus eq "Y"'>
+                re_exam = 'Y',
+            </when>
+        </choose>
+        EXAMDATE = sysdate
+    </set>
+	where 	ui_id = #{uiId} and crg_code = #{crgCode}
+	</update>
+	
+	<!-- 네비바 queCOde입력 -->
 	<select id="questionList" resultType="kr.co.daitdayoung.user.domain.UserQuestionsDomain" parameterType="String">
 	select 	QUE_CODE, EXAM_CODE, COU_CODE, INS_ID, QUE_CONTENT, QUE_1, QUE_2, QUE_3, QUE_4
 	from 	QUESTIONS
 	where 	cou_code = #{couCode}
 	</select>
 	
+	<!-- 시험문제 디테일 -->
 	<select id="questionDetail" resultType="kr.co.daitdayoung.user.domain.UserQuestionsDomain" parameterType="String">
 	select 	QUE_CODE, EXAM_CODE, COU_CODE, INS_ID, QUE_CONTENT, QUE_1, QUE_2, QUE_3, QUE_4
 	from 	QUESTIONS
 	where 	que_code = #{queCode}
 	</select>
+	
+	<!-- 시험 답 조회 -->
+	<select id="correctList" resultType="kr.co.daitdayoung.user.domain.UserCoursesExamDomain" parameterType="String">
+	select	QUE_CODE,CORRECT
+	from    QUESTIONS
+	where   cou_code = #{couCode}
+	</select>
+	
+	<!-- 시험답안지 입력 -->
+	<insert id="answerInsert" parameterType="kr.co.daitdayoung.user.vo.UserAnswerVO">
+	insert into ANSWER_SHEET(AS_CODE, QUE_CODE, EP_CODE, CRG_CODE, UI_ID, COU_CODE, INS_ID, EXAM_CODE, AS_SELECTED, AS_STATUS)
+	values('AS_'||lpad(as_seq.naexval,6,'0'), #{queCode}, #{epCode}, #{crgCode}, #{uiId}, #{couCode}, #{insId}, #{examCode},#{asStatus},#{asSelected})
+	</insert>
+	
 
 	
 	

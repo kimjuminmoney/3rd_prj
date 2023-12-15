@@ -68,19 +68,42 @@
         <div class="ce ce_view">
             <article class="material_view material_text">
                 <div class="material_desc editor_reset" style="min-height: 300px;">
-                     <span style="font-size: 18px"><c:out value="${ uceDomain.examContent }"/></span>
+                	<c:if test="${  userExamInfo.examStatus == 'Y' && userExamInfo.reExam == 'N' }">
+                    <span style="font-size: 32px">시험을 응시하였습니다.</span><br>
+                    </c:if>
+                	<c:if test="${ userExamInfo.examStatus == 'Y' && userExamInfo.reExam == 'Y' }">
+                    <span style="font-size: 32px">시험을 재응시하였습니다.</span><br>
+                    </c:if>
+                    
+                    <span style="font-size: 18px"><c:out value="${ uceDomain.examContent }"/></span>
                 </div>
                 <hr>
                 <div class="group_lr" style="border-bottom: 1px">
         		<div class="group_r">
             		<a href="courses.do?crgCode=${ param.crgCode}&couCode=${ param.couCode }" class="btn btn_type2 bold N=a:lec.list" data-selector="backToListBtn">메인으로</a>
-            		<a href="userExam.do?crgCode=${ param.crgCode}&couCode=${ param.couCode }" class="btn btn_type2 bold N=a:lec.list" data-selector="backToListBtn">시험응시</a>
+            		<c:if test="${ userExamInfo.examStatus == 'N' }">
+            		<a id="atag"  class="btn btn_type2 bold N=a:lec.list" data-selector="backToListBtn">시험응시</a>
+            		</c:if>
+            		<c:if test="${ userExamInfo.examStatus == 'Y' && userExamInfo.reExam == 'N' }">
+            		<a id="atag"  class="btn btn_type2 bold N=a:lec.list" data-selector="backToListBtn">시험 재응시</a>
+            		</c:if>
+            		<form id="examFrm" action="/daitdayoung/user/userExam.do" method="POST">
+            		<input type="hidden" value="${ param.crgCode }" name="crgCode"/>
+            		<input type="hidden" value="${ param.couCode }" name="couCode"/>
+            		<input type="hidden" value="${ uceDomain.insId }" name="insId"/>
+            		<input type="hidden" value="${ userExamInfo.examStatus }" name="examStatus"/>
+            		</form>
         		</div>
     		</div>
             </article>
         </div>
     </article>
 </section>
+<script type="text/javascript">
+	$("#atag").click(function(){
+		$("#examFrm").submit();
+	})
+</script>
 
 </div>
 <!-- footer -->     

@@ -8,5 +8,5 @@ import lombok.ToString;
 @Setter
 @ToString
 public class UserExamVO {
-	private String examCode, epCode, couCode;
+	private String examCode, epCode, couCode, crgCode, uiId, insId, examStatus, reExam;
 }

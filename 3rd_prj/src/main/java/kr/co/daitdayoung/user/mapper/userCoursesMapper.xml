@@ -8,13 +8,14 @@
 	<select id="coursesInfo" resultType="kr.co.daitdayoung.user.domain.UserCoursesDomain" parameterType="kr.co.daitdayoung.user.vo.UserCoursesVO">
 	select  c.cou_code,i.INS_ID, COU_NAME, CONTENT, OPENDATE, BANNER_IMG, COU_PERIOD, SAMPLE_VIDEO, HITS, FINAL_APPROVE,
 			i.ins_name, i.ins_profile,(crg.registrationdate+c.cou_period) courseperiod,completion_status, c.cou_code,
-			cc.enroll_rate, cc.exam_results, crg.registrationdate,progress_Rate, CR_COUNT, ui.ui_name
-			,(select count(*)
+			cc.enroll_rate, cc.exam_results, crg.registrationdate,progress_Rate, CR_COUNT, ui.ui_name ,ep.exam_status, ep.re_exam, 
+			crg.crg_code, ep_code,e.exam_code,
+			(select count(*)
 			from COURSE_REGISTRATION
 			where cou_code = #{couCode} and COMPLETION_STATUS = 'Y') completeCnt
-	from    COURSES c, INSTRUCTOR i,course_registration crg, completion_criteria cc, user_info ui
-	where 	c.ins_id = i.ins_id and crg.crg_code = #{crgCode} and crg.ui_id = ui.ui_id and
-			c.cou_code = crg.cou_code and c.cc_code = cc.cc_code
+	from    COURSES c, INSTRUCTOR i,course_registration crg, completion_criteria cc, user_info ui, EXAM_PARTICIPATION ep,EXAM e
+	where 	c.ins_id = i.ins_id and crg.crg_code = #{crgCode} and crg.ui_id = ui.ui_id and c.cou_code = e.cou_Code and
+			c.cou_code = crg.cou_code and c.cc_code = cc.cc_code and ep.crg_code = crg.crg_code
 	</select>
 	
 	<!-- 강의 공지사항리스트 -->
@@ -50,9 +51,17 @@
 	
 	<!-- 강의 시험 정보 -->
 	<select id="coursesExam" resultType="kr.co.daitdayoung.user.domain.UserCoursesExamDomain" parameterType="String">
-	select	EXAM_CODE, EXAM_CONTENT, EXAM_TIMELIMIT
+	select	EXAM_CODE, EXAM_CONTENT, EXAM_TIMELIMIT, ins_id
 	from 	EXAM
 	where	COU_CODE = #{couCode}
+	</select>
+	
+	<!-- 시험 응시정보 -->
+	<select id="coursesExamInfo" resultType="kr.co.daitdayoung.user.domain.CoursesExamInfoDomain" parameterType="kr.co.daitdayoung.user.vo.UserCoursesVO">
+	select	EXAM_STATUS, re_exam
+	from 	EXAM e, EXAM_PARTICIPATION ep
+	where	ep.COU_CODE = #{couCode} and ui_id = #{uiId} and ep.crg_code = #{crgCode} and
+			ep.cou_code = e.cou_code
 	</select>
 	
 	

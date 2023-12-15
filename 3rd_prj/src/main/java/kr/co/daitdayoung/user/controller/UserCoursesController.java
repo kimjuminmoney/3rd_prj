@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import kr.co.daitdayoung.user.domain.CoursesExamInfoDomain;
 import kr.co.daitdayoung.user.domain.UserCoursesDomain;
 import kr.co.daitdayoung.user.domain.UserCoursesExamDomain;
 import kr.co.daitdayoung.user.domain.UserCoursesLectureDomain;
@@ -64,9 +65,10 @@ public class UserCoursesController {
 		String uiId = (String)session.getAttribute("uiId");
 		cuVO.setUiId(uiId);
 		UserCoursesExamDomain uceDomain = ucs.searchCoursesExam(cuVO.getCouCode());
-		System.out.println("시험 맵핑이요~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-		System.out.println(uceDomain);
+		CoursesExamInfoDomain userExamInfo = ucs.searchCoursesExamInfo(cuVO);
+		
 		model.addAttribute("uceDomain",uceDomain);
+		model.addAttribute("userExamInfo",userExamInfo);
 		
 		return "user/courses/courses_exam";
 	}
