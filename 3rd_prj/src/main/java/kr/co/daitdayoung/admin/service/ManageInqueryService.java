@@ -32,6 +32,15 @@ public class ManageInqueryService {
 		return list;
 	}
 
+	public List<ManageInqueryDomain> searchInquiry2(String itCode){
+		List<ManageInqueryDomain> list = null;
+		
+		ManageInqueryDAO miDAO = new ManageInqueryDAO();
+		
+		list = miDAO.selectInquiry2(itCode);
+		return list;
+	}
+
 	public ManageInqueryDomain searchDetailInq(String inqCode){
 		ManageInqueryDomain detailInq = null;
 		

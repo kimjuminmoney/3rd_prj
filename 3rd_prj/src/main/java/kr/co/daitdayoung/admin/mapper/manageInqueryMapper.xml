@@ -13,6 +13,17 @@
 	select iqt.it_name, iq.inq_code, iq.inq_title, iq.ui_id, iq.inq_date, iq.inq_answer
 	from inquiry iq, inquiry_type iqt
 	where iq.it_code = iqt.it_code
+	order by iq.inq_date desc
+</select>
+
+<select id="selectInquiry2" resultType="kr.co.daitdayoung.admin.domain.ManageInqueryDomain">
+	select iqt.it_name, iq.inq_code, iq.inq_title, iq.ui_id, iq.inq_date, iq.inq_answer
+	from inquiry iq, inquiry_type iqt
+	where iq.it_code = iqt.it_code 
+	<if test="itCode != ''">
+		and iq.it_code=#{ itCode }
+	</if>
+	order by iq.inq_date desc
 </select>
 
 <select id="selectDetailInq" resultType="kr.co.daitdayoung.admin.domain.ManageInqueryDomain" parameterType="String">

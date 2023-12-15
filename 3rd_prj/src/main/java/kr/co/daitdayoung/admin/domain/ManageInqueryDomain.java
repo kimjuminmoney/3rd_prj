@@ -14,7 +14,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ManageInqueryDomain {
-	private String inqCode, itCode, itName, uiId, uiName, insId, inqTitle, inqContent, inqAnswer, adminName;
+	private String inqCode, itCode, itName, uiId, uiName, insId, inqTitle, inqContent, inqAnswer, adminId, adminName;
 	private Date inqDate, inqAnswerdate;
 	
 }
