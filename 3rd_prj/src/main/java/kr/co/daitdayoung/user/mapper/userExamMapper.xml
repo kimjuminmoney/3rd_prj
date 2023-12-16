@@ -6,19 +6,28 @@
 
 	<update id="examParticipationUpdate" parameterType="kr.co.daitdayoung.user.vo.UserExamVO">
 	update 	EXAM_PARTICIPATION
-	<set>
-        <choose>
-            <when test='examStatus eq "N"'>
-                exam_status = 'Y',
-            </when>
-            <when test='examStatus eq "Y"'>
-                re_exam = 'Y',
-            </when>
-        </choose>
-        EXAMDATE = sysdate
-    </set>
+	set		exam_status = 'Y', EXAMDATE = sysdate
 	where 	ui_id = #{uiId} and crg_code = #{crgCode}
 	</update>
+	
+	<insert id="reExamParticipationInsert" parameterType="kr.co.daitdayoung.user.vo.UserExamVO">
+	insert into EXAM_PARTICIPATION (EP_CODE, CRG_CODE, UI_ID, COU_CODE, INS_ID, EXAMDATE, RE_EXAM, EXAM_STATUS, EXAM_SCORE)
+	values('EP_'||lpad(ep_seq.nextval,6,'0'),#{crgCode}, #{uiId}, #{couCode}, #{insId}, sysdate, 'Y', 'Y', 0)
+	</insert>
+	
+	<select id="epCodeSelect" parameterType="kr.co.daitdayoung.user.vo.UserExamVO" resultType="String">
+	select 	EP_CODE
+	from 	EXAM_PARTICIPATION
+	where	crg_code = #{crgCode} and EXAM_STATUS = 'Y' and
+	<choose>
+		<when test='examStatus == "N"'>
+		RE_EXAM = 'N'
+		</when>
+		<when test='examStatus == "Y"'>
+		RE_EXAM = 'Y'
+		</when>
+	</choose>
+	</select>
 	
 	<!-- 네비바 queCOde입력 -->
 	<select id="questionList" resultType="kr.co.daitdayoung.user.domain.UserQuestionsDomain" parameterType="String">
@@ -51,9 +60,21 @@
 	<update id="examScoreUpdate" parameterType="kr.co.daitdayoung.user.vo.UserExamScoreVO">
 	update 	EXAM_PARTICIPATION
 	set		EXAM_SCORE =  #{examScore}
-	where 	crg_code = #{crgCode}
+	where 	crg_code = #{crgCode} and ep_code = #{epCode}
 	</update>
 	
+	<select id="examAnswerList" parameterType="String" resultType="kr.co.daitdayoung.user.domain.UserAnswerDomain">
+	select	q.QUE_CODE, AS_SELECTED, AS_STATUS, QUE_CONTENT, QUE_1, QUE_2, QUE_3, QUE_4, CORRECT, EXAMDATE, EXAM_SCORE
+	from    QUESTIONS q, ANSWER_SHEET ash, EXAM_PARTICIPATION ep
+	where   q.que_code = ash.que_code and ep.ep_code = ash.ep_code and ep.ep_code = #{epCode}
+	</select>
+	
+	<select id="examAnswerDetail" parameterType="kr.co.daitdayoung.user.vo.UserAnswerVO" resultType="kr.co.daitdayoung.user.domain.UserAnswerDomain">
+	select	q.QUE_CODE, AS_SELECTED, AS_STATUS, QUE_CONTENT, QUE_1, QUE_2, QUE_3, QUE_4, CORRECT, EXAMDATE, EXAM_SCORE
+	from    QUESTIONS q, ANSWER_SHEET ash, EXAM_PARTICIPATION ep
+	where   q.que_code = ash.que_code and ep.ep_code = ash.ep_code and ep.ep_code = #{epCode} and q.que_code = #{queCode}
+	
+	</select>
 
 	
 	

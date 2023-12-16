@@ -27,6 +27,12 @@
 				 </exclusion>
 			</exclusions>
 		</dependency>
+		<!-- @Transactional 사용을 위한 추가 -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-tx</artifactId>
+		    <version>${org.springframework-version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>

@@ -11,7 +11,7 @@
                 </div>
                 <!-- [D] 강좌명이 51~90자인 경우 h2 class에 word_max 추가 -->
                 <h2 class="">
-                    <a href="courses.do?crgCode=${ param.crgCode }&couCode=${ param.couCode}" class="NPI=a:title" id="_courseName"><c:out value="${ ucDomain.couName }"/></a>
+                    <a href="courses.do?crgCode=${ param.crgCode }&couCode=${ param.couCode}&epCode=${ param.epCode}" class="NPI=a:title" id="_courseName"><c:out value="${ ucDomain.couName }"/></a>
                 </h2>
                     <div class="profile">
                         <!-- [D] 이미지 노출시 class="bgnone" 추가 -->
@@ -47,7 +47,7 @@ $(document).ready(function() {
     <h2 class="sr_only">하위 메뉴</h2>
     <ul class="NE=a:lmn">
             <li class="notice ">
-                <a href="courses.do?crgCode=${ param.crgCode }&couCode=${ param.couCode}">
+                <a href="courses.do?crgCode=${ param.crgCode }&couCode=${ param.couCode}&epCode=${ param.epCode}">
                     <span class="menu">메인</span>
                 </a>
             </li>
@@ -59,7 +59,8 @@ $(document).ready(function() {
                 <div>
 	                <ol class="lect_2dep">
 	                	<c:forEach  var="lecture" items="${lectureList }">
-	                    <li class=""><a href="courses_detail.do?crgCode=${ lecture.crgCode}&couCode=${ ucDomain.couCode}&lecCode=${ lecture.lecCode}"><c:out value="${ lecture.lecName }"/></a></li>
+	                    <li class="${ lecture.courseStatus == 'Y' ? 'done now' : '' }">
+	                    <a href="courses_detail.do?crgCode=${ lecture.crgCode}&couCode=${ ucDomain.couCode}&epCode=${ param.epCode }&lecCode=${ lecture.lecCode}"><c:out value="${ lecture.lecName }"/></a></li>
 	                    </c:forEach>
 	                </ol>
                	</div>
@@ -73,32 +74,12 @@ $(document).ready(function() {
 	                <button class="btn_open"><span class="blind">시험</span></button>
 	                <div>
 		                <ol class="lect_2dep">
-		                    <li><a href="courses_exam.do?crgCode=${ param.crgCode }&couCode=${ param.couCode}"><span>시험</span></a></li>
-		                    <li><a href="courses_exam_result.do?crgCode=${ param.crgCode }&couCode=${ param.couCode}"><span>성적조회</span></a></li>
+		                    <li><a href="courses_exam.do?crgCode=${ param.crgCode }&couCode=${ param.couCode}&epCode=${ param.epCode}"><span>시험</span></a></li>
+		                    <li><a href="courses_exam_result.do?crgCode=${ param.crgCode }&couCode=${ param.couCode}&epCode=${ param.epCode}"><span>성적조회</span></a></li>
 		                </ol>
 	               	</div>
 	            </li>
         	</ul>
 </nav>
-<!-- <script src="https://www.edwith.org/static/js/src/entries/common/_snbmenu.entry.browserfied.min.js?231109_47a067d4"></script>
-<script>
-    $(document).ready(function(){
-        var entry = require("/entries/common/_snbmenu.entry.js");
-        // entry.initialize();
-
-        entry.initialize({
-            data : {
-                course: "onlineclass-tutorial"
-            },
-            title : '누구나 쉽게 준비하는 에드위드 온라인클래스!',
-            useQuestion : false,
-            courseUri: 'onlineclass-tutorial',
-            isShareGuest : false,
-            isBizclassGuest : false,
-            searchable: true,
-            requestSuccessMessage: ''
-        });
-    });
-</script> -->
 </div>
 </div>

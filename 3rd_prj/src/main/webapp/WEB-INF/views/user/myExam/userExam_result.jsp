@@ -21,7 +21,7 @@
 <!-- jQuery CDN시작 -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     
-<title>시험: 김주민</title>
+<title>시험결과: </title>
 <!-- courses_notice_table css -->
 <link rel="stylesheet" href="http://localhost/daitdayoung/common/css/user/courses_notice_table.css" type="text/css">    
 <style type="text/css">
@@ -50,13 +50,13 @@
 }
 </style>    
 <style>
-        /* Add your CSS styles here if needed */
-        .timer-container {
-            font-size: 24px;
-            text-align: center;
-            margin: 20px;
-        }
-    </style>
+    /* Add your CSS styles here if needed */
+    .timer-container {
+        font-size: 24px;
+        text-align: center;
+        margin: 20px;
+    }
+</style>
 </head>
 
 
@@ -95,7 +95,7 @@
     <input type="hidden" id="maxSize" value="${ maxSize }"/>
     
     <form id="answerFrm" action="userExamProcess.do" method="POST">
-    <input type="hidden" name="epCode" value="${ epCode }"/>
+    <input type="hidden" name="epCode" value="${ ucDomain.epCode }"/>
     <input type="hidden" name="crgCode" value="${ ucDomain.crgCode }"/>
     <input type="hidden" name="couCode" value="${ ucDomain.couCode }"/>
     <input type="hidden" name="insId" value="${ ucDomain.insId }"/>
@@ -110,14 +110,14 @@
 		</tr>    
     </thead>
     <tbody>
-    	<c:forEach var="uce" items="${ uceList }" varStatus="i">
+    	<c:forEach var="uad" items="${ uadList }" varStatus="i">
     	<tr class="clickable-tr" style="cursor: pointer;">
 			<td>
-			<c:out value="${ i.count }"/><input type="hidden" class="hidden-value" value="${ uce.queCode }" name="queCodeArr"/>
+			<c:out value="${ i.count }"/><input type="hidden" class="hidden-value" value="${ uad.queCode }" name="queCodeArr"/>
 			<input type="hidden" class="hidden-ind" value="${ i.count }"/>
 			<input type="hidden" name="asSelectedArr"/>
 			</td>
-			<td class="answer" ></td>
+			<td class="answer" ><c:out value="${ uad.asSelected }"></c:out></td>
 		</tr>
 		</c:forEach>
     </tbody>
@@ -130,41 +130,6 @@
 <div id="content">
             
 
-<script type="text/javascript">
-function startTimer(duration, display) {
-  var timer = duration, minutes, seconds;
-  var interval = setInterval(function () {
-    minutes = parseInt(timer / 60, 10)
-    seconds = parseInt(timer % 60, 10);
-
-    minutes = minutes < 10 ? "0" + minutes : minutes;
-    seconds = seconds < 10 ? "0" + seconds : seconds;
-
-    display.textContent = minutes + ":" + seconds;
-
-    if (--timer < 0) {
-      timer = duration;
-    }
-    if(timer === 0) {
-      clearInterval(interval);
-      display.textContent = "시험 종료";
-      alert("시험시간이 종료되었습니다. \n 답안지로 자동으로 제출되었스니다.");
-      $("#answerFrm").submit();
-    }
-  }, 1000);
-}
-
-window.onload = function () {
-  /* 기본값 10(분)입니다. */
-	var minutes = "${ ucDomain.examTimelimit }"; 
-
-  var fiveMinutes = (60 * minutes) - 1,
-    display = document.querySelector('#MyTimer');
-  startTimer(fiveMinutes, display);
-};
-
-</script>
-
 <!-- 시험문제구간 -->
 <section class="page quiz" id="_wrap_quiz_area">
 	<header class="page_header">
@@ -174,8 +139,8 @@ window.onload = function () {
             <div style="display: flex; justify-content: space-between;height: 90px;">
 			    <div style="font-size: 50px; order: 1;">시험</div>
 			    <div style="order: 2; display: flex; align-items: center;">
-			    <div style="font-size: 30px;">남은시간 : </div>
-			    <div id="timer"><div id="MyTimer"></div></div>
+			    <div style="font-size: 30px;"></div>
+			    <div id="timer"><div id="MyTimer"><c:out value="${ examScore }"/>점</div></div>
 			    </div>
 			</div>
         </div>
@@ -195,7 +160,7 @@ $(document).ready(function () {
 	    
 		 // 첫 번째 tr의 hidden-value 값을 가져와서 belowHid에 설정
 	    var firstHiddenValue = $(".clickable-tr:eq(1) .hidden-value").val();
-		 
+	    prc(firstTr) 
 	    $("#belowHid").val(firstHiddenValue);
 	}
 	
@@ -274,9 +239,10 @@ $(document).ready(function () {
 
 
     function queAjax(hiddenValue, hiddenInd){
-		var param = {queCode: hiddenValue}
+		var param = {queCode: hiddenValue,
+					epCode: "${ param.epCode}"};
 			$.ajax({
-				url:"userQueProcess.do",
+				url:"userResultProcess.do",
 				type:"POST",
 				data: param,
 				dataType:"json",
@@ -359,42 +325,9 @@ $(document).ready(function () {
 </ul>
 <script>
     $(document).ready(function () {
-        // 라벨을 클릭했을 때 처리
-        $('.ick').off('click').on('click', function (event) {
-            // 클릭된 라벨 내부의 라디오 버튼 찾기
-            var radioInput = $(this).find('input[type="hidden"]');
-            
-            // 다른 라벨의 라디오 버튼에서 checked 클래스 제거
-            $('.radio').removeClass('checked');
-
-            // 클릭된 라벨 내부의 라디오 버튼에 checked 클래스 추가
-            radioInput.closest('.radio').addClass('checked');
-
-            // 클릭된 라벨의 name 값 가져오기
-            var clickedAnswer = '';
-            if (radioInput.attr('name') === 'answer') {
-                clickedAnswer = radioInput.val();
-
-                // 선택된 라벨의 값을 해당 hidden-ind 값과 일치하는 tr에 추가
-                var hidIndValue = $('#hidInd').val();
-                $('#customers .clickable-tr').each(function () {
-                    var hiddenValue = $(this).find('.hidden-ind').val();
-                    if (hiddenValue === hidIndValue) {
-                    	 // 업데이트: 해당 tr 내의 hidden input 값 업데이트
-                        $(this).find('input[name="asSelectedArr"]').val(clickedAnswer);
-                        // 업데이트: 해당 tr 내의 answer 클래스를 가진 td의 텍스트 업데이트
-                        $(this).find('.answer').text(clickedAnswer);
-                        return false; // 더 이상의 반복을 중단
-                    }
-                });
-            }
-
-            // 이벤트 전파 중단
-            event.stopPropagation();
-        });
 	    //시험제출하기
 	    $("#subBtn").click(function(){
-	    	$("#answerFrm").submit();
+	    	location.href="courses_exam_result.do?crgcode=${ param.crgCode }&couCode=${ param.couCode}&epCode=${ param.epCode}"
 	    })
     });
     
@@ -419,7 +352,7 @@ $(document).ready(function () {
 	<div class="new_boost_btm" style="bottom: 88px;">
 		<div class="group_lr">
 			<div class="group_r">
-				<input type="button" id="subBtn"class="_btn_submit_answer btn btn_type15 clr2" value="제출 하기" data-coach="step_6" data-quiz-type="test">
+				<input type="button" id="subBtn"class="_btn_submit_answer btn btn_type15 clr2" value="이전으로" data-coach="step_6" data-quiz-type="test">
 			</div>
 		</div>
 	</div>

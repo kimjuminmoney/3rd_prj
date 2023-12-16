@@ -9,6 +9,6 @@ import lombok.ToString;
 @ToString
 public class UserExamScoreVO {
 	private int examScore;
-	private String crgCode;
+	private String crgCode, epCode;
 
 }

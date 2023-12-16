@@ -8,9 +8,13 @@ import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import kr.co.daitdayoung.user.domain.UserAnswerDomain;
 import kr.co.daitdayoung.user.domain.UserQuestionsDomain;
 import kr.co.daitdayoung.user.service.UserExamService;
 import kr.co.daitdayoung.user.vo.UserAnswerVO;
@@ -24,20 +28,33 @@ public class UserExamController {
 	private UserExamService ues;
 
 	@PostMapping("/user/userExam.do")
-	public String userMyExam(UserExamVO ucVO, HttpSession session, Model model) {
+	public String userExam(UserExamVO ueVO, HttpSession session, Model model) {
 		String uiId = (String) session.getAttribute("uiId");
-		ucVO.setUiId(uiId);
-		System.out.println("-------------------------------------------------------------");
-		System.out.println(ucVO);
-		ues.modifyExamParticipation(ucVO);
-		List<UserQuestionsDomain> uceList = ues.searchQuestionList(ucVO.getCouCode());
+		ueVO.setUiId(uiId);
+		System.out.println("111111111111111111111111111111111111111111111111111111111"+ueVO);
+		//시험을 본적이 없으면(첫시험응시면)
+		String epCode = "";
+		if("N".equals(ueVO.getExamStatus())) {
+			ues.modifyExamParticipation(ueVO);
+			epCode = ues.searchEpCode(ueVO);
+		}
+		
+		//시험을 본적이 있으면(재응시시험이면)
+		if("Y".equals(ueVO.getExamStatus())) {
+			ues.addReExamParticipation(ueVO);
+			epCode = ues.searchEpCode(ueVO);
+		} 
+		
+		List<UserQuestionsDomain> uceList = ues.searchQuestionList(ueVO.getCouCode());
 
 		model.addAttribute("uceList", uceList);
 		model.addAttribute("maxSize", uceList.size());
+		model.addAttribute("epCode", epCode);
 
 		return "user/myExam/userExam";
 	}// userMyExam
 
+	//시험문제 가져오는 ajax
 	@ResponseBody
 	@PostMapping(value = "/user/userQueProcess.do", produces = "application/text;charset=utf-8")
 	public String userQueProcess(String queCode) {
@@ -67,10 +84,33 @@ public class UserExamController {
 		UserExamScoreVO uesVO = new UserExamScoreVO();
 		uesVO.setCrgCode(uaVO.getCrgCode());
 		uesVO.setExamScore(score);
+		uesVO.setEpCode(uaVO.getEpCode());
 		ues.modifyExamScore(uesVO);
 		
 
 		return "user/courses/courses_exam_result";
+	}// userExamProcess
+	
+	@GetMapping("/user/userExamResult.do")
+	public String userExamResult(String epCode, HttpSession session, Model model) {
+		List<UserAnswerDomain> list = ues.seachAnswerList(epCode);
+		
+		model.addAttribute("uadList",list);
+		model.addAttribute("maxSize", list.size());
+		//리스트에 그냥 스코어 값을 가져왔어서 리스트의 0번째 점수를 넣어둠
+		model.addAttribute("examScore", list.get(0).getExamScore());
+		
+		
+		return "user/myExam/userExam_result";
+	}// userMyExam
+	
+	//답안지에서 시험문제, 답안 가져오는 ajax
+	@ResponseBody
+	@PostMapping(value = "/user/userResultProcess.do", produces = "application/text;charset=utf-8")
+	public String userResultProcess(UserAnswerVO uaVO) {
+		
+		JSONObject json = ues.searchAnswerDetail(uaVO);
+		return json.toJSONString();
 	}// userExamProcess
 	
 	

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 import kr.co.daitdayoung.dao.MyBatisHandler;
 import kr.co.daitdayoung.user.dao.UserExamDAO;
+import kr.co.daitdayoung.user.domain.UserAnswerDomain;
 import kr.co.daitdayoung.user.domain.UserCoursesExamDomain;
 import kr.co.daitdayoung.user.domain.UserQuestionsDomain;
 import kr.co.daitdayoung.user.vo.UserAnswerVO;
@@ -26,6 +27,15 @@ public class UserExamService {
 	public int modifyExamParticipation(UserExamVO ucVO) {
 		return ueDAO.updateExamParticipation(ucVO);
 	}
+	
+	public int addReExamParticipation(UserExamVO ucVO) {
+		return ueDAO.insertReExamParticipation(ucVO);
+	}
+	
+public String searchEpCode(UserExamVO ueVO) throws PersistenceException {
+		return ueDAO.selectEpCode(ueVO);
+	}
+	
 
 	public List<UserQuestionsDomain> searchQuestionList(String couCode) {
 
@@ -90,6 +100,23 @@ public class UserExamService {
 		cnt = ueDAO.updateExamScore(uesVO);
 		return	cnt;
 	}
+	
+	public List<UserAnswerDomain> seachAnswerList(String epCode) throws PersistenceException {
+		return ueDAO.selectAnswerList(epCode);
+	}// selectQuestionList
 
+	public JSONObject searchAnswerDetail(UserAnswerVO uaVO) {
+		JSONObject json = new JSONObject();
+		UserAnswerDomain uaDomain = ueDAO.selectAnswerDetail(uaVO);
+		
+		json.put("content", uaDomain.getQueContent());
+		json.put("que1", uaDomain.getQue1());
+		json.put("que2", uaDomain.getQue2());
+		json.put("que3", uaDomain.getQue3());
+		json.put("que4", uaDomain.getQue4());
+		
+		
+		return json;
+	}//searchQuestion
 
 }// class

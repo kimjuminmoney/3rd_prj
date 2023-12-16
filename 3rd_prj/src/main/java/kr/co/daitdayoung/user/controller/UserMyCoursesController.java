@@ -22,12 +22,15 @@ public class UserMyCoursesController {
 	
 	@GetMapping("/user/myCourses.do")
 	public String userMyCourses(HttpSession session,Model model ) {
-		//String id = (String)session.getAttribute("userId");
-		String id = "ui_test";
+		String id = (String)session.getAttribute("uiId");
+		//String id = "ui_test";
 		List<UserMyCoursesDomain> list = umcs.searchCoursesList(id);
 		
+		list = umcs.searchCoursesExamList(list);
 		list = umcs.searchLecturesCnt(list);
-		
+		for(UserMyCoursesDomain umd : list) {
+			System.out.println(umd);
+		}
 		model.addAttribute("coursesList", list);
 		model.addAttribute("listSize" ,list.size());
 		return "user/myCourses/myCourses";

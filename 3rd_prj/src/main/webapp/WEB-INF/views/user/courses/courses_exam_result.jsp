@@ -58,15 +58,23 @@
 </header>
 <p class="notice_txt">이 강좌를 수료하시려면 진도율 <em>100</em>%이상을 획득하셔야 합니다.</p>
 <div class="progress_rate">
-      <div class="progress_area">
-          <strong class="title">진도율</strong>
-          <div class="graph_area">
-              <span class="standard" style="left: 100%"></span>
-              <span class="rate" style="width: 100%"></span>
-          </div>
-          <strong class="txt">0%</strong>
-      </div>
-</div>
+            <div class="progress_area">
+                <strong class="title">진도율</strong>
+                <div class="graph_area">
+                    <span class="standard" style="left: 100%"></span>
+                    <span class="rate" style="width: ${ ucDomain.progressRate == 0 ? '100' : ucDomain.progressRate/lecCnt * 100 }%"></span>
+                </div>
+                <strong class="txt"><c:out value="${ ucDomain.progressRate == 0 ? '0' : ucDomain.progressRate/lecCnt * 100 }"/>%</strong>
+            </div>
+            <div class="progress_area">
+                <strong class="title">점수</strong>
+                <div class="graph_area">
+                        <span class="standard" style="left: 100%"></span>
+                        <span class="rate" style="width: ${ 100 - ucDomain.examScore }%"></span>
+                </div>
+                <strong class="txt"><c:out value="${ ucDomain.examScore }"/>점</strong>
+            </div>
+        </div>
 <div class="grade_overall">
         <div class="group_lr mab10">
             <div class="group_l">
@@ -88,17 +96,19 @@
                 <th scope="row" class="ta_c">수료여부</th>
                 <td class="ta_c">
                     <span class="grade_txt">
-                            -
+                            <c:out value="${ ucDomain.completionStatus}"/>
                     </span>
                 </td>
                 <th scope="row" class="ta_c">
-                        진도율
-                </th>
+                        답안지 확인
+                </th>        
                 <td class="ta_c">
-                    <span class="grade_txt">
-                            0%
-                    </span>
-                </td>
+                	<a href="userExamResult.do?crgcode=${ param.crgCode }&couCode=${ param.couCode}&epCode=${ param.epCode}">
+				    <div style="display: flex; justify-content: center; align-items: center; width: 150px; height: 50px; background-color: #00AB50; font-size: 20px; color: #FFFFFF; border-radius: 10px; text-align: center; margin: auto;">
+				        <span class="btn_txt" style="display: flex; align-items: center;">확인</span>
+				    </div>
+				    </a>
+				</td>
             </tr>
             </tbody>
         </table>

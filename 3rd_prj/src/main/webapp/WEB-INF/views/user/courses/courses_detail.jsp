@@ -24,11 +24,64 @@
 <link rel="stylesheet" href="http://localhost/daitdayoung/common/css/user/courses.css" type="text/css">
 <!-- courses_notice_table css -->
 <link rel="stylesheet" href="http://localhost/daitdayoung/common/css/user/courses_notice_table.css" type="text/css">
-
+<!-- video.js 비디오js cdn -->
+<link href="https://vjs.zencdn.net/8.6.1/video-js.css" rel="stylesheet" />
+<script src="https://vjs.zencdn.net/8.6.1/video.min.js"></script>
+<!-- video.js 비디오js cdn -->
         <title>강의실 수강 : edwith </title>
 <!-- jQuery CDN시작 -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-        
+
+<script type="text/javascript">
+$(function(){
+	var player = videojs("#myPlayer", {
+	    sources : [
+	        { src : "http://localhost/daitdayoung/courses_data/COU_999999/video/테스트비디오1.mp4", type : "video/mp4"}
+	    ],
+	    poster : "test-poster.png",
+	    controls : true,
+	    playsinline : true,
+	    muted : true,
+	    preload : "metadata",
+	    height : "480px",
+	    width : "760px",
+	});
+	
+	// 'ended' 이벤트 리스너 추가
+    player.on('ended', function() {
+    	var param = {couCode : "${ param.couCode}",
+    				epCode : "${ param.epCode}",	
+    				crgCode : "${ param.crgCode}",
+    				lecCode : "${ param.lecCode}",}	
+    	var msg = "수강완료를 실패하였습니다. \n잠시후 다시 시도해주세요."+
+    				"\n 지속적으로 실패할 경우 해당 화면을 캡쳐하여 문의해 주세요"+
+    				"\n 수강 번호 : ${ param.crgCode}"+
+    				"\n 강의 번호 : ${ param.lecCode}"+
+    				
+        $.ajax({
+        	url:"coursesDetailProcess.do",
+			type:"POST",
+			data: param,
+			dataType:"json",
+			error:function(xhr){
+				console.log(xhr.status);
+				alert(msg);
+			},
+			success:function(jsonObj){
+				var flag = jsonObj.flag;
+				if(!flag){
+					alert(msg);
+				}
+				
+				if(flag){
+					alert("수강 완료하였습니다")
+				}
+				
+			}//success
+        })
+    });
+})
+</script>        
 </head>
 <body class="re_pack win chrome chrome119">
 
@@ -60,9 +113,10 @@
         <div class="ce ce_view">
             <article class="material_view material_text">
                 <div class="material_desc editor_reset">
-                <video width="750" height="500" controls>
+                <!-- <video width="750" height="500" controls>
 				    <source src="http://localhost/daitdayoung/courses_data/COU_999999/video/테스트비디오1.mp4" type="video/mp4">
-				</video>
+				</video> -->
+				<video id="myPlayer" class="video-js vjs-default-skin" webkit-playsinline></video>
                 
 				</div>
                 <div class="material_desc editor_reset">

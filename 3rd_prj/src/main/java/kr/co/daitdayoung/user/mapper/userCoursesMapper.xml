@@ -9,13 +9,13 @@
 	select  c.cou_code,i.INS_ID, COU_NAME, CONTENT, OPENDATE, BANNER_IMG, COU_PERIOD, SAMPLE_VIDEO, HITS, FINAL_APPROVE,
 			i.ins_name, i.ins_profile,(crg.registrationdate+c.cou_period) courseperiod,completion_status, c.cou_code, e.exam_Timelimit,
 			cc.enroll_rate, cc.exam_results, crg.registrationdate,progress_Rate, CR_COUNT, ui.ui_name ,ep.exam_status, ep.re_exam, 
-			crg.crg_code, ep_code,e.exam_code,
+			crg.crg_code, ep_code,e.exam_code, ep.exam_score,
 			(select count(*)
 			from COURSE_REGISTRATION
 			where cou_code = #{couCode} and COMPLETION_STATUS = 'Y') completeCnt
 	from    COURSES c, INSTRUCTOR i,course_registration crg, completion_criteria cc, user_info ui, EXAM_PARTICIPATION ep,EXAM e
 	where 	c.ins_id = i.ins_id and crg.crg_code = #{crgCode} and crg.ui_id = ui.ui_id and c.cou_code = e.cou_Code and
-			c.cou_code = crg.cou_code and c.cc_code = cc.cc_code and ep.crg_code = crg.crg_code
+			c.cou_code = crg.cou_code and c.cc_code = cc.cc_code and ep.crg_code = crg.crg_code and ep.ep_code = #{epCode}
 	</select>
 	
 	<!-- 강의 공지사항리스트 -->
@@ -49,6 +49,20 @@
 	where 	lec.cou_code = #{couCode} and lec.lec_code = cr.lec_code and cr.ui_id = #{uiId} and lec.lec_code = #{lecCode}
 	</select>
 	
+	<!-- 수강기록테이블 업데이트 -->
+	<update id="coursesRecodeUpdate" parameterType="kr.co.daitdayoung.user.vo.UserCoursesVO">
+	update 	COURSE_RECORD
+	set		COURSE_STATUS = 'Y', COURSEDATE = sysdate
+	where	LEC_CODE = #{lecCode} and COU_CODE = #{couCode} and CRG_CODE = #{crgCode} and COURSE_STATUS = 'N'
+	</update>
+	
+	<!-- 수강신청테이블 수강률 업데이트 -->
+	<update id="coursesRegistrationUpdate" parameterType="kr.co.daitdayoung.user.vo.UserCoursesVO">
+	update	COURSE_REGISTRATION
+	set		PROGRESS_RATE = PROGRESS_RATE + 1
+	where	CRG_CODE = #{crgCode} and COU_CODE = #{couCode}
+	</update>
+	
 	<!-- 강의 시험 정보 -->
 	<select id="coursesExam" resultType="kr.co.daitdayoung.user.domain.UserCoursesExamDomain" parameterType="String">
 	select	EXAM_CODE, EXAM_CONTENT, EXAM_TIMELIMIT, ins_id
@@ -61,7 +75,7 @@
 	select	EXAM_STATUS, re_exam
 	from 	EXAM e, EXAM_PARTICIPATION ep
 	where	ep.COU_CODE = #{couCode} and ui_id = #{uiId} and ep.crg_code = #{crgCode} and
-			ep.cou_code = e.cou_code
+			ep.cou_code = e.cou_code and ep.ep_code = #{epCode}
 	</select>
 	
 	

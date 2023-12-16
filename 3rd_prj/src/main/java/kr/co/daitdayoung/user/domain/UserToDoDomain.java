@@ -10,7 +10,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class UserToDoDomain {
-	private String couName, couCode, completionStatus, examStatus, crgCode;
+	private String couName, couCode, completionStatus, examStatus, reExam, epCode, crgCode;
 	private int remainingperiod;
 	private Date completiondate, courseperiod;
 }

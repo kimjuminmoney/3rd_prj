@@ -1,10 +1,13 @@
 package kr.co.daitdayoung.user.service;
 
+import java.beans.Transient;
 import java.util.List;
 
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import kr.co.daitdayoung.user.dao.UserCoursesDAO;
 import kr.co.daitdayoung.user.domain.CoursesExamInfoDomain;
@@ -45,6 +48,15 @@ public class UserCoursesService {
 		UserCoursesLectureDomain uclDomain = ucDAO.selectCourseLectureDetail(cuVO);
 		return uclDomain;
 	}// searchCoursesLectureDetail
+	
+	@Transactional
+	public int modifyCoursesRecode(UserCoursesVO ucVO) {
+		int cnt = 0;
+			cnt += ucDAO.updateCoursesRecode(ucVO);
+			cnt += ucDAO.updateCoursesRegistration(ucVO);
+		
+		return cnt;
+	}
 
 	public UserCoursesExamDomain searchCoursesExam(String couCode) {
 		UserCoursesExamDomain uceDomain = ucDAO.selectCourseExam(couCode);

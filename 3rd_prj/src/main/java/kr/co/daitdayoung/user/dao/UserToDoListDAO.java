@@ -15,16 +15,36 @@ public class UserToDoListDAO {
 	@Autowired
 	private MyBatisHandler mbh;
 	
-	public List<UserToDoDomain> selectCourseReristration(String userId){
+	public List<UserToDoDomain> selectToDoList(String userId){
 		List<UserToDoDomain> list = null;
 		mbh = MyBatisHandler.getInstance();
 		SqlSession ss = mbh.getMyBatisHandler(false);
 
-		list = ss.selectList("kr.co.daitdayoung.user.toDoList.toDOList", userId);
+		list = ss.selectList("kr.co.daitdayoung.user.toDoList.toDoList", userId);
 
 		mbh.closeHandler(ss);
 		return list;
 	}//selectCourseReristration
+	
+	public List<UserToDoDomain> selectToDoExamList(String crgCode){
+		List<UserToDoDomain> list = null;
+		mbh = MyBatisHandler.getInstance();
+		SqlSession ss = mbh.getMyBatisHandler(false);
+		
+		list = ss.selectList("kr.co.daitdayoung.user.toDoList.toDoExamList", crgCode);
+		
+		mbh.closeHandler(ss);
+		return list;
+	}//selectCourseReristration
+	
+	public static void main(String[] args) {
+		UserToDoListDAO d = new UserToDoListDAO();
+		List<UserToDoDomain> l = d.selectToDoList("ui_test");
+		for(UserToDoDomain a : l) {
+			List<UserToDoDomain> la = d.selectToDoExamList(a.getCrgCode());
+		}
+		
+	}
 	
 
 }//class

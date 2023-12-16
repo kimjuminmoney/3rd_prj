@@ -178,7 +178,7 @@
 
                 <!-- tit -->
                 <div class="tit">
-                    <a href="courses.do?crgCode=${ todo.crgCode }&couCode=${todo.couCode}">
+                    <a href="courses.do?crgCode=${ todo.crgCode }&couCode=${todo.couCode}&epCode=${todo.epCode}">
                         <strong class="title"><c:out value="${todo.couName}" /></strong>
                     </a>
                 </div>

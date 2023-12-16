@@ -14,7 +14,6 @@ import kr.co.daitdayoung.user.domain.UserCoursesDomain;
 import kr.co.daitdayoung.user.domain.UserCoursesExamDomain;
 import kr.co.daitdayoung.user.domain.UserCoursesLectureDomain;
 import kr.co.daitdayoung.user.domain.UserCoursesNoticeDomain;
-import kr.co.daitdayoung.user.domain.UserMyCoursesDomain;
 import kr.co.daitdayoung.user.vo.UserCoursesVO;
 
 @Component
@@ -68,6 +67,22 @@ public class UserCoursesDAO {
 		return uclDomain;
 	}//selectCourseNotice
 	
+	public int updateCoursesRecode(UserCoursesVO ucVO) throws PersistenceException{
+		int cnt = 0;
+		mbh = MyBatisHandler.getInstance();
+		SqlSession ss = mbh.getMyBatisHandler(false);
+		cnt = ss.update("kr.co.daitdayoung.user.courses.coursesRecodeUpdate",ucVO);
+		return cnt;
+	}
+	
+	public int updateCoursesRegistration(UserCoursesVO ucVO) throws PersistenceException{
+		int cnt = 0;
+		mbh = MyBatisHandler.getInstance();
+		SqlSession ss = mbh.getMyBatisHandler(false);
+		cnt = ss.update("kr.co.daitdayoung.user.courses.coursesRegistrationUpdate",ucVO);
+		return cnt;
+	}
+	
 	public UserCoursesExamDomain selectCourseExam(String couCode) throws PersistenceException{
 		
 		mbh = MyBatisHandler.getInstance();
@@ -92,8 +107,8 @@ public class UserCoursesDAO {
 	
 	
 	public static void main(String[] args) {
-		UserCoursesVO cuVO = new UserCoursesVO("COU_999999","ui_test1","LEC_999999","CRG_999999");
-		System.out.println(new UserCoursesDAO().selectCourseExamInfo(cuVO));
+		//UserCoursesVO cuVO = new UserCoursesVO("COU_999999","ui_test","LEC_999995","CRG_999999","EP_999999");
+		//System.out.println(new UserCoursesDAO().updateCoursesRecode(cuVO));
 		//System.out.println(new UserCoursesDAO().selectCourseExam("COU_999999"));
 		//List<UserCoursesLectureDomain> list = new UserCoursesDAO().selectCourseLectureList(cuVO);
 		//System.out.println(new UserCoursesDAO().selectCourseNoticeList("COU_999999"));

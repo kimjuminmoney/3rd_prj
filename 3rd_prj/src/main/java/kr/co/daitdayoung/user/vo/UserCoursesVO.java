@@ -13,6 +13,6 @@ import lombok.ToString;
 @NoArgsConstructor
 public class UserCoursesVO {
 	
-	private String couCode, uiId, lecCode, crgCode;
+	private String couCode, uiId, lecCode, crgCode, epCode;
 
 }

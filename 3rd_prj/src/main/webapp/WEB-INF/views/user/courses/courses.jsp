@@ -163,7 +163,7 @@ $(".que").click(function() {
 					<ul class="sub">
 					<c:forEach var="lecture" items="${lectureList }">
 						<li >
-							<a href="courses_detail.do?crgCode=${ lecture.crgCode}&couCode=${ ucDomain.couCode}&lecCode=${ lecture.lecCode}" style="display: flex;">
+							<a href="courses_detail.do?crgCode=${ lecture.crgCode}&couCode=${ ucDomain.couCode}&epCode=${ param.epCode }&lecCode=${ lecture.lecCode}" style="display: flex;">
 								<div style="flex: 1">
 									<c:if test="${ lecture.courseStatus eq 'Y' }">
 									<img src="http://localhost/daitdayoung/common/icon/check.png" width="30px"/>

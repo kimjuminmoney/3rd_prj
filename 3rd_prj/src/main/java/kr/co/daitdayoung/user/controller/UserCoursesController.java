@@ -4,10 +4,13 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import kr.co.daitdayoung.user.domain.CoursesExamInfoDomain;
@@ -43,13 +46,31 @@ public class UserCoursesController {
 	}
 
 	@GetMapping("/user/courses_detail.do")
-	public String userCoursesDetail(UserCoursesVO cuVO, HttpSession session, Model model) {
+	public String userCoursesDetail(UserCoursesVO ucVO, HttpSession session, Model model) {
 		
-		cuVO.setUiId((String)session.getAttribute("uiId"));
-		UserCoursesLectureDomain uclDomain= ucs.searchCoursesLectureDetail(cuVO);
+		ucVO.setUiId((String)session.getAttribute("uiId"));
+		UserCoursesLectureDomain uclDomain= ucs.searchCoursesLectureDetail(ucVO);
 		model.addAttribute("uclDomain", uclDomain);
 		return "user/courses/courses_detail";
 	}
+	@ResponseBody
+	@PostMapping(value = "/user/coursesDetailProcess.do", produces = "application/text;charset=utf-8")
+	public String userCoursesDetailProcess(UserCoursesVO ucVO, HttpSession session, Model model) {
+		
+		ucVO.setUiId((String)session.getAttribute("uiId"));
+		int cnt = ucs.modifyCoursesRecode(ucVO);
+		boolean flag = false;
+		if(cnt == 2) {
+			flag = true;
+		}
+		
+		JSONObject json = new JSONObject();
+		json.put("flag", flag);
+		
+		return json.toJSONString();
+	}
+	
+	
 	
 	@GetMapping("/user/courses_notice.do")
 	public String userCoursesNotice(String cnCode, Model model) {
@@ -75,7 +96,6 @@ public class UserCoursesController {
 	
 	@GetMapping("/user/courses_exam_result.do")
 	public String userCoursesExamResult(UserCoursesVO cuVO, HttpSession session, Model model) {
-		System.out.println("시험결과 맵핑");
 		
 		return "user/courses/courses_exam_result";
 	}

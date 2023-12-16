@@ -26,8 +26,11 @@ public class UserToDoListController {
 	public String userToDoList(HttpSession session, Model model) {
 		//String id = (String)session.getAttribute("userId");
 		String id = "ui_test";
-		List<UserToDoDomain> list = utdls.searchCourseRegistration(id);
-		
+		List<UserToDoDomain> list = utdls.searchToDoList(id);
+		list = utdls.searchToDoExamList(list);
+		for(UserToDoDomain d : list) {
+			System.out.println(d);
+		}
 		model.addAttribute("toDoList",list);
 		
 		

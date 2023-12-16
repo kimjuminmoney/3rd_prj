@@ -6,6 +6,21 @@
 
 	<!-- 나의 강의실 수강 List -->
 	<select id="myCoursesList" resultType="kr.co.daitdayoung.user.domain.UserMyCoursesDomain" parameterType="String">
+	select 	c.cou_code, c.cou_name, c.cou_period,i.ins_name, c.banner_img, ui.ui_name, crg.crg_code,
+			crg.progress_rate, crg.registrationdate, crg.completiondate, (crg.registrationdate+c.cou_period) coursePeriod,
+			cc.enroll_rate, cc.exam_results,  completion_status, cr_count
+	from 	course_registration crg, courses c, user_info ui, instructor i , completion_criteria cc
+	where	c.cou_code = crg.cou_code and i.ins_id = c.ins_id and
+			c.cc_code = cc.cc_code and  ui.ui_id = #{uiId} and crg.ui_id=ui.ui_id
+	
+	</select>
+	
+	<select id="CoursesExamList" resultType="kr.co.daitdayoung.user.domain.UserMyCoursesDomain" parameterType="String">
+	select  ep.exam_status, re_exam, ep.exam_score, ep_Code
+	from	exam_participation ep
+	where   ep.crg_code = #{crgCode}
+	</select>
+<!-- 	<select id="myCoursesList" resultType="kr.co.daitdayoung.user.domain.UserMyCoursesDomain" parameterType="String">
 	select 	c.cou_code, c.cou_name, c.cou_period,i.ins_name, c.banner_img, crg.crg_code, ui.ui_name, crg.crg_code,
 				crg.progress_rate, crg.registrationdate, crg.completiondate, (crg.registrationdate+c.cou_period) coursePeriod,
 				cc.enroll_rate, cc.exam_results,ep.exam_score, ep.exam_status, completion_status,PROGRESS_RATE, crg.cr_count
@@ -14,7 +29,7 @@
 	where	 	c.cou_code = crg.cou_code and i.ins_id = c.ins_id and
 				c.cc_code = cc.cc_code and crg.crg_code = ep.crg_code and ui.ui_id = #{uiId}
 	
-	</select>
+	</select> -->
 	
 	<!-- 강좌에 있는 강의갯수 -->
 	<select id="CoursesCnt" resultType="int" parameterType="String">

@@ -27,6 +27,19 @@ public class UserMyCoursesDAO {
 
 		return list;
 	}// selectCoursesList
+	
+	public List<UserMyCoursesDomain> selectCoursesExamList(String crgCode) throws PersistenceException {
+		List<UserMyCoursesDomain> list = null;
+		mbh = MyBatisHandler.getInstance();
+		SqlSession ss = mbh.getMyBatisHandler(false);
+		
+		list = ss.selectList("kr.co.daitdayoung.user.myCourses.CoursesExamList", crgCode);
+		
+		mbh.closeHandler(ss);
+		
+		return list;
+	}// selectCoursesList
+	
 
 	public int selectLecturesCnt(String couCode) throws PersistenceException {
 		int cnt = 0;

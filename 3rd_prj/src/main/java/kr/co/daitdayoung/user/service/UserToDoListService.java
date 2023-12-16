@@ -14,8 +14,33 @@ public class UserToDoListService {
 	@Autowired(required=false)
 	private UserToDoListDAO utdlDAO;
 	
-	public List<UserToDoDomain> searchCourseRegistration(String userId){
-		return utdlDAO.selectCourseReristration(userId);
+	public List<UserToDoDomain> searchToDoList(String userId){
+		List<UserToDoDomain> list = utdlDAO.selectToDoList(userId);
+		return list;
+	}//searchCourseRegistration
+	
+	public List<UserToDoDomain> searchToDoExamList(List<UserToDoDomain> list){
+		for(UserToDoDomain utdDomain : list) {
+			String crgCode = utdDomain.getCrgCode();
+			List<UserToDoDomain> tempList = utdlDAO.selectToDoExamList(crgCode);
+			
+			if(tempList.size() == 2) {
+				for(UserToDoDomain tempDomain : tempList) {
+					if ("Y".equals(tempDomain.getExamStatus()) && "Y".equals(tempDomain.getReExam())) {
+						utdDomain.setExamStatus(tempDomain.getExamStatus());
+						utdDomain.setReExam(tempDomain.getReExam());
+						utdDomain.setEpCode(tempDomain.getEpCode());
+						break;
+					}
+				}
+			} else if(tempList.size() == 1) {
+				UserToDoDomain tempDomain = tempList.get(0);
+				utdDomain.setExamStatus(tempDomain.getExamStatus());
+				utdDomain.setReExam(tempDomain.getReExam());
+				utdDomain.setEpCode(tempDomain.getEpCode());
+			}
+		}
+		return list;
 	}//searchCourseRegistration
 
 }//class
