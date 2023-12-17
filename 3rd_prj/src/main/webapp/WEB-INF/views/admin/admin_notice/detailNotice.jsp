@@ -37,6 +37,9 @@ $(function(){
 			   }//success
 		   });//ajax
 	   });//click
+	   $("#canBtn").click(function(){
+		   window.history.back();
+	   });
 });//ready
 </script>
 
@@ -90,7 +93,7 @@ $(function(){
 					</div>
 					<div style="margin-top: 50px;">
 					  <button type="button" class="btn btn-outline-success" id="modBtn">수정</button>
-					  <button type="button" class="btn btn-outline-danger">취소</button>
+					  <button id="canBtn" type="button" class="btn btn-outline-secondary">취소</button>
 					</div>
                 </div>
 

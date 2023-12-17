@@ -126,14 +126,48 @@ public class ManageUsersDAO {
 		MyBatisHandler mbh = MyBatisHandler.getInstance();
 		
 		SqlSession ss = mbh.getMyBatisHandler(false);
-		System.out.println("sdfsdfds");
+		
 		cnt=ss.update("kr.co.daitdayoung.admin.mu.updateIns", muVO);
-		System.out.println("aaaaaaaaaaaaaaaaaaa");
 		
 		if(cnt==1) {
 			ss.commit();
 		}//end if
-		System.out.println("1111 : "+cnt);
+		mbh.closeHandler(ss);
+		
+		return cnt;
+	}//updateStu
+	
+	public int updateStuQuit(String uiId) throws PersistenceException{
+		
+		int cnt=0;
+		
+		MyBatisHandler mbh = MyBatisHandler.getInstance();
+		
+		SqlSession ss = mbh.getMyBatisHandler(false);
+		
+		cnt=ss.update("kr.co.daitdayoung.admin.mu.updateStuQuit", uiId);
+		
+		if(cnt==1) {
+			ss.commit();
+		}//end if
+		mbh.closeHandler(ss);
+		
+		return cnt;
+	}//updateStu
+	
+	public int updateInsQuit(String insId) throws PersistenceException{
+		
+		int cnt=0;
+		
+		MyBatisHandler mbh = MyBatisHandler.getInstance();
+		
+		SqlSession ss = mbh.getMyBatisHandler(false);
+		
+		cnt=ss.update("kr.co.daitdayoung.admin.mu.updateInsQuit", insId);
+		
+		if(cnt==1) {
+			ss.commit();
+		}//end if
 		mbh.closeHandler(ss);
 		
 		return cnt;

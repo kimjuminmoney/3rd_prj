@@ -27,7 +27,7 @@ public class ManageCoursesController {
 
 	
 	@GetMapping("/admin/admin_courses/detailCourse.do")
-	public String detailCourses() {
+	public String detailCourses(Model model) {
 		
 		return "admin/admin_courses/detailCourse";
 	}

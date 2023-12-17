@@ -58,6 +58,46 @@ $(function(){
 			   }//success
 		   });//ajax
 	   });//click
+	   
+	   $("#quitBtn").click(function(){
+		   var insId = $("#idFrm").val();
+		   var insName = $("#nameFrm").val();
+		   var insQuit = $("#insQuit").val();
+		   
+		   var confirmation = confirm(insName+'회원을 탈퇴 처리 하시겠습니까?');
+		   
+		   if(confirmation){
+			   
+			   $.ajax({
+				   url:"modinsquit.do",
+				   type:"GET",
+				   data: "insId="+insId,
+				   dataType:"json",
+				   error:function( xhr ){
+					   alert( xhr.status );
+				   },
+				   success:function(jsonObj){
+					   var cnt = jsonObj.cnt;
+					   if(cnt=='1'){
+						   if(insQuit=='Y'){
+							   alert("이미 탈퇴한 회원입니다.");
+						   }else{
+							   alert(insName+"회원이 탈퇴 처리 되었습니다.");
+							   window.location.href="manageUsers.do";
+						   }
+					   }else{
+						   alert(insName+"회원의 탈퇴 처리에 실패하였습니다. 다시 한번 시도해주세요.");
+					   }
+				   }//success
+			   });//ajax
+		   }else{
+			   alert("취소되었습니다.");
+		   }
+	   });//click
+	   
+	   $("#canBtn").click(function(){
+		   window.history.back();
+	   });
 });//ready
 </script>
 
@@ -91,6 +131,7 @@ $(function(){
 	                <div id="userDetail" style="width:1000px; margin: 0 auto; margin-top: 100px; margin-bottom: 30px;
                      display: grid; grid-template-columns: 1fr 1fr;">
 		                <div id="udFrm" style="width:450px; margin: 0 auto; margin-bottom: 30px;">
+		                	<input type="hidden" id="insQuit" value="${ requestScope.insQuit }">
 			                <label class="form-label">ID</label>
 							<input type="text" id="idFrm" class="form-control" value="${ requestScope.insId }" disabled readonly><br/>
 			                <label class="form-label">E-mail</label>
@@ -108,7 +149,7 @@ $(function(){
 		                </div>
 						<div style="margin-top: 10px; margin-left: 25px">
 					  		<button id="modBtn" type="button" class="btn btn-outline-success">수정</button>
-					  		<button type="button" class="btn btn-outline-danger">탈퇴</button>
+					  		<button id="quitBtn" type="button" class="btn btn-outline-danger">탈퇴</button>
 						</div>
                     </div>
 

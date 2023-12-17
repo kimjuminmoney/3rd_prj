@@ -13,7 +13,9 @@
 </style>
 <script type="text/javascript">
 $(function(){
-   
+	   $("#canBtn").click(function(){
+		   window.history.back();
+	   });
 });//ready
 </script>
 
@@ -59,7 +61,7 @@ $(function(){
 	                <p style="color: #5A5C69;"><c:out value="${ requestScope.cnContent }"/></p>
 	                
 				<div style="margin-top: 50px;">
-				  <button type="button" class="btn btn-outline-secondary">확인</button>
+				  <button id="canBtn" type="button" class="btn btn-outline-secondary">확인</button>
 				</div>
 				
                 </div>

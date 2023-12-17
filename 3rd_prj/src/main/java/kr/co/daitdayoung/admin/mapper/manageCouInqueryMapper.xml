@@ -15,6 +15,15 @@ from courses_inquiry ci, courses_inquiry_type cit, user_info ui, courses cou
 where cit.cit_code = ci.cit_code and ci.ui_id=ui.ui_id and ci.cou_code=cou.cou_code
 </select>
 
+<select id="selectCouInquiry2" resultType="kr.co.daitdayoung.admin.domain.ManageCouInqueryDomain">
+select ci.ci_code, ci.cit_code, cit.cit_name, ci.ci_title, ci.ui_id ,ui.ui_name, cou.cou_name, ci.ci_date, ci.ci_answer
+from courses_inquiry ci, courses_inquiry_type cit, user_info ui, courses cou
+where cit.cit_code = ci.cit_code and ci.ui_id=ui.ui_id and ci.cou_code=cou.cou_code
+<if test="citCode != ''">
+and cit.cit_code=#{citCode}
+</if>
+</select>
+
 <select id="selectDetailCi" resultType="kr.co.daitdayoung.admin.domain.ManageCouInqueryDomain" parameterType="String">
 select ci.ci_title, ui.ui_name, cit.cit_name, c.cou_name, ci.ci_date, ci.ci_content, ci.ci_answer, i.ins_name, ci.ci_answerdate
 from courses_inquiry ci, user_info ui, instructor i, courses c, courses_inquiry_type cit

@@ -58,6 +58,14 @@ $(function(){
 		   }//success
 	   });//ajax
    });//click
+   
+   $("#canBtn1").click(function(){
+	   window.history.back();
+   });
+   
+   $("#canBtn2").click(function(){
+	   window.history.back();
+   });
 });//ready
 
 </script>
@@ -127,7 +135,7 @@ $(function(){
 						</div>
 					<div style="margin-top: 50px; margin-bottom: 50px;">
 					  <button id="modBtn" type="button" class="btn btn-outline-success">수정</button>
-					  <button type="button" class="btn btn-outline-danger">취소</button>
+					  <button id="canBtn1" type="button" class="btn btn-outline-secondary">취소</button>
 					</div>
                 </div>
                 </c:if>
@@ -140,7 +148,7 @@ $(function(){
 					</div>
 					<div style="margin-top: 50px; margin-bottom: 50px;">
 					  <button id="addBtn" type="button" class="btn btn-outline-success">등록</button>
-					  <button type="button" class="btn btn-outline-danger">취소</button>
+					  <button id="canBtn2" type="button" class="btn btn-outline-secondary">취소</button>
 					</div>
                 </div>
                 </c:if>

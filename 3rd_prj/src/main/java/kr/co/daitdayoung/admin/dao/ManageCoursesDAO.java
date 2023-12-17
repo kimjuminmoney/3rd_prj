@@ -26,6 +26,24 @@ public class ManageCoursesDAO {
 		return list;
 	}//selectCourses
 	
+	public int updateApprove(String couCode) throws PersistenceException{
+		int cnt = 0;
+		
+		MyBatisHandler mbh = MyBatisHandler.getInstance();
+		
+		SqlSession ss = mbh.getMyBatisHandler(false);
+		
+		cnt = ss.update("kr.co.daitdayoung.admin.mc.updateApprove", couCode);
+		
+		if(cnt==1) {
+			ss.commit();
+		}
+		
+		mbh.closeHandler(ss);
+		
+		return cnt;
+	}
+	
 	public static void main(String[] args) {
 		System.out.println(new ManageCoursesDAO().selectCourses());
 	}

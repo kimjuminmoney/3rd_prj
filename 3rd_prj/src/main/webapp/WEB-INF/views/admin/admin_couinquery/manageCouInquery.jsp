@@ -35,7 +35,43 @@
 </style>
 <script type="text/javascript">
 $(function(){
-   
+	$("#ciType").change(function(){
+		var data=$("#ciType").val();
+		  // AJAX 요청을 수행
+        $.ajax({
+            url: "showCouInq.do",
+            type: "GET", // POST 방식을 사용해 데이터를 서버로 보냅니다.
+            data: "citCode="+data,
+            dataType: "json",
+            error: function(xhr){
+                alert("서버에서 문제가 발생하였습니다.");
+                console.log(xhr.status);
+            },
+            success: function(jsonObj){
+            	var tbody="<tr>"
+            	$.each(jsonObj.jsonArr,function(i, jsonInq ){
+                	var ciAnswer = "${ not empty jsonInq.ciAnswer?'Y':'N'}";
+                	tbody+="<td>"+(i+1)+"</td>";
+            		tbody+="<td>"+jsonInq.citName+"</td>";
+            		tbody+="<td>"+
+            				"<a href='detailCouInquery.do?ciCode="+
+            				jsonInq.ciCode+
+            				"'>"+
+            				jsonInq.ciTitle +
+            				"</a></td>";
+            		tbody+=	"<td>"+jsonInq.couName+"</td>";	
+            		tbody+=	"<td>"+jsonInq.uiId+"</td>";	
+            		tbody+=	"<td>"+jsonInq.ciDate+"</td>";	
+            		tbody+=	"<td id='answerStat'>"+ciAnswer+"</td>";	
+            		tbody+= "</tr>"
+            		
+            	});//each
+            		$("#tbodyCi").html(tbody);
+            }
+                
+        });//ajax
+		
+});//change
 });//ready
 </script>
 
@@ -68,8 +104,8 @@ $(function(){
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <select class="form-select" aria-label="Default select example">
-							  <option selected>분류</option>
+                            <select id="ciType" class="form-select" aria-label="Default select example">
+							  <option selected value="">분류</option>
 							  <c:forEach var="ciTypeList" items="${ requestScope.ciTypeList }">
 							  <option value="${ ciTypeList.citCode }">${ ciTypeList.citName }</option>
 							  </c:forEach>
@@ -89,10 +125,10 @@ $(function(){
                                             <th>답변여부</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                    <c:forEach var="couInquiry" items="${ requestScope.couInquiryList }">
+                                    <tbody id="tbodyCi">
+                                    <c:forEach var="couInquiry" items="${ requestScope.couInquiryList }" varStatus="i">
                                         <tr>
-                                            <td><c:out value="${ couInquiry.ciCode }"/></td>
+                                            <td><c:out value="${ i.count }"/></td>
                                             <td><c:out value="${ couInquiry.citName }"/></td>
                                             <td><a href="detailCouInquery.do?ciCode=${ couInquiry.ciCode }"><c:out value="${ couInquiry.ciTitle }"/></a></td>
                                             <td><c:out value="${ couInquiry.couName }"/></td>

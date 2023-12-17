@@ -47,6 +47,7 @@ public class ManageUsersController {
 		model.addAttribute("uiName",detailStu.getUiName());
 		model.addAttribute("uiBirth",detailStu.getUiBirth());
 		model.addAttribute("uiJoindate",detailStu.getUiJoindate());
+		model.addAttribute("uiQuit",detailStu.getUiQuit());
 		model.addAttribute("detailStuList",detailStuList);
 		
 		return "admin/admin_users/detailStudent";
@@ -67,6 +68,7 @@ public class ManageUsersController {
 		model.addAttribute("insTel", detailIns.getInsTel());
 		model.addAttribute("insJoindate", detailIns.getInsJoindate());
 		model.addAttribute("insEmail", detailIns.getInsEmail());
+		model.addAttribute("insQuit", detailIns.getInsQuit());
 		model.addAttribute("detailInsList", detailInsList);
 		
 		return "admin/admin_users/detailInstructor";
@@ -98,6 +100,32 @@ public class ManageUsersController {
 		muVO.setAdminId(adminId);
 		cnt=mus.modifyIns(muVO);
 		jsonObj.put("cnt", cnt);
+		return jsonObj.toJSONString();
+	}
+	
+	@ResponseBody
+	@GetMapping("/admin/admin_users/modstuquit.do")
+	public String modifyStuQuitProcess(Model model, String uiId) {
+		JSONObject jsonObj = new JSONObject();
+		
+		int cnt=0;
+		
+		cnt=mus.modifyStuQuit(uiId);
+		jsonObj.put("cnt", cnt);
+		
+		return jsonObj.toJSONString();
+	}
+	
+	@ResponseBody
+	@GetMapping("/admin/admin_users/modinsquit.do")
+	public String modifyInsQuitProcess(Model model, String insId) {
+		JSONObject jsonObj = new JSONObject();
+		
+		int cnt=0;
+		
+		cnt=mus.modifyInsQuit(insId);
+		jsonObj.put("cnt", cnt);
+		
 		return jsonObj.toJSONString();
 	}
 	

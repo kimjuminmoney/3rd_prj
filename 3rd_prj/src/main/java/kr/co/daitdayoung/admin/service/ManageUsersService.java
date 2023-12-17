@@ -72,4 +72,20 @@ public class ManageUsersService {
 		return cnt;
 	}//modifyStu
 	
+	public int modifyStuQuit(String uiId) throws PersistenceException{
+		int cnt=0;
+		
+		cnt=mud.updateStuQuit(uiId);
+		
+		return cnt;
+	}//modifyStu
+	
+	public int modifyInsQuit(String insId) throws PersistenceException{
+		int cnt=0;
+		
+		cnt=mud.updateInsQuit(insId);
+		
+		return cnt;
+	}//modifyStu
+	
 }

@@ -57,6 +57,45 @@ $(function(){
 			   }//success
 		   });//ajax
 	   });//click
+
+	$("#quitBtn").click(function(){
+		   var uiId = $("#uiId").val();
+		   var uiName = $("#nameFrm").val();
+		   var uiQuit = $("#uiQuit").val();
+		   
+		   var confirmation = confirm(uiName+'회원을 탈퇴 처리 하시겠습니까?');
+		   
+		   if(confirmation){
+			   
+			   $.ajax({
+				   url:"modstuquit.do",
+				   type:"GET",
+				   data: "uiId="+uiId,
+				   dataType:"json",
+				   error:function( xhr ){
+					   alert( xhr.status );
+				   },
+				   success:function(jsonObj){
+					   var cnt = jsonObj.cnt;
+					   if(cnt=='1'){
+						   if(uiQuit=='Y'){
+							   alert("이미 탈퇴한 회원입니다.");
+						   }else{
+							   alert(uiName+"회원이 탈퇴 처리 되었습니다.");
+							   window.location.href="manageUsers.do";
+						   }
+					   }else{
+						   alert(uiName+"회원의 탈퇴 처리에 실패하였습니다. 다시 한번 시도해주세요.");
+					   }
+				   }//success
+			   });//ajax
+		   }else{
+			   alert("취소되었습니다.");
+		   }
+	   });//click
+	   $("#canBtn").click(function(){
+		   window.history.back();
+	   });
 });//ready
 </script>
 
@@ -90,6 +129,7 @@ $(function(){
                     <div id="userDetail" style="width:1000px; margin: 0 auto; margin-top: 100px; margin-bottom: 30px;
                      display: grid; grid-template-columns: 1fr 1fr;">
 		                <div id="udFrm" style="width:450px; margin: 0 auto; margin-bottom: 30px;">
+		                	<input type="hidden" id="uiQuit" value="${ requestScope.uiQuit }"/>
 			                <label class="form-label">아이디</label>
 							<input type="text" id="idFrm" class="form-control" value="${ requestScope.uiId }" disabled readonly><br/>
 			                <label class="form-label">가입일</label>
@@ -104,7 +144,7 @@ $(function(){
 		                </div>
 						<div style="margin-top: 10px; margin-left: 25px">
 					  		<button id="modBtn" type="button" class="btn btn-outline-success">수정</button>
-					  		<button type="button" class="btn btn-outline-danger">탈퇴</button>
+					  		<button id="quitBtn" type="button" class="btn btn-outline-danger">탈퇴</button>
 						</div>
                     </div>
 

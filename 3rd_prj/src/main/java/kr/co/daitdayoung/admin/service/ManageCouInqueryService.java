@@ -31,6 +31,14 @@ public class ManageCouInqueryService {
 		return list;
 	}//searchCouInquiry
 	
+	public List<ManageCouInqueryDomain> searchCouInquiry2(String citCode) throws PersistenceException{
+		List<ManageCouInqueryDomain> list = null;
+		
+		list = mcDAO.selectCouInquery2(citCode);
+		
+		return list;
+	}//searchCouInquiry
+	
 	public ManageCouInqueryDomain searchDetailCi(String ciCode) throws PersistenceException{
 		ManageCouInqueryDomain detailCi = mcDAO.selectDetailCi(ciCode);
 		

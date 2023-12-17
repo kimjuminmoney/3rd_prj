@@ -23,5 +23,12 @@ public class ManageCoursesService {
 		return list;
 	}//searchCourses
 	
+	public int modifyApprove(String couCode) throws PersistenceException{
+		int cnt = 0;
+		
+		cnt = mcDAO.updateApprove(couCode);
+		
+		return cnt;
+	}//modifyApprove
 
 }

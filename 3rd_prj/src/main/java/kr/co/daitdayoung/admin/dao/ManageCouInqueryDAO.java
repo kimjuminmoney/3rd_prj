@@ -40,6 +40,20 @@ public class ManageCouInqueryDAO {
 		return list;
 	}//selectCouInquery
 	
+	public List<ManageCouInqueryDomain> selectCouInquery2(String citCode) throws PersistenceException{
+		List<ManageCouInqueryDomain> list = null;
+		
+		MyBatisHandler mbh = MyBatisHandler.getInstance();
+		
+		SqlSession ss = mbh.getMyBatisHandler(false);
+		
+		list = ss.selectList("kr.co.daitdayoung.admin.mci.selectCouInquiry2",citCode);
+		
+		mbh.closeHandler(ss);
+		
+		return list;
+	}//selectCouInquery
+	
 	public ManageCouInqueryDomain selectDetailCi(String ciCode) throws PersistenceException{
 		ManageCouInqueryDomain detailCi = null;
 		

@@ -13,6 +13,12 @@ from courses c, instructor i
 where c.ins_id=i.ins_id
 </select>
 
+<update id="updateApprove" parameterType="String">
+update courses 
+set approve='Y'
+where cou_code=#{couCode}
+</update>
+
 </mapper>
 
 
