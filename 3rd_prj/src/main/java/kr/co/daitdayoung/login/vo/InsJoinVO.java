@@ -10,8 +10,8 @@ import lombok.ToString;
 @Setter
 @ToString
 public class InsJoinVO {
-	private String insId, insPw, insName, insIntroduce, insEmail, insTel, insProfile, type;
-	private Date insJoinDate, insQuitDate, insBirth;
+	private String insId, insPw, insName, insIntrodce, insEmail, insTel, insProfile, type;
+	private Date insJoinDate, insBirth;
 	private char insQuit;
 
 }
