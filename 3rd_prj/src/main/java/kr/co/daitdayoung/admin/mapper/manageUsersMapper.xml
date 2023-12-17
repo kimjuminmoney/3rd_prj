@@ -62,7 +62,7 @@
 	where ui_id=#{ uiId }
 </update>
 
-<update id="updateIns" parameterType="kr.co.daitdayoung.admin.vo.ManageUsersVO">
+<update id="updateIns" parameterType="kr.co.daitdayoung.admin.vo.ManageUsersVO" >
 	update	instructor
 	set		ins_name=#{ insName }, ins_birth=#{ insBirth }, ins_tel=#{ insTel }
 	where   ins_id=#{ insId }

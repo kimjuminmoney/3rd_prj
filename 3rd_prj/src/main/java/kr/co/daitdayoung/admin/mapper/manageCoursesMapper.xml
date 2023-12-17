@@ -5,7 +5,7 @@
 <mapper namespace="kr.co.daitdayoung.admin.mc">
 
 <select id="selectCourses" resultType="kr.co.daitdayoung.admin.domain.ManageCoursesDomain">
-select c.cou_code, i.ins_name, c.cou_name, c.opendate, c.approve,
+select c.cou_code, i.ins_name, c.cou_name, c.opendate, c.approve, c.final_approve,
 	(select count(*)
 	 from course_registration
 	 where cou_code=c.cou_code) regist_cnt

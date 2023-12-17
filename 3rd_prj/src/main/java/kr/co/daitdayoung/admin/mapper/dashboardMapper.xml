@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.daitdayoung.admin.dash">
+
+<select id="selectRecJoin" resultType="int">
+select distinct (( select count(*)
+				   from user_info
+				   where ui_joindate >= sysdate - interval '7' day) +
+			     ( select count(*)
+			  	   from instructor
+			       where ins_joindate >= sysdate - interval '7' day)) rec_join
+from user_info
+</select>
+
+<select id="selectCoursesCnt" resultType="int">
+select count(*)
+from courses
+</select>
+
+<select id="selectCompCnt" resultType="int">
+select count(*)
+from course_registration
+where completion_status='Y'
+</select>
+
+<select id="selectTotalVisitor" resultType="int">
+select sum(visitors) tot_vis
+from dashboard
+</select>
+
+<select id="selectDailyVisitor" resultType="int">
+select visitors
+from dashboard
+where visitdate >= sysdate - interval '10' day
+order by visitdate asc
+</select>
+
+<select id="selectDailyVisDate" resultType="int">
+select  to_char(visitdate,'DD')
+from dashboard
+where visitdate >= sysdate - interval '10' day
+order by visitdate asc
+</select>
+
+<select id="selectStudentCou" resultType="kr.co.daitdayoung.admin.domain.DashboardDomain">
+select c.cou_name,
+	(select count(*)
+	 from course_registration
+	 where cou_code=c.cou_code) regist_cnt
+from courses c
+where rownum &lt;= 3
+order by regist_cnt desc
+</select>
+
+
+
+</mapper>
+
+
+

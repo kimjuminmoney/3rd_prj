@@ -9,10 +9,8 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class ManageCoursesDomain {
-	
-	private String couCode, insName, couName, approve, finalApprove;
-	private int registCnt;
-	private Date opendate;
-	
+public class DashboardDomain {
+	String couName;
+	int recJoin, coursesCnt, compCnt, totVis, visitors, registCnt;
+	Date visitdate;
 }

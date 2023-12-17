@@ -98,7 +98,6 @@ public class ManageUsersController {
 		muVO.setAdminId(adminId);
 		cnt=mus.modifyIns(muVO);
 		jsonObj.put("cnt", cnt);
-		
 		return jsonObj.toJSONString();
 	}
 	

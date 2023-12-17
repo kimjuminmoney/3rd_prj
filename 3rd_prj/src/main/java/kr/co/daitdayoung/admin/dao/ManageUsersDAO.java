@@ -1,5 +1,8 @@
 package kr.co.daitdayoung.admin.dao;
 
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.apache.ibatis.exceptions.PersistenceException;
@@ -123,20 +126,45 @@ public class ManageUsersDAO {
 		MyBatisHandler mbh = MyBatisHandler.getInstance();
 		
 		SqlSession ss = mbh.getMyBatisHandler(false);
-		
+		System.out.println("sdfsdfds");
 		cnt=ss.update("kr.co.daitdayoung.admin.mu.updateIns", muVO);
+		System.out.println("aaaaaaaaaaaaaaaaaaa");
 		
 		if(cnt==1) {
 			ss.commit();
 		}//end if
-		
+		System.out.println("1111 : "+cnt);
 		mbh.closeHandler(ss);
 		
 		return cnt;
 	}//updateStu
 	
 	public static void main(String[] args) {
-		System.out.println(new ManageUsersDAO().selectDetailIns2("ins1"));
+		//System.out.println(new ManageUsersDAO().selectDetailIns2("ins1"));
+		ManageUsersVO vo = new ManageUsersVO();
+		vo.setAdminId("admin");
+		vo.setInsId("ins5");
+		vo.setInsName("바꿀이름");
+		vo.setInsTel("010-5555-5555");
+		 String dateString = "1995-10-30";
+
+	        // 패턴을 지정하여 SimpleDateFormat 객체 생성
+	        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+	        try {
+	            // String을 Date로 파싱
+	            java.util.Date utilDate = dateFormat.parse(dateString);
+
+	            // java.sql.Date로 변환
+	            java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+
+	            vo.setInsBirth(sqlDate);
+	            System.out.println(vo);
+	            System.out.println(new ManageUsersDAO().updateIns(vo));
+	        } catch (ParseException e) {
+	            e.printStackTrace();
+	        }
+		
 		
 	}
 	
