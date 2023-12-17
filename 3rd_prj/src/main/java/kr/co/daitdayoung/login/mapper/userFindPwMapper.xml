@@ -8,7 +8,7 @@
 	<select id="userPw" resultType="String" parameterType="kr.co.daitdayoung.login.vo.FindPwVO">
 	select ui_pw
 	from user_info
-	where ui_id=#{id} and ui_name= #{name} and ui_birth = #{birth}
+	where ui_id=#{id} and ui_name= #{name} 
 	</select>
 
 

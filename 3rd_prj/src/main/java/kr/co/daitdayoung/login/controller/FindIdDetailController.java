@@ -8,7 +8,7 @@ public class FindIdDetailController {
 	
 	@GetMapping("/login/findIdDetail.do")
 	public String findIdDetail() {
-		return "user/login/findIdDetail";
+		return "login/findIdDetail";
 	}
 
 }

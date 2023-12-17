@@ -50,5 +50,6 @@ public class FindPwController {
 		
 		return "login/findPwDetail";
 	}
+	
 
 }

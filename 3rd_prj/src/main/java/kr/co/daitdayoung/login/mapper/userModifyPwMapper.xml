@@ -5,17 +5,17 @@
 <mapper namespace="kr.co.daitdayoung.login">
 
 
-	<update id="updateUserPw"  parameterType="kr.co.daitdayoung.login.vo.ModifyUserPwVO">
+	<update id="updateUserPw"  parameterType="kr.co.daitdayoung.login.vo.ModifyPwVO">
 	update user_info
-	from ui_pw
-	where ui_id=#{ id } and ui_birth = #{ birth }
+	set ui_pw
+	where ui_id=#{ id } and ui_pw = #{ pw }
 	</update>
 	
-	<update id="updateInsPw"  parameterType="kr.co.daitdayoung.login.vo.ModifyInsPwVO">
+<!-- 	<update id="updateInsPw"  parameterType="kr.co.daitdayoung.login.vo.ModifyInsPwVO">
 	update INSTRUCTOR
 	from ins_pw
 	where ins_id=#{ id } and ins_birth = #{ birth }
-	</update>
+	</update> -->
 	
 
 

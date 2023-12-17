@@ -8,6 +8,6 @@ public class insPwChkController {
 
 	@GetMapping("/login/insPwChk.do")
 	public  String insPwChk() {
-		return "user/login/insPwChk";
+		return "login/insPwChk";
 	}
 }

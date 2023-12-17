@@ -455,17 +455,23 @@ body#content .page_header .reverse_wrap .ick .checkbox.checked,
 			                <input type="hidden" name="check_id" value="-1"/>
 			                <p id="msgBox"></p>
 			            </dl>
-			            <dl>
-			                <dt>비밀번호</dt>
-			                 <dd><input type="password"id="insPw" name="insPw" maxlength="16" placeholder="" autocomplete="off" title="비밀번호"/><span></span></dd>
-			                <p></p>
-			            </dl>
-			            <p id="PwDefaultMsg">문자, 숫자, 기호를 조합하여 10~15자로 입력해주세요.</p>
-			            <dl>
-			                <dt>비밀번호 재확인</dt>
-			                <dd><input type="password" id="insPw2" name="insPw2" maxlength="15" placeholder="" autocomplete="off" title="비밀번호 재확인"/><span></span></dd>
-			                <p></p>
-			            </dl>
+			           <dl>
+						    <dt>비밀번호</dt>
+						    <dd>
+						        <input type="password" id="insPw" name="insPw" maxlength="16" placeholder="" autocomplete="off" title="비밀번호" oninput="validatePassword()" /><span></span>
+						        <p></p>
+						    </dd>
+						</dl>
+						<p id="PwDefaultMsg">문자, 숫자, 기호를 조합하여 10~15자로 입력해주세요.</p>
+						
+						<dl>
+						    <dt>비밀번호 재확인</dt>
+						    <dd>
+						        <input type="password" id="insPw2" name="insPw2" maxlength="15" placeholder="" autocomplete="off" title="비밀번호 재확인" oninput="comparePasswords()" /><span></span>
+						        <p></p>
+						    </dd>
+						</dl>
+						<p id="PwMismatchMsg" style="color: red; display: none;">비밀번호가 일치하지 않습니다.</p>
 			            <dl>
 			                <dt>이름</dt>
 			                <dd><input type="text" id="insName" name="insName" maxlength="25" placeholder="" autocomplete="off" title="이름"/><span></span></dd>
@@ -483,14 +489,21 @@ body#content .page_header .reverse_wrap .ick .checkbox.checked,
 			            </dl>
 			          <dl class="birth" id="insbirth">
 						    <dt>생년월일</dt>
-						    <dd><input type="text" name="insBirth" id="insBirth" maxlength="25" placeholder="" autocomplete="off" title="생년월일"/><span></span></dd>
+						    <dd>
+						        <input type="text" name="insBirth" id="insBirth" maxlength="10" placeholder="yyyy-mm-dd" autocomplete="off" title="생년월일" oninput="formatBirthday()" />
+						        <span></span>
+						    </dd>
 						</dl>
-						 <div id="membership" class=" step1">
-						   <dl class="phone">
-			                <dt>휴대폰</dt>
-			                <dd> <input type="text" name="insTel" id="insTel" autocomplete="off" title="휴대폰" placeholder='‘-’ 없이 입력' /><span></span><label for="phone"></label></dd>
-			                <p></p>
-			            </dl>
+						<p id="BirthdayMsg">올바른 생년월일 형식을 입력하세요 (yyyy-mm-dd).</p>
+						  <dl class="phone">
+						    <dt>휴대폰</dt>
+						    <dd>
+						        <input type="text" name="insTel" id="insTel" autocomplete="off" title="휴대폰" placeholder="010-0000-0000" oninput="formatPhoneNumber()" />
+						        <span></span>
+						        <label for="phone"></label>
+						    </dd>
+						    <p></p>
+						</dl>
 						<dl class="insProfile">
 						    <dt>사진등록</dt>
 						    <dd>
@@ -645,6 +658,70 @@ function previewImage() {
         // 선택한 이미지 파일을 읽어옴
         reader.readAsDataURL(fileInput.files[0]);
     }
+}
+function validatePassword() {
+    var password = document.getElementById('insPw').value;
+    var passwordMsg = document.getElementById('PwDefaultMsg');
+
+    // 비밀번호 조건 검증
+    if (/^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{10,15}$/.test(password)) {
+        // 조건에 부합하면 메시지를 숨김
+        passwordMsg.style.display = 'none';
+    } else {
+        // 조건에 부합하지 않으면 메시지를 표시
+        passwordMsg.style.display = 'block';
+    }
+}
+
+function comparePasswords() {
+    var password1 = document.getElementById('insPw').value;
+    var password2 = document.getElementById('insPw2').value;
+    var mismatchMsg = document.getElementById('PwMismatchMsg');
+
+    // 비밀번호와 비밀번호 재확인 값이 다르면 메시지 표시
+    if (password1 !== password2) {
+        mismatchMsg.style.display = 'block';
+    } else {
+        mismatchMsg.style.display = 'none';
+    }
+}
+function formatBirthday() {
+    var birthdayInput = document.getElementById('insBirth');
+    var birthdayValue = birthdayInput.value;
+    var birthdayMsg = document.getElementById('BirthdayMsg');
+
+    // 입력 값에서 숫자만 추출
+    var numericValue = birthdayValue.replace(/\D/g, '');
+
+    // yyyy-mm-dd 형식으로 포맷
+    if (numericValue.length >= 4) {
+        numericValue = numericValue.substring(0, 4) + '-' + numericValue.substring(4, 6) + '-' + numericValue.substring(6, 8);
+    }
+
+    // 포맷된 값을 다시 입력 필드에 설정
+    birthdayInput.value = numericValue;
+
+    // 생년월일 형식 검증
+    if (/^\d{4}-\d{2}-\d{2}$/.test(numericValue)) {
+        birthdayMsg.style.display = 'none';
+    } else {
+        birthdayMsg.style.display = 'block';
+    }
+}
+function formatPhoneNumber() {
+    var phoneNumberInput = document.getElementById('insTel');
+    var phoneNumberValue = phoneNumberInput.value;
+
+    // 입력 값에서 숫자만 추출
+    var numericValue = phoneNumberValue.replace(/\D/g, '');
+
+    // 010-0000-0000 형식으로 포맷
+    if (numericValue.length >= 10) {
+        numericValue = '010-' + numericValue.substring(3, 7) + '-' + numericValue.substring(7, 11);
+    }
+
+    // 포맷된 값을 다시 입력 필드에 설정
+    phoneNumberInput.value = numericValue;
 }
 
 </script>

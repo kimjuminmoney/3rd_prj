@@ -8,6 +8,6 @@ public class insModifyIdentifyController {
 
 	@GetMapping("/login/modifyIdentify.do")
 	public  String modifyIdentify() {
-		return "user/login/modifyIdentify";
+		return "login/modifyIdentify";
 	}
 }

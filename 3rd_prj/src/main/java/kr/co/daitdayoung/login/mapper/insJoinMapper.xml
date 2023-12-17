@@ -6,8 +6,8 @@
 
 
 	<insert id="insJoin"  parameterType="kr.co.daitdayoung.login.vo.InsJoinVO">
-	 insert into INSTRUCTOR(ins_id, ins_pw, ins_name,  ins_introduce, ins_email, ins_birth, ins_tel, ins_profile)
-		 values(#{insId}, #{insPw}, #{insName}, #{insIntroduce}, #{insEmail}, #{insBirth}, #{insTel}, #{insProfile})
+	 insert into INSTRUCTOR(ins_id, ins_pw, ins_name,  ins_introdce, ins_email, ins_birth, ins_tel, ins_profile)
+		 values(#{insId}, #{insPw}, #{insName}, #{insIntrodce}, #{insEmail}, #{insBirth}, #{insTel}, #{insProfile})
 	</insert>
 	
 

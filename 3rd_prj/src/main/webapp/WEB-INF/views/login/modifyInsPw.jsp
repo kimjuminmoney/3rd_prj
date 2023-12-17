@@ -693,7 +693,7 @@ function checkNumber(){
 <section class="page modifyPw" id="_login">
     <div class="login_method_email">
     <h2 class="tit">비밀번호 변경하기</h2>
-        <form role="form" id="modifyPw_form" action="doModifyPw.do" method="post">
+        <form role="form" id="modifyPw_form" action="doModifyInsPw.do" method="post">
             <fieldset>
                 <legend class="sr_only">비밀번호 변경하기</legend>
                 
@@ -702,11 +702,11 @@ function checkNumber(){
                 <div class="ipt_group">
                     <label class="it stretch _label">
                         <span class="ph _login_email_addr" style="display: none;">아이디</span>
-                        <input type="text" id="id" name="id" class="_input" placeholder="아이디를 입력해주세요" >
+                        <input type="text" id="insId" name="insId" class="_input" placeholder="아이디를 입력해주세요" >
                     </label>
                     <label class="it stretch _label">
                         <span class="ph _login_email_addr" style="display: none;">비밀번호</span>
-                        <input type="text" id="pw" name="pw" class="_input" placeholder="기존 비밀번호를 입력해주세요" >
+                        <input type="text" id="insPw" name="insPw" class="_input" placeholder="기존 비밀번호를 입력해주세요" >
                     </label>
                     <label class="it stretch _label _password">
                         <span class="ph _login_password" style="display: none;">새로운 비밀번호를 입력해주세요</span>

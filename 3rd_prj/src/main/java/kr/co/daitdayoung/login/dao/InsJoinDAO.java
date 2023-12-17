@@ -12,7 +12,7 @@ import kr.co.daitdayoung.login.vo.UserJoinVO;
 public class InsJoinDAO {
 	private static String configPath="ke/co/daitdayoung/dao/mybatis-config.xml";
 	
-	public int insertUser(InsJoinVO ijVO)throws PersistenceException{
+	public int insertIns(InsJoinVO ijVO)throws PersistenceException{
 		int result = 0;
 		MyBatisHandler mbh = MyBatisHandler.getInstance();
 		SqlSession ss = mbh.getMyBatisHandler(false);

@@ -705,10 +705,6 @@ function checkNumber(){
                         <span class="ph _login_email_addr" style="display: none;">이름</span>
                         <input type="text" id="name" name="name" class="_input" placeholder="이름을 입력해주세요" >
                     </label>
-                    <label class="it stretch _label _password">
-                        <span class="ph _login_password" style="display: none;">생년월일</span>
-                        <input type="text" id="birth" name="birth" class="_input" data-global-placeholder="._login_password" placeholder="생일을 입력해주세요 예시 :1990-01-01" >
-                    </label><br/>
                      <label for="inputPassword" id="type">회원유형</label>
                      <input type="radio" value="user" id="type" name="type" />학생
                      <input type="radio" value="ins" id="type" name="type" />강사<br/>

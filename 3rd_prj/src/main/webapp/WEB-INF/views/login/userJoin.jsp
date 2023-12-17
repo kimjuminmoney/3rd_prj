@@ -495,22 +495,28 @@ body#content .page_header .reverse_wrap .ick .checkbox.checked,
 			                <dd><input type="text" id="uiId" name="uiId" maxlength="25" placeholder="" autocomplete="off" title="아이디" /><span></span></dd>
 			                <input type="hidden" name="check_id" value="-1"/>
 			            </dl>
-			            <dl>
-			                <dt>비밀번호</dt>
-			                <dd><input type="password"id="uiPw" name="uiPw" maxlength="16" placeholder="" autocomplete="off" title="비밀번호"/><span></span></dd>
-			            </dl>
-			            <p id="PwDefaultMsg">문자, 숫자, 기호를 조합하여 10~15자로 입력해주세요.</p>
-			            <dl>
-			                <dt>비밀번호 재확인</dt>
-			                <dd><input type="password" id="uiPw2" name="uiPw2" maxlength="15" placeholder="" autocomplete="off" title="비밀번호 재확인"/><span></span></dd>
-			            </dl>
+			           <dl>
+						    <dt>비밀번호</dt>
+						    <dd>
+						        <input type="password" id="uiPw" name="uiPw" maxlength="16" placeholder="" autocomplete="off" title="비밀번호" oninput="validatePassword()" /><span></span>
+						    </dd>
+						</dl>
+						<p id="PwDefaultMsg">문자, 숫자, 기호를 조합하여 10~15자로 입력해주세요.</p>
+						
+						<dl>
+						    <dt>비밀번호 재확인</dt>
+						    <dd>
+						        <input type="password" id="uiPw2" name="uiPw2" maxlength="15" placeholder="" autocomplete="off" title="비밀번호 재확인" oninput="comparePasswords()" /><span></span>
+						    </dd>
+						</dl>
+						<p id="PwMismatchMsg" style="color: red; display: none;">비밀번호가 일치하지 않습니다.</p>
 			            <dl>
 			                <dt>이름</dt>
 			                <dd><input type="text" name="uiName" id="uiName" maxlength="25" placeholder="" autocomplete="off" title="이름"/><span></span></dd>
 			            </dl>
 			            <dl class="birth" id="ubirth">
 			                <dt>생년월일</dt>
-			                <dd><input type="text" name="uiBirth" id="uiBirth"  maxlength="25" placeholder="" autocomplete="off" title="생년월일"/><span></span></dd>
+			                <dd>  <input type="text" name="uiBirth" id="uiBirth" maxlength="10" placeholder="yyyy-mm-dd" autocomplete="off" title="생년월일" required /><span></span></dd>
 			            </dl>
 						 <div id="membership" class=" step1">
 	        <div class="terms_wrap">
@@ -596,6 +602,104 @@ window.onload = function() {
         });
     });
 };
+var uiBirthInput = document.getElementById('uiBirth');
+
+uiBirthInput.addEventListener('input', function () {
+    // 입력 값에서 하이픈(-)을 제거
+    var valueWithoutHyphen = this.value.replace(/-/g, '');
+    
+    // 4글자 다음에 하이픈(-) 추가
+    if (valueWithoutHyphen.length === 4) {
+        this.value = valueWithoutHyphen + '-';
+    }
+});
+var uiBirthInput = document.getElementById('uiBirth');
+
+uiBirthInput.addEventListener('input', function () {
+    // 입력 값에서 숫자만 추출
+    var numericValue = this.value.replace(/\D/g, '');
+
+    // 숫자 값을 다시 형식에 맞게 설정
+    if (numericValue.length >= 4 && numericValue.length < 6) {
+        this.value = numericValue.substring(0, 4) + '-' + numericValue.substring(4);
+    } else if (numericValue.length >= 6) {
+        this.value = numericValue.substring(0, 4) + '-' + numericValue.substring(4, 6) + '-' + numericValue.substring(6);
+    }
+});
+
+var uiBirthInput = document.getElementById('uiBirth');
+
+uiBirthInput.addEventListener('input', function () {
+    // 입력 값에서 숫자만 추출
+    var numericValue = this.value.replace(/\D/g, '');
+
+    // 입력 값이 최소 4자리여야 함
+    if (numericValue.length >= 4) {
+        var year = numericValue.substring(0, 4);
+
+        // 입력 값의 첫 4글자가 "19"로 시작하도록 함
+        if (!year.startsWith('19')) {
+            year = '19' + year.substring(2);
+        }
+
+        var month = numericValue.substring(4, 6);
+
+        // 두 번째 두글자는 최대 12여야 함
+        if (parseInt(month) > 12) {
+            month = '12';
+        }
+
+        var day = numericValue.substring(6, 8);
+
+        // 마지막 2글자는 최대 31여야 함
+        if (parseInt(day) > 31) {
+            day = '31';
+        }
+
+        // 값을 다시 형식에 맞게 설정
+        this.value = year + '-' + month + '-' + day;
+    }
+});
+function validatePassword() {
+    var password = document.getElementById('uiPw').value;
+    var passwordMsg = document.getElementById('PwDefaultMsg');
+
+    // 비밀번호 조건 검증
+    if (/^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{10,15}$/.test(password)) {
+        // 조건에 부합하면 메시지를 숨김
+        passwordMsg.style.display = 'none';
+    } else {
+        // 조건에 부합하지 않으면 메시지를 표시
+        passwordMsg.style.display = 'block';
+    }
+}
+function validatePassword() {
+    var password = document.getElementById('uiPw').value;
+    var passwordMsg = document.getElementById('PwDefaultMsg');
+
+    // 비밀번호 조건 검증
+    if (/^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{10,15}$/.test(password)) {
+        // 조건에 부합하면 메시지를 숨김
+        passwordMsg.style.display = 'none';
+    } else {
+        // 조건에 부합하지 않으면 메시지를 표시
+        passwordMsg.style.display = 'block';
+    }
+}
+
+function comparePasswords() {
+    var password1 = document.getElementById('uiPw').value;
+    var password2 = document.getElementById('uiPw2').value;
+    var mismatchMsg = document.getElementById('PwMismatchMsg');
+
+    // 비밀번호와 비밀번호 재확인 값이 다르면 메시지 표시
+    if (password1 !== password2) {
+        mismatchMsg.style.display = 'block';
+    } else {
+        mismatchMsg.style.display = 'none';
+    }
+}
+
 </script>
 		
     </div>

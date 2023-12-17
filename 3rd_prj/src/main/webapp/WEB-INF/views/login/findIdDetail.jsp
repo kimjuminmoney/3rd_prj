@@ -542,7 +542,7 @@ function checkNumber(){
         <p class="error_desc">
         <c:choose>
         <c:when test="${ flag }">
-        회원의 아이디는 ${ id }입니다.
+        회원님의 아이디는 ${ id }입니다.
         </c:when>
         <c:otherwise>
         회원정보가 없습니다.<br/><br/>
