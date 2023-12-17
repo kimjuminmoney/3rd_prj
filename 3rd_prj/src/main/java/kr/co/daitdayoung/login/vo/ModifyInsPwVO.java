@@ -9,7 +9,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class ModifyPwVO {
+public class ModifyInsPwVO {
 	private String  uiId, insId, id, uiPw, insPw, npw;
 
 }
