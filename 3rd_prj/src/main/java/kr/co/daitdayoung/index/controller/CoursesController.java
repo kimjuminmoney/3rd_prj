@@ -25,13 +25,10 @@ public class CoursesController {
 	
 	@RequestMapping(value = "/courses.do", method = RequestMethod.GET)
 	public String courses(Model model) {
+
+		List<CoursesDomain> LCList = cs.searchLeftCat();
 		
-		/*
-		 * List<CoursesDomain> LCList = cs.searchLeftCat(); List<CoursesDomain> CCList =
-		 * cs.searchCouCat();
-		 * 
-		 * model.addAttribute("LCList", LCList); model.addAttribute("CCList",CCList);
-		 */
+		model.addAttribute("LCList",LCList);
 		
 		return "/courses/courses";
 	}

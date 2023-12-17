@@ -21,6 +21,7 @@
 	font: #454545;
 }
 
+
 </style>
 
 <!-- 강좌 목록의 죄측 메뉴 서랍, 중앙 목록 리스트 -->    
@@ -33,23 +34,21 @@
 
 
 <div class="accordion" id="accordionExample">
-  <div class="accordion-item" style="width: 252px; height: 48px; text-align: center; color: #454545;">
-
-    <h2 class="accordion-header" style="width: 252px; height: 48px; text-align: center; color: #454545;">
-    
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-        나와아아아
+  <div class="accordion-item" style="width: 252px; height: 48px; text-align: left; color: #454545;">
+	<h2 class="accordion-header" style="width: 252px; height: 48px; ">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" 
+      aria-expanded="true" aria-controls="collapseOne" style="color: #fff; background-color: #454545;">
+      대분류
       </button>
     </h2>
-    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-      아아아아아아앙악
+    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample" style="font: #666">
+      <div class="accordion-body" style="color: #454545; font-style: ">
+      소분류
       </div>
     </div>
   </div>
- 
-  
 </div>
+
     
     
     
@@ -82,7 +81,7 @@
 
             <div class="lecture_list_area">
             <div id="categoryTitle" class="lecture_list_title" style="">
-            <h2 class="h_title">전체 (342)</h2>
+            <h2 class="h_title">전체</h2>
             </div>
             
 	<ul class="lecture_list" id="course">
@@ -97,7 +96,7 @@
 	        
 	    </span>
 	        
-	        <c:forEach var="cou" items="${ indexMC.list }"> 
+	       <%--  <c:forEach var="cou" items="${ indexMC.list }">  --%>
 	        <dl class="lecture_info">
 	            <dt>
 	                
@@ -118,10 +117,10 @@
 	        <div class="student"><span class="ic_student">수강생 수</span>88</div>
 	    </div>
 	    
-	        <a href="/afternoonclass2" class="lnk_lecture">
+	        <a href="courses_detail.do" class="lnk_lecture">
 	            <span class="blind">강좌 바로가기</span>
 	        </a>
-	        </c:forEach>
+	       <%--  </c:forEach> --%>
 	        
 	    </div>
 	</li>

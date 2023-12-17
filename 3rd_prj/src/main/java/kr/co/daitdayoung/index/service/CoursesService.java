@@ -7,8 +7,6 @@ import org.springframework.stereotype.Component;
 
 import kr.co.daitdayoung.index.dao.CoursesDAO;
 import kr.co.daitdayoung.index.domain.CoursesDomain;
-import kr.co.daitdayoung.index.domain.IndexDomain;
-import kr.co.daitdayoung.index.domain.NoticeDomain;
 
 @Component
 public class CoursesService {
@@ -16,15 +14,12 @@ public class CoursesService {
 	@Autowired
 	private CoursesDAO cDAO;
 	
-	/*
-	 * public List<CoursesDomain> searchLeftCat() { List<CoursesDomain> list =
-	 * cDAO.selectLeftCat(); return list;
-	 * 
-	 * } //searchInquiry
-	 * 
-	 * public List<CoursesDomain> searchCouCat() { List<CoursesDomain> list =
-	 * cDAO.selectCouCat(); return list; }
-	 */
+	public List<CoursesDomain> searchLeftCat( ) {//전체 대분류
+		
+		 List<CoursesDomain> list = cDAO.selectLeftCat();
+		 return list;
+	} //searchLeftCat
+
 	 
 
 }

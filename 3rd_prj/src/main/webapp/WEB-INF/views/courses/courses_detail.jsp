@@ -5,8 +5,33 @@
 <head>
 <jsp:include page="../index_nav/courses_detail_head.jsp"/>
 </head>
- 
+
+ <style type="text/css">
+    .u_cbox .u_cbox_content_layer {
+        position: absolute;
+        left: 0;
+        bottom: auto;
+        width: 100%;
+        text-align: center;
+        z-index: 10;
+    }
+
+    .pzp.pzp-pc {
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    .pzp-pc-seeking-preview__time {
+        left: 0;
+    }
+
+    .pzp-pc--fullscreen .pzp-pc-viewmode-button {
+        display: none !important;
+    }
+</style>
+
 <script type="text/javascript">
+
 </script> 
     
     <div id="container">
@@ -145,34 +170,7 @@
             <input type="hidden" id="__MATERIALS" data-selector="materials" value="[{&quot;id&quot;:3364772,&quot;text&quot;:&quot;<p><br></p>&quot;,&quot;isShowMaterial&quot;:false,&quot;lectureId&quot;:0,&quot;isUploading&quot;:false,&quot;orgLectureId&quot;:0,&quot;isCode&quot;:false,&quot;courseId&quot;:67376,&quot;type&quot;:&quot;Text&quot;,&quot;isLoaded&quot;:true}]">
 <input type="hidden" id="__COURSENAME" data-selector="courseName" value="GPTSW">
 <script src="/static/js/vendor/prismplayer-pc/dist/index.js?231130_26709717"></script>
-<link rel="stylesheet" type="text/css" href="/static/js/vendor/prismplayer-pc/dist/main.css?231130_26709717">
 <script src="/static/js/src/entries/common/_material.entry.browserfied.min.js?231130_26709717"></script>
-
-
-<style type="text/css">
-    .u_cbox .u_cbox_content_layer {
-        position: absolute;
-        left: 0;
-        bottom: auto;
-        width: 100%;
-        text-align: center;
-        z-index: 10;
-    }
-
-    .pzp.pzp-pc {
-        width: 100% !important;
-        height: 100% !important;
-    }
-
-    .pzp-pc-seeking-preview__time {
-        left: 0;
-    }
-
-    .pzp-pc--fullscreen .pzp-pc-viewmode-button {
-        display: none !important;
-    }
-</style>
-
 <script src="https://www.edwith.org/static/js/plugins/ntsYoutubeConnecter.1.0.min.js"></script>
 
 	<article class="material_view material_text"><!-- #breadcrumb:item/template/material.text.html -->

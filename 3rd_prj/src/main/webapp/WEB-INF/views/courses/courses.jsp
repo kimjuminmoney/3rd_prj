@@ -11,11 +11,12 @@
      <jsp:include page="../index_nav/index_nav.jsp"/>
       
 	
+</div>
+
 <footer id="footer">
 <jsp:include page="../index_nav/index_in_foot.jsp"></jsp:include>
 </footer>
 
-</div>
 
 
 
