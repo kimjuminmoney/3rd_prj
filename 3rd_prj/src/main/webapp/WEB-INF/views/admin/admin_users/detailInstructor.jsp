@@ -35,7 +35,6 @@
 <script type="text/javascript">
 $(function(){
 	$("#modBtn").click(function(){
-		alert("123123");
 		   var param={insName: $("#nameFrm").val(),
 				   	insBirth: $("#birthFrm").val(),
 				   	insTel: $("#telFrm").val(),

@@ -33,12 +33,42 @@
 <script type="text/javascript">
 
 $(function(){
-   	var text="1"
-	$.each(jsonObj.mid,function(iaskdfljskf){
-	 
-	   
-   })
-	   $("#output").html=  
+	$("#inqType").change(function(){
+    		var data=$("#inqType").val();
+    		  // AJAX 요청을 수행
+            $.ajax({
+                url: "showInquery.do",
+                type: "GET", // POST 방식을 사용해 데이터를 서버로 보냅니다.
+                data: "itCode="+data,
+                dataType: "json",
+                error: function(xhr){
+                    alert("서버에서 문제가 발생하였습니다.");
+                    console.log(xhr.status);
+                },
+                success: function(jsonObj){
+                	var tbody="<tr>"
+                	$.each(jsonObj.jsonArr,function(i, jsonInq ){
+	                	var inqAnswer = "${ not empty jsonInq.inqAnswer?'Y':'N'}";
+	                	tbody+="<td>"+(i+1)+"</td>";
+                		tbody+="<td>"+jsonInq.itName+"</td>";
+                		tbody+="<td>"+
+                				"<a href='detailInquery.do?inqCode="+
+                				jsonInq.inqCode+
+                				"&answerStat="+inqAnswer+"'>"+
+                				jsonInq.inqTitle +
+                				"</a></td>";
+                		tbody+=	"<td>"+jsonInq.uiId+"</td>";	
+                		tbody+=	"<td>"+jsonInq.inqDate+"</td>";	
+                		tbody+=	"<td id='answerStat'>"+inqAnswer+"</td>";	
+                		tbody+= "</tr>"
+                		
+                	});//each
+                		$("#tbodyInq").html(tbody);
+                }
+                    
+            });//ajax
+    		
+    });//change
 });//ready
 </script>
 
@@ -71,8 +101,8 @@ $(function(){
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-							<select class="form-select" aria-label="Default select example">
-							  	<option selected>분류</option>
+							<select id="inqType" class="form-select" aria-label="Default select example">
+							  	<option selected value="">분류</option>
 							 	<c:forEach var="inqType" items="${ requestScope.inqTypeList }">
 								<option value="${ inqType.itCode }"><c:out value="${ inqType.itName }"/></option>
 								</c:forEach>
@@ -92,10 +122,11 @@ $(function(){
                                         </tr>
                                     </thead>
 
-                                    <tbody>
-                                    <c:forEach var="inquiry" items="${ requestScope.inquiryList }">
+                                    <tbody id="tbodyInq">
+                                    
+                                    <c:forEach var="inquiry" items="${ requestScope.inquiryList }" varStatus="i">
                                         <tr>
-                                            <td><c:out value="${ inquiry.inqCode }"/></td>
+                                            <td><c:out value="${ i.count }"/></td>
                                             <td><c:out value="${ inquiry.itName }"/></td>
                                             <td>
                                             	<a href="detailInquery.do?inqCode=${ inquiry.inqCode }&answerStat=${ not empty inquiry.inqAnswer ?'Y':'N'}">

@@ -14,8 +14,16 @@ session.setAttribute("adminId", "admin");
 	
 </style>
 <script type="text/javascript">
-$(function(){
+   var visitor = ${dayVis};
+   var visDate = ${dayVisDate};
+   var couNameList = {couNameList};
+   var stuCnt = ${stuCnt};
    
+$(function(){
+	$("#btn").click(function(){
+		console.log(couNameList);
+		alert(stuCnt);
+	});//click
 });//ready
 </script>
 
@@ -46,6 +54,7 @@ $(function(){
                         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                     </div>
+                    <input type="button" id="btn" value="test"/>
 
                     <!-- Content Row -->
                     <div class="row">
@@ -58,7 +67,7 @@ $(function(){
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 누적 접속자수</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><c:out value="${ requestScope.totVis }"/>명</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -76,7 +85,7 @@ $(function(){
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 신규 가입자수</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><c:out value="${ requestScope.recJoin }"/>명</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -94,7 +103,7 @@ $(function(){
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
                                                 누적 강좌수</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><c:out value="${ requestScope.coursesCnt }"/>개</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -112,7 +121,7 @@ $(function(){
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                                 누적 수료자수</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><c:out value="${ requestScope.compCnt }"/>명</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>

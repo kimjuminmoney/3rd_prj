@@ -59,11 +59,11 @@ $(function(){
 	                <hr>
 	                <p style="color: #5A5C69;"><c:out value="${ requestScope.ciContent }"/></p>
                 </div>
-                <div id="addInquery" style="width:1000px; margin: 0 auto; margin-top: 50px">
+                <div id="ciAnswer" style="width:1000px; margin: 0 auto; margin-top: 50px">
 	                <hr style="background-color:#1CC88A;">
         		<!--<h6 id="inqueryAdd" class="h3 mb-4 text-gray-800" style="font-size: 20px">답변</h6> -->        	
-        			<div id="addInqueryFrm" class="form-floating" style="margin-top: 50px">
-        				<h6 id="inqueryTitle" class="h3 mb-4 text-gray-800" style="font-size: 20px">답변</h6>
+        			<div id="ciAnswerFrm" class="form-floating" style="margin-top: 50px">
+        				<h6 id="ciTitle" class="h3 mb-4 text-gray-800" style="font-size: 20px">답변</h6>
 	        			<table>
 						<tr>
 							<td style="border-right: 1px solid #DFE0E2; padding-right: 10px"><c:out value="${ requestScope.insName }"/></td>

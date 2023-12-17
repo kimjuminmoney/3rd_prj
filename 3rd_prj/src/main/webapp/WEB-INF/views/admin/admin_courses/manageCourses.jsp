@@ -15,7 +15,7 @@
 		width: 50px; /* 첫 번째 열의 너비 설정 */
 	}
 	.table th:nth-child(2) {
-		width: 1000px; /* 첫 번째 열의 너비 설정 */
+		width: 800px; /* 첫 번째 열의 너비 설정 */
 	}
 	.table th:nth-child(3) {
 		width: 100px; /* 첫 번째 열의 너비 설정 */
@@ -27,7 +27,10 @@
 		width: 100px; /* 첫 번째 열의 너비 설정 */
 	}
 	.table th:nth-child(6) {
-		width: 100px; /* 첫 번째 열의 너비 설정 */
+		width: 150px; /* 첫 번째 열의 너비 설정 */
+	}
+	.table th:nth-child(7) {
+		width: 150px; /* 첫 번째 열의 너비 설정 */
 	}
 </style>
 <script type="text/javascript">
@@ -76,7 +79,8 @@ $(function(){
                                             <th>강사명</th>
                                             <th>개설일자</th>
                                             <th>신청인원</th>
-                                            <th>승인여부</th>
+                                            <th>1차승인여부</th>
+                                            <th>최종승인여부</th>
                                         </tr>
                                     </thead>
 
@@ -89,6 +93,7 @@ $(function(){
                                             <td><c:out value="${ course.opendate }"/></td>
                                             <td><c:out value="${ course.registCnt }"/></td>
                                             <td><c:out value="${ course.approve }"/></td>
+                                            <td><c:out value="${ course.finalApprove }"/></td>
                                         </tr>
                                     	</c:forEach>
                                     </tbody>
