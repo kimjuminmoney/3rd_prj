@@ -410,9 +410,8 @@ function checkNumber(){
                      <input type="radio" value="ins" id="type" name="type" />강사<br/>
                     <button type="submit" id="submit" class="btn btn_type1 clr" data-btn-submit>아이디 찾기</button>
                     <div class="btm">
-                        <a href="/neoid/pwdResetSendmail">비밀번호 재설정</a>
                         
-                        <a href="/neoid/emailJoin">회원가입</a>
+                        <a href="http://localhost/3rd_prj2_test/login/selectJoin.do">회원가입</a>
                         
                     </div>
                 </div>

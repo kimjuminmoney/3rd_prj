@@ -687,21 +687,37 @@ function checkNumber(){
 			</div>
 		</div>
 	
-		<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-   <div class="section section_find">
-				<div class="box6">
-				  <h2 class="tit2">비밀번호 변경</h2><br/><br/>
-					<div id="div_new_pw" class="input_box">	
-						<label id="lb_new_pw" for="new_pw" style="">새로운 비밀번호</label>	
-						</div>
-					<div id="div_new_pw" class="input_box">	
-						<label id="lb_new_pw" for="new_pw" style="">비밀번호 확인</label>	
-						</div>
-
-				</div>
-				<div class="btn_area2">
-				     <button type="submit" id="submit" class="btn btn_type1 clr" data-btn-submit>비밀번호 변경하기</button>
-				</div>
+	<div id="container">
+		<div id="content">
+   <!-- #breadcrumb:login/emailLogin.gsp-->
+<section class="page modifyPw" id="_login">
+    <div class="login_method_email">
+    <h2 class="tit">비밀번호 변경하기</h2>
+        <form role="form" id="modifyPw_form" action="doModifyPw.do" method="post">
+            <fieldset>
+                <legend class="sr_only">비밀번호 변경하기</legend>
+                
+                <input type="hidden" id="returnUrl" name="returnUrl" value="">
+                
+                <div class="ipt_group">
+                    <label class="it stretch _label">
+                        <span class="ph _login_email_addr" style="display: none;">아이디</span>
+                        <input type="text" id="id" name="id" class="_input" placeholder="아이디를 입력해주세요" >
+                    </label>
+                    <label class="it stretch _label">
+                        <span class="ph _login_email_addr" style="display: none;">비밀번호</span>
+                        <input type="text" id="pw" name="pw" class="_input" placeholder="기존 비밀번호를 입력해주세요" >
+                    </label>
+                    <label class="it stretch _label _password">
+                        <span class="ph _login_password" style="display: none;">새로운 비밀번호를 입력해주세요</span>
+                        <input type="text" id="nPw" name="nPw" class="_input" data-global-placeholder="._login_password" placeholder="새로운 비밀번호를 입력해주세요">
+                    </label><br/>
+                    <button type="submit" id="submit" class="btn btn_type1 clr" data-btn-submit>비밀번호변경하기</button>
+                </div>
+            </fieldset>
+		</form>
+    </div>
+</section>
 
 <script type="text/javascript">
 	document.getElementById('divShowBlock').style.display="none";	

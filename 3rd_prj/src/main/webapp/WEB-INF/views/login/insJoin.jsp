@@ -75,6 +75,14 @@
     
     <!-- // Google Tag Manager -->
 <style type="text/css">
+ #insIntrodce {
+    font-size: 24px; /* 원하는 글꼴 크기로 조절하세요. */
+    width: 100%; /* 원하는 너비로 조절하세요. */
+}
+.birth {
+        width: 1300px; 
+    }
+
 
 </style>
 
@@ -463,33 +471,38 @@ body#content .page_header .reverse_wrap .ick .checkbox.checked,
 			                <dd><input type="text" id="insName" name="insName" maxlength="25" placeholder="" autocomplete="off" title="이름"/><span></span></dd>
 			                <p></p>
 			            </dl>
-			          <dl class="birth" id="insbirth">
-						    <dt>생년월일</dt>
-						    <dd><input type="text" name="insBirth" id="insBirth" maxlength="25" placeholder="" autocomplete="off" title="생년월일"/><span></span></dd>
-						</dl>
-						 <div id="membership" class=" step1">
-						 
-						<dl class="phone">
-						    <dt>사진등록</dt>
-						    <dd>
-						        <input type="file" name="insProfile" id="img" autocomplete="off" title="사진" onchange="previewImage();" />
-						        <label for="photo"></label>
-						    </dd>
-						    <p></p>
-						    <img id="imagePreview" style="max-width: 500px; display: none;" />
-						</dl>
-
-						  <dl class="phone">
-			                <dt>휴대폰</dt>
-			                <dd> <input type="text" name="insTel" id="insTel" autocomplete="off" title="휴대폰" placeholder='‘-’ 없이 입력' /><span></span><label for="phone"></label></dd>
-			                <p></p>
-			            </dl>
+			                <dl class="intorduce">
+		                <dt>내용</dt>
+		                <dd><textarea placeholder="내용을 입력하세요." name="insIntrodce" id="insIntrodce"></textarea></dd>
+		         		   </dl>
 			            <dl class="email">
 			                <dt>이메일</dt>
 			                <dd><input type="text" name="insEmail" id="insEmail" autocomplete="off" title="이메일"/><span></span></dd>
 			                <input type="hidden" name="check_email" value="-1"/>
 			                <p></p>
 			            </dl>
+			          <dl class="birth" id="insbirth">
+						    <dt>생년월일</dt>
+						    <dd><input type="text" name="insBirth" id="insBirth" maxlength="25" placeholder="" autocomplete="off" title="생년월일"/><span></span></dd>
+						</dl>
+						 <div id="membership" class=" step1">
+						   <dl class="phone">
+			                <dt>휴대폰</dt>
+			                <dd> <input type="text" name="insTel" id="insTel" autocomplete="off" title="휴대폰" placeholder='‘-’ 없이 입력' /><span></span><label for="phone"></label></dd>
+			                <p></p>
+			            </dl>
+						<dl class="insProfile">
+						    <dt>사진등록</dt>
+						    <dd>
+						        <input type="file" name="insProfile" id="insProfile" autocomplete="off" title="사진" onchange="previewImage();" />
+						        <label for="photo"></label>
+						    </dd>
+						    <p></p>
+						    <img id="imagePreview" style="max-width: 500px; display: none;" />
+						</dl>
+						
+			            
+			        
 						 
 	        <div class="terms_wrap">
 	            <div class="total_agree">
@@ -527,7 +540,6 @@ body#content .page_header .reverse_wrap .ick .checkbox.checked,
 					</div>
 					</form>
 					</div>
-				</div>
 				</div>
 				</div>
 				</div>
@@ -637,7 +649,6 @@ function previewImage() {
 
 </script>
 		
-    </div>
 
 </body>
 </html>

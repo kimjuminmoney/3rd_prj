@@ -17,19 +17,6 @@
 
     
     
-    <meta property="og:url" content="http://www.edwith.org">
-    
-    <meta property="og:type" content="article">
-    
-    <meta property="og:title" content="에듀케이션위드 로그인  : edwith">
-    
-    <meta property="og:description" content="에드위드(edwith)는 네이버(NAVER)와 네이버 커넥트재단(NAVER Connect)이 제공하는 온라인 강좌(MOOC : Massive Online Open Course) 교육 플랫폼입니다. 에듀케이션위드(education with) 에드위드(edwith)로 분야별 명품 강좌를 무료(Free Course)로 수강하세요.">
-    
-    <meta property="og:site_name" content="edwith : 에듀케이션위드">
-    
-    <meta property="og:image" content="https://ssl.pstatic.net/static/connectfdn/edwith/hold_images/SNS_LOGO_1024x1024.png">
-    
-    <meta property="fb:app_id" content="1441124829481137">
     
 
     
@@ -148,6 +135,15 @@ function clearDocs(){}
     text-align: center; /* 가운데 정렬 */
 }
 
+.tit2 {
+    text-align: center; /* 텍스트 가운데 정렬 */
+    width: 100%; /* 너비를 100%로 설정 */
+     font-size: 40px; /* 글자 크기 설정 */
+    font-weight: 800; /* 더욱 굵은 글자 */
+    color: black; /* 글자 색상을 검은색으로 설정 */
+}
+
+
 input[type="radio"] {
     margin: 10px; /* 라디오 버튼 간격 조정 */
     transform: scale(1.5); /* 라디오 버튼 크기 조정 */
@@ -167,6 +163,13 @@ label, input {
 
 .btn_area {
     text-align: center; /* 가운데 정렬 */
+}
+
+#content {
+    width: 50%; /* 혹은 원하는 너비 */
+    margin: 0 auto; /* 상하 마진 0, 좌우 마진 자동 */
+    text-align: center; /* 텍스트 가운데 정렬 */
+    /* 추가적인 스타일링 */
 }
 
 .btn_confirm2 {
@@ -679,33 +682,98 @@ function checkNumber(){
         });
     });
 </script>
-			</div><br/><br/><br/><br/><br/><br/><br/><br/>
-			<section class="page error">
-    <p class="error_txt">회원가입</p>
-    
-        <br/>
-    
-    <div>
-		   <button type="submit" id="submit" class="btn btn_type1 clr" data-btn-submit style="background-color: #03C75A; color: white;">
-    			<a href="http://localhost/3rd_prj2_test/login/userJoin.do" style="color: inherit; text-decoration: none;">학생 회원가입</a>
-			</button>
-		   <button type="submit" id="submit" class="btn btn_type1 clr" data-btn-submit style="background-color: #03C75A; color: white;">
-    			<a href="http://localhost/3rd_prj2_test/login/insJoin.do" style="color: inherit; text-decoration: none;">강사 회원가입</a>
-			</button>
-        </div>
-</section>
-<!-- //error -->
-<script type="text/javascript">
-    $(document).ready(function(){
-        $("[data-back-button]").on("click", function(){
-            window.history.back();
-            return false;
-        });
-    });
-</script>
-		</div>
-	            </div>
 
+
+			</div>
+		</div>
+	
+   <div id="container">
+		<div id="content">
+			
+<!-- #breadcrumb:login/emailLogin.gsp-->
+<section class="page chkPw" id="_login">
+    <h2 class="tit">비밀번호 확인</h2>
+    <div class="login_method_email">
+        <form role="form" id="chkPw_form" action="chkUserPw.do" method="post">
+            <fieldset>
+                <legend class="sr_only">비밀번호 확인</legend>
+                
+                <input type="hidden" id="returnUrl" name="returnUrl" value="">
+                
+                <div class="ipt_group">
+                    <label class="it stretch _label">
+                        <span class="ph _login_email_addr" style="display: none;">비밀번호</span>
+                        <input type="text" id="pw" name="pw" class="_input" placeholder="비밀번호를 입력해주세요" >
+                    </label>
+                    <button type="submit" id="submit" class="btn btn_type1 clr" data-btn-submit>아이디 찾기</button>
+                </div>
+            </fieldset>
+		</form>
+    </div>
+</section>
+
+<script type="text/javascript">
+	document.getElementById('divShowBlock').style.display="none";	
+</script>		
+
+	</div>
+	
+</div>
+
+<script type="text/javascript" src="https://nid.naver.com/inc/mobile/js/m.jquery.js?20140912" ></script>
+<script type="text/javascript"> 
+var ua = window.navigator.userAgent.toLowerCase();
+var result = (/android+\s+((\d)\.(\d))(?:\.(\d))?/igm).exec(ua);
+var uad = navigator.userAgentData;
+var isMobile = (uad && uad.mobile) || (ua.indexOf('Mobi') !== -1) || (/windows ce/.test( ua ) && /polar/.test( ua )) || ( /mozilla/.test( ua ) && /natebrowser/.test( ua ) ) || ( /opera/.test( ua ) && (/windows ce/.test( ua ) || /skt/.test( ua )) ) || ( /iphone/.test( ua ) || /ipod/.test( ua ) ) || ( /android/.test( ua ) && !( /.*shw-m180(s|k|l|w).*/.test( ua ) ) && !( result != null && result.length > 0 && result[1] >=3.0 ) ) || ( /dolfin/.test( ua )) || ( /windows ce/.test( ua ) && /iemobile/.test( ua ) ) || ( /mozilla/.test( ua ) &&  /(wv[0-9]+)/.test( ua ) && /lgtelecom/.test( ua ) ) || ( (/mozilla/.test( ua ) && /((010|011|016|017|018|019)\d{3,4}\d{4}$)/.test( ua )) ) || ( /windows phone os/.test( ua ) && /iemobile/.test( ua ) );
+if(isMobile){
+	document.getElementById('divMobileYn').style.display = "block";
+}else{
+	document.getElementById('divMobileYn').style.display = "none";
+}
+
+getGNB();
+document.getElementById('pwinquiry').className = "on";
+
+var cur_container_height = Number(document.getElementById("container").clientHeight); // container 높이
+var min_container_height = 647;
+var header_height = 86;
+var footer_height = isMobile ? 160: 30;
+
+window.onload   = changeContentSize; // Window 창 로드시
+window.onresize = changeContentSize; // Window 창 크기를 조정할때마다
+
+function changeContentSize() {
+	var container_height = min_container_height;
+	var window_height = Number(document.documentElement.clientHeight) - header_height - footer_height; // Window 창 높이
+	if (window_height > cur_container_height) {
+		if (window_height > min_container_height) {
+			container_height = window_height;
+		}
+	} else {
+		if (cur_container_height > min_container_height) {
+			container_height = cur_container_height;
+		}
+	}
+	
+    if (navigator.appName == 'Netscape' && navigator.userAgent.search('Trident') != -1) { // ie11 추가
+        document.getElementById("container").style.height = container_height + "px";
+    }else if (window.navigator.userAgent.indexOf("MSIE") == -1 || (document.all && window.XMLHttpRequest)) { // ie6 제외
+        document.getElementById("container").style.height = container_height + "px";
+    } else {
+        document.getElementById("container").style.height ="100%";
+    }
+}
+
+function setContainerHeight(height) {
+	if (height >= 0) {
+		cur_container_height = height;
+	} else {
+		cur_container_height = Number(document.getElementById("container").clientHeight);
+	}
+	changeContentSize();
+}
+</script>
 </body>	
 
  <!-- FOOTER -->
@@ -713,7 +781,6 @@ function checkNumber(){
 <!-- #breadcrumb:common/_whaleclass_footer.gsp -->
 <jsp:include page="../user/nav/footer.jsp"></jsp:include>
 <!-- Build 231109.47a067d4 -->
-
 
 
 <!-- lcs file -->
@@ -728,6 +795,7 @@ function checkNumber(){
         });
     });
 </script>
+		
 
 
 <script src="/static/js/src/entries/layouts/etc.entry.browserfied.min.js?231109_47a067d4"></script>

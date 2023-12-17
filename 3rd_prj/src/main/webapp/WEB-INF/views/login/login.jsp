@@ -142,6 +142,46 @@
 <script src="/static/js/src/entries/common/_head.entry.browserfied.min.js?231109_47a067d4"></script>
 <script type="text/javascript" src="https://wcs.naver.net/wcslog.js"></script>
 <script src="https://vliveplus.pstatic.net/0/mobile/2020/04/standby/f1.1.0.8.js"></script>
+
+<style type="text/css">
+
+div {
+    text-align: center; /* 가운데 정렬 */
+}
+
+input[type="radio"] {
+    margin: 10px; /* 라디오 버튼 간격 조정 */
+    transform: scale(1.5); /* 라디오 버튼 크기 조정 */
+}
+
+label, input {
+    font-size: 17px; /* 텍스트 크기 조정 */
+}
+.logo2 {
+    text-align: center; /* 로고를 가운데 정렬 */
+}
+
+.logo2 img {
+    width: 150px; /* 이미지 너비를 100픽셀로 설정 */
+    height: auto; /* 이미지 높이를 자동으로 설정하여 비율 유지 */
+}
+
+.btn_area {
+    text-align: center; /* 가운데 정렬 */
+}
+
+.btn_confirm2 {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50; /* 버튼 배경색 */
+    color: white; /* 버튼 텍스트 색상 */
+    text-decoration: none; /* 링크 밑줄 제거 */
+    font-size: 16px; /* 글씨 크기 */
+    border: none;
+    border-radius: 5px; /* 버튼 모서리 둥글게 */
+    cursor: pointer; /* 마우스 오버 시 커서 변경 */
+}
+</style>
 <script>
     var title = document.title;
     document.title = _.unescape(title);
@@ -366,16 +406,6 @@
 		<div id="header" class="type2">
 			<div class="layout_in" data-wrap-gnb-menu>
 				
-
-
-
-    
-    
-        
-        
-    
-    
-    
     
     <h1 class="logo">
         <a class="N=a:gnb.edwith" href="/">
@@ -467,13 +497,8 @@ body#content .page_header .reverse_wrap .ick .checkbox.checked,
 .class_manager .slc_area .add_top_wrap .ick .checkbox.checked {
     background-color:#00AB50;
 }
-        #userLogin {
-            margin-left: 60px;
-        }
-        #insLogin {
-            margin-left: 50px;
-        }
-
+        
+     
 </style>
 			</div>
 		</div>
@@ -505,9 +530,11 @@ body#content .page_header .reverse_wrap .ick .checkbox.checked,
                      <input type="radio" value="ins" id="type" name="type" />강사<br/>
                     <button type="submit" id="submit" class="btn btn_type1 clr" data-btn-submit>로그인</button>
                     <div class="btm">
-                        <a href="/neoid/pwdResetSendmail">비밀번호 재설정</a>
-                        
-                        <a href="/neoid/emailJoin">회원가입</a>
+                    <div>
+                        <a href="http://localhost/3rd_prj2_test/login/findId.do">아이디 찾기</a>
+                        <a href="http://localhost/3rd_prj2_test/login/findPw.do">비밀번호 찾기</a>
+                    </div>
+                        <a href="http://localhost/3rd_prj2_test/login/selectJoin.do">회원가입</a>
                         
                     </div>
                 </div>

@@ -53,11 +53,14 @@
 	<mapper resource="kr/co/daitdayoung/index/mapper/InquiryMapper.xml"/>
 	<mapper resource="kr/co/daitdayoung/index/mapper/NoticeMapper.xml"/>
   <!-- /다영 -->
-   <!-- 민교 -->
+  <!-- 민교 -->
 	<mapper resource="kr/co/daitdayoung/login/mapper/LoginMapper.xml"/>
 	<mapper resource="kr/co/daitdayoung/login/mapper/adminLoginMapper.xml"/>
 	<mapper resource="kr/co/daitdayoung/login/mapper/userFindIdMapper.xml"/>
 	<mapper resource="kr/co/daitdayoung/login/mapper/userFindPwMapper.xml"/>
+	<mapper resource="kr/co/daitdayoung/login/mapper/userModifyPwMapper.xml"/>
+	<mapper resource="kr/co/daitdayoung/login/mapper/insModifyPwMapper.xml"/>
+	<mapper resource="kr/co/daitdayoung/login/mapper/userPwChkMapper.xml"/>
 	<mapper resource="kr/co/daitdayoung/login/mapper/insFindIdMapper.xml"/>
 	<mapper resource="kr/co/daitdayoung/login/mapper/insFindPwMapper.xml"/>
 	<mapper resource="kr/co/daitdayoung/login/mapper/userJoinMapper.xml"/>

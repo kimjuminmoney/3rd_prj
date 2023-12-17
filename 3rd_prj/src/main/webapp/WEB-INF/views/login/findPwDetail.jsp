@@ -680,20 +680,26 @@ function checkNumber(){
     });
 </script>
 			</div><br/><br/><br/><br/><br/><br/><br/><br/>
-			<section class="page error">
-     <p class="error_desc">
+		<section class="page error">
+    <p class="error_txt">비밀번호 찾기</p>
+    
+        <p class="error_desc">
         <c:choose>
         <c:when test="${ flag }">
-        회원의 비밀번호는 ${ id }입니다.
+        회원의 아이디는 ${ id }입니다.
         </c:when>
         <c:otherwise>
         회원정보가 없습니다.
         <div>
-     		<button type="submit" id="submit" class="btn btn_type1 clr" data-btn-submit style="background-color: #03C75A; color: white;">로그인하러가기</button>
+     		<button type="submit" id="submit" class="btn btn_type1 clr" data-btn-submit style="background-color: #03C75A; color: white;">
+    			<a href="http://localhost/3rd_prj2_test/login/login.do" style="color: inherit; text-decoration: none;">로그인하러가기</a>
+			</button>
         </div>
         </c:otherwise>
         </c:choose></p>
         <br/>
+    
+   
 </section>
 <!-- //error -->
 <script type="text/javascript">

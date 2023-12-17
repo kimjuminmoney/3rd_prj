@@ -700,21 +700,18 @@ function checkNumber(){
                 
                 <div class="ipt_group">
                     <label class="it stretch _label">
+                        <span class="ph _login_email_addr" style="display: none;">아이디</span>
+                        <input type="text" id="uiId" name="uiId" class="_input" placeholder="아이디를 입력해주세요" >
+                    </label>
+                    <label class="it stretch _label">
                         <span class="ph _login_email_addr" style="display: none;">비밀번호</span>
-                        <input type="text" id="name" name="name" class="_input" placeholder="이름을 입력해주세요" >
+                        <input type="text" id="uiPw" name="uiPw" class="_input" placeholder="기존 비밀번호를 입력해주세요" >
                     </label>
                     <label class="it stretch _label _password">
-                        <span class="ph _login_password" style="display: none;">비밀번호 확인</span>
-                        <input type="text" id="birth" name="birth" class="_input" data-global-placeholder="._login_password" placeholder="생일을 입력해주세요 예시 :1990-01-01">
+                        <span class="ph _login_password" style="display: none;">새로운 비밀번호를 입력해주세요</span>
+                        <input type="text" id="nPw" name="nPw" class="_input" data-global-placeholder="._login_password" placeholder="새로운 비밀번호를 입력해주세요">
                     </label><br/>
-                     <label for="inputPassword" id="type">회원유형</label>
-                     <input type="radio" value="user" id="type" name="type" />학생
-                     <input type="radio" value="ins" id="type" name="type" />강사<br/>
                     <button type="submit" id="submit" class="btn btn_type1 clr" data-btn-submit>비밀번호변경하기</button>
-                    <div class="btm">
-                       <li><a href="/login/login.do">로그인</a></li>
-                        
-                    </div>
                 </div>
             </fieldset>
 		</form>
