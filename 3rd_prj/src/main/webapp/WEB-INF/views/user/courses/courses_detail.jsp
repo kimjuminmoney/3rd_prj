@@ -49,14 +49,18 @@ $(function(){
 	
 	// 'ended' 이벤트 리스너 추가
     player.on('ended', function() {
+    	var coursesStatus = $("#courseStatus").val();
+    	if(coursesStatus == 'Y'){
+    		return;
+    	}
     	var param = {couCode : "${ param.couCode}",
     				epCode : "${ param.epCode}",	
     				crgCode : "${ param.crgCode}",
     				lecCode : "${ param.lecCode}",}	
-    	var msg = "수강완료를 실패하였습니다. \n잠시후 다시 시도해주세요."+
+    	var msg = " 수강완료를 실패하였습니다. \n 잠시후 다시 시도해주세요."+
     				"\n 지속적으로 실패할 경우 해당 화면을 캡쳐하여 문의해 주세요"+
     				"\n 수강 번호 : ${ param.crgCode}"+
-    				"\n 강의 번호 : ${ param.lecCode}"+
+    				"\n 강의 번호 : ${ param.lecCode}";
     				
         $.ajax({
         	url:"coursesDetailProcess.do",
@@ -122,6 +126,7 @@ $(function(){
                 <div class="material_desc editor_reset">
                 	<c:out value="${ uclDomain.lecContent }"/>
 				</div>
+				<input type="hidden" value="${ uclDomain.courseStatus }" name="courseStatus" id="courseStatus"/>
 			</article>
 			<hr>
     		<div class="group_lr">

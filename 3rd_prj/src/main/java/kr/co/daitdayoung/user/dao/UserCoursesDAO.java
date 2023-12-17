@@ -72,6 +72,10 @@ public class UserCoursesDAO {
 		mbh = MyBatisHandler.getInstance();
 		SqlSession ss = mbh.getMyBatisHandler(false);
 		cnt = ss.update("kr.co.daitdayoung.user.courses.coursesRecodeUpdate",ucVO);
+		if(cnt == 1) {
+			ss.commit();
+		}
+		
 		return cnt;
 	}
 	
@@ -80,6 +84,9 @@ public class UserCoursesDAO {
 		mbh = MyBatisHandler.getInstance();
 		SqlSession ss = mbh.getMyBatisHandler(false);
 		cnt = ss.update("kr.co.daitdayoung.user.courses.coursesRegistrationUpdate",ucVO);
+		if(cnt == 1) {
+			ss.commit();
+		}
 		return cnt;
 	}
 	

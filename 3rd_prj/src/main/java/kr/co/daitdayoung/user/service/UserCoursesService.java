@@ -1,12 +1,9 @@
 package kr.co.daitdayoung.user.service;
 
-import java.beans.Transient;
 import java.util.List;
 
-import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import kr.co.daitdayoung.user.dao.UserCoursesDAO;
@@ -52,9 +49,12 @@ public class UserCoursesService {
 	@Transactional
 	public int modifyCoursesRecode(UserCoursesVO ucVO) {
 		int cnt = 0;
+		try {
 			cnt += ucDAO.updateCoursesRecode(ucVO);
 			cnt += ucDAO.updateCoursesRegistration(ucVO);
-		
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return cnt;
 	}
 

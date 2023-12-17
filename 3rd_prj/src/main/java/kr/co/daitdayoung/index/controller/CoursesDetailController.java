@@ -17,30 +17,30 @@ import kr.co.daitdayoung.index.service.CoursesService;
  * Handles requests for the application home page.
  */
 @Controller
-public class CoursesController {
+public class CoursesDetailController {
 	
 	@Autowired
 	private CoursesService cs;
 	
 	
-	@RequestMapping(value = "/courses.do", method = RequestMethod.GET)
-	public String courses(Model model) {
-
-		List<CoursesDomain> LCList = cs.searchLeftCat();
-		
-		model.addAttribute("LCList",LCList);
-		
-		return "/courses/courses";
-	}
-	
-	
-	
-	
-//	@RequestMapping(value = "/courses_detail.do", method = RequestMethod.GET)
-//	public String coursesDetail(Model model) {
+//	@RequestMapping(value = "/courses.do", method = RequestMethod.GET)
+//	public String courses(Model model) {
+//
+//		List<CoursesDomain> LCList = cs.searchLeftCat();
 //		
-//		return "/courses/courses_detail";
-//	} //강좌
+//		model.addAttribute("LCList",LCList);
+//		
+//		return "/courses/courses";
+//	}
+//	
+	
+	
+	
+	@RequestMapping(value = "/courses_detail.do", method = RequestMethod.GET)
+	public String coursesDetail(String couCode,Model model) {
+		
+		return "/courses/courses_detail";
+	} //강좌
 	
 	
 
