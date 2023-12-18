@@ -3,6 +3,7 @@ package kr.co.daitdayoung.index.controller;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import kr.co.daitdayoung.index.domain.CoursesDomain;
-import kr.co.daitdayoung.index.domain.IndexDomain;
 import kr.co.daitdayoung.index.service.CoursesService;
 
 /**
@@ -27,8 +27,11 @@ public class CoursesController {
 	public String courses(Model model) {
 
 		List<CoursesDomain> LCList = cs.searchLeftCat();
+		List<CoursesDomain> CLList = cs.searchCouList();
+		
 		
 		model.addAttribute("LCList",LCList);
+		model.addAttribute("CLList", CLList);
 		
 		return "/courses/courses";
 	}

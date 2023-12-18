@@ -16,5 +16,6 @@ public class CoursesVO {
 	private Date	opendate;
 	private String	couCode, insId, couName, content, bannerImg, sampleVideo,
 					approveStatus, refuseReanson, scCode, scName, mcCode, mcName;
+	private String 	completionStatus = "Y";
 
 } //CoursesVO
