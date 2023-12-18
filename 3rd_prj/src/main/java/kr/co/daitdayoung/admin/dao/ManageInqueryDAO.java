@@ -75,6 +75,21 @@ public class ManageInqueryDAO {
 		return detailInq;
 		
 	}//selectDetailInq
+	
+	public ManageInqueryDomain selectDetailInq2(String inqCode) throws PersistenceException{
+		ManageInqueryDomain detailInq = null;
+		
+		MyBatisHandler mbh = MyBatisHandler.getInstance();
+		
+		SqlSession ss = mbh.getMyBatisHandler(false);
+		
+		detailInq = ss.selectOne("kr.co.daitdayoung.admin.mi.selectDetailInq2",inqCode);
+		
+		mbh.closeHandler(ss);
+		
+		return detailInq;
+		
+	}//selectDetailInq
 
 	public int updateInqAnswer(ManageInqueryVO miVO) throws PersistenceException{
 		int cnt=0;
@@ -95,12 +110,12 @@ public class ManageInqueryDAO {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println(new ManageInqueryDAO().selectInquiry());
-//		System.out.println(new ManageInqueryDAO().selectDetailInq("INQ_999999"));
-		ManageInqueryVO miVO = new ManageInqueryVO();
-		miVO.setAdminId("admin");
-		miVO.setInqAnswer("수정했습니다222");
-		miVO.setInqCode("INQ_999998");
+//		System.out.println(new ManageInqueryDAO().selectInquiry());
+		System.out.println(new ManageInqueryDAO().selectDetailInq2("INQ_999999"));
+//		ManageInqueryVO miVO = new ManageInqueryVO();
+//		miVO.setAdminId("admin");
+//		miVO.setInqAnswer("수정했습니다222");
+//		miVO.setInqCode("INQ_999998");
 		//new ManageInqueryDAO().updateInqAnswer(miVO);
 		//System.out.println(new ManageInqueryDAO().selectDetailInq("INQ_999989"));
 		

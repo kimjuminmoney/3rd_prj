@@ -50,9 +50,20 @@ public class ManageInquiryController {
 		model.addAttribute("inqTitle", detailInq.getInqTitle());
 		model.addAttribute("inqContent", detailInq.getInqContent());
 		model.addAttribute("inqDate", detailInq.getInqDate());
-		model.addAttribute("inqAnswer", detailInq.getInqAnswer());
-		model.addAttribute("inqAnswerdate", detailInq.getInqAnswerdate());
-		model.addAttribute("adminName", detailInq.getAdminName());
+		
+		ManageInqueryDomain detailInq2 = miService.searchDetailInq2(inqCode);
+		
+		if(detailInq2 == null) {
+			model.addAttribute("detailInq2", "");
+			model.addAttribute("inqAnswer", "");
+			model.addAttribute("inqAnswerdate", "");
+			model.addAttribute("adminName", "");
+		}else {
+			model.addAttribute("detailInq2", detailInq2);
+			model.addAttribute("inqAnswer", detailInq2.getInqAnswer());
+			model.addAttribute("inqAnswerdate", detailInq2.getInqAnswerdate());
+			model.addAttribute("adminName", detailInq2.getAdminName());
+		}
 		
 		return "admin/admin_inquery/detailInquery";
 	}

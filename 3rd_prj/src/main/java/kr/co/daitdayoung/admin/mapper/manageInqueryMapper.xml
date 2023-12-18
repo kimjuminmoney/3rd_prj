@@ -27,9 +27,15 @@
 </select>
 
 <select id="selectDetailInq" resultType="kr.co.daitdayoung.admin.domain.ManageInqueryDomain" parameterType="String">
-	select i.inq_code,i.inq_title, ui.ui_name, it.it_name, i.inq_date, i.inq_content, i.inq_answer, i.inq_answerdate, a.admin_name
-	from inquiry i, inquiry_type it, user_info ui, admin a
-	where i.it_code=it.it_code and i.ui_id=ui.ui_id and i.admin_id=a.admin_id and i.inq_code= #{inq_code}
+	select i.inq_code,i.inq_title, ui.ui_name, it.it_name, i.inq_date, i.inq_content, i.inq_answer, i.inq_answerdate
+	from inquiry i, inquiry_type it, user_info ui
+	where i.it_code=it.it_code and i.ui_id=ui.ui_id and i.inq_code= #{inq_code}
+</select>
+
+<select id="selectDetailInq2" resultType="kr.co.daitdayoung.admin.domain.ManageInqueryDomain" parameterType="String">
+	select i.inq_answer, i.inq_answerdate, a.admin_name
+	from inquiry i, admin a
+	where i.admin_id=a.admin_id and i.inq_code= #{inq_code}
 </select>
 
 <update id="updateInqAnswer" parameterType="kr.co.daitdayoung.admin.vo.ManageInqueryVO">

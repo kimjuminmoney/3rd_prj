@@ -51,6 +51,16 @@ public class ManageInqueryService {
 		return detailInq;
 	}
 	
+	public ManageInqueryDomain searchDetailInq2(String inqCode){
+		ManageInqueryDomain detailInq = null;
+		
+		ManageInqueryDAO miDAO = new ManageInqueryDAO();
+		
+		detailInq = miDAO.selectDetailInq2(inqCode);
+		
+		return detailInq;
+	}
+	
 	public JSONObject addAnswer(ManageInqueryVO miVO) {
 		JSONObject jsonObj = new JSONObject();
 		
