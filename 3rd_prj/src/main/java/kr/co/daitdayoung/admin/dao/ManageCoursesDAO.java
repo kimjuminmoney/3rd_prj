@@ -91,6 +91,7 @@ public class ManageCoursesDAO {
 		return cnt;
 	}
 	
+	//이거 넘어가야해
 	public int insertExam(ManageCoursesVO mcVO) throws PersistenceException{
 		int cnt = 0;
 		
