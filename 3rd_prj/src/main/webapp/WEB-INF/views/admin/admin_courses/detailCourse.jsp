@@ -101,12 +101,14 @@ $(function(){
 	
 	
 	$("#btn_request_lecture").click(function(){
-	var confirmation = confirm('강좌를 승인하시겠습니까?');
 	
 		var param={couCode: "${ param.couCode }",
 				insId: $("#insId").val()}
-		alert(insId);
+		var finalApprove = $("#finalApprove").val();
+		alert(finalApprove);
 		
+	var confirmation = confirm('강좌를 승인하시겠습니까?');
+
 		if(confirmation){
 			$.ajax({
 	        	url:"modapp.do",
@@ -119,12 +121,16 @@ $(function(){
 				success:function(jsonObj){
 					 var modCnt = jsonObj.modCnt;
 					 var addCnt = jsonObj.addCnt;
+					 if(finalApprove == 'Y'){
+						 alert("이미 승인된 강좌입니다.");
+					 }else{
 					   if(modCnt=='1' && addCnt>='1'){
 						   alert("강좌가 승인되었습니다.");
-						   location.reload();
+						   window.location.href="manageCourses.do";
 					   }else{
 						   alert("강좌가 승인되지 않았습니다. 다시 한번 시도해주세요.");
-					   }
+					   }//end else
+					 }//end else
 				}//success
 	        });//ajax
 		}else{
@@ -178,6 +184,7 @@ $(function(){
                                             <c:out value="${ cdDomain.insName }"/>
                                     </span>
                                     <input type="hidden" id="insId" value="${ cdDomain.insId }">
+                                    <input type="hidden" id="finalApprove" value="${ cdDomain.finalApprove }">
                                 </div>
                         </div>
                     </div>

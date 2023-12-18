@@ -11,7 +11,7 @@ public class CoursesDetailDomain {
 	
 	private String couCode,insId,couName,content,bannerImg,
 					sampleVideo,ccCode,insName,insIntrodce, 
-					insEmail,insTel, insProfile,scName, mcName;
+					insEmail,insTel, insProfile,scName, mcName, finalApprove;
 	private int couPeriod,hits;
 	
 

@@ -14,7 +14,7 @@ where c.ins_id=i.ins_id
 </select>
 
 <select id="coursesDetail2" parameterType="String" resultType="kr.co.daitdayoung.index.domain.CoursesDetailDomain">
-select 	c.COU_CODE, c.INS_ID, c.COU_NAME, c.CONTENT, c.BANNER_IMG, c.COU_PERIOD,
+select 	c.COU_CODE, c.INS_ID, c.COU_NAME, c.CONTENT, c.BANNER_IMG, c.COU_PERIOD, c.final_approve,
 		c.SAMPLE_VIDEO, c.HITS, c.CC_CODE,INS_NAME, INS_INTRODCE, INS_EMAIL,
 		INS_TEL, INS_PROFILE,SC_NAME, MC_NAME
 from 	COURSES c,  INSTRUCTOR i,MAINCATEGORY mc , SUBCATEGORY sc
