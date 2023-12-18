@@ -401,10 +401,10 @@ function checkNumber(){
                         <span class="ph _login_email_addr" style="display: none;">이름</span>
                         <input type="text" id="name" name="name" class="_input" placeholder="이름을 입력해주세요" >
                     </label>
-                    <label class="it stretch _label _password">
-                        <span class="ph _login_password" style="display: none;">생년월일</span>
-                        <input type="text" id="birth" name="birth" class="_input" data-global-placeholder="._login_password" placeholder="생일을 입력해주세요 예시 :1990-01-01">
-                    </label><br/>
+	               <label class="it stretch _label _password">
+					    <span class="ph _login_password" style="display: none;">생년월일</span>
+					    <input type="text" id="birth" name="birth" class="_input" data-global-placeholder="._login_password" placeholder="생일을 입력해주세요 예시 :1990-01-01" onkeyup="formatBirthday(this)">
+					</label><br/>
                      <label for="inputPassword" id="type">회원유형</label>
                      <input type="radio" value="user" id="type" name="type" />학생
                      <input type="radio" value="ins" id="type" name="type" />강사<br/>
@@ -464,6 +464,38 @@ function setContainerHeight(height) {
 		cur_container_height = Number(document.getElementById("container").clientHeight);
 	}
 	changeContentSize();
+}
+function formatBirthday(input) {
+    let value = input.value.replace(/\D/g, ''); // 숫자만 남기기
+
+    // 연도 처리
+    if (value.length > 4) {
+        let year = parseInt(value.substr(0, 4), 10);
+        year = (year >= 1900 && year <= 2100) ? year : '';
+        value = year + (year ? '-' : '') + value.substr(4);
+    }
+
+    // 월 처리
+    if (value.length > 7) {
+        let month = parseInt(value.substr(5, 2), 10);
+        month = (month >= 1 && month <= 12) ? month : '';
+        month = month.toString().padStart(2, '0');
+        value = value.substr(0, 5) + month + (month ? '-' : '') + value.substr(7);
+    }
+
+    // 일 처리
+    if (value.length > 10) {
+        let year = parseInt(value.substr(0, 4), 10);
+        let month = parseInt(value.substr(5, 2), 10);
+        let day = parseInt(value.substr(8, 2), 10);
+        let lastDayOfMonth = new Date(year, month, 0).getDate(); // 해당 월의 마지막 날짜를 구함
+
+        day = (day >= 1 && day <= lastDayOfMonth) ? day : '';
+        day = day.toString().padStart(2, '0');
+        value = value.substr(0, 8) + day;
+    }
+
+    input.value = value;
 }
 </script>
 </body>	
