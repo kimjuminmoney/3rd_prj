@@ -139,7 +139,7 @@ $(function(){
 		
 	});//click
 })
-</script>            
+</script>    
         
         <div class="state_area">
             <!-- 수강신청 버튼
