@@ -104,8 +104,8 @@ $(".que").click(function() {
 			<strong>진도율</strong>
 	             <div class="progress_area">
 	                 <div class="progress" style=" height: 30px; ">
-	                     <div class="progress_bar" style="width:  ${ ucDomain.progressRate/lecCnt *100 }%; height: 30px;align-items: center;display: flex;justify-content: center;">
-		                 <strong>${ ucDomain.progressRate/lecCnt *100 }%</strong>
+	                     <div class="progress_bar" style="width:  ${ rate }%; height: 30px;align-items: center;display: flex;justify-content: center;">
+		                 <strong>${ rate }%</strong>
 	                     </div>
 	                 </div>
 	             </div>
@@ -176,7 +176,6 @@ $(".que").click(function() {
 								<div class="le_txt" style="flex: 1">
 									<strong><c:out value="${ lecture.lecName }"/></strong>
 								</div>
-								<div class="time" style="float: right"><span class="blind">강의시간</span>06:04</div>
 							</a>
 						</li>
 					</c:forEach>

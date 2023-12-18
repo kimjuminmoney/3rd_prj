@@ -59,7 +59,7 @@
 	<!-- 시험점수 업데이트 -->
 	<update id="examScoreUpdate" parameterType="kr.co.daitdayoung.user.vo.UserExamScoreVO">
 	update 	EXAM_PARTICIPATION
-	set		EXAM_SCORE =  #{examScore}
+	set		EXAM_SCORE =  #{examScore}, exam_pass = #{examPass}
 	where 	crg_code = #{crgCode} and ep_code = #{epCode}
 	</update>
 	
@@ -75,6 +75,18 @@
 	where   q.que_code = ash.que_code and ep.ep_code = ash.ep_code and ep.ep_code = #{epCode} and q.que_code = #{queCode}
 	
 	</select>
+	
+	<select id="progressSelect" parameterType="String" resultType="int">
+	select PROGRESS_RATE 
+	from COURSE_REGISTRATION
+	where crg_code = #{crgCode}
+	</select>
+	
+	<update id="completionUpdate" parameterType="String">
+	update	COURSE_REGISTRATION	
+	set		COMPLETION_STATUS = 'Y', COMPLETIONDATE	= sysdate
+	where	CRG_CODE = #{crgCode}
+	</update>
 
 	
 	

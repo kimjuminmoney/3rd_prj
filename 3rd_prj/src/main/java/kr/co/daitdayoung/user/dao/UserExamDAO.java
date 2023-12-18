@@ -137,6 +137,29 @@ public class UserExamDAO {
 		
 		return uaDomain;
 	}// selectQuestionList
+	
+	public int selectProgress(String crgCode) throws PersistenceException {
+		
+		mbh = MyBatisHandler.getInstance();
+		SqlSession ss = mbh.getMyBatisHandler(false);
+		int progress = ss.selectOne("kr.co.daitdayoung.user.exam.progressSelect", crgCode);
+		mbh.closeHandler(ss);
+		
+		return progress;
+	}// selectQuestionList
+	
+	public int updateCompletion(String crgCode) throws PersistenceException {
+		int cnt = 0;
+		mbh = MyBatisHandler.getInstance();
+		SqlSession ss = mbh.getMyBatisHandler(false);
+		cnt = ss.update("kr.co.daitdayoung.user.exam.completionUpdate",crgCode);
+		if (cnt == 1) {
+			ss.commit();
+		} // end if
+		mbh.closeHandler(ss);
+		
+		return cnt;
+	}
 
 	public static void main(String[] args) {
 		//System.out.println(new UserExamDAO().selectCorrectList("COU_999999"));

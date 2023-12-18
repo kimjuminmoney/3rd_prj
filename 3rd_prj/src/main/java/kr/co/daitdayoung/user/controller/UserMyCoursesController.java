@@ -28,9 +28,6 @@ public class UserMyCoursesController {
 		
 		list = umcs.searchCoursesExamList(list);
 		list = umcs.searchLecturesCnt(list);
-		for(UserMyCoursesDomain umd : list) {
-			System.out.println(umd);
-		}
 		model.addAttribute("coursesList", list);
 		model.addAttribute("listSize" ,list.size());
 		return "user/myCourses/myCourses";

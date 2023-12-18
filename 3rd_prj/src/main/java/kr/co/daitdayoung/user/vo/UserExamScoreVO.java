@@ -8,7 +8,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class UserExamScoreVO {
-	private int examScore;
-	private String crgCode, epCode;
+	private int examScore, enrollRate;
+	private String crgCode, epCode, examPass;
 
 }

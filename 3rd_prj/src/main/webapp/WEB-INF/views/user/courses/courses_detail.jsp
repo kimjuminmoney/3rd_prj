@@ -36,7 +36,7 @@
 $(function(){
 	var player = videojs("#myPlayer", {
 	    sources : [
-	        { src : "http://localhost/daitdayoung/courses_data/COU_999999/video/테스트비디오1.mp4", type : "video/mp4"}
+	        { src : "http://localhost/daitdayoung/courses_data/${ param.couCode }/video/${ uclDomain.videoName }", type : "video/mp4"}
 	    ],
 	   /*  poster : "test-poster.png", */
 	    controls : true,

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import kr.co.daitdayoung.index.dao.CoursesDetailDAO;
+import kr.co.daitdayoung.index.domain.CodeDomain;
 import kr.co.daitdayoung.index.domain.CoursesDetailDomain;
 import kr.co.daitdayoung.index.domain.CoursesLectureDomain;
 import kr.co.daitdayoung.index.domain.CoursesRegistrationDomain;
@@ -27,24 +28,30 @@ public class CoursesDetailService {
 		return cdDAO.selectLectureList(couCode);
 	} // searchLectureList
 
-	public List<CoursesRegistrationDomain> searchCoursesRegistration(CoursesRegistrationVO crVO) throws PersistenceException {
+	public CoursesRegistrationDomain searchCoursesRegistration(CoursesRegistrationVO crVO) {
 		return cdDAO.selectCoursesRegistration(crVO);
 	}
 
-	public int searchCompletionCnt(String couCode) throws PersistenceException {
+	public int searchCompletionCnt(String couCode) {
 		return cdDAO.selectCompletionCnt(couCode);
 	}
 
-	public JSONObject addCompletion(CoursesRegistrationVO crVO) throws PersistenceException {
-		int cnt = 0;
-		JSONObject json = new JSONObject();
-		boolean flag = false;
-		cnt = cdDAO.insertCompletion(crVO);
-		if (cnt == 1) {
-			flag = true;
+	public CodeDomain addCompletion(CoursesRegistrationVO crVO) {
+		if (crVO.getCompletionStatus() != null) {
+			crVO.setCrCount(crVO.getCrCount() + 1);
 		}
-		json.put("flag", json);
+		CodeDomain cDomain = cdDAO.insertCompletion(crVO);
+		if (cDomain.getCnt() == 1) {
+			cDomain.setFlag(true);
+		}
+		return cDomain;
+	}
 
-		return json;
+	public int addCoursesRecodr(CoursesRegistrationVO crVO) {
+		return cdDAO.insertCoursesRecodr(crVO);
+	}
+	
+	public int addExamParticipationInsert(CoursesRegistrationVO crVO) {
+		return cdDAO.insertExamParticipationInsert(crVO);
 	}
 }

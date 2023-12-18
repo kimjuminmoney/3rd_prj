@@ -39,7 +39,7 @@
 	from 	LECTURES lec, COURSE_RECORD cr, COURSE_REGISTRATION  crg
 	where 	lec.cou_code = #{couCode} and cr.ui_id = #{uiId} and crg.crg_code = #{crgCode} and
 			lec.lec_code = cr.lec_code  and crg.crg_code = cr.crg_code
-	order by lec.lec_Code desc
+	order by lec.lec_Code
 	</select>
 	
 	<!-- 강의 상세 -->

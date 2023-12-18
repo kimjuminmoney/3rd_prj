@@ -62,9 +62,9 @@
                 <strong class="title">진도율</strong>
                 <div class="graph_area">
                     <span class="standard" style="left: 100%"></span>
-                    <span class="rate" style="width: ${ ucDomain.progressRate == 0 ? '100' : ucDomain.progressRate/lecCnt * 100 }%"></span>
+                    <span class="rate" style="width: ${ ucDomain.progressRate == 0 ? '100' : 100 - rate }%"></span>
                 </div>
-                <strong class="txt"><c:out value="${ ucDomain.progressRate == 0 ? '0' : ucDomain.progressRate/lecCnt * 100 }"/>%</strong>
+                <strong class="txt"><c:out value="${ ucDomain.progressRate == 0 ? '0' : rate }"/>%</strong>
             </div>
             <div class="progress_area">
                 <strong class="title">점수</strong>

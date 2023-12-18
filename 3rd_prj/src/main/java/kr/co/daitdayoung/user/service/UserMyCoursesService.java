@@ -22,38 +22,6 @@ public class UserMyCoursesService {
 		return list;
 	}// searchCoursesList
 	
-//	public List<UserMyCoursesDomain> searchCoursesExamList(List<UserMyCoursesDomain> list) {
-//		List<UserMyCoursesDomain> tempList = null;
-//		String crgCode = "";
-//		String examStatus = "";
-//		String reExam = "";
-//		int examScore = 0;
-//		for(int i=0; i<list.size();i++) {
-//			crgCode = list.get(i).getCrgCode();
-//			tempList = umcDAO.selectCoursesExamList(crgCode);
-//			
-//			examStatus = tempList.get(i).getExamStatus();
-//			reExam = tempList.get(i).getReExam();
-//			examScore = tempList.get(i).getExamScore();
-//			
-//			if(tempList.size() == 2) {
-//				for(int j=0; j<tempList.size();j++) {
-//					if("Y".equals(tempList.get(j).getExamStatus())&&
-//							"Y".equals(tempList.get(j).getReExam())){
-//						examStatus = tempList.get(i).getExamStatus();
-//						reExam = tempList.get(i).getReExam();
-//						examScore = tempList.get(i).getExamScore();
-//					}
-//				}
-//			}
-//			
-//			list.get(i).setExamStatus(examStatus);
-//			list.get(i).setReExam(reExam);
-//			list.get(i).setExamScore(examScore);
-//		}
-//		return list;
-//	}// searchCoursesList
-//	
 	public List<UserMyCoursesDomain> searchCoursesExamList(List<UserMyCoursesDomain> list) {
 	    for (UserMyCoursesDomain course : list) {
 	        String crgCode = course.getCrgCode();
@@ -87,10 +55,15 @@ public class UserMyCoursesService {
 	
 
 	public List<UserMyCoursesDomain> searchLecturesCnt(List<UserMyCoursesDomain> list) {
-
+		double rate = 0.0;
+		String formattedRate = "";
 		int cntTemp = 0;
 		for (int i = 0; i < list.size(); i++) {
 			cntTemp = umcDAO.selectLecturesCnt(list.get(i).getCouCode());
+			
+			rate = ((double) list.get(i).getProgressRate() / cntTemp) * 100;
+			formattedRate = String.format("%.2f", rate);
+			list.get(i).setRate(formattedRate);
 			list.get(i).setLecCnt(cntTemp);
 		} // end for
 

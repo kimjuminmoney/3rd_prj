@@ -26,14 +26,44 @@
 	</select>
 	
 	<select id="reCompletion" parameterType="kr.co.daitdayoung.index.vo.CoursesRegistrationVO" resultType="kr.co.daitdayoung.index.domain.CoursesRegistrationDomain">
-	select 	CR_COUNT, COMPLETION_STATUS
-	from 	COURSE_REGISTRATION
-	where	ui_Id = #{uiId} and cou_code = #{couCode}
+	SELECT CR_COUNT, COMPLETION_STATUS
+	FROM COURSE_REGISTRATION
+	WHERE (ui_Id, cou_code, CR_COUNT) = (
+	    SELECT ui_Id, cou_code, MAX(CR_COUNT) AS MAX_CR_COUNT
+	    FROM COURSE_REGISTRATION
+	    WHERE ui_Id = #{uiId} AND cou_code = #{couCode}
+	    GROUP BY ui_Id, cou_code)
 	</select>
 	
 	<insert id="comletionInsert" parameterType="kr.co.daitdayoung.index.vo.CoursesRegistrationVO">
-	insert into COURSE_REGISTRATION(CRG_CODE, UI_ID, COU_CODE, INS_ID)
-	values('CRG_'||lpad(crg_seq.nextval,6,'0'),#{uiId},#{couCode},#{insId} )
+    <selectKey keyProperty="crgCode" order="BEFORE" resultType="String">
+        SELECT 'CRG_' || lpad(crg_seq.nextval, 6, '0') FROM dual
+    </selectKey>
+
+    INSERT INTO COURSE_REGISTRATION (
+        CRG_CODE, UI_ID, COU_CODE, INS_ID
+        <if test="completionStatus != null">
+           , CR_COUNT
+        </if>
+    )
+    VALUES (
+        #{crgCode}, #{uiId}, #{couCode}, #{insId}
+        <if test="completionStatus != null">
+           , #{crCount}
+        </if>
+    )
+	</insert>
+	
+	<insert id="courseRecordInsert" parameterType="kr.co.daitdayoung.index.vo.CoursesRegistrationVO" >
+	INSERT INTO COURSE_RECORD (CRC_CODE, LEC_CODE, COU_CODE, INS_ID, CRG_CODE, UI_ID)
+    SELECT 'CRC_' || lpad(crc_seq.nextval, 6, '0'), lec_code, COU_CODE, INS_ID,#{crgCode} , #{uiId}
+    FROM lectures
+    WHERE cou_code = #{couCode}
+	</insert>
+	
+	<insert id="examParticipationInsert" parameterType="kr.co.daitdayoung.index.vo.CoursesRegistrationVO">
+	insert into EXAM_PARTICIPATION (EP_CODE, CRG_CODE, UI_ID, COU_CODE, INS_ID)
+	values('EP_'||lpad(ep_seq.nextval,6,'0'),#{crgCode},#{uiId},#{couCode},#{insId})
 	</insert>
 
 	

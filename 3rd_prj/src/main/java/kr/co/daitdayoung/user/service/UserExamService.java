@@ -23,43 +23,42 @@ public class UserExamService {
 
 	@Autowired
 	private UserExamDAO ueDAO;
-	
+
 	public int modifyExamParticipation(UserExamVO ucVO) {
 		return ueDAO.updateExamParticipation(ucVO);
 	}
-	
+
 	public int addReExamParticipation(UserExamVO ucVO) {
 		return ueDAO.insertReExamParticipation(ucVO);
 	}
-	
-public String searchEpCode(UserExamVO ueVO) throws PersistenceException {
+
+	public String searchEpCode(UserExamVO ueVO) throws PersistenceException {
 		return ueDAO.selectEpCode(ueVO);
 	}
-	
 
 	public List<UserQuestionsDomain> searchQuestionList(String couCode) {
 
 		return ueDAO.selectQuestionList(couCode);
 	}// searchCoursesInfo
-	
+
 	public JSONObject searchQuestion(String queCode) {
 		JSONObject json = new JSONObject();
 		UserQuestionsDomain uceDomain = ueDAO.selectQuestionDetail(queCode);
-		
+
 		json.put("content", uceDomain.getQueContent());
 		json.put("que1", uceDomain.getQue1());
 		json.put("que2", uceDomain.getQue2());
 		json.put("que3", uceDomain.getQue3());
 		json.put("que4", uceDomain.getQue4());
-		
+
 		return json;
-	}//searchQuestion
-	
-	//정답 일치 유무 확인후 List<VO> 반환
-	public List<UserAnswerVO> searchCorrectList(UserAnswerVO uaVOtemp){
+	}// searchQuestion
+
+	// 정답 일치 유무 확인후 List<VO> 반환
+	public List<UserAnswerVO> searchCorrectList(UserAnswerVO uaVOtemp) {
 		List<UserCoursesExamDomain> uceList = ueDAO.selectCorrectList(uaVOtemp.getCouCode());
 		List<UserAnswerVO> uaList = new ArrayList<UserAnswerVO>();
-		for(int i = 0; i < uceList.size() ; i++) {
+		for (int i = 0; i < uceList.size(); i++) {
 			UserAnswerVO uaVO = new UserAnswerVO();
 			uaVO.setUiId(uaVOtemp.getUiId());
 			uaVO.setEpCode(uaVOtemp.getEpCode());
@@ -67,40 +66,40 @@ public String searchEpCode(UserExamVO ueVO) throws PersistenceException {
 			uaVO.setCouCode(uaVOtemp.getCouCode());
 			uaVO.setInsId(uaVOtemp.getInsId());
 			uaVO.setExamCode(uaVOtemp.getExamCode());
-			
-			//queCode코드가 같으면
-			if(uceList.get(i).getQueCode().equals(uaVOtemp.getQueCodeArr()[i])) {
+
+			// queCode코드가 같으면
+			if (uceList.get(i).getQueCode().equals(uaVOtemp.getQueCodeArr()[i])) {
 				uaVO.setQueCode(uceList.get(i).getQueCode());
 				uaVO.setAsSelected(uaVOtemp.getAsSelectedArr()[i]);
-				
-				//correct(정답)과 답안지(asSelected)를 비교하여 값 넣기
-				if(uceList.get(i).getCorrect() == (uaVOtemp.getAsSelectedArr()[i])) {
+
+				// correct(정답)과 답안지(asSelected)를 비교하여 값 넣기
+				if (uceList.get(i).getCorrect() == (uaVOtemp.getAsSelectedArr()[i])) {
 					uaVO.setAsStatus("Y");
 				} else {
 					uaVO.setAsStatus("N");
-				}//end else
-			}//end if
+				} // end else
+			} // end if
 			uaList.add(uaVO);
-		}//end for
-		
+		} // end for
+
 		return uaList;
 	}
-	
+
 	public int addAnswer(List<UserAnswerVO> uaList) throws PersistenceException {
 		int cnt = 0;
-		for(UserAnswerVO uaVO : uaList) {
+		for (UserAnswerVO uaVO : uaList) {
 			cnt = ueDAO.insertAnswer(uaVO);
 		}
 		return cnt;
 	}// insertAnswer
-	
+
 	public int modifyExamScore(UserExamScoreVO uesVO) {
 		int cnt = 0;
-		
+
 		cnt = ueDAO.updateExamScore(uesVO);
-		return	cnt;
+		return cnt;
 	}
-	
+
 	public List<UserAnswerDomain> seachAnswerList(String epCode) throws PersistenceException {
 		return ueDAO.selectAnswerList(epCode);
 	}// selectQuestionList
@@ -108,15 +107,24 @@ public String searchEpCode(UserExamVO ueVO) throws PersistenceException {
 	public JSONObject searchAnswerDetail(UserAnswerVO uaVO) {
 		JSONObject json = new JSONObject();
 		UserAnswerDomain uaDomain = ueDAO.selectAnswerDetail(uaVO);
-		
+
 		json.put("content", uaDomain.getQueContent());
 		json.put("que1", uaDomain.getQue1());
 		json.put("que2", uaDomain.getQue2());
 		json.put("que3", uaDomain.getQue3());
 		json.put("que4", uaDomain.getQue4());
-		
-		
+
 		return json;
-	}//searchQuestion
+	}// searchQuestion
+
+	public int modifyCompletionStatus(UserExamScoreVO uesVO) {
+		int progress = ueDAO.selectProgress(uesVO.getCrgCode());
+		int enrollRate = uesVO.getEnrollRate();
+		int cnt = 0;
+		if(progress == enrollRate) {
+			cnt = ueDAO.updateCompletion(uesVO.getCrgCode());
+		}
+		return cnt;
+	}
 
 }// class

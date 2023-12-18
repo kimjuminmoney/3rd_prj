@@ -106,7 +106,7 @@
     <table id="customers" class="forum_list_new bdnone table">
     <thead>
 		<tr>
-			<th>번호</th><th>선택</th>
+			<th>번호</th><th>선택</th><th>정답</th>
 		</tr>    
     </thead>
     <tbody>
@@ -118,6 +118,7 @@
 			<input type="hidden" name="asSelectedArr"/>
 			</td>
 			<td class="answer" ><c:out value="${ uad.asSelected }"></c:out></td>
+			<td class= ><c:out value="${ uad.correct }"></c:out></td>
 		</tr>
 		</c:forEach>
     </tbody>

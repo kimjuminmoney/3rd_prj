@@ -100,8 +100,21 @@
 $(function(){
 	$("#btn_request_lecture").click(function(){
 		alert("수강신청");
+		var registration = $("#registration").val();
+		//재수강			
+		if(registration == 'Y'){
+		var param = {couCode: "${param.couCode}",
+					insId: "${ cdDomain.insId }",
+					crCount: "${ crDomain.crCount }",
+					completionStatus:"${ crDomain.completionStatus }"}
+		}
+		
+		//첫 수강
+		if(registration == 'N'){
 		var param = {couCode: "${param.couCode}",
 					insId: "${ cdDomain.insId }"}
+		}
+		
 		$.ajax({
         	url:"courses_registration.do",
 			type:"POST",
@@ -111,7 +124,13 @@ $(function(){
 				console.log(xhr.status);
 			},
 			success:function(jsonObj){
-				
+				var flag = jsonObj.flag
+				if(flag){
+					alert("수강신청을 완료하였습니다.")
+				}
+				if(!flag){
+					alert("수강신청을 실패하였습니다.")
+				}
 			}//success
         })
 	})
@@ -124,11 +143,37 @@ $(function(){
 		        clr2 = 강좌 바로가기, 수료완료, 미수료
 		        clr3 = 승인 대기 중
 		        clr4 = 종료된 강좌 (attribute에 disabled 추가) -->
-		    <input type="hidden" value="${ crDomain.crCount }" name="crCount"/>    
-		    <input type="hidden" value="${ crDomain.completionStatus }" name="completionStatus"/>    
-            <button class="btn btn_type8 clr" id="btn_request_lecture" data-course-id="GPTSW" data-lecture-status="" data-request-btn="">
-                        <span data-btn-label="">수강신청</span>
-            </button>
+		    <c:choose>
+		    	<c:when test="${ not empty crDomain}">
+		    	<c:choose>
+		    		<c:when test="${ crDomain.completionStatus == 'Y'}">
+		            <button class="btn btn_type8 clr" >
+		            <span data-btn-label="">수료</span>
+		            </button>
+		    		</c:when>
+		    		<c:when test="${ crDomain.completionStatus == 'N'}">
+		            <button class="btn btn_type8 clr">
+		            <span data-btn-label="">수강중</span>
+		            </button>
+		    		</c:when>
+		    		<c:when test="${ crDomain.completionStatus == 'F'}">
+				    <input type="hidden" value="${ crDomain.crCount }" name="crCount"/>    
+				    <input type="hidden" value="Y" id="registration"/>    
+				    <input type="hidden" value="${ crDomain.completionStatus }" name="completionStatus"/>    
+		            <button class="btn btn_type8 clr" id="btn_request_lecture" data-course-id="GPTSW" data-lecture-status="" data-request-btn="">
+		            <span data-btn-label="">재수강 신청</span>
+		            </button>
+		    		</c:when>
+		    	</c:choose>
+		    	</c:when>
+		    	<c:otherwise>
+			    <input type="hidden" value="N" id="registration"/>    
+	            <button class="btn btn_type8 clr" id="btn_request_lecture" data-course-id="GPTSW" data-lecture-status="" data-request-btn="">
+	            <span data-btn-label="">수강 신청</span>
+	            </button>
+		    	</c:otherwise>
+		    
+		    </c:choose>    
             <!-- // 수강신청 버튼 -->
             <!-- 수강신청 안내 메시지 -->
             

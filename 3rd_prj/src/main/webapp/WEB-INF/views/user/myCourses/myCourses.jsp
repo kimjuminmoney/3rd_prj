@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ page info="   " %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <%
 session.setAttribute("uiId", "ui_test");
 %>
@@ -81,7 +83,7 @@ session.setAttribute("uiId", "ui_test");
         	<c:when test="${ not empty coursesList || listSize != 0 }">
             <ul class="tab_content_list" data-course-card-ul>
                     <!-- div each -->
-                    <c:forEach var="courses" items="${ coursesList }" >
+                    <c:forEach var="courses" items="${ coursesList }" varStatus="i">
                     
                     <c:choose>
                     <c:when test="${ courses.completionStatus == 'Y'}">
@@ -140,14 +142,54 @@ session.setAttribute("uiId", "ui_test");
                                                 <strong>진도율</strong>
                                                 <div class="progress_area">
                                                     <div class="progress">
-                                                        <div class="progress_bar" style="width:  ${ courses.progressRate/courses.lecCnt *100 }%;"></div>
+                                                        <div class="progress_bar" style="width:  ${courses.rate}%;"></div>
                                                     </div>
-                                                    <span class="per">${ courses.progressRate/courses.lecCnt *100 }%</span>
+                                                    <span class="per">${courses.rate}%</span>
                                                 </div>
                                             </li>
                                         </ul>
                                         <div class="info_more_box">
-                                            <div class="info_more_area">
+                                        <!-- HTML 부분에 해당하는 부분 -->
+<div class="info_more_area">
+    <a href="#" class="btn btn_type3" data-btn="showStandard" data-target="standard-popup-${ i.count }">수료기준</a>
+    <div class="help_pop" style="display: none" data-standard-popup="standard-popup-${ i.count }">
+        강좌 진도율: 총 <em><c:out value="${ courses.enrollRate }"/></em>% 이상<br/>
+        시험 성적: <em><c:out value="${ courses.examResults }"/></em>점 이상
+        <a href="#" class="pop_close" data-btn="hideStandard" data-target="standard-popup-${ i.count }">레이어 닫기</a>
+    </div>
+    <a href="#" class="btn btn_type3" data-btn="certificate" data-uripath="onlineclass-tutorial" data-passed="false" data-is-always-open="true">수료증</a>
+</div>
+
+
+<!-- JavaScript/jQuery 부분 -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // 수료기준 버튼을 클릭했을 때의 동작
+        $('[data-btn="showStandard"]').click(function (e) {
+            e.preventDefault();
+
+            // 해당 버튼에 연결된 data-target 값을 가져옴
+            var target = $(this).data('target');
+
+            // 수료기준을 토글 (보이면 감추고, 감춰져 있으면 보이게 함)
+            $('[data-standard-popup="' + target + '"]').toggle();
+        });
+
+        // 레이어 닫기 버튼을 클릭했을 때의 동작
+        $('[data-btn="hideStandard"]').click(function (e) {
+            e.preventDefault();
+
+            // 해당 버튼에 연결된 data-target 값을 가져옴
+            var target = $(this).data('target');
+
+            // 수료기준을 감춤
+            $('[data-standard-popup="' + target + '"]').hide();
+        });
+    });
+</script>
+                                        
+                                            <%-- <div class="info_more_area">
                                                 
                                                     <a href="#" class="btn btn_type3" data-btn="showStandard">수료기준</a>
                                                     <div class="help_pop" style="display: none" data-standard-popup>
@@ -159,7 +201,7 @@ session.setAttribute("uiId", "ui_test");
                                                     </div>
                                                 
                                                 <a href="#" class="btn btn_type3" data-btn=certificate data-uripath=onlineclass-tutorial data-passed=false data-is-always-open=true>수료증</a>
-                                            </div>
+                                            </div> --%>
                                         </div>
                                     </div>
                                     <div class="done_box">

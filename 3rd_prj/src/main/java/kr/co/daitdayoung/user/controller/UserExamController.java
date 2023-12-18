@@ -31,7 +31,6 @@ public class UserExamController {
 	public String userExam(UserExamVO ueVO, HttpSession session, Model model) {
 		String uiId = (String) session.getAttribute("uiId");
 		ueVO.setUiId(uiId);
-		System.out.println("111111111111111111111111111111111111111111111111111111111"+ueVO);
 		//시험을 본적이 없으면(첫시험응시면)
 		String epCode = "";
 		if("N".equals(ueVO.getExamStatus())) {
@@ -80,14 +79,21 @@ public class UserExamController {
 			}//end if
 		}//end for
 		
-		int score = (int)(curCnt/ queCnt) * 100;
+		int score = (int)((curCnt/ queCnt) * 100);
 		UserExamScoreVO uesVO = new UserExamScoreVO();
 		uesVO.setCrgCode(uaVO.getCrgCode());
 		uesVO.setExamScore(score);
 		uesVO.setEpCode(uaVO.getEpCode());
+		uesVO.setExamPass("N");
+		int examResults = (Integer)session.getAttribute("examResults");
+		if(examResults <= score) {
+			uesVO.setExamPass("Y");
+		}
 		ues.modifyExamScore(uesVO);
+		int enrollRate = (Integer)session.getAttribute("enrollRate");
+		uesVO.setEnrollRate(enrollRate);
+		ues.modifyCompletionStatus(uesVO);
 		
-
 		return "user/courses/courses_exam_result";
 	}// userExamProcess
 	

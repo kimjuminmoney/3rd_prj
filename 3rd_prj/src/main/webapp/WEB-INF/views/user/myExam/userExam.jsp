@@ -394,7 +394,12 @@ $(document).ready(function () {
         });
 	    //시험제출하기
 	    $("#subBtn").click(function(){
-	    	$("#answerFrm").submit();
+	    	var confirmed = confirm("정말로 제출하시겠습니까?");
+
+	        // 사용자가 확인을 누른 경우에만 submit 실행
+	        if (confirmed) {
+	            $("#answerFrm").submit();
+	        }
 	    })
     });
     

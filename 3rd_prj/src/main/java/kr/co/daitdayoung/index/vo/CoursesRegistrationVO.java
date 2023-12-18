@@ -8,6 +8,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class CoursesRegistrationVO {
-	private String couCode, insId, uiId;
+	private String couCode, insId, uiId, completionStatus, crgCode;
+	private int crCount;
 
 }
