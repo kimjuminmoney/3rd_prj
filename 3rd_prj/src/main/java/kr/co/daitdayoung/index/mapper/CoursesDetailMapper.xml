@@ -65,6 +65,8 @@
 	insert into EXAM_PARTICIPATION (EP_CODE, CRG_CODE, UI_ID, COU_CODE, INS_ID)
 	values('EP_'||lpad(ep_seq.nextval,6,'0'),#{crgCode},#{uiId},#{couCode},#{insId})
 	</insert>
+	
+	
 
 	
 </mapper>

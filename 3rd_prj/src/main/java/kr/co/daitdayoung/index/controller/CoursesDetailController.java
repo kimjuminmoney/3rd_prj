@@ -34,6 +34,8 @@ public class CoursesDetailController {
 		List<CoursesLectureDomain> clList = cdService.searchLectureList(crVO.getCouCode());
 		int CompletionCnt = cdService.searchCompletionCnt(crVO.getCouCode());
 		CoursesRegistrationDomain crDomain = cdService.searchCoursesRegistration(crVO);
+		
+		
 		model.addAttribute("cdDomain", cdDomain);
 		model.addAttribute("clList", clList);
 		model.addAttribute("CompletionCnt", CompletionCnt);
@@ -43,6 +45,8 @@ public class CoursesDetailController {
 
 		return "/courses/courses_detail";
 	} // 강좌
+	
+	
 
 	@ResponseBody
 	@PostMapping(value = "/courses_registration.do", produces = "application/text;charset=utf-8")
@@ -57,9 +61,12 @@ public class CoursesDetailController {
 		cnt = cDomain.getCnt();
 		cnt += cdService.addCoursesRecodr(crVO);
 		cnt += cdService.addExamParticipationInsert(crVO);
-
+		boolean flag = false;
 		JSONObject json = new JSONObject();
-
+		if(cnt > 2) {
+			flag = true;
+		}
+		json.put("flag", flag);
 		return json.toJSONString();
 	}// userExamProcess
 

@@ -53,7 +53,6 @@ public class UserCoursesInquiryController {
 	@PostMapping("/user/coursesInquiry_process.do")
 	public String userCoursesInquiryProcess(HttpSession session,UserCoursesInquiryVO uciVO,Model model) {
 		uciVO.setUiId((String)session.getAttribute("uiId"));
-		System.out.println("=================================="+uciVO);
 		uciService.addCoursesInquiry(uciVO);
 		
 		return "redirect:/user/coursesInquiry.do";

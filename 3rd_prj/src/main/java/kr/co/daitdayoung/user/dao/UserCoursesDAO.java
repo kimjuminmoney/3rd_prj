@@ -87,7 +87,7 @@ public class UserCoursesDAO {
 		if(cnt == 1) {
 			ss.commit();
 		}
-		return cnt;
+		return ucVO.getRateCnt();
 	}
 	
 	public UserCoursesExamDomain selectCourseExam(String couCode) throws PersistenceException{
@@ -112,19 +112,23 @@ public class UserCoursesDAO {
 		return examInfo;
 	}//selectCourseReristration
 	
+	public String selectExamPass(String crgCode) throws PersistenceException{
+		mbh = MyBatisHandler.getInstance();
+		SqlSession ss = mbh.getMyBatisHandler(false);
+		String examPass = ss.selectOne("kr.co.daitdayoung.user.courses.examPass",crgCode);
+		mbh.closeHandler(ss);
+		return examPass;
+	}//selectCourseNotice
 	
-	public static void main(String[] args) {
-		//UserCoursesVO cuVO = new UserCoursesVO("COU_999999","ui_test","LEC_999995","CRG_999999","EP_999999");
-		//System.out.println(new UserCoursesDAO().updateCoursesRecode(cuVO));
-		//System.out.println(new UserCoursesDAO().selectCourseExam("COU_999999"));
-		//List<UserCoursesLectureDomain> list = new UserCoursesDAO().selectCourseLectureList(cuVO);
-		//System.out.println(new UserCoursesDAO().selectCourseNoticeList("COU_999999"));
-		//System.out.println(new UserCoursesDAO().selectCourseInfo(cuVO));
-//		for(UserCoursesLectureDomain uc : list) {
-//			System.out.println(uc);
-//		}
-		//System.out.println(new UserCoursesDAO().selectCourseLectureDetail(cuVO));
+	public void updateCourseViews(String couCode) throws PersistenceException {
+		int cnt = 0;
+		mbh = MyBatisHandler.getInstance();
+		SqlSession ss = mbh.getMyBatisHandler(false);
+		cnt = ss.update("kr.co.daitdayoung.user.courses.hitsUpdate", couCode);
+		if (cnt == 1) {
+			ss.commit();
+		}
+		mbh.closeHandler(ss);
+		
 	}
-	
-
 }//class

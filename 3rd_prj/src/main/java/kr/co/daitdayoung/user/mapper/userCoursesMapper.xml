@@ -58,8 +58,11 @@
 	
 	<!-- 수강신청테이블 수강률 업데이트 -->
 	<update id="coursesRegistrationUpdate" parameterType="kr.co.daitdayoung.user.vo.UserCoursesVO">
+	<selectKey keyProperty="rateCnt" order="BEFORE" resultType="int">
+	select PROGRESS_RATE +1 from COURSE_REGISTRATION where CRG_CODE = #{crgCode} 
+	</selectKey>
 	update	COURSE_REGISTRATION
-	set		PROGRESS_RATE = PROGRESS_RATE + 1
+	set		PROGRESS_RATE = #{rateCnt}
 	where	CRG_CODE = #{crgCode} and COU_CODE = #{couCode}
 	</update>
 	
@@ -78,8 +81,17 @@
 			ep.cou_code = e.cou_code and ep.ep_code = #{epCode}
 	</select>
 	
+	<select id="examPass" parameterType="String" resultType="String">
+	from EXAM_PARTICIPATION
+	where crg_code = #{crgCode} and exam_pass = 'Y'
+	</select>
 	
 	
+	<update id="hitsUpdate" parameterType="String">
+	update courses
+	set hits = hits +1
+	where cou_code = #{couCode}
+	</update>
 	
 	
 </mapper>

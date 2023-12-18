@@ -58,11 +58,4 @@ public class UserMyCoursesDAO {
 		return umcd;
 	}
 
-	public static void main(String[] args) {
-		List<UserMyCoursesDomain> list = new UserMyCoursesDAO().selectCoursesList("ui_test");
-		for(UserMyCoursesDomain umcd : list) {
-			System.out.println(umcd);
-		}
-		//System.out.println(new UserMyCoursesDAO().selectLecturesCnt("COU_999999"));
-	}
 }// class

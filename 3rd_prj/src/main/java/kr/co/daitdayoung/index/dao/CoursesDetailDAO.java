@@ -78,7 +78,7 @@ public class CoursesDetailDAO {
 		mbh = MyBatisHandler.getInstance();
 		SqlSession ss = mbh.getMyBatisHandler(false);
 		cnt = ss.insert("kr.co.daitdayoung.index.coursesDetail.courseRecordInsert", crVO);
-		if (cnt == 1) {
+		if (cnt > 0) {
 			ss.commit();
 		}
 		mbh.closeHandler(ss);
@@ -96,15 +96,8 @@ public class CoursesDetailDAO {
 		mbh.closeHandler(ss);
 		return cnt;
 	}
+	
+	
 
-	public static void main(String[] args) {
-		CoursesDetailDAO dao = new CoursesDetailDAO();
-		CoursesRegistrationVO vo = new CoursesRegistrationVO();
-		vo.setUiId("ui_test");
-		vo.setCouCode("COU_000021");
-
-		CoursesRegistrationDomain d = dao.selectCoursesRegistration(vo);
-		System.out.println(d == null);
-	}
 
 } // class

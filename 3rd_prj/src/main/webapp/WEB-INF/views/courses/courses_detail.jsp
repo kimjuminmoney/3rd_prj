@@ -200,12 +200,12 @@ $(function(){
                             <div class="sub_box">
                             </div>
                             <h2><a href="#"><c:out value="${ cdDomain.couName }"/></a></h2>
-                                <div class="profile">
-                                    <%-- <img src="http://localhost/daitdayoung/${ cdDomain.couCode }/${ cdDomain.insProfile }" width="24" height="24" alt=""> --%>
+                               <%--  <div class="profile">
+                                    <img src="http://localhost/daitdayoung/${ cdDomain.couCode }/${ cdDomain.insProfile }" width="24" height="24" alt="">
                                     <span class="name">
                                             <c:out value="${ cdDomain.insName }"/>
                                     </span>
-                                </div>
+                                </div> --%>
                         </div>
                     </div>
                 </div>

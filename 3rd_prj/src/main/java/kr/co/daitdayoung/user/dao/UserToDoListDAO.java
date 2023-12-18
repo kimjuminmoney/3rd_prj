@@ -37,14 +37,5 @@ public class UserToDoListDAO {
 		return list;
 	}//selectCourseReristration
 	
-	public static void main(String[] args) {
-		UserToDoListDAO d = new UserToDoListDAO();
-		List<UserToDoDomain> l = d.selectToDoList("ui_test");
-		for(UserToDoDomain a : l) {
-			List<UserToDoDomain> la = d.selectToDoExamList(a.getCrgCode());
-		}
-		
-	}
-	
 
 }//class

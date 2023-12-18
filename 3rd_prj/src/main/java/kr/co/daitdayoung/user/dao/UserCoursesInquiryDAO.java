@@ -79,25 +79,4 @@ public class UserCoursesInquiryDAO {
 		return uciDomain;
 	}// selectCoursesInquiryDetail
 
-	public static void main(String[] args) {
-		/*
-		 * List<UserCoursesInquiryDomain> list = new
-		 * UserCoursesInquiryDAO().selectCoursesInquiryList("ui_test");
-		 * for(UserCoursesInquiryDomain umcd : list) { System.out.println(umcd); }
-		 */
-		// System.out.println(new UserMyCoursesDAO().selectLecturesCnt("COU_999999"));
-		// System.out.println(new
-		// UserCoursesInquiryDAO().selectCoursesInquiryDetail("998 "));
-		// System.out.println(new UserCoursesInquiryDAO().selectCoursesInquiryType());
-		// System.out.println(new
-		// UserCoursesInquiryDAO().selectCoursesInquiryCouList("ui_test"));
-		/*
-		 * UserCoursesInquirVO uciVO = new UserCoursesInquirVO();
-		 * uciVO.setCiCode("CI_888888"); uciVO.setCiContent("인설트 테스트");
-		 * uciVO.setCitCode("CIT_000001"); uciVO.setCiTitle("인설트 타이틀");
-		 * uciVO.setInsId("ins_test"); uciVO.setUiId("ui_test");
-		 * uciVO.setCouCode("COU_999999"); System.out.println(new
-		 * UserCoursesInquiryDAO().insertInquiry(uciVO));
-		 */
-	}
 }// class

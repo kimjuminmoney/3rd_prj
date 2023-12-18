@@ -91,8 +91,11 @@ public class UserExamController {
 		}
 		ues.modifyExamScore(uesVO);
 		int enrollRate = (Integer)session.getAttribute("enrollRate");
+		int lecCnt = (Integer)session.getAttribute("lecCnt");
 		uesVO.setEnrollRate(enrollRate);
+		uesVO.setLecCnt(lecCnt);
 		ues.modifyCompletionStatus(uesVO);
+		System.out.println("성공한듯");
 		
 		return "user/courses/courses_exam_result";
 	}// userExamProcess

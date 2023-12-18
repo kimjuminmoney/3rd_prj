@@ -7,18 +7,23 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import kr.co.daitdayoung.user.dao.UserCoursesDAO;
+import kr.co.daitdayoung.user.dao.UserExamDAO;
 import kr.co.daitdayoung.user.domain.CoursesExamInfoDomain;
 import kr.co.daitdayoung.user.domain.UserCoursesDomain;
 import kr.co.daitdayoung.user.domain.UserCoursesExamDomain;
 import kr.co.daitdayoung.user.domain.UserCoursesLectureDomain;
 import kr.co.daitdayoung.user.domain.UserCoursesNoticeDomain;
 import kr.co.daitdayoung.user.vo.UserCoursesVO;
+import kr.co.daitdayoung.user.vo.UserExamScoreVO;
 
 @Component
 public class UserCoursesService {
 
 	@Autowired
 	private UserCoursesDAO ucDAO;
+	
+	@Autowired
+	private UserExamDAO ueDAO;
 
 	public UserCoursesDomain searchCoursesInfo(UserCoursesVO ucVO) {
 
@@ -46,16 +51,11 @@ public class UserCoursesService {
 		return uclDomain;
 	}// searchCoursesLectureDetail
 	
-	@Transactional
 	public int modifyCoursesRecode(UserCoursesVO ucVO) {
 		int cnt = 0;
-		try {
 			cnt += ucDAO.updateCoursesRecode(ucVO);
-			cnt += ucDAO.updateCoursesRegistration(ucVO);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return cnt;
+		int	rateCnt = ucDAO.updateCoursesRegistration(ucVO);
+		return rateCnt;
 	}
 
 	public UserCoursesExamDomain searchCoursesExam(String couCode) {
@@ -68,5 +68,24 @@ public class UserCoursesService {
 		
 		return examInfo;
 	}// searchCoursesLectureDetail
+	
+	public String searchExamPass(String crgCode) {
+		return ucDAO.selectExamPass(crgCode);
+	}
+	
+	public int modifyCompletionStatus(UserCoursesVO ucVO) {
+		int progress = ucVO.getRateCnt();
+		int enrollRate = ucVO.getEnrollRate();
+		int lecCnt = ucVO.getLecCnt();
+		int cnt = 0;
+		if (progress != 0 && (lecCnt / (double) progress) * 100 >= enrollRate) {
+			cnt = ueDAO.updateCompletion(ucVO.getCrgCode());
+		}
+		return cnt;
+	}
+	
+	public void increaseCourseViews(String couCode) {
+		ucDAO.updateCourseViews(couCode);
+	}
 
 }// class

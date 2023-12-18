@@ -120,8 +120,9 @@ public class UserExamService {
 	public int modifyCompletionStatus(UserExamScoreVO uesVO) {
 		int progress = ueDAO.selectProgress(uesVO.getCrgCode());
 		int enrollRate = uesVO.getEnrollRate();
+		int lecCnt = uesVO.getLecCnt();
 		int cnt = 0;
-		if(progress == enrollRate) {
+		if (progress != 0 && (lecCnt / (double) progress) * 100 >= enrollRate) {
 			cnt = ueDAO.updateCompletion(uesVO.getCrgCode());
 		}
 		return cnt;
