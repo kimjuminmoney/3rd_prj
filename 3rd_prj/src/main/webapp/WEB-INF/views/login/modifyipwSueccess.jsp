@@ -502,17 +502,15 @@ body.full #container #content .complete .top_icon i svg rect, body.full #contain
 					</svg>
 				</i>
 			</div>
-			<h2 class="tit">${id}님 회원가입을 진심으로 축하드립니다.!</h2>
+			<h2 class="tit">비밀번호 변경이 완료되었습니다.</h2>
 			<p class="dsc"><br>아이디나 비밀번호를 타인에게 알려주거나 공유하는 컴퓨터에서 개인정보유출이 되지 않도록 유의하시기 바랍니다.</p>
 			<div class="ipt_group">
 				<div class="btm">
 					<span class="text">
 					</span>
-					    <div>
 					     <button type="submit" id="submit" class="btn btn_type1 clr" data-btn-submit style="background-color: #03C75A; color: white;">
 			    			<a href="http://localhost/3rd_prj2_test/login/login.do" style="color: inherit; text-decoration: none;">로그인하러가기</a>
 						</button>
-					</div>
 				</div>
 			</div>
 		</section>

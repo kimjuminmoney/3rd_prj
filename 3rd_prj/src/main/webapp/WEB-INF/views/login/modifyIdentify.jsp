@@ -108,6 +108,29 @@ body#content .page_header .reverse_wrap .ick .checkbox.checked,
 .class_manager .slc_area .add_top_wrap .ick .checkbox.checked {
     background-color:#00AB50;
 }
+#insIntrodce {
+    width: 100%; /* 가로 폭을 100%로 설정하여 부모 요소의 폭을 채우도록 합니다. */
+    height: 200px; /* 원하는 세로 높이로 조절하세요. */
+    font-size: 18px; /* 원하는 글꼴 크기로 조절하세요. */
+}
+a {
+    font-size: 18px; /* 원하는 글꼴 크기로 조절하세요. */
+}
+.btn_wrap {
+    text-align: center; /* 텍스트를 수평으로 가운데 정렬합니다. */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+#submit {
+    background-color: #03C75A; /* 배경 색상을 초록색으로 변경합니다. */
+    color: white; /* 텍스트 색상을 흰색으로 설정합니다. */
+    padding: 10px 20px; /* 버튼 내의 내용물과 버튼 테두리 간격 설정 */
+}
+
+
 
  .btn.small {
         padding: 5px 10px; /* 상하 패딩 5px, 좌우 패딩 10px */
@@ -134,6 +157,7 @@ body#content .page_header .reverse_wrap .ick .checkbox.checked,
     align-items: center; /* 요소들을 세로 중앙에 배치 */
     justify-content: space-between; /* 요소들 사이에 공간을 균등하게 배분 */
 }
+
 
 .photo-and-password dd {
     margin-right: 10px; /* 오른쪽 여백 추가 */
@@ -488,6 +512,7 @@ body#content .page_header .reverse_wrap .ick .checkbox.checked,
 
 <script src="/static/js/src/entries/common/_gnbmenu.entry.browserfied.min.js?231130_26709717"></script>
 
+<div>
 
 			</div>
 		</div>
@@ -522,34 +547,39 @@ body#content .page_header .reverse_wrap .ick .checkbox.checked,
 			        <!-- ok , error 클레스 추가에 따라 텍스트 출력 및 스타일 변경됨-->
 			            <dl>
 			                 <dt>이름</dt>
-			                <dd><input type="text" name="userName" maxlength="25" placeholder="" autocomplete="off" title="이름"/><span></span></dd>
+			                <dd><input type="text" name="insName" id="insName" maxlength="25" placeholder="" autocomplete="off" title="이름"/><span></span></dd>
 			                <p></p>
 			            </dl>
 			            <dl class="email">
 			                <dt>이메일</dt>
-			                <dd><input type="text" name="email" id="email" autocomplete="off" title="이메일"/><span></span></dd>
+			                <dd><input type="text" name="insEmail" id="insEmail" autocomplete="off" title="이메일"/><span></span></dd>
 			                <input type="hidden" name="check_email" value="-1"/>
 			            </dl>
 			            <dl class="phone">
 			                <dt>휴대폰</dt>
-			                <dd> <input type="text" name="mobile" id="phone" autocomplete="off" title="휴대폰" placeholder='‘-’ 없이 입력' /><span></span><label for="phone"></label></dd>
+			                <dd> <input type="text" name="insTel" id="insTel" autocomplete="off" title="휴대폰" placeholder='‘-’ 없이 입력' /><span></span><label for="phone"></label></dd>
 			                 <dl class="photo-and-password"> <!-- 새로운 클래스 추가 -->
+			                 <div>
 					            <dd>
-					                <input type="file" name="photo" id="photo" autocomplete="off" title="사진" onchange="previewImage();" />
+					                <input type="file" name="insProfile" id="insProfile" autocomplete="off" title="사진" onchange="previewImage();" />
 					                <label for="photo">사진등록</label>
 					            </dd>
-					            <dd>
-					                <a href="#n" class="btn blue small">비밀번호 변경</a>
-					            </dd>
+					            
 					        </dl>
 						    <p></p>
 						    <img id="imagePreview" style="max-width: 500px; display: none;" />
-			                </dl>
 						</dl>
+						<dl class="intorduce">
+		                <dt>내용</dt>
+		                <dd><textarea placeholder="내용을 입력하세요." name="insIntrodce" id="insIntrodce"></textarea></dd><br/>
+		         		   </dl>
+			                 </div>
+			                 <dd>
+					                <p></p> <a href="http://localhost/3rd_prj2_test/login/modifyInsPw.do">비밀번호 변경하러가기</a>
+					           </dd>
 			        <div class="btn_wrap">
-					    <a href="#n" id="step2Btn" class="btn blue small">변경하기</a>
+					    <button type="submit" id="submit" class="btn btn_type1 clr" data-btn-submit>회원정보 변경</button>
 					</div>
-				</div>
 				</div>
 				</div>
 				</form>
