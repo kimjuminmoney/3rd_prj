@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import kr.co.daitdayoung.admin.dao.ManageCoursesDAO;
 import kr.co.daitdayoung.admin.domain.ManageCoursesDomain;
+import kr.co.daitdayoung.admin.vo.ManageCoursesVO;
 import kr.co.daitdayoung.index.domain.CoursesDetailDomain;
 import kr.co.daitdayoung.index.domain.CoursesLectureDomain;
 import kr.co.daitdayoung.index.domain.CoursesRegistrationDomain;
@@ -51,5 +52,13 @@ public class ManageCoursesService {
 		
 		return cnt;
 	}//modifyApprove
+	
+	public int addExam(ManageCoursesVO mcVO) throws PersistenceException{
+		int cnt = 0;
+		
+		cnt = mcDAO.insertExam(mcVO);
+		
+		return cnt;
+	}//addExam
 
 }

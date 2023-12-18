@@ -103,20 +103,23 @@ $(function(){
 	$("#btn_request_lecture").click(function(){
 	var confirmation = confirm('강좌를 승인하시겠습니까?');
 	
-		var couCode = ${ param.couCode };
+		var param={couCode: "${ param.couCode }",
+				insId: $("#insId").val()}
+		alert(insId);
 		
 		if(confirmation){
 			$.ajax({
 	        	url:"modapp.do",
 				type:"GET",
-				data: "couCode="+couCode,
+				data: param,
 				dataType:"json",
 				error:function(xhr){
 					console.log(xhr.status);
 				},
 				success:function(jsonObj){
-					 var cnt = jsonObj.cnt;
-					   if(cnt=='1'){
+					 var modCnt = jsonObj.modCnt;
+					 var addCnt = jsonObj.addCnt;
+					   if(modCnt=='1' && addCnt>='1'){
 						   alert("강좌가 승인되었습니다.");
 						   location.reload();
 					   }else{
@@ -174,6 +177,7 @@ $(function(){
                                     <span class="name">
                                             <c:out value="${ cdDomain.insName }"/>
                                     </span>
+                                    <input type="hidden" id="insId" value="${ cdDomain.insId }">
                                 </div>
                         </div>
                     </div>

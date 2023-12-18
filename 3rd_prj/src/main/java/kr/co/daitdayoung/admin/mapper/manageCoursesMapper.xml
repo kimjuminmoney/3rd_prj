@@ -46,6 +46,11 @@ set approve='Y', final_approve='Y'
 where cou_code=#{couCode}
 </update>
 
+<insert id="insertExam" parameterType="kr.co.daitdayoung.admin.vo.ManageCoursesVO">
+insert into exam(exam_code, cou_code, ins_id, exam_content, exam_timelimit)
+values('EXAM_'||LPAD(CI_SEQ.nextVal, 6, '0'),#{ couCode },#{ insId },'내용을 입력해주세요',60)
+</insert>
+
 </mapper>
 
 

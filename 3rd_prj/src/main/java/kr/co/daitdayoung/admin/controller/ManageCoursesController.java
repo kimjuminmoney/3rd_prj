@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.daitdayoung.admin.domain.ManageCoursesDomain;
 import kr.co.daitdayoung.admin.service.ManageCoursesService;
+import kr.co.daitdayoung.admin.vo.ManageCoursesVO;
 import kr.co.daitdayoung.index.domain.CoursesDetailDomain;
 import kr.co.daitdayoung.index.domain.CoursesLectureDomain;
 import kr.co.daitdayoung.index.domain.CoursesRegistrationDomain;
@@ -54,14 +55,17 @@ public class ManageCoursesController {
 	
 	@ResponseBody
 	@GetMapping("/admin/admin_courses/modapp.do")
-	public String processmodifyApprove(Model model, String couCode) {
+	public String processmodifyApprove(Model model, String couCode, ManageCoursesVO mcVO) {
 		JSONObject jsonObj = new JSONObject();
 		
-		int cnt = 0;
+		int modCnt = 0;
+		int addCnt = 0;
 		
-		cnt = mcs.modifyApprove(couCode);
+		modCnt = mcs.modifyApprove(couCode);
+		addCnt = mcs.addExam(mcVO);
 		
-		jsonObj.put("cnt", cnt);
+		jsonObj.put("modCnt", modCnt);
+		jsonObj.put("addCnt", addCnt);
 		
 		return jsonObj.toJSONString();
 	}//processmodifyApprove
