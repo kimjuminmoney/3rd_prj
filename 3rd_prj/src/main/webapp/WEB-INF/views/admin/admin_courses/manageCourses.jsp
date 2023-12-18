@@ -88,7 +88,7 @@ $(function(){
                                     	<c:forEach var="course" items="${ requestScope.coursesList }">
                                     	<tr>
                                             <td><c:out value="${ course.couCode }"/></td>
-                                            <td><a href="detailCourse.do"><c:out value="${ course.couName }"/></a></td>
+                                            <td><a href="detailCourse.do?couCode=${ course.couCode }"><c:out value="${ course.couName }"/></a></td>
                                             <td><c:out value="${ course.insName }"/></td>
                                             <td><c:out value="${ course.opendate }"/></td>
                                             <td><c:out value="${ course.registCnt }"/></td>

@@ -11,8 +11,11 @@ import lombok.ToString;
 @ToString
 public class ManageCoursesDomain {
 	
-	private String couCode, insName, couName, approve, finalApprove;
-	private int registCnt;
+	private String couCode, insName, couName, approve, finalApprove ,insId ,content,bannerImg, sampleVideo, ccCode ,insIntrodce, 
+	insEmail,insTel, insProfile,scName, mcName;
+	
+	private int registCnt,couPeriod,hits;
+	
 	private Date opendate;
 	
 }

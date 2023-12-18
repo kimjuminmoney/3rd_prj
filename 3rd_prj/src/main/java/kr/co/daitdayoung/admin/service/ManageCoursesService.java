@@ -8,6 +8,10 @@ import org.springframework.stereotype.Component;
 
 import kr.co.daitdayoung.admin.dao.ManageCoursesDAO;
 import kr.co.daitdayoung.admin.domain.ManageCoursesDomain;
+import kr.co.daitdayoung.index.domain.CoursesDetailDomain;
+import kr.co.daitdayoung.index.domain.CoursesLectureDomain;
+import kr.co.daitdayoung.index.domain.CoursesRegistrationDomain;
+import kr.co.daitdayoung.index.vo.CoursesRegistrationVO;
 
 @Component
 public class ManageCoursesService {
@@ -22,6 +26,23 @@ public class ManageCoursesService {
 		
 		return list;
 	}//searchCourses
+	
+
+	public CoursesDetailDomain searchCoursesDetail(String couCode) {
+		return mcDAO.selectCoursesDetail(couCode);
+	} // searchCoursesDetail
+
+	public List<CoursesLectureDomain> searchLectureList(String couCode) {
+		return mcDAO.selectLectureList(couCode);
+	} // searchLectureList
+
+	public List<CoursesRegistrationDomain> searchCoursesRegistration(CoursesRegistrationVO crVO) throws PersistenceException {
+		return mcDAO.selectCoursesRegistration(crVO);
+	}
+
+	public int searchCompletionCnt(String couCode) throws PersistenceException {
+		return mcDAO.selectCompletionCnt(couCode);
+	}
 	
 	public int modifyApprove(String couCode) throws PersistenceException{
 		int cnt = 0;

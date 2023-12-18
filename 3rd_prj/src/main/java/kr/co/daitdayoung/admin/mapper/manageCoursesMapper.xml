@@ -13,7 +13,34 @@ from courses c, instructor i
 where c.ins_id=i.ins_id
 </select>
 
-<update id="updateApprove" parameterType="String">
+<select id="coursesDetail2" parameterType="String" resultType="kr.co.daitdayoung.index.domain.CoursesDetailDomain">
+select 	c.COU_CODE, c.INS_ID, c.COU_NAME, c.CONTENT, c.BANNER_IMG, c.COU_PERIOD,
+		c.SAMPLE_VIDEO, c.HITS, c.CC_CODE,INS_NAME, INS_INTRODCE, INS_EMAIL,
+		INS_TEL, INS_PROFILE,SC_NAME, MC_NAME
+from 	COURSES c,  INSTRUCTOR i,MAINCATEGORY mc , SUBCATEGORY sc
+where   c.cou_code = #{couCode} and  i.ins_id = c.ins_id and
+			mc.mc_code = sc.mc_code and c.sc_code = sc.sc_code
+</select>
+
+<select id="lectureList2" parameterType="String" resultType="kr.co.daitdayoung.index.domain.CoursesLectureDomain">
+select  LEC_CODE, COU_CODE, LEC_NAME, LEC_CONTENT, VIDEO_NAME
+from	LECTURES
+where	cou_code = #{couCode}
+</select>
+
+<select id="completionCnt2" parameterType="String" resultType="int">
+select 	count(COMPLETION_STATUS)
+from 	COURSE_REGISTRATION
+where	cou_code = #{couCode} and COMPLETION_STATUS = 'Y'
+</select>
+
+<select id="reCompletion2" parameterType="kr.co.daitdayoung.index.vo.CoursesRegistrationVO" resultType="kr.co.daitdayoung.index.domain.CoursesRegistrationDomain">
+select 	CR_COUNT, COMPLETION_STATUS
+from 	COURSE_REGISTRATION
+where	ui_Id = #{uiId} and cou_code = #{couCode}
+</select>
+
+<update id="updateApprove2" parameterType="String">
 update courses 
 set approve='Y'
 where cou_code=#{couCode}
