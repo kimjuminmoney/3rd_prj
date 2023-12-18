@@ -1,0 +1,40 @@
+.Slidesbackground {
+    margin: 0;
+    padding: 0;
+
+}
+.slideshow-image{
+    border-radius:3%;
+    width: 804px;
+    height: 240px;
+    overflow: hidden;
+}
+.mySlides {
+    border-radius:3%;
+    width: 804px;
+    height: 240px;
+    display: block;
+    justify-content: center;
+    align-items: center;
+}
+
+.slideshow-container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin: auto;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+    to {
+        opacity: 1
+    }
+}

@@ -84,16 +84,6 @@ footer#footer {
 
 	<div id="container" style="background-color: #fff" >
 	    <div class="notice_wrap">
-	    	
-	    	<div class="news_sch_wrap">
-	     	<p>
-	     	<label for="sch_bar" class="a11y">검색어</label>
-	     	<!-- 접근성_20171123 label 추가 -->
-	     	<input type="text" name="sch_bar" id="sch_bar" placeholder="검색어를 입력해 주세요."> 
-	     	<a href="javascript:void(0)" class="newBoardSearchBtn">검색</a>
-	     	</p>
-	     	</div>
-	                
 	                
           	<!-- 공지사항 디자인 -->
             <table summary="공지사항" class="notice_tb">
@@ -139,17 +129,7 @@ footer#footer {
                         <img alt="이전으로" src="//image.istarbucks.co.kr/common/img/util/ec/prev.jpg"></a></li>
                         
 	                        <li class=" active">
-	                        <a href="javascript:void(0)">11</a></li>
-	                        <li class="">
-	                        <a href="javascript:void(0)">12</a></li>
-	                        <li class="">
-	                        <a href="javascript:void(0)">13</a></li>
-	                        <li class="">
-	                        <a href="javascript:void(0)">14</a></li>
-	                        <li class="">
-	                        <a href="javascript:void(0)">15</a></li>
-	                        <li class="">
-	                        <a href="javascript:void(0)">16</a></li>
+	                        <a href="javascript:void(0)">1</a></li>
                         
                         <li class="control">
                         <a href="javascript:void(0)">

@@ -107,19 +107,6 @@ $(function(){
                 </div>        -->       
                 <div class="inquiry_wrap">
                    
-                   <div class="news_sch_wrap">
-                   	<select id="itName" class="inputBox" 
-                   	style="text-align: center; height: 36px; width: 120px; border:1px solid #ddd; border-radius: 3px;" >
-					   <option selected>---문의 유형---</option>
-					   <c:forEach var="inquiry" items="${ requestScope.inquiryList }">
-					   	<option value="${ inquiry.itName }"><c:out value="${ inquiry.itName }"/></option>
-					   	</c:forEach>
-					</select>
-					
-                      <p><label for="sch_bar" class="a11y">검색어</label><!-- 접근성_20171123 label 추가 -->
-                      <input type="text" name="sch_bar" id="sch_bar" placeholder="검색어를 입력해 주세요."> 
-                      <a href="javascript:void(0)" class="newBoardSearchBtn" id="btn">검색</a></p>
-                   </div>
                    
                     <table summary="문의" class="notice_tb">
                         <caption class="hid">번호, 유형, 제목, 날짜</caption>
@@ -173,17 +160,7 @@ $(function(){
                         
                         
 	                        <li class=" active">
-	                        <a href="javascript:void(0)">11</a></li>
-	                        <li class="">
-	                        <a href="javascript:void(0)">12</a></li>
-	                        <li class="">
-	                        <a href="javascript:void(0)">13</a></li>
-	                        <li class="">
-	                        <a href="javascript:void(0)">14</a></li>
-	                        <li class="">
-	                        <a href="javascript:void(0)">15</a></li>
-	                        <li class="">
-	                        <a href="javascript:void(0)">16</a></li>
+	                        <a href="javascript:void(0)">1</a></li>
                         
                         <li class="control">
                         <a href="javascript:void(0)">

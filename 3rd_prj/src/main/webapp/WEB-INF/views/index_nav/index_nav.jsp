@@ -35,45 +35,86 @@
 
 <div class="accordion" id="accordionExample">
   <div class="accordion-item" style="width: 252px; height: 48px; text-align: left; color: #454545;">
+  
 	<h2 class="accordion-header" style="width: 252px; height: 48px; ">
       <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" 
       aria-expanded="true" aria-controls="collapseOne" style="color: #fff; background-color: #454545;">
-      대분류
+      의무교육
       </button>
     </h2>
     <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample" style="font: #666">
       <div class="accordion-body" style="color: #454545; font-style: ">
-      소분류
+		개인정보 보호교육
+      </div>
+      <div class="accordion-body" style="color: #454545; font-style: ">
+		성희롱 예방교육
+      </div>
+      <div class="accordion-body" style="color: #454545; font-style: ">
+		산업안전 보건교육
+      </div>
+      <div class="accordion-body" style="color: #454545; font-style: ">
+		장애인인식 개선교육
+      </div>
+      <div class="accordion-body" style="color: #454545; font-style: ">
+		퇴직연금 교육
+      </div>
+      <div class="accordion-body" style="color: #454545; font-style: ">
+		직장 내 괴롭힘 예방교육
       </div>
     </div>
-  </div>
-</div>
-
     
-    
-    
-<%-- <div class="accordion accordion-flush" id="accordionFlushExample">
-  <div class="accordion-item">
-  <c:forEach var="indexMC" items="${MCList}">
-    <h2 class="accordion-header" >
-	    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" 
-	    aria-expanded="false" aria-controls="flush-collapseOne">
-	    <a href="courses.do?mcCode=${indexMC.mcCode}">
-	        ${indexMC.mcName}
-	    </a>
-		</button>
+	<h2 class="accordion-header" style="width: 252px; height: 48px; ">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" 
+      aria-expanded="true" aria-controls="collapseOne" style="color: #fff; background-color: #454545;">
+      자기개발교육
+      </button>
     </h2>
-    </c:forEach>
-    
-    <c:forEach var="leftDetail" items="${ctList }">
-    <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body"> ${leftDetail.scName }</div>
+    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample" style="font: #666">
+      <div class="accordion-body" style="color: #454545; font-style: ">
+      마케팅 분석 
+      </div>
+      <div class="accordion-body" style="color: #454545; font-style: ">
+		데이터 분석
+      </div>
+      <div class="accordion-body" style="color: #454545; font-style: ">
+		비즈니스 매너
+      </div>
+      <div class="accordion-body" style="color: #454545; font-style: ">
+		포토샵, 영상편집
+      </div>
+      <div class="accordion-body" style="color: #454545; font-style: ">
+		제3 외국어
+      </div>
+      <div class="accordion-body" style="color: #454545; font-style: ">
+		영어
     </div>
-    </c:forEach>
+ </div>
+    
+	<h2 class="accordion-header" style="width: 252px; height: 48px; ">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" 
+      aria-expanded="true" aria-controls="collapseOne" style="color: #fff; background-color: #454545;">
+      산업안전교육
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample" style="font: #666">
+      <div class="accordion-body" style="color: #454545; font-style: ">
+     보건
   </div>
-</div> --%>
-
-
+      <div class="accordion-body" style="color: #454545; font-style: ">
+		서비스
+      </div>
+      <div class="accordion-body" style="color: #454545; font-style: ">
+		공통
+      </div>
+      <div class="accordion-body" style="color: #454545; font-style: ">
+		건설
+      </div>
+      <div class="accordion-body" style="color: #454545; font-style: ">
+		제조
+      </div>
+	
+	</div>
+</div>
 
 	<!-- 강의 목록 -->
 	
@@ -86,54 +127,36 @@
             
 	<ul class="lecture_list" id="course">
 	                
+	<c:forEach var="cou" items="${ CLList }">
 	<li>
-	    <div class="lecture_card card">
-	    <span class="preview">
-	        
-	    	<img src="https://cphinf.pstatic.net/mooc/20231130_10/1701318273839pnWMT_JPEG/%B8%DE%C0%CE_%C8%AD%B8%E9.JPG?type=ffn300_166" alt="2023년 방과후 놀이배움터 역량강화 연수 연장운영">
-	
-	        <span class="mask"></span>
-	        
-	    </span>
-	        
-	       <%--  <c:forEach var="cou" items="${ indexMC.list }">  --%>
-	        <dl class="lecture_info">
-	            <dt>
-	                
-	            </dt>
-	            <dd class="detail">
-	                <div class="date">
-	                    
-	                </div>
-	                <p class="name">
-	                    <span class="txt_prof">영유아교육연수원</span>
-	                    <span class="txt_partner">edwith</span>
-	                    
-	                </p>
-	            </dd>
-	        </dl>
-		<div class="lecture_count">
-	        <div class="favorite"><span class="ic_heart">좋아요</span>9</div>
-	        <div class="student"><span class="ic_student">수강생 수</span>88</div>
-	    </div>
-	    
-	        <a href="courses_detail.do" class="lnk_lecture">
-	            <span class="blind">강좌 바로가기</span>
-	        </a>
-	       <%--  </c:forEach> --%>
-	        
-	    </div>
-	</li>
+    <div class="lecture_card card">
+    <span class="preview">
+            <img src="${cou.bannerImg }">
+        <span class="mask"></span>
+    </span>
+        <dl class="lecture_info">
+            <a href="courses_detail.do?couCode=${ cou.couCode }">
+            <dt><c:out value="${cou.couName }"/></dt></a>
+            <dd class="detail">
+                <p class="name">
+                  <span class="txt_prof">${cou.insName}</span>
+                </p>
+            </dd>
+        </dl>
+        <div class="lecture_count">
+        	<div class="favorite"><span class="ic_heart"></span><c:out value="${cou.hits }"/></div>
+            <%-- <div class="clear"><span class="ic_student"></span><c:out value="${cou.completionCnt != null ? cou.completionCnt : 0}"/></div> --%>
+        </div>
+        <a href="courses_detail.do?mcCode=${indexMC.mcCode}" class="lnk_lecture">
+            <span class="blind">강좌 바로가기</span>
+        </a>
+    </div>
+</li>
+</c:forEach>
 
 	</ul>
 </div>
 
-            <div class="more_area ta_c" id="_more_area" style="">
-                <!-- [D][AU] 로딩시 'load_gray'클래스 추가 -->
-                <button type="button" class="btn btn_type10" data-course-more-btn="">더보기 
-                <em>(24/342)</em>
-                </button>
-            </div>
             <a href="#" class="btn_top" data-top-btn="" style="display: block;">TOP</a>
             
         </section>
@@ -141,6 +164,9 @@
 
 </div>  
 </div>
+</div>
+
+
 
 
 
