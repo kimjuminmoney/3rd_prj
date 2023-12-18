@@ -4,12 +4,14 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.daitdayoung.admin.domain.ManageCoursesDomain;
 import kr.co.daitdayoung.admin.service.ManageCoursesService;
@@ -49,5 +51,19 @@ public class ManageCoursesController {
 		
 		return "admin/admin_courses/detailCourse";
 	} //강좌
+	
+	@ResponseBody
+	@GetMapping("/admin/admin_courses/modapp.do")
+	public String processmodifyApprove(Model model, String couCode) {
+		JSONObject jsonObj = new JSONObject();
+		
+		int cnt = 0;
+		
+		cnt = mcs.modifyApprove(couCode);
+		
+		jsonObj.put("cnt", cnt);
+		
+		return jsonObj.toJSONString();
+	}//processmodifyApprove
 	
 }

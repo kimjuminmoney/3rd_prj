@@ -98,23 +98,37 @@
         
 <script type="text/javascript">
 $(function(){
+	
+	
 	$("#btn_request_lecture").click(function(){
-		alert("수강신청");
-		var param = {couCode: "${param.couCode}",
-					insId: "${ cdDomain.insId }"}
-		$.ajax({
-        	url:"courses_registration.do",
-			type:"POST",
-			data: param,
-			dataType:"json",
-			error:function(xhr){
-				console.log(xhr.status);
-			},
-			success:function(jsonObj){
-				
-			}//success
-        })
-	})
+	var confirmation = confirm('강좌를 승인하시겠습니까?');
+	
+		var couCode = ${ param.couCode };
+		
+		if(confirmation){
+			$.ajax({
+	        	url:"modapp.do",
+				type:"GET",
+				data: "couCode="+couCode,
+				dataType:"json",
+				error:function(xhr){
+					console.log(xhr.status);
+				},
+				success:function(jsonObj){
+					 var cnt = jsonObj.cnt;
+					   if(cnt=='1'){
+						   alert("강좌가 승인되었습니다.");
+						   location.reload();
+					   }else{
+						   alert("강좌가 승인되지 않았습니다. 다시 한번 시도해주세요.");
+					   }
+				}//success
+	        });//ajax
+		}else{
+			alert("취소되었습니다.");
+		}
+		
+	});//click
 })
 </script>            
         

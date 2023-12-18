@@ -40,9 +40,9 @@ from 	COURSE_REGISTRATION
 where	ui_Id = #{uiId} and cou_code = #{couCode}
 </select>
 
-<update id="updateApprove2" parameterType="String">
+<update id="updateApprove" parameterType="String">
 update courses 
-set approve='Y'
+set approve='Y', final_approve='Y'
 where cou_code=#{couCode}
 </update>
 

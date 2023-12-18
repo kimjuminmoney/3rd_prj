@@ -20,10 +20,7 @@ session.setAttribute("adminId", "admin");
    var stuCnt = ${stuCnt};
    
 $(function(){
-	$("#btn").click(function(){
-		console.log(couNameList);
-		alert(stuCnt);
-	});//click
+	
 });//ready
 </script>
 
@@ -54,8 +51,6 @@ $(function(){
                         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                     </div>
-                    <input type="button" id="btn" value="test"/>
-
                     <!-- Content Row -->
                     <div class="row">
 
