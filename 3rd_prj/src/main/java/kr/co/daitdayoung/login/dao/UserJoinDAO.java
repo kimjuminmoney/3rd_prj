@@ -14,7 +14,8 @@ public class UserJoinDAO {
 	public int insertUser(UserJoinVO ujVO)throws PersistenceException{
 		int result = 0;
 		MyBatisHandler mbh = MyBatisHandler.getInstance();
-		SqlSession ss = mbh.getMyBatisHandler(false);
+		SqlSession ss = mbh.getMyBatisHandler(true);
+		System.out.println(ujVO);
 		
 		result=ss.insert("kr.co.daitdayoung.login.userJoin", ujVO);
 		if(result==1) {

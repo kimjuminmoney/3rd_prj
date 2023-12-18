@@ -1,11 +1,15 @@
 package kr.co.daitdayoung.login.controller;
 
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import kr.co.daitdayoung.login.service.LoginService;
 import kr.co.daitdayoung.login.vo.LoginVO;
@@ -13,8 +17,21 @@ import kr.co.daitdayoung.login.vo.LoginVO;
 @Controller
 public class userLoginController {
 	
+	private static userLoginController ulc;
+	
 	@Autowired
 	private LoginService ls;
+	
+	private userLoginController() {
+		
+	}
+	
+	public static userLoginController getInstance() {
+		if(ulc == null) {
+			ulc = new userLoginController();
+		}
+		return ulc;
+	}
 	
 	@GetMapping("/login/login.do")
 	public String loginFrm() {
@@ -26,21 +43,27 @@ public class userLoginController {
 	public String loginprocess(LoginVO lVO, Model model) {
 		
 		
-		 lVO.setPw(lVO.getPw());
+		 
 		 String id = "";
+		 
 		 model.addAttribute("flag", false);
+		 
 		 if("user".equals(lVO.getType())) {
-			 id = ls.searchUserLogin(lVO); 
+			 id=ls.loginUser(lVO);
+			// id = ls.searchUserLogin(lVO); 
 		 }
 		 if("ins".equals(lVO.getType())) {
-			 id = ls.searchInsLogin(lVO); 
+			 id=ls.loginIns(lVO);
+			 //id = ls.searchInsLogin(lVO); 
 		 }
+		 
 		 if(id != null && id.equals(lVO.getId())) {
 			 model.addAttribute("id", id);
 			 return "index/index";
 		 }
 		 return "login/login";
 	}
+	
 	
 	
 }

@@ -2,6 +2,7 @@ package kr.co.daitdayoung.login.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import kr.co.daitdayoung.login.dao.FindIdDAO;
 import kr.co.daitdayoung.login.dao.FindPwDAO;
