@@ -38,7 +38,7 @@ $(function(){
 	    sources : [
 	        { src : "http://localhost/daitdayoung/courses_data/COU_999999/video/테스트비디오1.mp4", type : "video/mp4"}
 	    ],
-	    poster : "test-poster.png",
+	   /*  poster : "test-poster.png", */
 	    controls : true,
 	    playsinline : true,
 	    muted : true,

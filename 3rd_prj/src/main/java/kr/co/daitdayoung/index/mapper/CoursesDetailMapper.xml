@@ -3,7 +3,38 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.daitdayoung.index.coursesDetail">
-
+	
+	<select id="coursesDetail" parameterType="String" resultType="kr.co.daitdayoung.index.domain.CoursesDetailDomain">
+	select 	c.COU_CODE, c.INS_ID, c.COU_NAME, c.CONTENT, c.BANNER_IMG, c.COU_PERIOD,
+			c.SAMPLE_VIDEO, c.HITS, c.CC_CODE,INS_NAME, INS_INTRODCE, INS_EMAIL,
+			INS_TEL, INS_PROFILE,SC_NAME, MC_NAME
+	from 	COURSES c,  INSTRUCTOR i,MAINCATEGORY mc , SUBCATEGORY sc
+	where   c.cou_code = #{couCode} and  i.ins_id = c.ins_id and
+				mc.mc_code = sc.mc_code and c.sc_code = sc.sc_code
+	</select>
+	
+	<select id="lectureList" parameterType="String" resultType="kr.co.daitdayoung.index.domain.CoursesLectureDomain">
+	select  LEC_CODE, COU_CODE, LEC_NAME, LEC_CONTENT, VIDEO_NAME
+	from	LECTURES
+	where	cou_code = #{couCode}
+	</select>
+	
+	<select id="completionCnt" parameterType="String" resultType="int">
+	select 	count(COMPLETION_STATUS)
+	from 	COURSE_REGISTRATION
+	where	cou_code = #{couCode} and COMPLETION_STATUS = 'Y'
+	</select>
+	
+	<select id="reCompletion" parameterType="kr.co.daitdayoung.index.vo.CoursesRegistrationVO" resultType="kr.co.daitdayoung.index.domain.CoursesRegistrationDomain">
+	select 	CR_COUNT, COMPLETION_STATUS
+	from 	COURSE_REGISTRATION
+	where	ui_Id = #{uiId} and cou_code = #{couCode}
+	</select>
+	
+	<insert id="comletionInsert" parameterType="kr.co.daitdayoung.index.vo.CoursesRegistrationVO">
+	insert into COURSE_REGISTRATION(CRG_CODE, UI_ID, COU_CODE, INS_ID)
+	values('CRG_'||lpad(crg_seq.nextval,6,'0'),#{uiId},#{couCode},#{insId} )
+	</insert>
 
 	
 </mapper>
