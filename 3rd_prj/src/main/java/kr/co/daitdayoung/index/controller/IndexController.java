@@ -38,7 +38,7 @@ public class IndexController {
 			List<IndexColDomain> icList = ins.searchCouList(iVO);
 			MCList.get(i).setList(icList);
 		}
-		//55
+		//5555
 		for(int i=0;i<1;i++) {
 //			for(int i=0;i<MCList.get(i).getList().size();i++) {
 			String couCode = MCList.get(3).getList().get(i).getCouCode();
