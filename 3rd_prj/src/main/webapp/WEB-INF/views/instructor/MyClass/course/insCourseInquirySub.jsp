@@ -53,7 +53,7 @@
     <!-- // Google Tag Manager -->
 
     
-        <title>파이썬 자료구조 > 강의목록 : edwith</title>
+        <title><c:out value="${ couName }"/></title>
     
 </head>
 <body class="re_pack win chrome chrome119">

@@ -322,7 +322,7 @@
 							        <div class="ce ce_view">
 							            <article class="material_view material_text">
 							                <div class="material_desc editor_reset" style="min-height: 300px;">
-							                    <textarea name="cnContent"></textarea>
+							                    <textarea name="cnContent"style="width:100%; height:80%"></textarea>
 							                </div>
 							                <hr>
 							                <div class="group_lr" style="border-bottom: 1px;">

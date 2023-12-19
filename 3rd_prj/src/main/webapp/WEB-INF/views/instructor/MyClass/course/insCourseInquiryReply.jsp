@@ -55,7 +55,7 @@
     <!-- // Google Tag Manager -->
 
     
-        <title>파이썬 자료구조 > 강의목록 : edwith</title>
+        <title><c:out value="${ couName }"/></title>
     
 </head>
 <body class="re_pack win chrome chrome119">
@@ -329,7 +329,7 @@
 					        <div class="ce ce_view">
 					            <article class="material_view material_text">
 					                <div class="material_desc editor_reset" style="min-height: 300px;">
-					                    <textarea id="ciAnswer" name="ciAnswer"></textarea>
+					                    <textarea id="ciAnswer" name="ciAnswer"style="width:100%; height:80%;"></textarea>
 					                    <input type="hidden" value="${ cid.insId }" name="insId">
 					                    <input type="hidden" value="${ cid.ciCode }" name="ciCode">
 					                    <input type="hidden" value="${ cid.couCode }" name="couCode">

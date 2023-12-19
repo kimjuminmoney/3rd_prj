@@ -320,7 +320,7 @@
 					        <div class="ce ce_view">
 					            <article class="material_view material_text">
 					                <div class="material_desc editor_reset" style="min-height: 300px;">
-					                    <textarea id="cnContent" name="cnContent"><c:out value="${ cnd.cnContent }"/></textarea>
+					                    <textarea id="cnContent" name="cnContent" style="width:100%; height:80%"><c:out value="${ cnd.cnContent }"/></textarea>
 					                    <input type="hidden" value="${ cnd.insId }" name="insId">
 					                    <input type="hidden" value="${ cnd.cnCode }" name="cnCode">
 					                    <input type="hidden" value="${ cnd.couCode }" name="couCode">

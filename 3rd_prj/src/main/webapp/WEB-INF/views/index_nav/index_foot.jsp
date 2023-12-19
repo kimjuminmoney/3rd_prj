@@ -29,6 +29,7 @@
                 <ul class="service">
                     <li><a href="notice.do" data-nclk="foot.service">공지사항</a></li>
                     <li><a href="inquiry.do" data-nclk="foot.voc">서비스 문의</a></li>
+                    <li><a href="login/adminLogin.do" class="NPI=a:request">관리자 페이지</a></li>
                 </ul>
                 <ul class="info">
                     <li>상호: 재단법인 다잇다영 커넥트</li>

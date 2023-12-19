@@ -27,8 +27,6 @@
 	 var couCode=$("#course"+i).val();
 
 	 location.href="insCourseDetail.do?couCode="+couCode;
-	 
-	 
  }
  </script>
     <jsp:include page="../common/jsp/instructor_script.jsp"/>
@@ -98,7 +96,7 @@
                         <div class="info_area">
                             <div class="thumb">
                                     <a href="javascript:void(0)" onclick="open_course(${i.count})">
-                                    <img src="${ course.bannerImg }" width="88" height="48" alt="강좌 썸네일">
+                                    <img src="http://localhost/daitdayoung/common/images/${ course.bannerImg }" width="88" height="48" alt="강좌 썸네일">
                                 </a>
                             </div>
                             
