@@ -4,9 +4,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <header id="header" class="default_login mooc">
 <!-- #breadcrumb:boostcourse/common/_gnb_course_menu.gsp -->
-<h1 class="logo">
-    <a href="/">
-        <img width="" height="16px" src="https://ssl.pstatic.net/static/m/mooc/p/partner/next/logo_v5.svg" alt="edwith">
+<h1 class="logo" style="height: 100%; padding: 0px;">
+    <a href="../index.do" style="display: block; height: 100%; width: 100%;">
+        <img width="50%" height="100%" src="http://localhost/daitdayoung/common/images/logo_1.png" alt="edwith">
     </a>
 </h1>
 
@@ -17,10 +17,10 @@
             <!-- 운영 강좌/클래스 -->
                 <!-- 나의 강좌/클래스 -->
             <li class="ic" data-gnb-menu="join">
-                <a href="javascript:void(0);" data-markup-gnb=".ly_dropdown">
+                <a href="myCourses.do?type=myCourses" data-markup-gnb=".ly_dropdown">
                     <span>나의 강좌</span>
                 </a>
-                <div class="ly_dropdown">
+                <!-- <div class="ly_dropdown">
                     <div class="ly_top">
                         <h2 class="tit">나의 강좌</h2>
                         <a href="/myPage/home" class="more">전체보기</a>
@@ -33,11 +33,11 @@
                             </button>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </li>
             
             
-            <li class="ic" data-gnb-menu="myNews">
+            <!-- <li class="ic" data-gnb-menu="myNews">
                 <a href="javascript:void(0);" data-markup-gnb=".ly_dropdown">
                     <span>나의 소식</span>
                 </a>
@@ -56,13 +56,13 @@
                     </div>
                     <button type="button" class="btn_jumpbar"><span>D-Day</span></button>
                 </div>
-            </li>
+            </li> -->
             
             <li class="ic todo" data-gnb-menu="myTodo">
-                <a href="javascript:void(0);" data-markup-gnb=".ly_dropdown">
+                <a href="toDoList.do?type=toDoList" data-markup-gnb=".ly_dropdown">
                     <span>나의 할 일</span>
                 </a>
-                <span class="count"><em>0</em></span>
+               <!--  <span class="count"><em>0</em></span>
                 <div class="ly_dropdown">
                     <div class="ly_top">
                         <h2 class="tit">나의 할 일</h2>
@@ -75,17 +75,17 @@
                             </button>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </li>
         
-        <li class="search">
+        <!-- <li class="search">
             <div class="group">
                 <div class="input">
                     <span class="input_area"><input type="text" name="searchQuery" id="input_srch" data-claus-search-text=""></span>
                     <span class="added"><button type="button" class="btn" id="btn_srch" data-claus-search-btn=""><span class="sr_only">검색</span></button></span>
                 </div>
             </div>
-        </li>
+        </li> -->
 
 <li class="nickname ly_right" data-gnb-menu="myLogin">
     <a href="javascript:void(0);" data-markup-gnb=".ly_dropdown" title="나의 메뉴">

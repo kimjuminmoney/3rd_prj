@@ -18,13 +18,9 @@ public class UserToDoListController {
 	
 	@GetMapping("/user/toDoList.do")
 	public String userToDoList(HttpSession session, Model model) {
-		//String id = (String)session.getAttribute("userId");
-		String id = "ui_test";
+		String id = (String)session.getAttribute("uiId");
 		List<UserToDoDomain> list = utdls.searchToDoList(id);
 		list = utdls.searchToDoExamList(list);
-		for(UserToDoDomain d : list) {
-			System.out.println(d);
-		}
 		model.addAttribute("toDoList",list);
 		
 		

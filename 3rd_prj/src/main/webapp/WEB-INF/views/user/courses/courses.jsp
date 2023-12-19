@@ -77,14 +77,44 @@ $(".que").click(function() {
 			</div>
 			<div style="border: 3px;padding-top: 10px; padding-bottom: 3px;">
 			<div class="info_lec" style="display: flex; padding-right: 0px; align-items: center; height: 80px;">
-							<div style="flex: 1; border: 1px solid #00ab50; border-radius: 10px; padding: 5px; margin: 20px; display: flex; align-items: center; justify-content: center; flex-direction: column; height: 100%;">
-								<c:if test="${ ucDomain.completionStatus eq 'Y' }">
-								<img src="http://localhost/daitdayoung/common/icon/laurel.png" width="30px"/><strong>수료</strong>
-								</c:if>
-								<c:if test="${ ucDomain.completionStatus eq 'N' }">
-								<img src="http://localhost/daitdayoung/common/icon/uncheck.png" width="30px"/><strong>수강중</strong>
-								</c:if>
-							</div>
+			<div style="flex: 1; border: 1px solid #00ab50; border-radius: 10px; padding: 5px; margin: 20px; display: flex; align-items: center; justify-content: center; flex-direction: column; height: 100%;">
+			    <c:choose>
+			        <c:when test="${ucDomain.completionStatus eq 'Y'}">
+			            <div style="display: flex; align-items: center;">
+			                <img src="http://localhost/daitdayoung/common/icon/졸업.png" width="60px" />
+			                <strong style="margin-left: 5px;">수료</strong>
+			            </div>
+			        </c:when>
+			        <c:when test="${ucDomain.completionStatus eq 'N'}">
+			            <div style="display: flex; align-items: center;">
+			                <img src="http://localhost/daitdayoung/common/icon/수업.png" width="60px" />
+			                <strong style="margin-left: 5px;">수강중</strong>
+			            </div>
+			        </c:when>
+			        <c:when test="${ucDomain.completionStatus eq 'F'}">
+			            <div style="display: flex; align-items: center;">
+			                <img src="http://localhost/daitdayoung/common/icon/실패.png" width="60px" />
+			                <strong style="margin-left: 5px;">과락</strong>
+			            </div>
+			        </c:when>
+			    </c:choose>
+			</div>
+			
+			
+			
+							<%-- <div style="flex: 1; border: 1px solid #00ab50; border-radius: 10px; padding: 5px; margin: 20px; display: flex; align-items: center; justify-content: center; flex-direction: column; height: 100%;">
+								<c:choose>
+								    <c:when test="${ucDomain.completionStatus eq 'Y'}">
+								        <img src="http://localhost/daitdayoung/common/icon/졸업.png" width="30px"/><strong>수료</strong>
+								    </c:when>
+								    <c:when test="${ucDomain.completionStatus eq 'N'}">
+								        <img src="http://localhost/daitdayoung/common/icon/수업.png" width="30px"/><strong>수강중</strong>
+								    </c:when>
+								    <c:when test="${ucDomain.completionStatus eq 'F'}">
+								        <img src="http://localhost/daitdayoung/common/icon/실패.png" width="30px"/><strong>과락</strong>
+								    </c:when>
+								</c:choose>
+							</div> --%>
 							
 							<div class="le_txt" style="flex: 1; border: 1px solid #00ab50; border-radius: 10px; padding: 5px; margin: 20px; display: flex; align-items: center; justify-content: center; flex-direction: column; height: 100%;">
 								<div class="info_more_area">

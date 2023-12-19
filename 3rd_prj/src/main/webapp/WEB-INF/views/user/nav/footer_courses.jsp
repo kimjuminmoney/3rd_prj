@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <footer id="footer" class="simple new_f">
-    <p class="copyright">© NAVER Connect All Rights Reserved.</p>
+    <p class="copyright">© DaitDiyoung</p>
     <button class="btn_to_top" data-btn-scroll-top data-nclk="foot.top"><span class="blind">페이지 맨 위로가기</span></button>
 </footer>
 <script>

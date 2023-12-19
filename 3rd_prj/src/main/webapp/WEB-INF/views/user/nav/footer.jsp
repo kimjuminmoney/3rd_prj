@@ -2,17 +2,12 @@
     pageEncoding="UTF-8"%>
     <div class="footer whale_main">
         <div class="f_inner">
-            <p class="copyright">ⓒ NAVER Connect Foundation</p>
+            <p class="copyright">ⓒ DaitDiyoung</p>
             <div class="f_menu">
                 <ul>
-                    <li class="menu"><a href="/help/advice-info">도움말</a></li>
-                    <li class="menu"><a href="/voc">문의</a></li>
-                    <li class="menu"><a href="/rules/intg/service">이용약관</a></li>
-                    <li class="menu"><a href="/rules/intg/privacy"><em>개인정보처리방침</em></a></li>
+                    <li class="menu"><a href="../inquiry.do">문의</a></li>
+                    <li class="menu"><a href="../notice.do">공지사항</a></li>
                 </ul>
             </div>
-            
-                <button type="button" class="btn_logout"><a href="/logout">로그아웃</a></button>
-            
         </div>
     </div>

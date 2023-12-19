@@ -4,9 +4,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-<%
-session.setAttribute("uiId", "mk");
-%>
 <!DOCTYPE html>
 <html lang="ko" itemscope itemtype="http://schema.org/Article">
 <head>

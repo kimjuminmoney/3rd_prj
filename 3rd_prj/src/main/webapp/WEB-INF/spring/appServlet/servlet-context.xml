@@ -24,7 +24,12 @@
 	<!-- <context:component-scan base-package="kr.co.index" /> -->
 	<context:component-scan base-package="kr.co.daitdayoung" />
 	<context:component-scan base-package="kr.co.daitdayoung.*" />
-	
+	<interceptors>
+		<interceptor>
+			<mapping path="/user/**"/>
+			<beans:bean id="ti" class="kr.co.daitdayoung.user.interceptor.UserInterceptor"/>
+		</interceptor>
+	</interceptors>
 	
 	
 </beans:beans>

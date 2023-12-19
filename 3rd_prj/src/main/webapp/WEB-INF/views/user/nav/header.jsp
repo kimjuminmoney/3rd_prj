@@ -3,8 +3,8 @@
 <header id="header" class="default_ly2 ">
     <div class="header_wrap">
             <h1 class="bi_school">
-                <a href="/myPage/openClass?isHomeLogo=true">
-                    <img src="https://ssl.pstatic.net/static/m/mooc/p/partner/next/logo_v4.png" style="max-height:24px;" alt="edwith">
+                <a href="../index.do">
+                    <img src="http://localhost/daitdayoung/common/images/logo_1.png" style="max-height:64px;" alt="edwith">
                 </a>
         	</h1>
         <div class="layout_in " data-wrap-gnb-menu="" data-is-boostcourse="true">
@@ -13,17 +13,17 @@
                     <!-- 운영 강좌/클래스 -->
                     <!--[D] 나의 클래스.-->
                     <li class="ic lecture ly_right" data-gnb-menu="join">
-                        <a href="javascript:void(0);" class="btn_mo" data-markup-gnb=".ly_dropdown">
+                        <a href="myCourses.do?type=myCourses" class="btn_mo" data-markup-gnb=".ly_dropdown">
                             <span>나의 강좌</span>
                         </a>
-                        <div class="ly_dropdown">
+                        <!-- <div class="ly_dropdown">
                             <div class="ly_top">
                                 <h2 class="tit">나의 강좌</h2>
                                 <a href="/myPage/home?searchType=all" class="more">전체보기</a>
                             </div>
                             <div class="scroll_wrap" data-scroll-wrap="join">
                                 <ul class="my_class" data-list="course" data-gnb-course-list="join">
-                                    <!-- <li class="nodata">강좌가 없습니다.</li> -->
+                                    <li class="nodata">강좌가 없습니다.</li>
                                 </ul>
                                 <div class="more_button" style="padding: 24px 24px 0 24px; display: none;" data-course-more-div="join">
                                     <button type="button" class="add_button" data-course-more-btn="join">
@@ -31,10 +31,10 @@
                                     </button>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </li>
                     <!--[D] 나의 소식.-->
-                    <li class="ic noti" data-gnb-menu="myNews">
+                    <!-- <li class="ic noti" data-gnb-menu="myNews">
                         <a href="javascript:void(0);" class="btn_mo" data-markup-gnb=".ly_dropdown">
                             <span>나의 소식</span>
                         </a>
@@ -53,20 +53,20 @@
                             </div>
                             <button type="button" class="btn_jumpbar"><span>D-Day</span></button>
                         </div>
-                    </li>
+                    </li> -->
                     <!--[D] li 마지막 나의할일 .ic에 .todo 클래스 추가해주세요.-->
                     <li class="ic todo" data-gnb-menu="myTodo">
-                        <a href="javascript:void(0);" class="btn_mo" data-markup-gnb=".ly_dropdown">
+                        <a href="toDoList.do?type=toDoList" class="btn_mo" data-markup-gnb=".ly_dropdown">
                             <span>나의 할 일</span>
                         </a>
-                        <span class="count" data-badge-count-area="todo" style="display: none"><em>0</em></span>
+                       <!--  <span class="count" data-badge-count-area="todo" style="display: none"><em>0</em></span>
                         <div class="ly_dropdown">
                             <div class="ly_top">
                                 <h2 class="tit">나의 할 일</h2>
                             </div>
                             <div class="scroll_wrap" data-scroll-wrap="todo">
                                 <ul class="noti_list" data-list="todo">
-                                    <!-- <li class="nodata">강좌가 없습니다.</li> -->
+                                    <li class="nodata">강좌가 없습니다.</li>
                                 </ul>
                                 <div class="more_button" style="display: none; padding: 24px 24px 0 24px;" data-todo-more-div="">
                                     <button type="button" class="add_button" data-todo-more-btn="">
@@ -74,9 +74,9 @@
                                     </button>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </li>
-                <li class="search">
+               <!--  <li class="search">
                     <div class="group">
                         <div class="input">
                             <span class="input_area"><input type="text" data-claus-search-text=""></span>
@@ -84,7 +84,7 @@
                         </div>
                     </div>
                     <a href="/search/index" class="btn_mo"><span class="blind">검색</span></a>
-                </li>
+                </li> -->
                 <!-- #breadcrumb:boostcourse/common/_loginbox.gsp -->
 <li class="nickname ly_right" data-gnb-menu="myLogin">
     <a href="javascript:void(0);" data-markup-gnb=".ly_dropdown" title="나의 메뉴">
