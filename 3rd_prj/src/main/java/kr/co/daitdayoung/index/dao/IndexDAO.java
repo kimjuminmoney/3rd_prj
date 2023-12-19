@@ -79,6 +79,24 @@ public class IndexDAO {
 		
 	}
 	
+	public int updateVisitors() throws PersistenceException{
+		int cnt=0;
+		
+		mbh = MyBatisHandler.getInstance();
+		
+		SqlSession ss = mbh.getMyBatisHandler(false);
+		
+		cnt=ss.update("kr.co.daitdayoung.index.updateVisitors");
+		
+		if(cnt==1) {
+			ss.commit();
+		}
+		
+		mbh.closeHandler(ss);
+		
+		return cnt;
+	}//updateVisitors
+	
 	
 	public static void main(String[] agrs) {
 //		IndexVO iVo= new IndexVO();

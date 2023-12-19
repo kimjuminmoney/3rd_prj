@@ -45,5 +45,12 @@
 	where 	cou_code = #{couCode} and completion_status = 'Y'
 	</select>
 	
+	<!-- 접속자수 -->
+	<update id="updateVisitors">
+	update dashboard
+	set visitors =visitors + 1
+	where visitdate=to_char(sysdate,'yyyy-MM-dd')
+	</update>
+	
 	
 </mapper>

@@ -35,8 +35,13 @@ public class IndexService {
 		return list;
 	}
 	
+	
 	public int searchCompletionStatus(String couCode) {
 		return inDAO.selectCompletionStatus(couCode);
+	}
+	
+	public int modifyVisitors() {
+		return inDAO.updateVisitors();
 	}
 
 

@@ -47,6 +47,8 @@ public class IndexController {
 			
 		}
 		
+		//ins.modifyVisitors();
+		
 		//model.addAttribute("BIList", BIList);
 		model.addAttribute("MCList", MCList);
 		model.addAttribute("tempList",tempList);
