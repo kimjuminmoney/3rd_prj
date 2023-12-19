@@ -364,50 +364,11 @@ body#content .page_header .reverse_wrap .ick .checkbox.checked,
     <a href="#content" onclick="document.getElementById('content').tabIndex=-1;document.getElementById('content').focus();return false;"><span>본문 바로가기</span></a>
 </div>
 <!-- #breadcrumb:layouts/etc.gsp -->
-<div id="wrap">
 	
-		<div id="header" class="type2">
-			<div class="layout_in" data-wrap-gnb-menu>
-    
-    <h1 class="logo">
-        <a class="N=a:gnb.edwith" href="/">
-            <img height="" src="https://ssl.pstatic.net/static/m/mooc/p/partner/next/logo_v4.png?_=?231130_26709717"
-                 
-                 alt="edwith">
-        </a>
-    </h1>
+<header>
+<jsp:include page="../index_nav/index_head.jsp"></jsp:include>
+</header>
 
-
-
-<ul class="gnb ly_type2" id="gnb">
-    
-    <!-- #breadcrumb:/common/_loginbox.gsp -->
-
-
-<li>
-    
-        <a href="javascript:doLogin()" class="login N=a:gnb.login">로그인 / 회원가입</a>
-    
-</li>
-    <script>
-        function doLogin(){
-            var returnUrl = location.href.substring(location.href.indexOf(location.host)+location.host.length);
-            if(location.pathname == "/login"){
-                location.href = "/login" + location.search;
-            }else {
-                if (returnUrl == "/" || returnUrl == "" || "neoid" == "error" || "neoid" == "neoid") {
-                    returnUrl = "";
-                } else {
-                    returnUrl = "?returnUrl=" + returnUrl;
-                }
-                location.href = "/login" + returnUrl;
-            }
-        }
-        
-    </script>
-
-
-</ul>
 
 
 <input type="hidden" id="__isLogged" value="">
@@ -553,7 +514,6 @@ body#content .page_header .reverse_wrap .ick .checkbox.checked,
 					</div>
 					</form>
 					</div>
-				</div>
 				</div>
 				</div>
 				</div>
