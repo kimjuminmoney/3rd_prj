@@ -24,7 +24,7 @@
                     
                     <!--[D] 나의 소식.-->
                     <li class="ic noti" data-gnb-menu="myNews">
-                        <a href="doModifyId.do" class="btn_mo" data-markup-gnb=".ly_dropdown">
+                        <a href="login/doModifyId.do" class="btn_mo" data-markup-gnb=".ly_dropdown">
                             <span>개인정보 수정</span>
                         </a>
                         <span class="count" data-badge-count-area="news" style="display: none"><em>0</em></span>

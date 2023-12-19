@@ -16,4 +16,5 @@ public class insLogoutController {
 		session.invalidate();
 		return "forward:index.do";
 	}
+	
 }

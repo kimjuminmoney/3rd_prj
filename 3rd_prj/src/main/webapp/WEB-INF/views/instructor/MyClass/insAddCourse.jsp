@@ -128,7 +128,7 @@
         				<div style="weight:100%; height:5%;"></div>
         				<div>
         					<label style="font-size:20px; text-align:center;"><strong>분류 선택</strong></label>
-	        				<select id="mcCode" name="mcCode">
+	        				<select id="mcCode" name="mcCode" style="width:40%; height:30%; margin-left:5%;">
 	        					<option> ----대분류 선택</option>
 	        					<c:forEach var="mc" items="${ mcList }" varStatus="i" >
 	        					<option value="${ mc.mcCode}"><c:out value="${ mc.mcName }"/></option>
