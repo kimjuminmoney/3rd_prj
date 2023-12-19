@@ -22,6 +22,7 @@ footer#footer {
         <ul class="f_lst">
             <li><a href="notice.do" data-nclk="foot.service">공지사항</a></li>
             <li><a href="inquiry.do" class="NPI=a:request">서비스 문의</a></li>
+            <li><a href="../login/adminLogin.do" class="NPI=a:request">관리자 페이지</a></li>
         </ul>
         <div class="f_terms_addres_box">
             <ul class="addres_list">
