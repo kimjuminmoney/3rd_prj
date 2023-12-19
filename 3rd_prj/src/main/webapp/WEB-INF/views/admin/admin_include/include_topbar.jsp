@@ -5,6 +5,7 @@
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
+                    <img src="http://localhost/daitdayoung/common/images/logo_1.png"/>
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">

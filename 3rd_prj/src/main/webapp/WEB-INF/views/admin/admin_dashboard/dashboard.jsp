@@ -2,9 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ page info="" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
-<%
-session.setAttribute("adminId", "admin");
-%>
 <!DOCTYPE html>
 <html>
 <head>
