@@ -20,6 +20,32 @@
  $(function(){
 	 
  });//ready
+ function addLec(){
+	 alert("addLec");
+	 
+ }
+ 
+ 
+ 
+ function modifyLec(i){
+	 
+	 
+		var date={ lecCode : $("#lecCode").val(),
+				lecName : $("#lecName") }
+		$.ajax({
+			 url:"modifyLec.do",
+			 data: data,
+			 dataType:"json",
+			 type:"post",
+			 error:function(xhr){
+				 alert(xhr.status)
+			 },
+			 success:function( jsonObj ){
+			if( jsonObj.cnt != 0 ){
+				 alert("변경이 완료되었습니다.")
+			}
+		})
+ }//modifyLec
  </script>
 <link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/plugin.css" type="text/css">
 <link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/boostcourse_common.css" type="text/css">
@@ -291,16 +317,19 @@
 						<div id="content">
         					<label style="font-size:30px; text-align:center;"><strong>목차</strong></label><br/>
 	        				<div>
-	        					<label style="font-size:30px; margin-top:5px;"><strong>1.</strong></label><input type="text" class="input_txt" style="width:30%; height:48px; font-size:16px; margin-left:5%;"><br/>
-	        					<label style="font-size:30px;margin-top:5px;"><strong>2.</strong></label><input type="text" class="input_txt" style="width:30%; height:48px; font-size:16px; margin-left:5%;"><br/>
-	        					<label style="font-size:30px;margin-top:5px;"><strong>3.</strong></label><input type="text" class="input_txt" style="width:30%; height:48px; font-size:16px; margin-left:5%;"><br/>
-	        					<label style="font-size:30px;margin-top:5px;"><strong>4.</strong></label><input type="text" class="input_txt" style="width:30%; height:48px; font-size:16px; margin-left:5%;"><br/>
+	        					<c:forEach var="cld" items="${ cldList }" varStatus="i">
+	        					<div>
+	        					<label style="font-size:30px; margin-top:5px;"><strong><c:out value="${ i.count }"/></strong></label>
+	        					<input type="text" id="lecName" name="lecName" class="input_txt" value="${ cld.lecName }" style="width:30%; height:48px; font-size:16px; margin-left:5%;">
+	        					<input type="hidden" id="lecCode" name="lecCode" value="${ cld.lecCode }"/>
+	        					<input type="button" id="modify_btn" name="modify_btn" class="btn btn-success" value="목차 변경" style="margin-left:5%;"/>
+	        					<input type="button" id="del_btn" name="del_btn" class="btn btn-secondary" value="목차 삭제"/>
+	        					</div>
+	        					</c:forEach>
 	        				</div>
-        				
-	        				<div id="mokcha-btn" style="margin-top:3%;">
-	        					<input type="button" class="btn btn-success" value="목차 추가"/>
-	        					<input type="button" class="btn btn-secondary" value="목차 삭제"/>
-	        				</div>
+	        				<div>
+	        					<input type="button" onclick="addLec()"class="btn btn-success" value="목차 추가" style="width:30%; height:10%"/>
+							</div>
 						</div>
 					</li>
 			

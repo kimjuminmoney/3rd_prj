@@ -241,15 +241,15 @@
         			<div id="wrap" style="margin-left:5%">
         			<form action="#void" id="courseVO" name="courseVO">
 						<div>
-	        				<label style="font-size:30px; text-align:center;"><strong>강좌 명</strong></label><input type="text" class="input_txt" id="couName" name="couName" style="width:60%; height:48px; font-size:16px; margin-left:5%;">
-	        				<div style="weight:600px; height:400px;"></div>
+	        				<label style="font-size:20px; text-align:center;"><strong>강좌 명</strong></label><input type="text" class="input_txt" id="couName" name="couName" style="width:60%; height:25px; font-size:16px; margin-left:5%;">
 						</div>
 						<div>
-	        				<input type="text" class="input_txt" id="bannerImg" name="bannerImg" style="width:60%; height:48px; font-size:16px; margin-left:5%;" placeholder="파일 명"><input type="button" class="btn btn-success" value="파일 등록">
+							<label style="font-size:20px; text-align:center;"><strong>배너이미지 등록</strong></label>
+	        				<input type="file" id="bannerImg" name="baanerImg" class="input_txt" enctype="multipart/form-data" style="width:60%; height:36px; font-size:16px; margin-left:5%;">
 						</div>
         				<div style="weight:100%; height:5%;"></div>
         				<div>
-        					<label style="font-size:30px; text-align:center;"><strong>분류 선택</strong></label>
+        					<label style="font-size:20px; text-align:center;"><strong>분류 선택</strong></label>
 	        				<select id="mcCode" name="mcCode">
 	        					<option> ----대분류 선택</option>
 	        					<c:forEach var="mc" items="${ mcList }" varStatus="i" >
@@ -261,26 +261,26 @@
 	        				</select>
         				</div>
         				<div>
-        					<label style="font-size:30px; text-align:center;"><strong>기한 설정</strong></label>
-        					<input type="text" name="couPeriod" class="input_txt" style="width:60%; height:48px; font-size:16px; margin-left:5%;">
+        					<label style="font-size:20px; text-align:center;"><strong>기한 설정</strong></label>
+        					<input type="text" name="couPeriod" class="input_txt" style="width:60%; height:36px; font-size:16px; margin-left:5%;">
         				</div>
         				<div>
-        					<label style="font-size:30px; text-align:center;"><strong>수료 조건</strong></label><br/>
+        					<label style="font-size:20px; text-align:center;"><strong>수료 조건</strong></label><br/>
 	        				<div>
-	        					<label style="font-size:30px; text-align:center;"><strong>진도율</strong></label><input type="text" class="input_txt" name="enrollRate" style="width:30%; height:48px; font-size:16px; margin-left:5%;"><input type="checkbox"><br/>
-	        					<label style="font-size:30px; text-align:center;"><strong>시험</strong></label><input type="text" class="input_txt" name="examResult" style="width:30%; height:48px; font-size:16px; margin-left:5%;"><input type="checkbox"><br/>
+	        					<label style="font-size:17px; text-align:center;"><strong>진도율</strong></label><input type="text" class="input_txt" name="enrollRate" style="width:30%; height:36px; font-size:16px; margin-left:5%;"><br/>
+	        					<label style="font-size:17px; text-align:center;"><strong>시험</strong></label><input type="text" class="input_txt" name="examResult" style="width:30%; height:36px; font-size:16px; margin-left:5%;"><br/>
 	        				</div>
         					<div style="weight:100%; height:5%;;"></div>
 						</div>
-        				<label style="font-size:30px; text-align:center;"><strong>과목 설명</strong></label>
+        				<label style="font-size:20px; text-align:center;"><strong>과목 설명</strong></label>
         				<textarea style="width:100%; height: 30%;" name="content"></textarea>
         				<div style="weight:100%; height:5%;;"></div>
         				
-        				<label style="font-size:30px; text-align:center;"><strong>샘플 영상</strong></label>
-        				<div style="weight:600px; height:400px;"></div>
-        				<input type="text" class="input_txt" style="width:60%; height:48px; font-size:16px; margin-left:5%;" placeholder="파일 명" name="sampleVideo"><input type="button" class="btn btn-success" value="파일 등록">
-        				<div style="weight:100%; height:5%;;"></div>
+        				<label style="font-size:20px; text-align:center;"><strong>샘플 영상 등록</strong></label>
+        				<input type="file" id="sampleVideo" name="sampleVideo" class="input_txt" enctype="multipart/form-data" style="width:60%; height:36px; font-size:16px; margin-left:5%;">
+        					<div style="weight:100%; height:5%;;"></div>
         				</form>
+        					
         					<input type="button" class="btn btn-info btn-lg" value="다음으로" id="next_btn" name="next_btn"/>
         				
         			</div>

@@ -18,6 +18,16 @@
  </style>
  <script type="text/javascript">
  $(function(){
+	 $("#update_btn").click(function(){
+		 var frm=$("#ceVO")[0];
+		 frm.action="insCourseExamUpdate.do"
+		 frm.method="post"
+		 frm.submit();
+		 alert("변경이 완료되었습니다.");
+		 
+	 })//click
+	 
+	 
 	 
  });//ready
  </script>
@@ -286,15 +296,20 @@
 		<ul>
 					<!-- [D] 진행중 class : on -->
 					<li>
+						
 						<div id="content">
-							
-        					<label style="font-size:30px;"><strong>필수설정</strong></label><input type="checkbox"/><br/>
-        					<label style="font-size:30px;"><strong>시험기간</strong></label><input type="text" class="input_txt" style="width:60%; height:48px; font-size:16px; margin-left:5%;" placeholder="일 수 설정"><br/>
-        					<label style="font-size:30px;"><strong>통과기준</strong></label><input type="text" class="input_txt" style="width:60%; height:48px; font-size:16px; margin-left:5%;" placeholder="시험점수"><br/>
+						<form id="ceVO" name="ceVO" action="#void">
+        					<label style="font-size:30px;"><strong>시험기간</strong></label><input type="text" class="input_txt" value="${ ced.examTimelimit }"  name="examTimelimit"style="width:60%; height:48px; font-size:16px; margin-left:5%;" placeholder="일 수를 설정해주세요.)"><br/>
+        					<label style="font-size:30px;"><strong>통과기준</strong></label><input type="text" class="input_txt" value="${ ced.examResults }" name="examResults"style="width:60%; height:48px; font-size:16px; margin-left:5%;" placeholder="시험 기준 점수를 입력해주세요."><br/>
+        					<input type="hidden" name="examCode"value="${ ced.examCode }"/>
+        					<input type="hidden" name="couCode" value="${ ced.couCode}"/>
+        					<input type="hidden" name="insId" value="${ ced.insId}"/>
+        					<input type="hidden" name="ccCode" value="${ ced.ccCode }"/>
         					<div>
-        					<label style="font-size:30px;"><strong>유의사항</strong></label><textarea style="width:500px; height:300px;"></textarea>
+        					<label style="font-size:30px;"><strong>유의사항</strong></label><textarea name="examContent" style="width:500px; height:300px;"><c:out value="${ ced.examContent }"/></textarea>
         					</div>
-        					
+        					<input type="button" id="update_btn" class="">
+        				</form>
         					
 						</div>
 					</li>

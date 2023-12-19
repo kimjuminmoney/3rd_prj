@@ -35,6 +35,10 @@
   	<mapper resource="kr/co/daitdayoung/instructor/mapper/insCourseMapper.xml"/>
   	<mapper resource="kr/co/daitdayoung/instructor/mapper/insMyClassMapper.xml"/>
   	<mapper resource="kr/co/daitdayoung/instructor/mapper/insAddCourseMapper.xml"/>
+  	<mapper resource="kr/co/daitdayoung/instructor/mapper/insCourseExamMapper.xml"/>
+  	<mapper resource="kr/co/daitdayoung/instructor/mapper/insCourseContentMapper.xml"/>
+  	<mapper resource="kr/co/daitdayoung/instructor/mapper/insCourseLectureMapper.xml"/>
+  	<mapper resource="kr/co/daitdayoung/instructor/mapper/insCourseQuestionMapper.xml"/> 
   	<mapper resource="kr/co/daitdayoung/instructor/mapper/insCourseNoticeMapper.xml"/>
   	<mapper resource="kr/co/daitdayoung/instructor/mapper/insCourseInquiryMapper.xml"/>
   <!-- 나 -->

@@ -18,40 +18,12 @@
  </style>
  <script type="text/javascript">
  $(function(){
-	 $("#update_btn").click(function(){
-		 var frm = $("#clVO")[0];
-		 frm.action="updateLecture.do"
-		 frm.method="post"
-		 frm.submit();
-		 
-		 
-	 })//click
-	 
-	 $("#video_del").click(function(){
-		 var data = { oldFile : $("#oldFile").val(),
-				 lecCode:$("#lecCode").val()	}
-		 
-		 $.ajax({
-			 url:"deleteFile.do",
-			 data: data,
-			 dataType:"json",
-			 type:"post",
-			 error:function(xhr){
-				 alert(xhr.status)
-			 },
-			 success:function( jsonObj ){
-
-				if(jsonObj.cnt != 0 ){
-					 
-				$("#oldFile").html("파일이 없습니다.");
-				$("#video_del").val("");
-				location.reload();
-				 }//if
-			 }//success
-		 
-		 })//ajax
-		 
-	 })//click
+	 $("#reply_btn").click(function(){
+		 var ci=$("#ci")[0];
+		 ci.action="insCourseInquiryReply.do"
+		 ci.method="post";
+		 ci.submit();
+	 });//click
  });//ready
  
  </script>
@@ -183,36 +155,67 @@
     //oSequenceManager.requestSequence();
 </script>
 
+<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-<script type="text/javascript">
-function chgLecCode(){
-	 if( $("#lecCode")[0].selectedIndex != 0 ){
-		var lecCode={ lecCode:$("#lecCode").val() };
+    (function() {
+        function gaGetInfo() {
+            var gaInfo = {
+                viewId: document.getElementById('GA_VIEW_ID').value,
+                userId: document.getElementById('GA_USER_ID').value,
+                dimension01: document.getElementById('GA_DIMENSION01').value,
+                dimension02: document.getElementById('GA_DIMENSION02').value,
+                dimension03: document.getElementById('GA_DIMENSION03').value,
+                dimension04: document.getElementById('GA_DIMENSION04').value,
+                dimension05: document.getElementById('GA_DIMENSION05').value,
+                dimension06: document.getElementById('GA_DIMENSION06').value,
+                dimension07: document.getElementById('GA_DIMENSION07').value,
+                dimension08: document.getElementById('GA_DIMENSION08').value,
+                dimension09: document.getElementById('GA_DIMENSION09').value
+            };
 
-		$.ajax({
-		 url:"searchOneLecture.do",
-		 data: lecCode,
-		 dataType:"json",
-		 type:"post",
-		 error:function(xhr){
-			 alert(xhr.status)
-		 },
-		 success:function( jsonObj ){
-							 
-			 alert(jsonObj.lecContent)
-			$("#lecContent").val(jsonObj.lecContent);	
-			 if( jsonObj.videoName != null){
-			$("#oldFile").val(jsonObj.videoName);
+            return gaInfo;
+        }
 
-			 }
-		 }//success
-	 })//ajax
-			 
-		 }//end if
-	
-}
+        function gaHitPageView() {
+            var gaInfo = gaGetInfo();
+            var ga = window.ga;
+
+            ga('create', gaInfo.viewId, 'auto');
+            ga('set', 'userId', gaInfo.userId);
+            ga('set', 'dimension1', gaInfo.dimension01);
+            ga('set', 'dimension2', gaInfo.dimension02);
+            ga('set', 'dimension3', gaInfo.dimension03);
+            ga('set', 'dimension4', gaInfo.dimension04);
+            ga('set', 'dimension5', gaInfo.dimension05);
+            ga('set', 'dimension6', gaInfo.dimension06);
+            ga('set', 'dimension7', gaInfo.dimension07);
+            ga('set', 'dimension8', gaInfo.dimension08);
+            ga('set', 'dimension9', gaInfo.dimension09);
+
+            ga('send', 'pageview');
+        }
+
+        function gaSimpleHitPageView(page) {
+            ga('set', 'page', page);
+            ga('send', 'pageview');
+        }
+
+        window.gaHitPageView = gaSimpleHitPageView;
+        
+        /*ga('send', {
+            hitType: 'event',
+            eventCategory: 'video',
+            eventAction: 'play',
+            eventLabel: 'media play'
+        });*/
+
+        gaHitPageView();
+    })();
 </script>
-
 
 <div class="modal_wrap ce_preview" id="_modal_wrap" style="display:none">
 	<div class="modal_inner">
@@ -224,8 +227,6 @@ function chgLecCode(){
 <div id="u_skip">
     
         <a href="#gnb" onclick="document.getElementById('gnb').tabIndex=-1;document.getElementById('gnb').focus();return false;"><span>개인 메뉴 바로가기</span></a>
-    
-    
     
     <a href="#snb" onclick="document.getElementById('snb').tabIndex=-1;document.getElementById('snb').focus();return false;"><span>하위 메뉴 바로가기</span></a>
     
@@ -272,7 +273,7 @@ function chgLecCode(){
 			</div>
 			<div class="group_l">
 				<h1 class="page_title">
-					강의 등록
+					문의
 				</h1>
 			</div>
 		</div>
@@ -282,42 +283,78 @@ function chgLecCode(){
 	<div class="class_manager type2">
 		<!--chapter_list-->
 		<ul>
-					<!-- [D] 진행중 class : on -->
-					<li>
-						<div id="content">
-        					
-	        				<div>
-	        				<form id="clVO" name="clVO" action="#void" enctype="multipart/form-data">
-	        					<label style="font-size:30px;"><strong>강의 선택</strong></label>
-	        					<select id="lecCode"  name="lecCode" onchange="chgLecCode()" style="width:100%; height:40%; font-size:15px;">
-		        					<option>---목록---</option>
-		        					<c:forEach var="cld" items="${ cldList }" varStatus="i">
-		        					<option value="${ cld.lecCode }"><c:out value="${ cld.lecName }"/></option>
-		        					</c:forEach>
-	        					</select>
-	        					<div id="explain">
-	        					<label style="font-size:30px;"><strong>설명</strong></label><textarea id="lecContent" name="lecContent" style="width:100%; height:40%; font-size:15px;"><c:out value="${ cld.lecContent }"/></textarea>
-	        					</div>
-	        					<label style="font-size:30px;"><strong>동영상 관리</strong></label>
-	        					<input type="hidden" name="videoName" id="videoName" value=""/>
-		        				<div>
-	        					<label style="font-size:20px;"><strong>강의 등록</strong></label>
-		        				<input type="file" name="newFile" id="newFile" class="input_txt" style="width:60%; height:48px; font-size:16px; margin-left:5%;" >
-		        				</div>
-		        				
-		        				<div>
-	        					<label style="font-size:20px;"><strong>강의 삭제</strong></label>
-		        				<input type="button" id="video_del" name="video_del" id="video_del" class="input_txt" style="width:100px; font-size:16px; margin-left:5%;" value="삭제"><input type="text" name="oldFile" id="oldFile" class="input_txt" style="width:30%; height:48px; font-size:16px; margin-left:5%"/>
-		        				</div>
-		        				
-		        				</form>
-		        				<div style="weight:100%; height:5%;"></div>
-		        				
-		        				<input type="button" class="btn btn-success btn-lg" value="저장하기" id="update_btn" >
-	        				</div>
+				<li>
+				<div id="content">
+      				<section class="page mg_menu">
+	
+						<!--//page_header-->
+					<header class="page_header">
+						<div class="group_lr">
+							<div class="group_l">
+								<h1 class="page_title"><c:out value="${ cid.ciTitle }"/></h1>
+							</div>
 						</div>
-					</li>
-			
+					</header>
+					<article class="forum_view">
+					        <!-- [D] 권한에 따라 노출되는 UI가 다름 -->
+					        <div class="forum_func group_lr" style="margin-top: 20px; margin-bottom: 20px;">
+					            <div class="group_l">
+					                <div class="user_info">
+					                        <span class="ic_ad vamiddle">
+							                   <div class="col"><c:out value="${ cid.ciDate }"/></div>
+							                   <div class="col"><c:out value="${ cid.uiId }"/></div>
+							                   <div class="col"><c:out value="${ cid.citName }"/></div>
+					                       </span>
+					                </div>
+					            </div>
+					        </div>
+					        <div class="ce ce_view">
+					            <article class="material_view material_text">
+					                <div class="material_desc editor_reset" style="min-height: 300px;">
+					                    <c:out value="${ cid.ciContent }"/>
+					                </div>
+					                    <hr>
+					            </article>
+					        </div>
+					    </article>
+					</section>
+				
+      				<section class="page mg_menu">
+					<form id="ci">
+						<!--//page_header-->
+					<article class="forum_view">
+					        <!-- [D] 권한에 따라 노출되는 UI가 다름 -->
+					        <div class="forum_func group_lr" style="margin-top: 20px; margin-bottom: 20px;">
+					        <div class="group_l">
+					                <div class="user_info">
+					                        <span class="ic_ad vamiddle">
+							                   <a class="col"><c:out value="${ cid.ciAnswerDate }"/></a>
+					                       </span>
+					                </div>
+					            </div>
+					        </div>
+					        <div class="ce ce_view">
+					            <article class="material_view material_text">
+					                <div class="material_desc editor_reset" style="min-height: 300px;">
+					                    <c:out value="${ cid.ciAnswer }"/>
+					                    <input type="hidden" value="${ cid.insId }" name="insId">
+					                    <input type="hidden" value="${ cid.ciCode }" name="ciCode">
+					                    <input type="hidden" value="${ cid.couCode }" name="couCode">
+					                </div>
+					                <div class="group_lr" style="border-bottom: 1px">
+					        		<div class="group_r">
+					            		<input type="button" id="reply_btn" class="btn btn_type2 bold N=a:lec.list" data-selector="backToListBtn" value="수정하기"/>
+					            		<a href="insCourseInquiry.do" class="btn btn_type2 bold N=a:lec.list" data-selector="backToListBtn">목록으로</a>
+					        		</div>
+					    		</div>
+					            </article>
+					        </div>
+					    </article>
+					    </form>
+					</section>
+	        				
+				</div>
+			</li>
 		</ul>
 		
 		<!--project_list-->

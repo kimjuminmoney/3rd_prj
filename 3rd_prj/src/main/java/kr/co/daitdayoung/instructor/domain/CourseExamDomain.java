@@ -9,6 +9,9 @@ import lombok.ToString;
 @Setter
 @ToString
 @NoArgsConstructor
-public class Domain {
-
+public class CourseExamDomain {
+	
+	private String examCode, couCode, insId, examContent, examTimelimit, examResults, ccCode; 
+	
+	
 }

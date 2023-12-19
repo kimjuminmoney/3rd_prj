@@ -19,6 +19,7 @@ import kr.co.daitdayoung.instructor.domain.CourseDomain;
 import kr.co.daitdayoung.instructor.domain.CourseInquiryDomain;
 import kr.co.daitdayoung.instructor.service.CourseInquiryService;
 import kr.co.daitdayoung.instructor.service.MyCourseService;
+import kr.co.daitdayoung.instructor.vo.CourseInquiryVO;
 import kr.co.daitdayoung.instructor.vo.CourseVO;
 
 
@@ -33,69 +34,61 @@ public class insCourseInquiryController {
 		CourseDomain cd=(CourseDomain)session.getAttribute("cd");
 		
 		System.out.println("문의"+cd);
-		List<CourseInquiryDomain> cidList = cis.searchAllNotice(cd.getCouCode());
+		List<CourseInquiryDomain> cidList = cis.searchAllInquiry(cd.getCouCode());
 		
 		System.out.println("문의"+cidList);
-		
+		model.addAttribute("cidList",cidList);
 		
 		return "instructor/MyClass/course/insCourseInquiry";
 	}//courseDetail
 	
-//	@RequestMapping("/insCourseInquirySub.do")
-//	public String courseInquirySub(HttpSession session,Model model) {
-//		CourseDomain cd=(CourseDomain)session.getAttribute("cd");
-//		
-//		cis.searchAllNotice(cd.getCouCode());
-//
-//		model.addAttribute("ciList", ciList);
-//		
-//		
-//		return "instructor/MyClass/course/insCourseInquirySub";
-//	}//courseDetail
-//
-//	@RequestMapping("/insCourseInquirySub.do")
-//	public String CourseInquirySub(String ciCode,Model model) {
-//		CourseInquiryDomain cid=null;
-//		
-//		
-//		System.out.println(ciCode);
-//		cid = cis.searchOneNotice(ciCode);
-//		System.out.println(cid);
-//		
-//		model.addAttribute("cid",cid);
-//		
-//		return "instructor/MyClass/course/insCourseInquirySub";
-//	}//courseDetail
-//	
-//	@RequestMapping("/insCourseInquirySubModify.do")
-//	public String CourseInquirySubModify(String ciCode,Model model) {
-//		CourseInquiryDomain cid=null;
-//		
-//		cid = cis.searchOneNotice(ciCode);
-//		
-//		model.addAttribute("cid",cid);
-//		
-//		return "instructor/MyClass/course/insCourseInquirySubModify";
-//	}//courseDetail
-//
-//	@RequestMapping("/insCourseInquirySubModifyProcess.do")
-//	public String CourseInquirySubModifyProcess(HttpServletRequest request,CourseInquiryVO ciVO,Model model) {
-//		
-//		System.out.println(ciVO);
-//		int cit=0;
-//		
-//		cit = cis.updateOneNotice(ciVO);
-//		
-//		
-//		return "forward:insCourseInquirySub.do";
-//	}//courseDetail
-//
-//	@RequestMapping("/insCourseInquiryAdd.do")
-//	public String CourseInquiryAdd() {
-//
-//		
-//		return "instructor/MyClass/course/insCourseInquiryAdd";
-//	}//courseDetail
+	@RequestMapping("/insCourseInquirySub.do")
+	public String courseInquirySub(HttpServletRequest request,Model model) {
+		String ciCode=request.getParameter("ciCode");
+		System.out.println(ciCode);
+		CourseInquiryDomain cid=null;
+		
+		cid = cis.searchOneInquiry(ciCode);
+
+		model.addAttribute("cid", cid);
+		
+		
+		return "instructor/MyClass/course/insCourseInquirySub";
+	}//courseDetail
+
+		@RequestMapping("/insCourseInquiryReply.do")
+	public String CourseInquiryReply(String ciCode,Model model) {
+		CourseInquiryDomain cid=null;
+		
+		cid = cis.searchOneInquiry(ciCode);
+		
+		model.addAttribute("cid",cid);
+		
+		return "instructor/MyClass/course/insCourseInquiryReply";
+	}//courseSubModify
+
+	@RequestMapping("/insCourseInquiryReplyProcess.do")
+	public String CourseInquiryReplyProcess(HttpServletRequest request,CourseInquiryVO ciVO,Model model) {
+		
+		System.out.println(ciVO+"1");
+		int cnt=0;
+		
+		cnt = cis.updateOneInquiry(ciVO);
+		
+		
+		return "forward:insCourseInquiry.do";
+	}//courseDetail
+
+	@RequestMapping("/insCourseInquiryReplyExist.do")
+	public String CourseInquiryAdd(String ciCode,Model model) {
+	CourseInquiryDomain cid=null;
+		
+		cid = cis.searchOneInquiry(ciCode);
+		
+		model.addAttribute("cid",cid);
+		
+		return "instructor/MyClass/course/insCourseInquiryReplyExist";
+	}//courseDetail
 //	
 //	@RequestMapping("/addciProcess.do")
 //	public String addciProcess(CourseInquiryVO ciVO,HttpSession session, Model model) {
