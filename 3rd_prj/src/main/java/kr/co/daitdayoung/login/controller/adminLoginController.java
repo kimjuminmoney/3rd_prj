@@ -35,7 +35,7 @@ public class adminLoginController {
 			
 			session.setAttribute("adminId",alVO.getAdminId());
 			
-			return "admin/admin_dashboard/dashboard"; 
+			return "redirect:dashboard.do"; 
 			
 		}
 		return "login/adminLogin";
