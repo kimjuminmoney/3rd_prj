@@ -543,7 +543,7 @@ a {
 			<div  id="membership">
 				<div class="step2">
 			    	<h2 class="tit">개인정보 수정</h2>
-			    	 <form role="form" id="modifyPw_form" action="doModifyInsPw.do" method="post">
+			    	 <form role="form" id="modifyPw_form" action="doModifyId.do" method="post">
 			    	<fieldset>
 			    	<div class="membership_input_wrap">
 			        <!-- ok , error 클레스 추가에 따라 텍스트 출력 및 스타일 변경됨-->
