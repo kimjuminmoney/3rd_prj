@@ -19,6 +19,7 @@ public class userLoginController {
 	
 	private static userLoginController ulc;
 	
+	
 	@Autowired
 	private LoginService ls;
 	
@@ -40,7 +41,7 @@ public class userLoginController {
 	}
 	
 	@PostMapping("/login/doLogin.do")
-	public String loginprocess(LoginVO lVO, Model model) {
+	public String loginprocess(LoginVO lVO, Model model, HttpSession session) {
 		
 		
 		 
@@ -51,16 +52,30 @@ public class userLoginController {
 		 if("user".equals(lVO.getType())) {
 			 id=ls.loginUser(lVO);
 			// id = ls.searchUserLogin(lVO); 
+			 if(id != null && id.equals(lVO.getId())) {
+				 model.addAttribute("id", id);
+				 
+				 session.setAttribute("uiId",lVO.getId());
+				 
+				 return "index/index";
+			 }
+			 
+			 
 		 }
 		 if("ins".equals(lVO.getType())) {
 			 id=ls.loginIns(lVO);
 			 //id = ls.searchInsLogin(lVO); 
+			 if(id != null && id.equals(lVO.getId())) {
+				 model.addAttribute("id", id);
+				 
+				 session.setAttribute("insId",lVO.getId());
+				 
+				 return "index/index";
+			 }
+			 
+			 
 		 }
 		 
-		 if(id != null && id.equals(lVO.getId())) {
-			 model.addAttribute("id", id);
-			 return "index/index";
-		 }
 		 return "login/login";
 	}
 	
