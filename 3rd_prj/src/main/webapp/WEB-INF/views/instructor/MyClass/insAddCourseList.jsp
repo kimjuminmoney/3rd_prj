@@ -280,9 +280,9 @@
                                 </a>
                             </div>
                             <div class="tit">
-                                    <a href="https://www.boostcourse.org/web326/home" target="_self">
-                                    <strong class="title">웹 백엔드</strong>
-                                </a>
+                                <a href="https://www.boostcourse.org/web326/home" target="_self">
+                                	 <strong class="title">웹 백엔드</strong>
+                               	</a>
                                 <div class="author">
                                     <span class="name">강경미</span>
                                         <span class="bar"></span>
