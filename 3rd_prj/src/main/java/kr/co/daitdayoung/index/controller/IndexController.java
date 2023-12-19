@@ -3,6 +3,8 @@ package kr.co.daitdayoung.index.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,7 +25,7 @@ public class IndexController {
 	private IndexService ins;
 	
 	@RequestMapping(value = "/index.do", method = RequestMethod.GET)
-	public String index(Model model) {
+	public String index(HttpSession session, Model model) {
 		
 		List<IndexDomain> MCList = ins.searchMC();
 		//List<IndexDomain> BIList = ins.searchBI();
@@ -48,6 +50,8 @@ public class IndexController {
 		//model.addAttribute("BIList", BIList);
 		model.addAttribute("MCList", MCList);
 		model.addAttribute("tempList",tempList);
+		String usId = (String)(session.getAttribute("usID"));
+		String insId = (String)(session.getAttribute("insID"));
 		
 		return "/index/index";
 	}
