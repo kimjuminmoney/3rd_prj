@@ -11,8 +11,9 @@ import org.springframework.web.bind.support.SessionStatus;
 public class insLogoutController {
 	
 	@RequestMapping("/logout.do")
-	public String logoutProcess(SessionStatus ss,HttpServletRequest request) {
+	public String logoutProcess(SessionStatus ss,HttpSession session) {
 		ss.setComplete();
+		session.invalidate();
 		return "forward:index.do";
 	}
 }

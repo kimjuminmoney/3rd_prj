@@ -98,7 +98,7 @@
     <c:if test="${ not empty uiId }">
     <h2 class="login_title"><c:out value="${ uiId }"/>님 환영합니다</h2>
     <a href="user/myCourses.do" class="join" data-nclk="log.registry">내 강의실</a>
-    <a href="../logout.do" class="join" data-nclk="log.registry">로그아웃</a>
+    <a href="logout.do" class="join" data-nclk="log.registry">로그아웃</a>
     </c:if>
     <c:if test="${ not empty insId }">
     <h2 class="login_title"><c:out value="${ insId }"/>님 환영합니다</h2>
