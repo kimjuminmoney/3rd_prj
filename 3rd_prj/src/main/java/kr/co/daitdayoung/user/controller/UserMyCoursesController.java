@@ -5,14 +5,12 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import kr.co.daitdayoung.user.domain.UserMyCoursesDomain;
 import kr.co.daitdayoung.user.service.UserMyCoursesService;
-import kr.co.daitdayoung.user.vo.UserMyCoursesVO;
 
 @Controller
 public class UserMyCoursesController {
@@ -33,9 +31,11 @@ public class UserMyCoursesController {
 		return "user/myCourses/myCourses";
 	}
 	
-	@GetMapping("/user/certiticate.do")
+	@GetMapping("/user/certificate.do")
 	public String userCertiticate(HttpSession session,Model model) {
+		
 		System.out.println("수료증");
+		
 		return "user/myCourses/certificate";
 	}
 	

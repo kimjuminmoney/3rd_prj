@@ -162,7 +162,7 @@
 <div id="u_skip">
     
     
-        <a href="/login" ><span>로그인 바로가기</span></a>
+        <a href="login/login.do" ><span>로그인 바로가기</span></a>
     
     
     <a href="#content" onclick="document.getElementById('content').tabIndex=-1;document.getElementById('content').focus();return false;"><span>본문 바로가기</span></a>
@@ -179,7 +179,7 @@
     
 <!-- 로그인 전 -->
 <span class="top_info">다잇다영을 보다 편리하고 안전하게 이용하세요.</span>
-<a href="javascript:doLogin()" class="top_login N=a:gnb.login">로그인/회원가입</a>
+<a href="login/login.do" class="top_login N=a:gnb.login">로그인/회원가입</a>
 <script>
     function doLogin(){
         var returnUrl = location.href.substring(location.href.indexOf(location.host)+location.host.length);
