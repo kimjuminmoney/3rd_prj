@@ -57,7 +57,7 @@ public class userLoginController {
 				 
 				 session.setAttribute("uiId",lVO.getId());
 				 
-				 return "index/index";
+				 return "redirect:/index.do";
 			 }
 			 
 			 
@@ -70,7 +70,7 @@ public class userLoginController {
 				 
 				 session.setAttribute("insId",lVO.getId());
 				 
-				 return "index/index";
+				 return "redirect:/index.do";
 			 }
 			 
 			 

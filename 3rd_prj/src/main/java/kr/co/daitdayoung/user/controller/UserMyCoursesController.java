@@ -33,5 +33,11 @@ public class UserMyCoursesController {
 		return "user/myCourses/myCourses";
 	}
 	
+	@GetMapping("/user/certiticate.do")
+	public String userCertiticate(HttpSession session,Model model) {
+		System.out.println("수료증");
+		return "user/myCourses/certificate";
+	}
+	
 
 }
