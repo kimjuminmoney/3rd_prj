@@ -26,7 +26,7 @@ public class ManageNoticeController {
 	private ManageNoticeService mns;
 	
 	@GetMapping("/admin/admin_notice/manageNotice.do")
-	public String manageNotice(Model model) {
+	public String manageNotice(Model model, HttpSession session) {
 		
 		List<ManageNoticeDomain> noticeList = mns.searchNotice();
 		List<ManageNoticeDomain> cnList = mns.searchCouNotice();
@@ -39,7 +39,7 @@ public class ManageNoticeController {
 
 	//일반공지사항 상세
 	@GetMapping("/admin/admin_notice/detailNotice.do")
-	public String detailNotice(Model model, String notCode, HttpServletRequest request) {
+	public String detailNotice(Model model, String notCode, HttpServletRequest request, HttpSession session) {
 		
 		notCode=request.getParameter("notCode");
 		
@@ -55,7 +55,7 @@ public class ManageNoticeController {
 
 	//강좌공지사항 상세
 	@GetMapping("/admin/admin_notice/detailCouNotice.do")
-	public String detailCouNotice(Model model, String cnCode, HttpServletRequest request) {
+	public String detailCouNotice(Model model, String cnCode, HttpServletRequest request, HttpSession session) {
 		
 		cnCode = request.getParameter("cnCode");
 		

@@ -3,6 +3,8 @@ package kr.co.daitdayoung.admin.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +20,8 @@ public class DashboardController {
 	private DashboardService dbs;
 	
 	@GetMapping("/admin/admin_dashboard/dashboard.do")
-	public String dashboard(Model model) {
+	public String dashboard(Model model, HttpSession session) {
+		String adminId = (String)session.getAttribute("adminId");
 		
 		int recJoin = dbs.searchRecJoin();
 		int coursesCnt = dbs.searchCoursesCnt();

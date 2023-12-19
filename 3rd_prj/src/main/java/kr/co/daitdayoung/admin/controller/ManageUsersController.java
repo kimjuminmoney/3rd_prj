@@ -23,7 +23,7 @@ public class ManageUsersController {
 	private ManageUsersService mus;
 	
 	@GetMapping("/admin/admin_users/manageUsers.do")
-	public String manageUsers(Model model) {
+	public String manageUsers(Model model, HttpSession session) {
 		
 		List<ManageUsersDomain> studentsList = mus.searchStudents();
 		List<ManageUsersDomain> instructorsList = mus.searchInstructors();
@@ -36,7 +36,7 @@ public class ManageUsersController {
 	
 	//학생 상세
 	@GetMapping("/admin/admin_users/detailStudent.do")
-	public String detailStudent(Model model, String uiId, HttpServletRequest request) {
+	public String detailStudent(Model model, String uiId, HttpServletRequest request, HttpSession session) {
 		
 		uiId=request.getParameter("uiId");
 		
@@ -55,7 +55,7 @@ public class ManageUsersController {
 
 	//강사 상세
 	@GetMapping("/admin/admin_users/detailInstructor.do")
-	public String detailInstrurtor(Model model, String insId, HttpServletRequest request) {
+	public String detailInstrurtor(Model model, String insId, HttpServletRequest request, HttpSession session) {
 		
 		insId = request.getParameter("insId");
 		

@@ -22,7 +22,7 @@ import kr.co.daitdayoung.admin.vo.ManageInqueryVO;
 public class ManageInquiryController {
 	
 	@GetMapping("/admin/admin_inquery/manageInquery.do")
-	public String manageInquery(Model model, HttpServletRequest request) {
+	public String manageInquery(Model model, HttpServletRequest request, HttpSession session) {
 		
 		ManageInqueryService miService = new ManageInqueryService();
 		
@@ -37,7 +37,7 @@ public class ManageInquiryController {
 
 	//일반문의 상세
 	@GetMapping("/admin/admin_inquery/detailInquery.do")
-	public String detailInquery(Model model, String inqCode, HttpServletRequest request) {
+	public String detailInquery(Model model, String inqCode, HttpServletRequest request, HttpSession session) {
 		
 		ManageInqueryService miService = new ManageInqueryService();
 		inqCode=request.getParameter("inqCode");

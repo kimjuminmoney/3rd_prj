@@ -28,7 +28,7 @@ public class ManageCoursesController {
 	private ManageCoursesService mcs;
 	
 	@GetMapping("/admin/admin_courses/manageCourses.do")
-	public String manageCourses(Model model) {
+	public String manageCourses(Model model, HttpSession session) {
 		List<ManageCoursesDomain> coursesList = mcs.searchCourses();
 		
 		model.addAttribute("coursesList", coursesList);

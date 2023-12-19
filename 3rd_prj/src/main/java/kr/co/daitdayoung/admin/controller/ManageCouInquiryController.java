@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -25,7 +26,7 @@ public class ManageCouInquiryController {
 	private ManageCouInqueryService mciService;
 	
 	@GetMapping("/admin/admin_couinquery/manageCouInquery.do")
-	public String manageCouInquery(Model model) {
+	public String manageCouInquery(Model model, HttpSession session) {
 		
 		List<ManageCouInqueryDomain> couInquiryList = mciService.searchCouInquiry();
 		List<ManageCouInqueryDomain> ciTypeList = mciService.searchCiType();
@@ -65,7 +66,7 @@ public class ManageCouInquiryController {
 
 	//강좌문의 상세
 	@GetMapping("/admin/admin_couinquery/detailCouInquery.do")
-	public String detailCouInquery(Model model, String ciCode, HttpServletRequest request) {
+	public String detailCouInquery(Model model, String ciCode, HttpServletRequest request, HttpSession session) {
 		
 		ciCode = request.getParameter("ciCode");
 		ManageCouInqueryDomain detailCi = mciService.searchDetailCi(ciCode);
