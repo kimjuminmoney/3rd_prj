@@ -1,5 +1,7 @@
 package kr.co.daitdayoung.login.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,7 +23,7 @@ public class adminLoginController {
 	}
 	
 	@PostMapping("/login/doAdminLogin.do")
-	public String loginprocess(AdminLoginVO alVO , Model model) {
+	public String loginprocess(AdminLoginVO alVO , Model model,HttpSession session) {
 		alVO.setAdminPw(alVO.getAdminPw());
 		String adminId="";
 		model.addAttribute("flag",false);
@@ -30,6 +32,9 @@ public class adminLoginController {
 		}
 		if(adminId != null && adminId.equals(alVO.getAdminId())){
 			model.addAttribute("adminId",adminId);
+			
+			session.setAttribute("adminId",alVO.getAdminId());
+			
 			return "admin/admin_dashboard/dashboard"; 
 			
 		}
