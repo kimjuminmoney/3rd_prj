@@ -705,11 +705,11 @@ function checkNumber(){
                     </label>
                     <label class="it stretch _label">
                         <span class="ph _login_email_addr" style="display: none;">비밀번호</span>
-                        <input type="text" id="uiPw" name="uiPw" class="_input" placeholder="기존 비밀번호를 입력해주세요" >
+                        <input type="password" id="uiPw" name="uiPw" class="_input" placeholder="기존 비밀번호를 입력해주세요" >
                     </label>
                     <label class="it stretch _label _password">
                         <span class="ph _login_password" style="display: none;">새로운 비밀번호를 입력해주세요</span>
-                        <input type="text" id="nPw" name="nPw" class="_input" data-global-placeholder="._login_password" placeholder="새로운 비밀번호를 입력해주세요">
+                        <input type="password" id="npw" name="npw" class="_input" data-global-placeholder="._login_password" placeholder="새로운 비밀번호를 입력해주세요">
                     </label><br/>
                     <button type="submit" id="submit" class="btn btn_type1 clr" data-btn-submit>비밀번호변경하기</button>
                 </div>

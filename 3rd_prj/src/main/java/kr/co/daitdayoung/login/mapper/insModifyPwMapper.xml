@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.daitdayoung.login">
+
+
+	<update id="updateInsPw"  parameterType="kr.co.daitdayoung.login.vo.ModifyPwVO">
+	update INSTRUCTOR
+	set ins_pw=#{ npw }
+	where ins_id=#{ insId } and ins_pw = #{ insPw }
+	</update>
+	
+<!-- 	<update id="updateInsPw"  parameterType="kr.co.daitdayoung.login.vo.ModifyInsPwVO">
+	update INSTRUCTOR
+	from ins_pw
+	where ins_id=#{ id } and ins_birth = #{ birth }
+	</update> -->
+	
+
+
+</mapper>

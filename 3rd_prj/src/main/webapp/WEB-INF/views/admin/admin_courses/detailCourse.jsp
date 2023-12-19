@@ -98,25 +98,48 @@
         
 <script type="text/javascript">
 $(function(){
+	
+	
 	$("#btn_request_lecture").click(function(){
-		alert("수강신청");
-		var param = {couCode: "${param.couCode}",
-					insId: "${ cdDomain.insId }"}
-		$.ajax({
-        	url:"courses_registration.do",
-			type:"POST",
-			data: param,
-			dataType:"json",
-			error:function(xhr){
-				console.log(xhr.status);
-			},
-			success:function(jsonObj){
-				
-			}//success
-        })
-	})
+	
+		var param={couCode: "${ param.couCode }",
+				insId: $("#insId").val()}
+		var finalApprove = $("#finalApprove").val();
+		alert(finalApprove);
+		
+	var confirmation = confirm('강좌를 승인하시겠습니까?');
+
+		if(confirmation){
+			$.ajax({
+	        	url:"modapp.do",
+				type:"GET",
+				data: param,
+				dataType:"json",
+				error:function(xhr){
+					console.log(xhr.status);
+				},
+				success:function(jsonObj){
+					 var modCnt = jsonObj.modCnt;
+					 var addCnt = jsonObj.addCnt;
+					 if(finalApprove == 'Y'){
+						 alert("이미 승인된 강좌입니다.");
+					 }else{
+					   if(modCnt=='1' && addCnt>='1'){
+						   alert("강좌가 승인되었습니다.");
+						   window.location.href="manageCourses.do";
+					   }else{
+						   alert("강좌가 승인되지 않았습니다. 다시 한번 시도해주세요.");
+					   }//end else
+					 }//end else
+				}//success
+	        });//ajax
+		}else{
+			alert("취소되었습니다.");
+		}
+		
+	});//click
 })
-</script>            
+</script>    
         
         <div class="state_area">
             <!-- 수강신청 버튼
@@ -160,6 +183,8 @@ $(function(){
                                     <span class="name">
                                             <c:out value="${ cdDomain.insName }"/>
                                     </span>
+                                    <input type="hidden" id="insId" value="${ cdDomain.insId }">
+                                    <input type="hidden" id="finalApprove" value="${ cdDomain.finalApprove }">
                                 </div>
                         </div>
                     </div>

@@ -683,21 +683,32 @@ function checkNumber(){
     });
 </script>
 
-
 			</div>
 		</div>
 	
-		<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-   <div class="section section_find">
-				<div class="box6">
-				  <h2 class="tit2">비밀번호 확인</h2><br/><br/>
-					<div id="div_new_pw" class="input_box">	
-						<label id="lb_new_pw" for="new_pw" style="">비밀번호</label>	
-						</div>
-				<div class="btn_area2">
-				     <button type="submit" id="submit" class="btn btn_type1 clr" data-btn-submit>비밀번호 확인</button>
-				</div>
-				</div>
+   <div id="container">
+		<div id="content">
+
+		<section class="page chkPw" id="_login">
+    <h2 class="tit">비밀번호 확인</h2>
+    <div class="login_method_email">
+        <form role="form" id="chkPw_form" action="chkInsPw.do" method="post">
+            <fieldset>
+                <legend class="sr_only">비밀번호 확인</legend>
+                
+                <input type="hidden" id="returnUrl" name="returnUrl" value="">
+                
+                <div class="ipt_group">
+                    <label class="it stretch _label">
+                        <span class="ph _login_email_addr" style="display: none;">비밀번호</span>
+                        <input type="text" id="pw" name="pw" class="_input" placeholder="비밀번호를 입력해주세요" >
+                    </label>
+                    <button type="submit" id="submit" class="btn btn_type1 clr" data-btn-submit>비밀번호 확인</button>
+                </div>
+            </fieldset>
+		</form>
+    </div>
+</section>
 
 <script type="text/javascript">
 	document.getElementById('divShowBlock').style.display="none";	

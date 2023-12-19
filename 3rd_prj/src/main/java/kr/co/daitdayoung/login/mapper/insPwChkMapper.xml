@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.daitdayoung.login">
+
+	<select id="insPwChk" resultType="String" parameterType="kr.co.daitdayoung.login.vo.InsPwChkVO">
+	select ins_pw
+	from INSTRUCTOR
+	where ins_pw = #{pw}
+	</select>
+
+</mapper>

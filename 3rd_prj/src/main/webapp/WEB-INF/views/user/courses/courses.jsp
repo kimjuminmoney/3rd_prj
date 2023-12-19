@@ -68,8 +68,13 @@ $(".que").click(function() {
 
 	<div class="class_manager type2">
 		<!--chapter_list-->
-		<div class="" style="padding: 0px">
-			<div class="le_txt" style="margin: 20px;"><strong><c:out value="${ ucDomain.content }"/></strong></div>
+		<div style="padding: 0px; text-align: center;">
+    	<img src="http://localhost/daitdayoung/courses_data/${ucDomain.couCode}/${ucDomain.bannerImg}" alt="">
+	<div class="le_txt" style="margin: 20px;">
+			<textarea rows="" cols="" readonly="readonly" style="width: 100%; height: 150px; border: none;">
+			    <c:out value="${ucDomain.content}"/>
+			</textarea>
+			</div>
 			<div style="border: 3px;padding-top: 10px; padding-bottom: 3px;">
 			<div class="info_lec" style="display: flex; padding-right: 0px; align-items: center; height: 80px;">
 							<div style="flex: 1; border: 1px solid #00ab50; border-radius: 10px; padding: 5px; margin: 20px; display: flex; align-items: center; justify-content: center; flex-direction: column; height: 100%;">
@@ -132,7 +137,7 @@ $(".que").click(function() {
 				<tbody>
 				<c:if test="${ empty noticeList }">
 				<tr>
-					<th colspan="4"> 등록된 공지사항이 없습니다.</th>
+					<td colspan="4"> 등록된 공지사항이 없습니다.</td>
 				</tr>
 				</c:if>
 				<c:forEach var="notice" items="${ noticeList }">

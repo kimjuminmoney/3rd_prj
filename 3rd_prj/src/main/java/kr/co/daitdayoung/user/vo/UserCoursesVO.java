@@ -12,7 +12,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserCoursesVO {
-	
-	private String couCode, uiId, lecCode, crgCode, epCode;
 
+	private String couCode, uiId, lecCode, crgCode, epCode;
+	private int enrollRate, lecCnt, rateCnt;
 }

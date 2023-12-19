@@ -2,6 +2,9 @@ package kr.co.daitdayoung.user.controller;
 
 import java.util.List;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONObject;
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import kr.co.daitdayoung.index.vo.CoursesRegistrationVO;
 import kr.co.daitdayoung.user.domain.CoursesExamInfoDomain;
 import kr.co.daitdayoung.user.domain.UserCoursesDomain;
 import kr.co.daitdayoung.user.domain.UserCoursesExamDomain;
@@ -30,7 +34,7 @@ public class UserCoursesController {
 	private UserCoursesService ucs;
 
 	@GetMapping("/user/courses.do")
-	public String userCourses(UserCoursesVO ucVO, HttpSession session, Model model) {
+	public String userCourses(UserCoursesVO ucVO, HttpSession session, Model model,HttpServletResponse response,HttpServletRequest request) {
 		// couCode = "COU_999999";
 		String uiId = (String) session.getAttribute("uiId");
 		// uiId = "ui_test";
@@ -44,6 +48,8 @@ public class UserCoursesController {
 			formattedRate = String.format("%.2f", rate); // 소수점 둘째 자리까지 포맷팅
 			model.addAttribute("rate", formattedRate);
 		}
+		cookie(ucVO, session,response,request);
+		
 		model.addAttribute("ucDomain", ucDomain);
 		model.addAttribute("noticeList", noticeList);
 		model.addAttribute("lectureList", lectureList);
@@ -53,6 +59,40 @@ public class UserCoursesController {
 		return "user/courses/courses";
 	}
 
+	public void cookie(UserCoursesVO ucVO,HttpSession session, HttpServletResponse response,HttpServletRequest request) {
+		String uiId = (String) session.getAttribute("uiId");
+		ucVO.setUiId(uiId);
+		String couCode = ucVO.getCouCode();
+
+	    // 쿠키 이름 생성 (예: couCode_uiId)
+	    String cookieName = couCode + "_" + uiId;
+
+	    // 쿠키 조회
+	    Cookie[] cookies = request.getCookies();
+	    boolean hasVisitedToday = false;
+
+	    if (cookies != null) {
+	        for (Cookie cookie : cookies) {
+	            if (cookieName.equals(cookie.getName())) {
+	                hasVisitedToday = true;
+	                break;
+	            }
+	        }
+	    }
+
+	    // 쿠키가 없으면 조회수 증가 및 쿠키 설정
+	    if (!hasVisitedToday) {
+	        // 조회수 증가 로직
+	    	ucs.increaseCourseViews(couCode);
+
+	        // 쿠키 생성 및 설정 (유효기간 1일)
+	        Cookie visitCookie = new Cookie(cookieName, "visited");
+	        visitCookie.setMaxAge(60 * 60 * 24); // 1일
+	        visitCookie.setPath("/"); // 전체 애플리케이션에 대해 쿠키 사용
+	        response.addCookie(visitCookie);
+	    }
+	}
+	
 	@GetMapping("/user/courses_detail.do")
 	public String userCoursesDetail(UserCoursesVO ucVO, HttpSession session, Model model) {
 
@@ -67,14 +107,23 @@ public class UserCoursesController {
 	public String userCoursesDetailProcess(UserCoursesVO ucVO, HttpSession session, Model model) {
 
 		ucVO.setUiId((String) session.getAttribute("uiId"));
-		int cnt = ucs.modifyCoursesRecode(ucVO);
-		boolean flag = false;
-		if (cnt == 2) {
-			flag = true;
-		}
+		int rateCnt = ucs.modifyCoursesRecode(ucVO);
 
 		JSONObject json = new JSONObject();
-		json.put("flag", flag);
+		String examPass = ucs.searchExamPass(ucVO.getCrgCode());
+		if(examPass.equals("Y"));{
+			int enrollRate = (Integer)session.getAttribute("enrollRate");
+			int lecCnt = (Integer)session.getAttribute("lecCnt");
+			ucVO.setEnrollRate(enrollRate);
+			ucVO.setLecCnt(lecCnt);
+			ucVO.setRateCnt(rateCnt);
+			
+		}
+		
+		
+		
+		
+		
 
 		return json.toJSONString();
 	}

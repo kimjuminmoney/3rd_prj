@@ -80,7 +80,7 @@
                 <hr>
                 <div class="group_lr" style="border-bottom: 1px">
         		<div class="group_r">
-            		<a href="courses.do?crgCode=${ param.crgCode}&couCode=${ param.couCode }" class="btn btn_type2 bold N=a:lec.list" data-selector="backToListBtn">메인으로</a>
+            		<a href="courses.do?crgCode=${ param.crgCode}&couCode=${ param.couCode }&epCode=${ param.epCode}" class="btn btn_type2 bold N=a:lec.list" data-selector="backToListBtn">메인으로</a>
             		<c:if test="${ userExamInfo.examStatus == 'N' }">
             		<a id="atag"  class="btn btn_type2 bold N=a:lec.list" data-selector="backToListBtn">시험응시</a>
             		</c:if>

@@ -16,7 +16,7 @@ public class LoginDAO {
 	public String selectUserLogin(LoginVO ulVO) {
 		
 		mbh = mbh.getInstance();
-		SqlSession ss = mbh.getMyBatisHandler(false);
+		SqlSession ss = mbh.getMyBatisHandler(true);
 		String id = ss.selectOne("kr.co.daitdayoung.login.userLogin", ulVO);
 		mbh.closeHandler(ss);
 		return id;
@@ -24,7 +24,7 @@ public class LoginDAO {
 	public String selectInsLogin(LoginVO ulVO) {
 		
 		mbh = mbh.getInstance();
-		SqlSession ss = mbh.getMyBatisHandler(false);
+		SqlSession ss = mbh.getMyBatisHandler(true);
 		String id = ss.selectOne("kr.co.daitdayoung.login.insLogin", ulVO);
 		mbh.closeHandler(ss);
 		return id;

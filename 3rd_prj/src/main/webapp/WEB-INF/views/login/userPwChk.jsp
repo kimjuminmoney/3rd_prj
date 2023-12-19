@@ -703,9 +703,9 @@ function checkNumber(){
                 <div class="ipt_group">
                     <label class="it stretch _label">
                         <span class="ph _login_email_addr" style="display: none;">비밀번호</span>
-                        <input type="text" id="pw" name="pw" class="_input" placeholder="비밀번호를 입력해주세요" >
+                        <input  type="password" id="pw" name="pw" class="_input" placeholder="비밀번호를 입력해주세요" >
                     </label>
-                    <button type="submit" id="submit" class="btn btn_type1 clr" data-btn-submit>아이디 찾기</button>
+                    <button type="submit" id="submit" class="btn btn_type1 clr" data-btn-submit>비밀번호 확인</button>
                 </div>
             </fieldset>
 		</form>

@@ -5,10 +5,10 @@
 <mapper namespace="kr.co.daitdayoung.login">
 
 
-	<update id="updateUserPw"  parameterType="kr.co.daitdayoung.login.vo.ModifyUserPwVO">
+	<update id="updateUserPw"  parameterType="kr.co.daitdayoung.login.vo.ModifyPwVO">
 	update user_info
-	set ui_pw
-	where ui_id=#{ id } and ui_pw = #{ pw }
+	set ui_pw= #{ npw }
+	where ui_id=#{ uiId } and ui_pw = #{ uiPw }
 	</update>
 	
 <!-- 	<update id="updateInsPw"  parameterType="kr.co.daitdayoung.login.vo.ModifyInsPwVO">

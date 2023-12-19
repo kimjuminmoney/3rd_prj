@@ -54,4 +54,7 @@ public class CoursesDetailService {
 	public int addExamParticipationInsert(CoursesRegistrationVO crVO) {
 		return cdDAO.insertExamParticipationInsert(crVO);
 	}
+	
+	
+	
 }

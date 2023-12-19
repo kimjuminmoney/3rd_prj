@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import kr.co.daitdayoung.admin.domain.ManageCoursesDomain;
+import kr.co.daitdayoung.admin.vo.ManageCoursesVO;
 import kr.co.daitdayoung.dao.MyBatisHandler;
 import kr.co.daitdayoung.index.domain.CoursesDetailDomain;
 import kr.co.daitdayoung.index.domain.CoursesLectureDomain;
@@ -90,8 +91,32 @@ public class ManageCoursesDAO {
 		return cnt;
 	}
 	
+	//이거 넘어가야해
+	public int insertExam(ManageCoursesVO mcVO) throws PersistenceException{
+		int cnt = 0;
+		
+		MyBatisHandler mbh = MyBatisHandler.getInstance();
+		
+		SqlSession ss = mbh.getMyBatisHandler(false);
+		
+		cnt = ss.insert("kr.co.daitdayoung.admin.mc.insertExam", mcVO);
+		
+		if(cnt==1) {
+			ss.commit();
+		}
+		
+		mbh.closeHandler(ss);
+		
+		return cnt;
+	}
+	
 	public static void main(String[] args) {
-		System.out.println(new ManageCoursesDAO().selectCourses());
+		ManageCoursesVO mcVO = new ManageCoursesVO();
+		
+		mcVO.setCouCode("COU_999996");
+		mcVO.setInsId("ins1");
+		
+		new ManageCoursesDAO().insertExam(mcVO);
 	}
 	
 }//class

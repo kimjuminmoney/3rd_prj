@@ -161,24 +161,4 @@ public class UserExamDAO {
 		return cnt;
 	}
 
-	public static void main(String[] args) {
-		//System.out.println(new UserExamDAO().selectCorrectList("COU_999999"));
-//		UserExamDAO d = new UserExamDAO();
-//		List<UserAnswerDomain> l = d.selectAnswerList("EP_999997");
-//		
-//		for(UserAnswerDomain a : l ) {
-//			System.out.println(a);
-//		}
-//		UserExamVO ucVO  = new UserExamVO();
-//		ucVO.setCouCode("COU_999998");
-//		ucVO.setCrgCode("CRG_999999");
-//		ucVO.setUiId("ui_test");
-//		ucVO.setInsId("ins_test");
-		
-		
-		//System.out.println(new UserExamDAO().updateExamParticipation(ucVO));
-		// System.out.println(new UserExamDAO().selectQuestionDetail("QUE_999999"));
-		// System.out.println(new UserExamDAO().selectQuestionList("COU_999999"));
-	}
-
 }// class

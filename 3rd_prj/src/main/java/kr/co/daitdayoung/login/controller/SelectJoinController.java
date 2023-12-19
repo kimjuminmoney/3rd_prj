@@ -4,10 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class userSelectJoinController {
+public class SelectJoinController {
 
-	@GetMapping("/user/selectJoin.do")
+	@GetMapping("/login/selectJoin.do")
 	public String selectJoin() {
-		return "user/join/selectJoin";
+		return "login/selectJoin";
 	}
 }
