@@ -45,8 +45,8 @@ public class InsMyClassController {
 	public String myCourses(HttpSession session, String tempId, Model model) {
 		
 		
-//		String insId=(String)session.getAttribute("insId");
-		String insId="ins1";
+		String insId=(String)session.getAttribute("insId");
+//		String insId="ins1";
 		
 		List<CourseDomain> cdList=mcs.searchMyCourses(insId);
 		model.addAttribute("cdList",cdList);

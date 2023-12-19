@@ -1,12 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <header id="header" class="default_login mooc">
-    <h1 class="logo"
-        >
+    <h1 class="logo">
         <a href="/">
-            <img width="" height="16px" src="https://ssl.pstatic.net/static/m/mooc/p/partner/next/logo_v5.svg"
-                 
-                 alt="edwith">
+            <img width="" height="20px" src="http://localhost/daitdayoung/common/images/logoBlank_1.png" alt="daitdayoung">
         </a>
     </h1>
 

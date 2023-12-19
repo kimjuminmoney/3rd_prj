@@ -6,7 +6,7 @@
             
             <h1 class="bi_school">
                 <a href="index.do">
-                    <img src="http://localhost/daitdayoung/common/images/logo_1.png" style="max-height:24px;" alt="edwith">
+                    <img src="http://localhost/daitdayoung/common/images/logo_3.png" style="max-height:24px;" alt="edwith">
                 </a>
             </h1>
         
