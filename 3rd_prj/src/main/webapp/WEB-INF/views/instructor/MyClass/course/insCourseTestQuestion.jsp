@@ -41,7 +41,6 @@
 					alert(xhr.status);
 				},
 				success:function( jsonObj ){
-					alert(jsonObj);
 					location.reload();
 				}//success
 				
@@ -72,7 +71,6 @@
 						alert(xhr.status);
 					},
 					success:function( jsonObj ){
-						alert(jsonObj);
 						location.reload();
 					}//success
 							
@@ -93,7 +91,6 @@
 								alert(xhr.status);
 							},
 							success:function( jsonObj ){
-								alert(jsonObj);
 								location.reload();
 							}//success
 									
@@ -106,7 +103,6 @@
  <script type="text/javascript">
  function selOneQue(i){
 	var code=i;
-	 alert(code);
 	 var data = { "queCode" : code };
 	 
 	 $.ajax({
@@ -118,7 +114,6 @@
 			alert(xhr.status);
 		},
 		success:function( jsonObj ){
-			alert(jsonObj);
 			$("#queCode").val(jsonObj.queCode);
 
 			$("#insId").val(jsonObj.insId);

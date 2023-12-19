@@ -28,7 +28,6 @@
  });//ready
  
  function openCN(i){
-	 alert(i);
 	location.href="insCourseNoticeSub.do?cnCode="+i;
  }
  </script>

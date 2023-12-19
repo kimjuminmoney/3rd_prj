@@ -19,26 +19,13 @@
                 <!-- [D] 강좌명이 51~90자인 경우 h2 class에 word_max 추가 -->
                 <h2 class="">
                 
-                    <a href="/python-data/home" class="NPI=a:title" id="_courseName">파이썬 자료구조</a>
+                    <a href="/python-data/home" class="NPI=a:title" id="_courseName"><c:out value="${ couName }"/></a>
                 
                 </h2>
                 
                     <div class="profile">
-                        
-                            <!-- [D] 이미지 노출시 class="bgnone" 추가 -->
-                            <span class="thumb bgnone"><img src="https://cphinf.pstatic.net/mooc/20180329_270/1522298867751bEX3L_JPEG/CONNECT.jpg?type=ff64_64" width="32" height="32" alt="임시 이미지"></span>
-                        
-                        <span class="name">커넥트재단</span>
-
-                        
-                            
-                                <!-- [D] 파트너홈이 없는 경우 -->
-                                <span class="from">edwith</span>
-                            
-                        
                     </div>
                 
-
             <!-- 공유하기 -->
             <div class="sns_area _sns_area">
     	<div class="sns_layer " data-sns-layer>
@@ -47,10 +34,6 @@
         
     </div>
 </div>
-    
-<div id="_band_share_content" style="display:none">파이썬 자료구조</div>
-<div id="_twitter_share_content" style="display:none">파이썬 자료구조</div>
-<div style="width:1px;height:1px;font-size:0;line-height:0;color:transparent"><span id="urlCopy">http://www.edwith.org/python-data</span></div>
 <script src="/static/js/src/entries/common/_sns.share.service.entry.browserfied.min.js?231109_47a067d4"></script>
 <script>
 $(document).ready(function(){

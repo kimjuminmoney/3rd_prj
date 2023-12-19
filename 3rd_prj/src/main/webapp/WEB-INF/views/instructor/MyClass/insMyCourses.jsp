@@ -19,7 +19,6 @@
  <script type="text/javascript">
  $(function(){
 	 
- alert( "${ sessionScope.insId }");	 
 	 
 	 
  });//ready

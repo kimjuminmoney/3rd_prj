@@ -199,7 +199,6 @@ function chgLecCode(){
 		 },
 		 success:function( jsonObj ){
 							 
-			 alert(jsonObj.lecContent)
 			$("#lecContent").val(jsonObj.lecContent);	
 			 if( jsonObj.videoName != null){
 			$("#oldFile").val(jsonObj.videoName);

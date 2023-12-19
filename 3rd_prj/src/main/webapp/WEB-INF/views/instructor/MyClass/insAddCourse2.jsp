@@ -42,8 +42,6 @@
 		 var frm=$("#contents_frm")[0];
 			frm.action="insAddCourseTry.do";
 			frm.method="post"
-		 alert(frm.action);
-		 alert(frm.method);
 			frm.submit();
 	 
 	 });//click

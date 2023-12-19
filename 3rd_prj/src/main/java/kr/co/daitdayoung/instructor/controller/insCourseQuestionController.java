@@ -39,7 +39,6 @@ public class insCourseQuestionController {
 
 	@RequestMapping("/insCourseTestQuestion.do")
 	public String courseTestQuestion(HttpSession session,Model model) {
-		System.out.println("문제관리");
 		
 		CourseDomain cd=(CourseDomain)session.getAttribute("cd");
 		
@@ -59,7 +58,6 @@ public class insCourseQuestionController {
 	@ResponseBody
 	public String searchOneQuestion(String queCode) {
 
-		System.out.println(queCode);
 		JSONObject jsonObj=new JSONObject();
 		CourseQuestionDomain cqd=null;
 		cqd=cqs.searchOneQuestion(queCode);
@@ -84,7 +82,6 @@ public class insCourseQuestionController {
 	@RequestMapping("/addQuestion.do")
 	@ResponseBody
 	public String addQuestion(CourseQuestionVO cqVO) {
-		System.out.println(cqVO);
 		JSONObject jsonObj=new JSONObject();
 		int cnt=0;
 		cnt=cqs.addQuestion(cqVO);

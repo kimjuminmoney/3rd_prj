@@ -19,13 +19,9 @@
  <script type="text/javascript">
  $(function(){
 	 $("#add_btn").click(function(){
-		alert("등록버튼");
 		var cn=$("#cn")[0];
-		alert(cn)
 		cn.action="addCnProcess.do"
-		alert(cn.action)
 		cn.method="post";
-		alert(cn.method)
 		cn.submit();
 		
 		 

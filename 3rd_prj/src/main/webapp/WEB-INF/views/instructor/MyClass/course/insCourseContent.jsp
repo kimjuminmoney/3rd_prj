@@ -21,7 +21,6 @@
 	 
  });//ready
  function addLec(){
-	 alert("addLec");
 	 
  }
  

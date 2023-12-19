@@ -25,7 +25,6 @@
  });//ready
  
  function modifyCN(i){
-	 alert(i)
  location.href="insCourseNoticeSubModify.do?cnCode="+i;
  }
  </script>

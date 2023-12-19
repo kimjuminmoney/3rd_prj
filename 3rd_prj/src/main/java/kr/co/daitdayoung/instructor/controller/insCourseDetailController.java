@@ -23,7 +23,7 @@ import kr.co.daitdayoung.instructor.vo.CourseVO;
 
 
 @Controller
-@SessionAttributes("cd")
+@SessionAttributes({"cd","couName"})
 public class insCourseDetailController {
 
 	@Autowired
@@ -45,6 +45,7 @@ public class insCourseDetailController {
 		String couCode=cVO.getCouCode();
 		model.addAttribute("couCode",couCode);
 		model.addAttribute("cd",cd);
+		model.addAttribute("couName",cVO.getCouName());
 		
 		return "instructor/MyClass/course/insCourseDetail";
 	}//courseDetail

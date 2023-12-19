@@ -80,7 +80,6 @@ public class InsMyClassController {
 	public String addCourse2(CourseVO cVO,HttpSession session, HttpServletRequest request,Model model) {
 
 		cVO.setInsId((String)session.getAttribute("insId"));
-		System.out.println(cVO);
 		
 		String couCode=(String)session.getAttribute("couCode");
 		
@@ -109,7 +108,6 @@ public class InsMyClassController {
 		CourseVO cVO = (CourseVO)(session.getAttribute("cVO"));
 		
 		cVO.setContentList(contentsList);
-		System.out.println( "act / "+cVO );
 		
 		int cnt=0;
 		iacs.addCourse(cVO);

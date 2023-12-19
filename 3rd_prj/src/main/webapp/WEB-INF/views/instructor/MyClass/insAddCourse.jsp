@@ -47,7 +47,6 @@
 	 });//change
 	 
 	  $("#next_btn").click(function(){
-		  alert("버튼눌림");
 		/*   if(){
 			return;  
 		  }

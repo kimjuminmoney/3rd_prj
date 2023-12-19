@@ -20,7 +20,6 @@
  $(function(){
 	 $("#modifyProcess").click(function(){
 		var cn = $("#cn")[0];
-		alert(cn)
 		cn.method="post"
 		cn.action="insCourseNoticeSubModifyProcess.do"
 		cn.submit();

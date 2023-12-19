@@ -34,7 +34,6 @@ public class insCourseNoticeController {
 		CourseDomain cd=(CourseDomain)session.getAttribute("cd");
 		
 		List<CourseNoticeDomain> cnList=null;
-		 System.out.println(cd.getCouCode());
 		cnList = cns.searchAllNotice(cd.getCouCode());
 
 		model.addAttribute("cnList", cnList);
@@ -47,10 +46,7 @@ public class insCourseNoticeController {
 	public String courseNoticeSub(String cnCode,Model model) {
 		CourseNoticeDomain cnd=null;
 		
-		
-		System.out.println(cnCode);
 		cnd = cns.searchOneNotice(cnCode);
-		System.out.println(cnd);
 		
 		model.addAttribute("cnd",cnd);
 		
@@ -71,7 +67,6 @@ public class insCourseNoticeController {
 	@RequestMapping("/insCourseNoticeSubModifyProcess.do")
 	public String courseNoticeSubModifyProcess(HttpServletRequest request,CourseNoticeVO cnVO,Model model) {
 		
-		System.out.println(cnVO);
 		int cnt=0;
 		
 		cnt = cns.updateOneNotice(cnVO);
@@ -94,9 +89,7 @@ public class insCourseNoticeController {
 		CourseDomain cd=(CourseDomain)session.getAttribute("cd");
 		cnVO.setCouCode(cd.getCouCode());
 		cnVO.setInsId(cd.getInsId());
-		System.out.println(cnVO);
 		cnt = cns.insertOneNotice(cnVO);
-		System.out.println(cnt);
 		return "forward:insCourseNotice.do";
 	}
 	

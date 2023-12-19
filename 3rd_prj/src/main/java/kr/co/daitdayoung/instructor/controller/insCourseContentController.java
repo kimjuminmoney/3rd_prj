@@ -36,7 +36,6 @@ public class insCourseContentController {
 	
 	@RequestMapping("/insCourseContent.do")
 	public String courseContent(HttpSession session,Model model) {
-		System.out.println("목차");
 		CourseDomain cd=(CourseDomain)session.getAttribute("cd");
 		
 		List<CourseLectureDomain> cldList=ccs.searchAllLecture(cd.getCouCode());

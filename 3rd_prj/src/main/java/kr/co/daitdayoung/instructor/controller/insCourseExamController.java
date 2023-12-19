@@ -35,7 +35,6 @@ public class insCourseExamController {
 	
 	@RequestMapping("/insCourseTest.do")
 	public String courseExam(HttpSession session,Model model) {
-		System.out.println("시험");
 		CourseDomain cd=(CourseDomain)session.getAttribute("cd");
 		
 		String couCode=cd.getCouCode();
@@ -50,8 +49,6 @@ public class insCourseExamController {
 
 	@RequestMapping("/insCourseExamUpdate.do")
 	public String updateCourseExam(CourseExamVO ceVO,Model model) {
-		System.out.println("시험업데이트");
-		System.out.println(ceVO);
 		int cnt=0;
 		
 		cnt=ces.updateExam(ceVO);

@@ -41,7 +41,6 @@ public class insCourseLectureController {
 	
 	@RequestMapping("/insCourseLecture.do")
 	public String courseLecture(HttpSession session, Model model) {
-		System.out.println("강의등록");
 		
 		CourseDomain cd= (CourseDomain)session.getAttribute("cd");
 		
@@ -57,7 +56,6 @@ public class insCourseLectureController {
 	@RequestMapping("/searchOneLecture.do")
 	@ResponseBody
 	public String searchOneLecture(String lecCode, Model model) {
-		System.out.println("강의등록");
 		JSONObject jsonObj=new JSONObject();
 		
 		CourseLectureDomain cld= null;
@@ -103,14 +101,12 @@ public class insCourseLectureController {
 	
 	@RequestMapping("/updateLecture.do")
 	public String updateLecture(CourseLectureVO clVO,HttpServletRequest request, HttpSession session, Model model) {
-		System.out.println(clVO);
 		CourseDomain cd=(CourseDomain)session.getAttribute("cd");
 		String couCode=cd.getCouCode();
 		
 		int cnt=0;
 		int maxSize=1024*1024*50;
 		
-		System.out.println( request.getSession().getServletContext().getRealPath("/") +"3rd_prj/src/main/webapp/courses_data");
 		File saveDir=new File(request.getSession().getServletContext().getRealPath("/") +"3rd_prj/src/main/webapp/courses_data/"+couCode+"/video/");
 		saveDir.mkdirs();
 		

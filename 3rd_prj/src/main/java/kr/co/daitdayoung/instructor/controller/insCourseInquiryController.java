@@ -33,10 +33,8 @@ public class insCourseInquiryController {
 	public String courseInquiry(HttpSession session,Model model) {
 		CourseDomain cd=(CourseDomain)session.getAttribute("cd");
 		
-		System.out.println("문의"+cd);
 		List<CourseInquiryDomain> cidList = cis.searchAllInquiry(cd.getCouCode());
 		
-		System.out.println("문의"+cidList);
 		model.addAttribute("cidList",cidList);
 		
 		return "instructor/MyClass/course/insCourseInquiry";
@@ -45,7 +43,6 @@ public class insCourseInquiryController {
 	@RequestMapping("/insCourseInquirySub.do")
 	public String courseInquirySub(HttpServletRequest request,Model model) {
 		String ciCode=request.getParameter("ciCode");
-		System.out.println(ciCode);
 		CourseInquiryDomain cid=null;
 		
 		cid = cis.searchOneInquiry(ciCode);
@@ -70,7 +67,6 @@ public class insCourseInquiryController {
 	@RequestMapping("/insCourseInquiryReplyProcess.do")
 	public String CourseInquiryReplyProcess(HttpServletRequest request,CourseInquiryVO ciVO,Model model) {
 		
-		System.out.println(ciVO+"1");
 		int cnt=0;
 		
 		cnt = cis.updateOneInquiry(ciVO);
@@ -89,20 +85,5 @@ public class insCourseInquiryController {
 		
 		return "instructor/MyClass/course/insCourseInquiryReplyExist";
 	}//courseDetail
-//	
-//	@RequestMapping("/addciProcess.do")
-//	public String addciProcess(CourseInquiryVO ciVO,HttpSession session, Model model) {
-//		int cit=0;
-//		
-//		CourseDomain cd=(CourseDomain)session.getAttribute("cd");
-//		ciVO.setCouCode(cd.getCouCode());
-//		ciVO.setInsId(cd.getInsId());
-//		System.out.println(ciVO);
-//		cit = cis.insertOneNotice(ciVO);
-//		System.out.println(cit);
-//		return "forward:insCourseInquiry.do";
-//	}
-	
-	
 	
 }//class
