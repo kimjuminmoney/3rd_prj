@@ -4,6 +4,7 @@ package kr.co.daitdayoung.index.dao;
 import java.util.List;
 
 
+
 import org.apache.ibatis.exceptions.PersistenceException;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,6 @@ import org.springframework.stereotype.Component;
 
 import kr.co.daitdayoung.dao.MyBatisHandler;
 import kr.co.daitdayoung.index.domain.CoursesDomain;
-import kr.co.daitdayoung.index.vo.CoursesVO;
 
 @Component
 public class CoursesDAO {
@@ -49,6 +49,20 @@ public class CoursesDAO {
 	
 	} //selectCourses
 	
+	public List<CoursesDomain> selectCouOne() {
+		
+mbh = MyBatisHandler.getInstance();
+		
+		SqlSession ss = mbh.getMyBatisHandler(false);
+		
+		List<CoursesDomain> cdList = ss.selectList("kr.co.daitdayoung.index.CouOne");
+		
+		mbh.closeHandler(ss);
+		
+		return cdList;
+		
+	}
+	
 	public int selectCompletionStatus(String couCode) throws PersistenceException{
 		
 		mbh = MyBatisHandler.getInstance();
@@ -62,5 +76,10 @@ public class CoursesDAO {
 		return cnt;
 	}	
 	 
+	
+	public static void main(String[] agrs) {
+		System.out.println(new CoursesDAO().selectCompletionStatus("COU_999999"));
+	}
+
 		
 } //class

@@ -3,6 +3,7 @@ package kr.co.daitdayoung.index.service;
 import java.util.List;
 
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -30,12 +31,17 @@ public class CoursesService {
 		return list;
 	}//searchCouList
 
+	public List<CoursesDomain> searchCouOne() {
+		
+		List<CoursesDomain> list = cDAO.selectCouOne();
+		return list;
+	}
 	
-	/*
-	  public int searchCompletionStatus(String couCode) { return
-	  cDAO.selectCompletionStatus(couCode); }
-	 */
 
+	  public int searchCompletionStatus(String couCode) { 
+		 return cDAO.selectCompletionStatus(couCode);
+
+	  }
 	 
 
 }

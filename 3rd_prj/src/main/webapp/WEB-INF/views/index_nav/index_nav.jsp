@@ -43,24 +43,36 @@
       </button>
     </h2>
     <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample" style="font: #666">
+     	<a href="courses.do?couCode=SC_000002" style="color: #fff">
       <div class="accordion-body" style="color: #454545; font-style: ">
 		개인정보 보호교육
       </div>
+      </a>
+     	<a href="courses.do?couCode=SC_000001" style="color: #fff">
       <div class="accordion-body" style="color: #454545; font-style: ">
 		성희롱 예방교육
       </div>
+      </a>
+      <a href="courses.do?couCode=SC_000003" style="color: #fff">
       <div class="accordion-body" style="color: #454545; font-style: ">
 		산업안전 보건교육
       </div>
+      </a>
+      <a href="courses.do?couCode=SC_000004" style="color: #fff">
       <div class="accordion-body" style="color: #454545; font-style: ">
 		장애인인식 개선교육
       </div>
+      </a>
+      <a href="courses.do?couCode=SC_000005" style="color: #fff">
       <div class="accordion-body" style="color: #454545; font-style: ">
 		퇴직연금 교육
       </div>
+      </a>
+      <a href="courses.do?couCode=SC_000006" style="color: #fff">
       <div class="accordion-body" style="color: #454545; font-style: ">
 		직장 내 괴롭힘 예방교육
       </div>
+      </a>
     </div>
     
 	<h2 class="accordion-header" style="width: 252px; height: 48px; ">
@@ -70,24 +82,36 @@
       </button>
     </h2>
     <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample" style="font: #666">
+      <a href="courses.do?couCode=SC_000008" style="color: #fff">
       <div class="accordion-body" style="color: #454545; font-style: ">
       마케팅 분석 
       </div>
+      </a>
+      <a href="courses.do?couCode=SC_000007" style="color: #fff">
       <div class="accordion-body" style="color: #454545; font-style: ">
 		데이터 분석
       </div>
+      </a>
+      <a href="courses.do?couCode=SC_000009" style="color: #fff">
       <div class="accordion-body" style="color: #454545; font-style: ">
 		비즈니스 매너
       </div>
+      </a>
+      <a href="courses.do?couCode=SC_0000012" style="color: #fff">
       <div class="accordion-body" style="color: #454545; font-style: ">
 		포토샵, 영상편집
       </div>
+      </a>
+      <a href="courses.do?couCode=SC_0000011" style="color: #fff">
       <div class="accordion-body" style="color: #454545; font-style: ">
 		제3 외국어
       </div>
+      </a>
+      <a href="courses.do?couCode=SC_0000010" style="color: #fff">
       <div class="accordion-body" style="color: #454545; font-style: ">
 		영어
     </div>
+    </a>
  </div>
     
 	<h2 class="accordion-header" style="width: 252px; height: 48px; ">
@@ -97,21 +121,31 @@
       </button>
     </h2>
     <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample" style="font: #666">
+      <a href="courses.do?couCode=SC_0000013" style="color: #fff">
       <div class="accordion-body" style="color: #454545; font-style: ">
      보건
   </div>
+  </a>
+  <a href="courses.do?couCode=SC_0000014" style="color: #fff">
       <div class="accordion-body" style="color: #454545; font-style: ">
 		서비스
       </div>
+      </a>
+      <a href="courses.do?couCode=SC_0000017" style="color: #fff">
       <div class="accordion-body" style="color: #454545; font-style: ">
 		공통
       </div>
+      </a>
+      <a href="courses.do?couCode=SC_0000016" style="color: #fff">
       <div class="accordion-body" style="color: #454545; font-style: ">
 		건설
       </div>
+      </a>
+      <a href="courses.do?couCode=SC_0000015" style="color: #fff">
       <div class="accordion-body" style="color: #454545; font-style: ">
 		제조
       </div>
+      </a>
 	
 	</div>
 </div>
@@ -120,11 +154,11 @@
 	
 	<section class="srch_section">
 
-            <div class="lecture_list_area">
-            <div id="categoryTitle" class="lecture_list_title" style="">
-            <h2 class="h_title">전체</h2>
-            </div>
+    <div class="lecture_list_area">
             
+    <div id="categoryTitle" class="lecture_list_title" style="">
+    <h2 class="h_title">&nbsp;&nbsp;&nbsp;&nbsp;전체</h2>
+    </div>
 	<ul class="lecture_list" id="course">
 	                
 	<c:forEach var="cou" items="${ CLList }">
@@ -135,8 +169,7 @@
         <span class="mask"></span>
     </span>
         <dl class="lecture_info">
-            <a href="courses_detail.do?couCode=${ cou.couCode }">
-            <dt><c:out value="${cou.couName }"/></dt></a>
+            <dt><c:out value="${cou.couName }"/></dt>
             <dd class="detail">
                 <p class="name">
                   <span class="txt_prof">${cou.insName}</span>
@@ -147,7 +180,7 @@
         	<div class="favorite"><span class="ic_heart"></span><c:out value="${cou.hits }"/></div>
             <%-- <div class="clear"><span class="ic_student"></span><c:out value="${cou.completionCnt != null ? cou.completionCnt : 0}"/></div> --%>
         </div>
-        <a href="courses_detail.do?mcCode=${indexMC.mcCode}" class="lnk_lecture">
+        <a href="courses_detail.do?couCode=${ cou.couCode }" class="lnk_lecture">
             <span class="blind">강좌 바로가기</span>
         </a>
     </div>
@@ -157,17 +190,12 @@
 	</ul>
 </div>
 
-            <a href="#" class="btn_top" data-top-btn="" style="display: block;">TOP</a>
+	<a href="#" class="btn_top" data-top-btn="" style="display: block;">TOP</a>
             
-        </section>
+</section>
 
+</div> 
 
-</div>  
+ 
 </div>
 </div>
-
-
-
-
-
-

@@ -56,10 +56,12 @@
 		
 	<span class="slideshow-container">
                  <div class="Slidesbackground">
-                    <div class="mySlides fade">
-                    <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2369&q=80" class="slideshow-image">
+                 <%-- <c:forEach var="img" items="${BIList } "> --%>
+                   <div class="mySlides fade">
+                  <%--  <img src="${img.bannerImg }"> --%>
+                   <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2369&q=80" class="slideshow-image"> -->
                     </div>
-                    <div class="mySlides fade">
+                   <div class="mySlides fade">
                         <img src="https://images.unsplash.com/photo-1581888227599-779811939961?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2148&q=80" class="slideshow-image">
                     </div>
                     <div class="mySlides fade">
@@ -74,6 +76,7 @@
                     <div class="mySlides fade">
                         <img src=https://cdn.cnn.com/cnnnext/dam/assets/201030094143-stock-rhodesian-ridgeback-super-tease.jpg class="slideshow-image">
                     </div>
+                   <%--  </c:forEach> --%>
                 </div>
    </span>
 	
@@ -163,7 +166,7 @@
     <ul class="class_list"  style="width: 1104px;">
         <c:forEach var="cou" items="${ indexMC.list }"> 
         <li class="list_item">
-            <a href="/medical-20200327" class="link" target="" data-nclk="mc.lec21">
+            <a href="courses_detail.do?couCode=${cou.couCode }" class="link" target="" data-nclk="mc.lec21">
                 <div class="badge">
                 </div>
                 <em class="class_name"> <c:out value="${cou.couName }"/></em>
@@ -171,7 +174,7 @@
                    <span> <c:out value="${cou.insName }"/></span>
                 </div>
                 <span class="thumb" style="background-image: 
-                url(http://localhost/daitdayoung/courses_data/COU_999999/hcy_tech.PNG)"></span>
+                url(courses_detail.do?couCode=${cou.couCode })"></span>
                 <%-- <span class="thumb">
                 <a href="courses_detail.do?couCode=${index.couCode }"><img src="${ index.bannerImg }"/></a>
            <a><img src="http://localhost/daitdayoung/courses_data/${ index.couCode }/${ index.bannerImg }" 

@@ -11,20 +11,27 @@
 	join 	subcategory sc on mc.mc_code = sc.mc_code
 	</select>
 
-	<!-- 강좌명, 배너이미지, 교수명, 조회수 -->
+	<!-- 전체 강좌명, 배너이미지, 교수명, 조회수 -->
 	<select id="CouList" resultType="kr.co.daitdayoung.index.domain.CoursesDomain"> 
+	select 		c.cou_code, cou_name, c.banner_img, c.hits, i.ins_name, c.ins_id, c.mc_code
+	from 		courses c, instructor i
+	where		i.ins_id = c.ins_id
+	</select>
+	
+	<!-- 소분류 골라서 -->
+	<select id="CouOne" resultType="kr.co.daitdayoung.index.domain.CoursesDomain">
 	select 		c.cou_code, cou_name, c.banner_img, c.hits, i.ins_name, c.ins_id, c.mc_code
 	from 		courses c
 	join 		instructor i on c.ins_id = i.ins_id
 	join 		maincategory m on c.mc_code = m.mc_code
-	where 		c.mc_code = #{mcCode} 
+	where 		c.sc_code = #{scCode}
 	</select>
 	
 	<!-- 조회수 -->
-<!-- 	<select id="complete" resultType="int" parameterType="String">
+	<!-- <select id="complete" resultType="int" parameterType="String">
 	select 	count(nvl(completion_status, 0)) as completionCnt
 	from 	course_registration
 	where 	cou_code = #{couCode} and completion_status = 'Y'
-	</select> -->
+	</select>  -->
 	
 </mapper>

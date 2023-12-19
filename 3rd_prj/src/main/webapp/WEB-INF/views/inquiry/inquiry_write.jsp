@@ -48,13 +48,10 @@
                                             <option value="" selected="">선택하기</option>
                                             <option value="INQUIRY">일반</option>
                                             <option value="ERROR">오류</option>
-                                            
                                             <option value="PAYMENT">결제</option>
                                             
-                                            
-                                                <option value="PARTNERSHIP">제휴</option>
-                                            
-                                        </select><div class="chosen-container chosen-container-single chosen-container-single-nosearch" style="width: 224px;" title="문의유형 선택"><a class="chosen-single" tabindex="-1"><span>선택하기</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off" readonly=""></div><ul class="chosen-results"></ul></div></div>
+                                        </select>
+                                        <div class="chosen-container chosen-container-single chosen-container-single-nosearch" style="width: 224px;" title="문의유형 선택"><a class="chosen-single" tabindex="-1"><span>선택하기</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off" readonly=""></div><ul class="chosen-results"></ul></div></div>
                                     </div>
                                 </td>
                             </tr>
@@ -172,8 +169,8 @@
                                 </th>
                                 <td>
                                     <label for="contact_email" class="it" style="width: 500px">
-                                        <span class="ph" style="display: none;">your_email@naver.com</span>
-                                        <input type="text" value="princessk7@naver.com" id="contact_email" name="contact_email" data-contact-email="" data-global-placeholder=".ph">
+                                        <span class="ph">your_email@naver.com</span>
+                                        <input type="text" id="contact_email" name="contact_email" data-contact-email="" data-global-placeholder=".ph">
                                     </label>
                                 </td>
                             </tr>

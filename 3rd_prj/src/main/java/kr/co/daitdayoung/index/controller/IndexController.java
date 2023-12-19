@@ -26,7 +26,7 @@ public class IndexController {
 	public String index(Model model) {
 		
 		List<IndexDomain> MCList = ins.searchMC();
-		List<IndexDomain> BIList = ins.searchBI();
+		//List<IndexDomain> BIList = ins.searchBI();
 		List<IndexColDomain> tempList = null; 
 		IndexVO iVO = new IndexVO();
 		
@@ -45,7 +45,7 @@ public class IndexController {
 			
 		}
 		
-		model.addAttribute("BIList", BIList);
+		//model.addAttribute("BIList", BIList);
 		model.addAttribute("MCList", MCList);
 		model.addAttribute("tempList",tempList);
 		

@@ -11,8 +11,8 @@ import lombok.ToString;
 @Setter
 @ToString
 public class IndexDomain {
-		private String	 mcCode, mcName, scName, bannerImg, couCode, couName, insName;
-		private int hit;
+		private String	 mcCode, mcName, scName, bannerImg, couCode, couName, insName, scCode;
+		private int hits;
 		private List<IndexColDomain> list;
 			
 	}

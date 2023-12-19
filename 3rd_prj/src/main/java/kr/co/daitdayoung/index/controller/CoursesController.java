@@ -28,10 +28,12 @@ public class CoursesController {
 
 		List<CoursesDomain> LCList = cs.searchLeftCat();
 		List<CoursesDomain> CLList = cs.searchCouList();
+		List<CoursesDomain> COList = cs.searchCouOne();
 		
 		
-		model.addAttribute("LCList",LCList);
+		model.addAttribute("LCList", LCList);
 		model.addAttribute("CLList", CLList);
+		model.addAttribute("COList", COList);
 		
 		return "/courses/courses";
 	}

@@ -31,10 +31,8 @@ footer#footer {
                 <li>사업자 등록번호: 129-82-12249</li>
                 <li>통신판매신고 번호: 제2015-경기성남-0754호</li>
                 <li>고객센터: support@didyeducation.org</li>
+		       <li>© DIDY Connect All Rights Reserved. Powered by DIDY</li>
             </ul>
         </div>
-        <p class="copyright">
-               © DIDY Connect All Rights Reserved. Powered by DIDY
-        </p>
     </div>
 </footer>

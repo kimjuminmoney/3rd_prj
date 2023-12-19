@@ -11,12 +11,13 @@
 	</select>
 
 	<!-- 조회수 높은 배너이미지 -->
-	<select id="highBIMG" resultType="kr.co.daitdayoung.index.domain.IndexDomain">
-	select banner_img
-	from courses
-	order by hits desc
-	fetch first 3 rows only
-	</select>
+<!-- 	<select id="highBIMG" resultType="kr.co.daitdayoung.index.domain.IndexDomain">
+	select 		banner_img, cou_name, sc_code, hits
+	from 		courses
+	where 		sc_code=#{scCode}
+	order by 	hits desc
+	fetch first 3 rows only;
+	</select> -->
 
 	<!-- 대분류랑 소뷴류 -->
 	<select id="couCategory" resultType= "kr.co.daitdayoung.index.domain.IndexDomain" parameterType="String">
@@ -43,5 +44,6 @@
 	from 	course_registration
 	where 	cou_code = #{couCode} and completion_status = 'Y'
 	</select>
+	
 	
 </mapper>

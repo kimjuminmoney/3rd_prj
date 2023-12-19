@@ -64,6 +64,7 @@ public class IndexDAO {
 		
 	}
 	
+	
 	public int selectCompletionStatus(String couCode) throws PersistenceException{
 		
 		mbh = MyBatisHandler.getInstance();
@@ -87,4 +88,4 @@ public class IndexDAO {
 		System.out.println(new IndexDAO().selectCompletionStatus("COU_999999"));
 	}
 
-} //class00
+} //class
