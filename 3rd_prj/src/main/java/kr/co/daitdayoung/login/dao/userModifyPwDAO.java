@@ -16,7 +16,7 @@ public class userModifyPwDAO {
 	public int updateUser(ModifyPwVO mupVO)throws PersistenceException{
 		int cnt = 0;
 		MyBatisHandler mbh= MyBatisHandler.getInstance();
-		SqlSession ss = mbh.getMyBatisHandler(false);
+		SqlSession ss = mbh.getMyBatisHandler(true);
 		
 		System.out.println(mupVO);
 		cnt = ss.update("kr.co.daitdayoung.login.updateUserPw",mupVO);

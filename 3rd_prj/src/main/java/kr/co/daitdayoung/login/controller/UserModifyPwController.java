@@ -37,7 +37,7 @@ public class UserModifyPwController {
 		
 //		String uiId  = (String)session.getAttribute("uiId");
 //		mpVO.setUiId(uiId);
-		cnt = umps.modifyUser(mpVO);
+		cnt = umps.modifyUserPw(mpVO);
 		jsonObj.put("cnt", cnt);
 		
 		return "login/modifyupwSueccess";
