@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.daitdayoung.login">
+
+
+	<update id="updateIns"  parameterType="kr.co.daitdayoung.login.vo.modifyIdentifyVO">
+	update INSTRUCTOR
+	set ins_name=#{ nName } and ins_email=#{ nEmail } and ins_tel=#{ nTel } and ins_profile=#{ nProfile } and ins_introduce=#{ nIntroduce }
+	where ins_name=#{ insName } and ins_email=#{ insEmail } and ins_tel=#{ insTel } and ins_profile=#{ insProfile } and ins_introduce=#{ insIntrodce }  
+	</update>
+	
+	
+
+</mapper>

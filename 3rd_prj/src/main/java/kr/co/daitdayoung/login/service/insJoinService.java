@@ -28,6 +28,7 @@ public class insJoinService {
 	public void addIns(InsJoinVO ijVO) {
 		try {
 			ijVO.setInsPw(encrypt.oneWayEncryptData(ijVO.getInsPw()));
+			ijVO.setInsTel(encrypt.oneWayEncryptData(ijVO.getInsTel()));
 			ijDAO.insertIns(ijVO);
 			
 		} catch (NoSuchAlgorithmException ne) {
