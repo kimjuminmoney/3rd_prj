@@ -13,7 +13,6 @@ public class insLogoutController {
 	@RequestMapping("/logout.do")
 	public String logoutProcess(SessionStatus ss,HttpServletRequest request) {
 		ss.setComplete();
-		
 		return "forward:index.do";
 	}
 }

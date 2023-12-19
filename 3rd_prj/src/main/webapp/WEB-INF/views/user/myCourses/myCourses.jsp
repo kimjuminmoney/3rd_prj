@@ -146,6 +146,7 @@
                                             </li>
                                         </ul>
                                         <div class="info_more_box">
+ 
                                         <!-- HTML 부분에 해당하는 부분 -->
 <div class="info_more_area">
     <a href="#" class="btn btn_type3" data-btn="showStandard" data-target="standard-popup-${ i.count }">수료기준</a>
@@ -154,7 +155,38 @@
         시험 성적: <em><c:out value="${ courses.examResults }"/></em>점 이상
         <a href="#" class="pop_close" data-btn="hideStandard" data-target="standard-popup-${ i.count }">레이어 닫기</a>
     </div>
-    <a href="#" class="btn btn_type3" data-btn="certificate" data-uripath="onlineclass-tutorial" data-passed="false" data-is-always-open="true">수료증</a>
+<!--     <a href="#" class="btn btn_type3" data-btn="certificate" data-uripath="onlineclass-tutorial" data-passed="false" data-is-always-open="true">수료증</a> -->
+<a href="#" class="btn btn_type3" data-btn="certificate" data-uripath="onlineclass-tutorial" data-passed="false" data-is-always-open="true" onclick="checkAndOpenCertificateWindow('${courses.completionStatus}')">수료증</a>
+
+<script>
+    function checkAndOpenCertificateWindow(completionStatus) {
+        if (completionStatus === 'Y') {
+            // 'Y'인 경우에만 새 창으로 수료증 페이지 열기
+            openCertificateWindow();
+        } else {
+            // 'Y'가 아닌 경우에는 경고창 띄우기
+            alert('수료하지 못했습니다');
+        }
+    }
+
+    function openCertificateWindow() {
+        var url = 'certificate.do';
+        var width = 1290;
+        var height = 910;
+        var features = 'width=' + width + ',height=' + height + ',toolbar=no,menubar=no,location=no,status=no,scrollbars=no,resizable=yes';
+        window.open(url, '_blank', features);
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var certificateBtn = document.querySelector('.btn_type3[data-btn="certificate"]');
+        certificateBtn.addEventListener('click', function (event) {
+            event.preventDefault();
+            checkAndOpenCertificateWindow('${courses.completionStatus}');
+        });
+    });
+</script>
+
+
 </div>
 
 
@@ -186,19 +218,6 @@
     });
 </script>
                                         
-                                            <%-- <div class="info_more_area">
-                                                
-                                                    <a href="#" class="btn btn_type3" data-btn="showStandard">수료기준</a>
-                                                    <div class="help_pop" style="display: none" data-standard-popup>
-                                                        
-                                                            강좌 진도율 : 총 <em><c:out value="${ courses.enrollRate }"/></em>% 이상<br/>
-                                                            시험 성적 : <em><c:out value="${ courses.examResults }"/></em>점 이상
-                                                        
-                                                        <a href="#" class="pop_close" data-btn="hideStandard">레이어 닫기</a>
-                                                    </div>
-                                                
-                                                <a href="#" class="btn btn_type3" data-btn=certificate data-uripath=onlineclass-tutorial data-passed=false data-is-always-open=true>수료증</a>
-                                            </div> --%>
                                         </div>
                                     </div>
                                     <div class="done_box">

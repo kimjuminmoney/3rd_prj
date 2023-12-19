@@ -36,7 +36,6 @@ public class userLoginController {
 	
 	@GetMapping("/login/login.do")
 	public String loginFrm() {
-		System.out.println("1111111111111111111111111111111111111111111111111111111111");
 		return "login/login";
 	}
 	

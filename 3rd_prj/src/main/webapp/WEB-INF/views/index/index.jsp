@@ -86,13 +86,25 @@
 <div id="login_box">
 <div class="login" id="userBox">
 <br/>
+	<c:if test="${ empty uiId &&  empty insId }">
     <h2 class="login_title">로그인/회원가입</h2>
     <br/>
-     <a href="#" class="" data-sns-login="naver" data-nclk="log.naver">
+     <a href="login/login.do" class="" data-sns-login="naver" data-nclk="log.naver">
     <br/>
      <img src="http://localhost/daitdayoung/common/images/login.png">
     </a>
     <a href="/signup" class="join" data-nclk="log.registry">처음이신가요? 회원가입</a>
+    </c:if>
+    <c:if test="${ not empty uiId }">
+    <h2 class="login_title"><c:out value="${ uiId }"/>님 환영합니다</h2>
+    <a href="user/myCourses.do" class="join" data-nclk="log.registry">내 강의실</a>
+    <a href="../logout.do" class="join" data-nclk="log.registry">로그아웃</a>
+    </c:if>
+    <c:if test="${ not empty insId }">
+    <h2 class="login_title"><c:out value="${ insId }"/>님 환영합니다</h2>
+    <a href="insMyCourse.do" class="join" data-nclk="log.registry">내 강의실</a>
+    <a href="../logout.do" class="join" data-nclk="log.registry">로그아웃</a>
+    </c:if>
 </div>
 
 </div>
@@ -174,7 +186,7 @@
                    <span> <c:out value="${cou.insName }"/></span>
                 </div>
                 <span class="thumb" style="background-image: 
-                url(courses_detail.do?couCode=${cou.couCode })"></span>
+                url(http://localhost/daitdayoung/courses_data/${ cou.couCode}/${ cou.bannerImg })"></span>
                 <%-- <span class="thumb">
                 <a href="courses_detail.do?couCode=${index.couCode }"><img src="${ index.bannerImg }"/></a>
            <a><img src="http://localhost/daitdayoung/courses_data/${ index.couCode }/${ index.bannerImg }" 
