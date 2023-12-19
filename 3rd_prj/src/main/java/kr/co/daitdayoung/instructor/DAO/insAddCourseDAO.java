@@ -17,11 +17,17 @@ public class insAddCourseDAO {
 		int cnt=0;
 		
 		MyBatisHandler mbh=MyBatisHandler.getInstance();
-		SqlSession ss= mbh.getMyBatisHandler(false);
+		SqlSession ss= mbh.getMyBatisHandler(true);
 		ss.insert("kr.co.daitdayoung.instructor.addCourse.insertCC",cVO);
+		
 		String ccCode=ss.selectOne("kr.co.daitdayoung.instructor.addCourse.selectCC");
+		
+		
 		cVO.setCcCode(ccCode);
 		cnt= ss.insert("kr.co.daitdayoung.instructor.addCourse.insertCourse",cVO);
+		
+		
+		
 		
 		mbh.closeHandler(ss);
 		return cnt;

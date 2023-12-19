@@ -18,8 +18,130 @@
  </style>
  <script type="text/javascript">
  $(function(){
-	 
+	 $("#add_btn").click(function(){
+		 
+		 var data={
+		"examCode" : $("#examCode").val(),
+		 "couCode" :	 $("#couCode").val(),
+		 "insId" :	 $("#insId").val(),
+		 "queContent" :	 $("#queContent").val(),
+		 "que1" :	 $("#que1").val(),
+		 "que2" :	 $("#que2").val(),
+		 "que3" :	 $("#que3").val(),
+		 "que4" :	 $("#que4").val(),
+		 "correct" : $('input[name="correct"]:checked').val()
+		 };
+		 
+		 $.ajax({
+				url:"addQuestion.do",
+				data: data,
+				dataType:"json",
+				method:"post",
+				error:function(xhr){
+					alert(xhr.status);
+				},
+				success:function( jsonObj ){
+					alert(jsonObj);
+					location.reload();
+				}//success
+				
+			 })//ajax
+		 
+	 });//click
+
+	 $("#modify_btn").click(function(){
+		 var data={
+			"queCode" : $("#queCode").val(),
+			"examCode" : $("#examCode").val(),
+			 "couCode" :	 $("#couCode").val(),
+			 "insId" :	 $("#insId").val(),
+			 "queContent" :	 $("#queContent").val(),
+			 "que1" :	 $("#que1").val(),
+			 "que2" :	 $("#que2").val(),
+			 "que3" :	 $("#que3").val(),
+			 "que4" :	 $("#que4").val(),
+			 "correct" : $('input[name="correct"]:checked').val()
+			 };
+			 
+			 $.ajax({
+					url:"modifyQuestion.do",
+					data: data,
+					dataType:"json",
+					method:"post",
+					error:function(xhr){
+						alert(xhr.status);
+					},
+					success:function( jsonObj ){
+						alert(jsonObj);
+						location.reload();
+					}//success
+							
+			 })//ajax
+	 });//click
+	
+	 $("#delete_btn").click(function(){
+		 var data={
+					"queCode" : $("#queCode").val(),
+					 };
+					 
+					 $.ajax({
+							url:"deleteQuestion.do",
+							data: data,
+							dataType:"json",
+							method:"post",
+							error:function(xhr){
+								alert(xhr.status);
+							},
+							success:function( jsonObj ){
+								alert(jsonObj);
+								location.reload();
+							}//success
+									
+					 })//ajax
+
+	 });//click
+	
  });//ready
+ </script>
+ <script type="text/javascript">
+ function selOneQue(i){
+	var code=i;
+	 alert(code);
+	 var data = { "queCode" : code };
+	 
+	 $.ajax({
+		url:"searchOneQue.do",
+		data: data,
+		dataType:"json",
+		method:"post",
+		error:function(xhr){
+			alert(xhr.status);
+		},
+		success:function( jsonObj ){
+			alert(jsonObj);
+			$("#queCode").val(jsonObj.queCode);
+
+			$("#insId").val(jsonObj.insId);
+			$("#queContent").val(jsonObj.queContent);
+			$("#que1").val(jsonObj.que1);
+			$("#que2").val(jsonObj.que2);
+			$("#que3").val(jsonObj.que3);
+			$("#que4").val(jsonObj.que4);
+			
+			var radioButtons = document.getElementsByName('correct');
+			for (var i = 0; i < radioButtons.length; i++) {
+			  if (radioButtons[i].value == jsonObj.correct) {
+			    radioButtons[i].checked = true;
+			    break; // 선택된 라디오 버튼을 찾았으므로 루프 종료
+			  }
+			}
+			
+		}//sucess
+		 
+	 })//ajax
+	 
+ }//searchOneQUe
+ 
  </script>
 <link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/plugin.css" type="text/css">
 <link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/boostcourse_common.css" type="text/css">
@@ -293,29 +415,40 @@
 	        					<div class="row">
 	        						<div class="col">
 		        						<div class="" >
+		        							<form id="cqVO" name="cqVO" action="#void" method="post">
 			        						<label style="font-size:30px;"><strong>문제 내용</strong></label><br/>
-			        						<textarea style="widht:100%; height:20%"></textarea><br/>
-				        					<label style="font-size:30px;"><strong>1.</strong></label><input type="text" class="input_txt" style="width:60%; height:48px; font-size:16px; margin-left:5%;" placeholder="내용을 입력해주세요."><input type="checkbox"/><br/>
-				        					<label style="font-size:30px;"><strong>2.</strong></label><input type="text" class="input_txt" style="width:60%; height:48px; font-size:16px; margin-left:5%;" placeholder="내용을 입력해주세요."><input type="checkbox"/><br/>
-				        					<label style="font-size:30px;"><strong>3.</strong></label><input type="text" class="input_txt" style="width:60%; height:48px; font-size:16px; margin-left:5%;" placeholder="내용을 입력해주세요."><input type="checkbox"/><br/>
-				        					<label style="font-size:30px;"><strong>4.</strong></label><input type="text" class="input_txt" style="width:60%; height:48px; font-size:16px; margin-left:5%;" placeholder="내용을 입력해주세요."><input type="checkbox"/><br/>
+			        						<textarea id="queContent" name="queContent"style="widht:100%; height:20%"></textarea><br/>
+			        						<input type="hidden" id="insId" name="insId" value="${ insId }"/>
+			        						<input type="hidden" id="queCode" name="queCode" value="${ queCode }"/>
+			        						<input type="hidden" id="examCode" name="examCode" value="${ examCode }"/>
+			        						<input type="hidden" id="couCode" name="couCode" value="${ couCode }"/>
+				        					<label style="font-size:30px;"><strong>1.</strong></label><input type="text" id="que1" name="que1" class="input_txt" style="width:60%; height:48px; font-size:16px; margin-left:5%;" placeholder="내용을 입력해주세요."><input type="radio" id="correct1" name="correct" value="1"/><br/>
+				        					<label style="font-size:30px;"><strong>2.</strong></label><input type="text" id="que2" name="que2" class="input_txt" style="width:60%; height:48px; font-size:16px; margin-left:5%;" placeholder="내용을 입력해주세요."><input type="radio" id="correct2" name="correct" value="2"/><br/>
+				        					<label style="font-size:30px;"><strong>3.</strong></label><input type="text" id="que3" name="que3" class="input_txt" style="width:60%; height:48px; font-size:16px; margin-left:5%;" placeholder="내용을 입력해주세요."><input type="radio" id="correct3" name="correct" value="3"/><br/>
+				        					<label style="font-size:30px;"><strong>4.</strong></label><input type="text" id="que4" name="que4" class="input_txt" style="width:60%; height:48px; font-size:16px; margin-left:5%;" placeholder="내용을 입력해주세요."><input type="radio" id="correct4" name="correct" value="4"/><br/>
+				        					</form>
 			        					</div>
 		        					</div>
 	        						<div class="col">
 			        					<div class="table" style="width:50%">
-				        					<table class="table">
+				        					<table id="cqdListT"class="table">
 				        						<tr>
 													<th>문제번호</th>
 													<th>정답</th>
 												</tr>
-												<tr>
-													<td>1</td>
-													<td>1</td>
-												</tr>
-												<tr>
-													<td>2</td>
-													<td>2</td>
-												</tr>
+												<c:choose>
+													<c:when test="${ empty cqdList }">
+														<td colspan="2">문제가 없습니다.</td>
+													</c:when>
+													<c:otherwise>
+														<c:forEach var="cqd" items="${ cqdList }" varStatus="i">
+														<tr onclick="selOneQue( '${ cqd.queCode }')">
+															<td>${ i.count }</td>
+															<td><c:out value="${ cqd.correct }"/></td>
+														</tr>
+														</c:forEach>
+													</c:otherwise>
+												</c:choose>
 				        					</table>
 						       			</div>
 				       				</div>
@@ -323,7 +456,9 @@
 							</div>
 							
 							<div id="btn_group">
-								<input type="button" class="btn btn_type17 bold" value="문제추가"/>
+								<input type="button" id="add_btn" class="btn btn_type17 bold" value="문제추가"/>
+								<input type="button" id="modify_btn" class="btn btn_type17 bold" value="문제수정"/>
+								<input type="button" id="delete_btn" class="btn btn_type17 bold" value="문제삭제"/>
 							</div>
 						</div>
 					</li>

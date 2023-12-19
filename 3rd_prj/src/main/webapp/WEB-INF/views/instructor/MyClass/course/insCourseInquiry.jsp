@@ -20,6 +20,13 @@
  $(function(){
 	 
  });//ready
+ 
+ function opencid(ciCode){
+	 location.href="insCourseInquirySub.do?ciCode="+ciCode
+ }
+ function opencidExist(ciCode){
+	 location.href="insCourseInquiryReplyExist.do?ciCode="+ciCode
+ }
  </script>
 <link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/plugin.css" type="text/css">
 <link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/boostcourse_common.css" type="text/css">
@@ -292,31 +299,44 @@
         					
 	        				<div>
 	        					<table class="table">
-	        						<tr>
+	        					<tr>
 										<th>번호</th>
-										<th>학생이름</th>
+										<th>학생아이디</th>
 										<th>문의유형</th>
 										<th>날짜</th>
 										<th>상태</th>
 										<th>비고</th>
 									</tr>
-									<tr>
-										<td>1</td>
-										<td>홍지성</td>
-										<td>강좌</td>
-										<td>2023-12-04</td>
-										<td>답변완료</td>
-										<td></td>
-									</tr>
-									<tr>
-										<td>2</td>
-										<td>홍지성</td>
-										<td>강좌</td>
-										<td>2023-12-04</td>
-										<td>답변완료</td>
-										<td></td>
-									</tr>
-
+	        					<c:choose>
+										<c:when test="${ empty cidList }">
+											<tr>
+												<td colspan="6" >문의사항이 없습니다.</td>
+											</tr>
+										</c:when>
+										<c:otherwise>
+				        					<c:forEach var="cid" items="${ cidList }" varStatus="i">
+				        					<c:choose> 
+				        						<c:when test="${ not empty cid.ciAnswer }">
+				        						<tr onclick="opencidExist('${ cid.ciCode }')">
+				        						</c:when>
+				        					<c:otherwise>
+											<tr onclick="opencid('${ cid.ciCode }')">
+											</c:otherwise>
+				        					</c:choose>
+												<td><c:out value="${ i.count }"/></td>
+												<td><c:out value="${ cid.uiId }"/></td>
+												<td>강좌</td>
+												<td><c:out value="${ cid.ciDate }"/></td>
+												<td>
+												<c:if test="${ not empty cid.ciAnswer }">
+												답변완료
+												</c:if>
+												</td>
+												<td></td>
+											</tr>
+											</c:forEach>
+										</c:otherwise>
+									</c:choose>
 	        					</table>
 	        				</div>
 						</div>

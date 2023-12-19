@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.daitdayoung.instructor.course.question">
+
+<select id="selectAllQuestion" resultType="kr.co.daitdayoung.instructor.domain.CourseQuestionDomain"  parameterType="String">
+select QUE_CODE, EXAM_CODE, COU_CODE, INS_ID, QUE_CONTENT, QUE_1, QUE_2, QUE_3, QUE_4, CORRECT
+from QUESTIONS
+where cou_code= #{ examCode }
+</select>
+
+<select id="selectOneQuestion" parameterType="String" resultType="kr.co.daitdayoung.instructor.domain.CourseQuestionDomain">
+select QUE_CODE, COU_CODE, INS_ID, QUE_CONTENT, QUE_1, QUE_2, QUE_3, QUE_4, CORRECT
+from QUESTIONS
+where QUE_CODE = #{ queCode }
+</select>
+
+<insert id="insertQuestion" parameterType="kr.co.daitdayoung.instructor.vo.CourseQuestionVO">
+insert into Questions( QUE_CODE, EXAM_CODE, COU_CODE, INS_ID, QUE_CONTENT, QUE_1, QUE_2, QUE_3, QUE_4, CORRECT )
+values (  'QUE_'||LPAD(que_SEQ.nextVal, 6, '0') , #{ examCode }, #{ couCode }, #{ insId }, #{ queContent }, #{ que1 }, #{ que2} , #{ que3 }, #{ que4 }, #{ correct } )
+</insert>
+
+<update id="updateQuestion" parameterType="kr.co.daitdayoung.instructor.vo.CourseQuestionVO">
+update QUESTIONS
+set  QUE_CONTENT=#{ queContent }, QUE_1=#{ que1}, QUE_2=#{ que2 }, QUE_3=#{ que3 }, QUE_4=#{ que4 }, CORRECT=#{ correct }
+where QUE_CODE= #{ queCode } and EXAM_CODE = #{ examCode }
+</update>
+
+<delete id="deleteQuestion" parameterType="String">
+delete from Questions
+where QUE_CODE=#{ queCode}
+ </delete>
+
+	
+</mapper>

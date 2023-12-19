@@ -1,4 +1,4 @@
-package kr.co.daitdayoung.instructor.domain;
+package kr.co.daitdayoung.instructor.vo;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,6 +9,8 @@ import lombok.ToString;
 @Setter
 @ToString
 @NoArgsConstructor
-public class Domain {
-
+public class CourseLectureVO {
+	
+	private String lecCode, couCode, insId, lecName, lecContent, videoName; 
+	
 }

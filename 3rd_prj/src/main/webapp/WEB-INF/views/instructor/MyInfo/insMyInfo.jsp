@@ -563,11 +563,8 @@ body#content .page_header .reverse_wrap .ick .checkbox.checked,
 
                         <div class="btn_area">
                             <div class="btn btn_type3 if">
-                                <label for="pht_upload">사진 올리기</label><input type="file"
-                                                                                                    name="myFile"
-                                                                                                    id="pht_upload"
-                                                                                                    class="_profImageUrl"
-                                                                                                    data-input-prof-image-url>
+                                <label for="pht_upload">사진 올리기</label>
+                                <input type="file" name="myFile" id="pht_upload" class="_profImageUrl" data-input-prof-image-url>
                             </div>
                             <a href="#" class="btn btn_type3" id="_remove_picture" data-btn-delete-prof-img>삭제</a>
                         </div>
@@ -579,8 +576,8 @@ body#content .page_header .reverse_wrap .ick .checkbox.checked,
                             <li>
                                 <em>별명</em>
                                 <label class="it stretch">
-                                    <span class="ph _label_input_nickname">별명 (e.g. 장동건 마케팅 교수)</span>
-                                    <input type="text" name="nickName" value="킹자성" data-input-nickname
+                                    <span class="ph _label_input_nickname"><c:out value="${ insName }"></c:out></span>
+                                    <input type="text" name="nickName" data-input-nickname
                                            data-global-placeholder="._label_input_nickname" maxlength="20">
                                 </label>
                             </li>
@@ -588,13 +585,8 @@ body#content .page_header .reverse_wrap .ick .checkbox.checked,
                                 
                                 <em>메일 주소(아이디)</em>
                                 <label class="it stretch">
-                                    <span class="ph _label_input_email_addr">nextmooc@nexted.com</span>
-                                    <input type="text" name="email"
-                                           value="cc9406@naver.com"
-                                           data-input-email-addr data-global-placeholder="._label_input_email_addr"
-                                           >
-
-                                    
+                                    <span class="ph _label_input_email_addr"><c:out value="${insId}"/></span>
+                                    <input type="text" name="email" data-input-email-addr data-global-placeholder="._label_input_email_addr"                                           >
                                 </label>
                             </li>
                         </ul>

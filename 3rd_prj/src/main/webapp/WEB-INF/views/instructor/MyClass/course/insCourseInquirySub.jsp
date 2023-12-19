@@ -20,6 +20,10 @@
  $(function(){
 	 
  });//ready
+ 
+ function replyCI(ciCode){
+	 location.href="insCourseInquiryReply.do?ciCode="+ciCode
+ }
  </script>
 <link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/plugin.css" type="text/css">
 <link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/boostcourse_common.css" type="text/css">
@@ -150,13 +154,10 @@
 </script>
 
 <script>
-    
-		
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-    
 
     (function() {
         function gaGetInfo() {
@@ -176,7 +177,6 @@
 
             return gaInfo;
         }
-
 
         function gaHitPageView() {
             var gaInfo = gaGetInfo();
@@ -203,7 +203,6 @@
         }
 
         window.gaHitPageView = gaSimpleHitPageView;
-
         
         /*ga('send', {
             hitType: 'event',
@@ -216,8 +215,6 @@
     })();
 </script>
 
-
-
 <div class="modal_wrap ce_preview" id="_modal_wrap" style="display:none">
 	<div class="modal_inner">
 	    <!-- 애니메이션 영역 [??] -->
@@ -228,8 +225,6 @@
 <div id="u_skip">
     
         <a href="#gnb" onclick="document.getElementById('gnb').tabIndex=-1;document.getElementById('gnb').focus();return false;"><span>개인 메뉴 바로가기</span></a>
-    
-    
     
     <a href="#snb" onclick="document.getElementById('snb').tabIndex=-1;document.getElementById('snb').focus();return false;"><span>하위 메뉴 바로가기</span></a>
     
@@ -286,41 +281,49 @@
 	<div class="class_manager type2">
 		<!--chapter_list-->
 		<ul>
-					<!-- [D] 진행중 class : on -->
-					<li>
-						<div id="content">
-        					
-	        				<div>
-	        					<table class="table">
-	        						<tr>
-										<th>번호</th>
-										<th>학생이름</th>
-										<th>문의유형</th>
-										<th>날짜</th>
-										<th>상태</th>
-										<th>비고</th>
-									</tr>
-									<tr>
-										<td>1</td>
-										<td>홍지성</td>
-										<td>강좌</td>
-										<td>2023-12-04</td>
-										<td>답변완료</td>
-										<td></td>
-									</tr>
-									<tr>
-										<td>2</td>
-										<td>홍지성</td>
-										<td>강좌</td>
-										<td>2023-12-04</td>
-										<td>답변완료</td>
-										<td></td>
-									</tr>
-
-	        					</table>
-	        				</div>
+				<li>
+				<div id="content">
+      				<section class="page mg_menu">
+	
+						<!--//page_header-->
+					<header class="page_header">
+						<div class="group_lr">
+							<div class="group_l">
+								<h1 class="page_title"><c:out value="${ cid.ciTitle }"/></h1>
+							</div>
 						</div>
-					</li>
+					</header>
+					<article class="forum_view">
+					        <!-- [D] 권한에 따라 노출되는 UI가 다름 -->
+					        <div class="forum_func group_lr" style="margin-top: 20px; margin-bottom: 20px;">
+					            <div class="group_l">
+					                <div class="user_info">
+					                        <span class="ic_ad vamiddle"></span>
+					                   <div class="col"><c:out value="${ cid.ciDate }"/></div>
+					                   <div class="col"><c:out value="${ cid.uiId }"/></div>
+					                   <div class="col"><c:out value="${ cid.citName }"/></div>
+					                </div>
+					            </div>
+					        </div>
+					        <div class="ce ce_view">
+					            <article class="material_view material_text">
+					                <div class="material_desc editor_reset" style="min-height: 300px;">
+					                    <c:out value="${ cid.ciContent }"/>
+					                </div>
+					                <hr>
+					                <div class="group_lr" style="border-bottom: 1px">
+					        		<div class="group_r">
+					            		<input type="button" onclick="replyCI('${ cid.ciCode}')" class="btn btn_type2 bold N=a:lec.list" data-selector="backToListBtn" value="답변하기"/>
+					            		<a href="insCourseNotice.do" class="btn btn_type2 bold N=a:lec.list" data-selector="backToListBtn">돌아가기</a>
+					        		</div>
+					    		</div>
+					            </article>
+					        </div>
+					    </article>
+					</section>
+	        				
+				</div>
+			</li>
 			
 		</ul>
 		

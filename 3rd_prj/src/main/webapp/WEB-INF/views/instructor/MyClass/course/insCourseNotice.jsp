@@ -305,8 +305,10 @@
 	        					<table class="table">
 	        						<tr>
 										<th>번호</th>
-										<th>제목</th>
+										<th>학생이름</th>
+										<th>문의유형</th>
 										<th>날짜</th>
+										<th>상태</th>
 										<th>비고</th>
 									</tr>
 									<c:choose>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.daitdayoung.instructor.course.exam">
+
+<select id="selectExam" parameterType="String" resultType="kr.co.daitdayoung.instructor.domain.CourseExamDomain">
+	select e.exam_code, e.COU_CODE, e.INS_ID, e.EXAM_CONTENT, e.EXAM_TIMELIMIT, cr.exam_results, c.cc_code
+	from EXAM e, COMPLETION_CRITERIA CR, courses c
+	where e.cou_code=#{ couCode } and ((e.cou_code = c.cou_code )and (c.cc_code = cr.cc_code))
+</select>
+	
+<update id="updateExamResult" parameterType="kr.co.daitdayoung.instructor.vo.CourseExamVO">
+	update COMPLETION_CRITERIA
+	set exam_results = #{ examResults}
+	where cc_code= #{ ccCode}
+</update>
+
+<update id="updateExamTimelimit" parameterType="kr.co.daitdayoung.instructor.vo.CourseExamVO">
+update Exam
+set exam_timelimit = #{ examTimelimit }
+where exam_code=#{ examCode }
+</update>
+
+<select id="selectAllQuestion" resultType="kr.co.daitdayoung.instructor.domain.CourseQuestionDomain">
+select QUE_CODE, EXAM_CODE, COU_CODE, INS_ID, QUE_CONTENT, QUE_1, QUE_2, QUE_3, QUE_4, CORRECT
+from QUESTIONS
+where cou_code= #{examCode}
+</select>
+	
+	
+</mapper>

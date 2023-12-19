@@ -1,5 +1,7 @@
 package kr.co.daitdayoung.instructor.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import kr.co.daitdayoung.instructor.domain.CourseDomain;
 import kr.co.daitdayoung.instructor.domain.MainCategoryDomain;
@@ -39,10 +42,10 @@ public class InsMyClassController {
 	
 	
 	@RequestMapping("/insMyCourse.do")
-	public String myCourses(String tempId, Model model) {
+	public String myCourses(HttpSession session, String tempId, Model model) {
 		
 		
-		String insId="ins1";
+		String insId=(String)session.getAttribute("insId");
 		
 		List<CourseDomain> cdList=mcs.searchMyCourses(insId);
 		model.addAttribute("cdList",cdList);
@@ -73,10 +76,27 @@ public class InsMyClassController {
 	}
 	
 	@RequestMapping("/insAddCourse2.do")
-	public String addCourse2(CourseVO cVO,HttpSession session, Model model) {
+	public String addCourse2(CourseVO cVO,HttpSession session, HttpServletRequest request,Model model) {
 
 		cVO.setInsId((String)session.getAttribute("insId"));
-		System.out.println(cVO.getInsId());
+		System.out.println(cVO);
+		
+		String couCode=(String)session.getAttribute("couCode");
+		
+		
+		int cnt=0;
+		int maxSize=1024*1024*5;
+
+		File saveDir=new File(request.getSession().getServletContext().getRealPath("/") +"3rd_prj/src/main/webapp/courses_data/"+couCode+"/");
+		saveDir.mkdirs();
+		
+		MultipartRequest mr=null;
+		try {
+		mr=new MultipartRequest(request, saveDir.getAbsolutePath(),
+					maxSize, "UTF-8", new DefaultFileRenamePolicy());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 		model.addAttribute("cVO", cVO);
 		
@@ -91,7 +111,7 @@ public class InsMyClassController {
 		System.out.println( "act / "+cVO );
 		
 		int cnt=0;
-		cnt = iacs.addCourse(cVO);
+		iacs.addCourse(cVO);
 		
 //		session.removeAttribute("cVO");
 		

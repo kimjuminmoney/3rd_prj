@@ -1,4 +1,4 @@
-package kr.co.daitdayoung.instructor.domain;
+package kr.co.daitdayoung.instructor.vo;
 
 import java.sql.Date;
 
@@ -11,9 +11,10 @@ import lombok.ToString;
 @Setter
 @ToString
 @NoArgsConstructor
-public class CourseInquiryDomain {
-	
+public class CourseInquiryVO {
+
 	private String ciCode, uiId, citCode, ciTitle, ciContent, ciAnswer, couCode, insId;
-	private Date ciDate,ciAnswerDate;
+	private Date ciDate,ciAnswerdate;
 	private String citName;
+	
 }

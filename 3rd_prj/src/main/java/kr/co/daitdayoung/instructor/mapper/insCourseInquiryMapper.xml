@@ -4,27 +4,22 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.daitdayoung.instructor.course.inquiry">
 
-<select id="selectAllCourseInquiry" resultType="kr.co.daitdayoung.instructor.domain.CourseNoticeDomain" parameterType="String">
-	select ci.CI_CODE, ci.UI_ID, ci.CIT_CODE, ci.CI_TITLE, ci.CI_CONTENT, ci.CI_DATE, ci.CI_ANSWER, ci.CI_ANSWERDATE, ci.COU_CODE, ci.INS_ID 
+<select id="selectAllCourseInquiry" resultType="kr.co.daitdayoung.instructor.domain.CourseInquiryDomain" parameterType="String">
+	select ci.CI_CODE, ci.UI_ID, ci.CIT_CODE, ci.CI_TITLE, ci.CI_CONTENT, ci.CI_DATE, ci.CI_ANSWER, ci.CI_ANSWERDATE, ci.COU_CODE, ci.INS_ID, cit.cit_name 
 	from COURSES_INQUIRY ci, COURSES_INQUIRY_TYPE cit
 	where ( ci.cou_code = #{ couCode } ) and ( ci.cit_code = cit.cit_code )
 	</select>
 
-<!-- 	<select id="selectOneCourseNotice" resultType="kr.co.daitdayoung.instructor.domain.CourseNoticeDomain" parameterType="String">
-	select * 
-	from COURSES_NOTICE
-	where cn_code = #{ cn_code }
+ 	<select id="selectOneCourseInquiry" resultType="kr.co.daitdayoung.instructor.domain.CourseInquiryDomain" parameterType="String">
+	select distinct ci.CI_CODE, ci.UI_ID, ci.CIT_CODE, ci.CI_TITLE, ci.CI_CONTENT, ci.CI_DATE, ci.CI_ANSWER, ci.CI_ANSWERDATE, ci.COU_CODE, ci.INS_ID, cit.cit_name 
+	from COURSES_INQUIRY ci, COURSES_INQUIRY_TYPE cit
+	where (ci.ci_code = #{ ci_code }) and ( ci.cit_code = cit.cit_code ) 
 	</select>
 	
-	<insert id="insertOneCourseNotice" parameterType="kr.co.daitdayoung.instructor.vo.CourseNoticeVO">
-	insert into COURSES_NOTICE(CN_CODE, COU_CODE, INS_ID, CN_TITLE, CN_CONTENT)
-	values ( 'CN_'||LPAD(CI_SEQ.nextVal, 6, '0') , #{ couCode }, #{ insId }, #{ cnTitle },  #{ cnContent } )
-	</insert>
-
-	<update id="updateOneCourseNotice" parameterType="kr.co.daitdayoung.instructor.vo.CourseNoticeVO">
-	update COURSES_NOTICE
-	set CN_CONTENT = #{ cnContent }
-	where CN_CODE = #{ cnCode }  and COU_CODE = #{ couCode }
-	</update> -->
+	<update id="updateOneCourseInquiry" parameterType="kr.co.daitdayoung.instructor.vo.CourseInquiryVO">
+	update COURSES_Inquiry
+	 set CI_ANSWER = #{ ciAnswer }, CI_ANSWERDATE = sysdate
+	where Ci_CODE = #{ ciCode }  and COU_CODE = #{ couCode } 	
+	</update>
 
 </mapper>
