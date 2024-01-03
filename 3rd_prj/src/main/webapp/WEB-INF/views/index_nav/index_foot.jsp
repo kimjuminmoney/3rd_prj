@@ -20,7 +20,7 @@
 	<div class="main_inner">
     	<div class="footer_intro">
                     <span class="blind">DitDyoung</span>
-                <p class="text">다잇다영은 MOOC를 위한 플랫폼과<br>양질의 강좌를 제공하는 서비스입니다.</p>
+                <p class="text">11다잇다영은 MOOC를 위한 플랫폼과<br>양질의 강좌를 제공하는 서비스입니다.</p>
                 <p class="eng_text">Learn with DitDyoung</p>
          </div>
          <div class="footer_info" id="_layer">
