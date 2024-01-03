@@ -12,39 +12,29 @@
 <title>다있다영</title>
 
 <link href="http://localhost/daitdayoung/resources/css/index.css" rel="stylesheet" />
-<script src="http://localhost/daitdayoung/resources/js/index.js"></script>
+<!-- NEXT -->
+<link rel="shortcut icon" type="https://ssl.pstatic.net/static/m/mooc/edwithmage/x-icon" href="https://ssl.pstatic.net/static/m/mooc/p/partner/next/favicon.ico">
+<link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/nanumsquare_webfont.css" type="text/css">
+<link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/new_common.css" type="text/css">
+<link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/plugin.css" type="text/css">
+<script src="https://www.edwith.org/static/js/vendor/html5shiv/dist/html5shiv.min.js?231130_26709717"></script>
+<script src="https://www.edwith.org/static/js/vendor/respond/dest/respond.min.js?231130_26709717"></script>
+<script src="https://www.edwith.org/static/js/plugins/nclk_v0.4.5.js?231130_26709717"></script>
+<style>
+#new_header .head_logo {
+	padding-top: 25px;
+	width: 173px;
+	height: 66px;
+	margin: 0 auto;
+}
 
-   <script>
-      window.onload = function() {
-         var slideIndex = 0;
-         showSlides();
-         
-         function showSlides() {
-        	 var i;
-             var slides = document.getElementsByClassName("mySlides");
-            
-             for (i = 0; i < slides.length; i++) {
-                 slides[i].style.display = "none";
-             }
-             slideIndex++;
-             if (slideIndex > slides.length) {
-                 slideIndex = 1
-             }
-             slides[slideIndex - 1].style.display = "block";
-         
-             setTimeout(showSlides, 5000); 
-         }
-      };
-</script>
+</style>
 </head>
 
 <body class=" main tmp_main win chrome chrome119">
 
   
-<header>
 <jsp:include page="../index_nav/index_head.jsp"></jsp:include>
-</header>
-     
                 
 <section class="main_top_section">
 <script src="https://kit.fontawesome.com/d505e57471.js" crossorigin="anonymous"></script>

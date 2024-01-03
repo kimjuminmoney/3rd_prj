@@ -13,8 +13,6 @@
 
 
 <script src="https://www.edwith.org/static/js/vendor/vendor.compressed.min.js?231109_47a067d4"></script>
-<script src="https://www.edwith.org/static/js/src/entries/common/_head.entry.browserfied.min.js?231109_47a067d4"></script>
-<script type="text/javascript" src="https://wcs.naver.net/wcslog.js"></script>
 <script src="https://vliveplus.pstatic.net/0/mobile/2020/04/standby/f1.1.0.8.js"></script>  
     
         
