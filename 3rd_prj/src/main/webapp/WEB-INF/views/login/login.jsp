@@ -138,27 +138,30 @@ label, input {
  	    var id = $("#idFrm").val();
 	    var pw = $("#pwFrm").val();
 	    
+	    var flag = false;
+	    
 	    if (id == ''){
-	    	alert("아이디를 입력해주세요")
-	        return false; // 폼 제출을 막음
+	    	alert("아이디를 입력해주세요");
 	    }else if (pw == ''){
 	    	alert("비밀번호를 입력해주세요")
-	        return false;
 	    }else if (!userRadio.checked && !insRadio.checked) {
 	        alert("유형을 선택해주세요");
-	        return false;
+	    }else{
+	    	flag=true;
 	    }
 	
 	    // 다른 유효성 검사 로직을 추가할 수 있습니다.
 	
 	    // 모든 유효성 검사를 통과하면 폼 제출을 허용
-	    return true;
+	    return flag;
 	}
 	
 	 // 폼 서브밋 이벤트 핸들러
     function submitForm() {
+
         // 폼 유효성 검사
-        if (!validateForm()) {
+        if (validateForm()==false) {
+        	alert("아이디 혹은 비밀번호를 확인해주세요.")
             return false;
         }
 

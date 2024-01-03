@@ -577,7 +577,7 @@ a {
 		         		   </dl>
 			                 </div>
 			                 <dd>
-					                <p></p> <a href="http://localhost/3rd_prj2_test/login/modifyInsPw.do">비밀번호 변경하러가기</a>
+					                <p></p> <a href="modifyInsPw.do">비밀번호 변경하러가기</a>
 					           </dd>
 			        <div class="btn_wrap">
 					    <button type="submit" id="submit" class="btn btn_type1 clr" data-btn-submit>회원정보 변경</button>

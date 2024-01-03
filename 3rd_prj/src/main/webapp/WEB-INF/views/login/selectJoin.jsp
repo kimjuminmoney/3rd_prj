@@ -4,6 +4,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
+<!-- jQuery CDN -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <head>
      <!-- #breadcrumb:common/_head.gsp -->
      
@@ -13,53 +15,24 @@
     <meta http-equiv="origin-trial" content="Ati2DWxlgboPVi6vklPLcKgvC/IgtfpOtYAvD8L+1jONtKz6NAFzU4c+2yCTCypQPs4MNTbytrfX4JlQBsk73g8AAACGeyJvcmlnaW4iOiJodHRwczovL2Vkd2l0aC5vcmc6NDQzIiwiZmVhdHVyZSI6IkRpc2FibGVEaWZmZXJlbnRPcmlnaW5TdWJmcmFtZURpYWxvZ1N1cHByZXNzaW9uIiwiZXhwaXJ5IjoxNjM5NTI2Mzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZX0=">
 
     <meta name="robots" content="noindex, nofollow">
-
-
-    
-    
     <meta property="og:url" content="http://www.edwith.org">
-    
     <meta property="og:type" content="article">
-    
     <meta property="og:title" content="에듀케이션위드 로그인  : edwith">
-    
     <meta property="og:description" content="에드위드(edwith)는 네이버(NAVER)와 네이버 커넥트재단(NAVER Connect)이 제공하는 온라인 강좌(MOOC : Massive Online Open Course) 교육 플랫폼입니다. 에듀케이션위드(education with) 에드위드(edwith)로 분야별 명품 강좌를 무료(Free Course)로 수강하세요.">
-    
     <meta property="og:site_name" content="edwith : 에듀케이션위드">
-    
     <meta property="og:image" content="https://ssl.pstatic.net/static/connectfdn/edwith/hold_images/SNS_LOGO_1024x1024.png">
-    
     <meta property="fb:app_id" content="1441124829481137">
-    
-
-    
     <meta name="keywords" content="열린 강좌, learn with edwith, 커넥트재단, mooc, massive open online courses, 개방형 온라인 공개 강좌, 온라인 강좌, 열린 교육 운동, 무료 강좌, 네이버 커넥트재단">
-    
     <meta name="description" content="에드위드(edwith)는 네이버(NAVER)와 네이버 커넥트재단(NAVER Connect)이 제공하는 온라인 강좌(MOOC : Massive Online Open Course) 교육 플랫폼입니다. 에듀케이션위드(education with) 에드위드(edwith)로 분야별 명품 강좌를 무료(Free Course)로 수강하세요.">
     
-
-    
         <meta itemprop="name" content="에듀케이션위드 로그인  : edwith">
-    
         <meta itemprop="description" content="에드위드(edwith)는 네이버(NAVER)와 네이버 커넥트재단(NAVER Connect)이 제공하는 온라인 강좌(MOOC : Massive Online Open Course) 교육 플랫폼입니다. 에듀케이션위드(education with) 에드위드(edwith)로 분야별 명품 강좌를 무료(Free Course)로 수강하세요.">
-    
         <meta itemprop="image" content="https://ssl.pstatic.net/static/connectfdn/edwith/hold_images/SNS_LOGO_1024x1024.png">
-    
-
-
-<!-- serverURL : https://www.edwith.org -->
-<!-- i18n locale : ko -->
-<!-- ko -->
-<!-- KR -->
-<!-- NEXT -->
-    
         <link rel="shortcut icon" type="https://ssl.pstatic.net/static/m/mooc/edwithmage/x-icon" href="https://ssl.pstatic.net/static/m/mooc/p/partner/next/favicon.ico">
-    
 
     <link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/plugin.css" type="text/css">
     <link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/common1.css" type="text/css">
     <link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/common2.css" type="text/css">
-
     
     <link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/edwith.css" type="text/css">
     <link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/nanumsquare_webfont.css" type="text/css">
@@ -67,82 +40,11 @@
 	<link href="https://nid.naver.com/favicon_1024.png" rel="apple-touch-icon-precomposed" sizes="1024x1024" /> 
 	<link rel="stylesheet" type="text/css" href="https://nid.naver.com/inc/user/css/non_sign.css?20130320">
 	<link rel="stylesheet" type="text/css" href="https://nid.naver.com/inc/user/css/non_sign.css?20130320">
-	<script type="text/javascript" src="https://nid.naver.com/inc/user/js/idPwInquiryAjax.js?20140106"></script>
-	<script type="text/javascript" src="https://nid.naver.com/js/clickcr.js"></script>
-	<script type="text/javascript" src="https://nid.naver.com/inc/common/js/commonUtil.js?20170214"></script>
-	<script type="text/javascript" src="https://nid.naver.com/inc/common/js/authUi.js?20230703"></script>
-	<script type="text/javascript" src="/inc/common/js/lcs_nclicks.js?r=20220411"></script>
-	<script type="text/javascript" src="https://nid.naver.com/inc/user/js/browser.js?20220411"></script>
-	<script type="text/javascript" src="https://nid.naver.com/inc/common/js/lua.js?r=20220411"></script>
-    
-    
-
     
     <link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/code_editor/prism.css" type="text/css">
     <link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/code_editor/codemirror.css" type="text/css">
 
-    <script src="https://connect.facebook.net/en_US/all.js"></script>
-    <script src="/static/js/vendor/html5shiv/dist/html5shiv.min.js?231109_47a067d4"></script>
-    <script src="/static/js/vendor/respond/dest/respond.min.js?231109_47a067d4"></script>
-    <script src="/static/js/plugins/nclktag.js?231109_47a067d4"></script>
-    <script>
-        var nsc = 'edwith.all';
-        var ccsrv = 'cc.naver.com';
-        var nclk_evt = 3;
-        nclk_do();
-    </script>
-    
-    <!-- Google Tag Manager -->
-    
-        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
-        var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
-        j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-P2H76TF');</script>
-    
-    <!-- // Google Tag Manager -->
-<script type="text/JavaScript">
-var gnb_option = { 
-	gnb_service : "nid", 
-	gnb_template : "gnb_utf8", 
-	gnb_logout : encodeURIComponent("https://nid.naver.com/user2/help/idInquiry"),
-	gnb_brightness : 2, 
-	gnb_item_hide_option : 0  
-}
-
-lcs_do();
-
-function gnbClose(){
-    $('#wrap').click(function(e){
-        if( !$('#gnb').has(e.target).length ){
-            gnbAllLayerClose();
-        }
-    });
-} 
-//120919 win8 이슈 대응 : capslock 자동설정해제
-document.msCapsLockWarningOff = true;
-function setContainerHeight(height) {}
-function showMenu(obj, obj2){
-	document.getElementById(obj).className = "on";
-	document.getElementById(obj2).className = "";
-}
-
-var menuList = "idinquiry pwinquiry ";
-function hideMenu(obj){
-	var otherMenu = menuList.split(" ");
-	for (var i = 0; i < otherMenu.length - 1; i++) {
-		document.getElementById(otherMenu[i]).className = "";
-	}
-	
-	document.getElementById(obj).className = "on";
-}
-function goPage(obj, obj2){
-	var url = "https://nid.naver.com/user2/help/" + obj + "?menu=" + obj2;
-	location.href = url;
-}
-
-function clearDocs(){}
-</script>
-<style type="text/css">
+<style>
 
  div {
     text-align: center; /* 가운데 정렬 */
@@ -227,58 +129,7 @@ button.disabled{cursor:default}
 #gnb{float:right;right:3px} 
 </style> 
 <meta name="decorator" content="USER_INQUIRY">
-<script type="text/javascript" src="https://nid.naver.com/inc/user/js/passwdAjax.js?20180530"></script>
-<script type="text/javascript" src="https://nid.naver.com/inc/common/js/rsaAll.js"></script>
-<script type="text/javascript" src="https://nid.naver.com/inc/user/js/soundCaptcha.js?20220411"></script>
 <script type="text/javascript">
-//<![CDATA[
-//nClicks 전역변수
- var nsc = "my.pwinqury";
- var ccsrv = "cc.naver.com";
- //]]>
-
-function convertDiv(obj, obj2, stat){
-	e1 = document.getElementById("div_" + obj);
-	e2 = document.getElementById("div_" + obj2);
-	if(stat == "none"){
-		document.getElementById("lb_" + obj).style.display="none";
-		if(document.getElementById(obj2).value == ""){
-			document.getElementById("lb_" + obj2).style.display="";
-		}
-
-		if(e1.className.indexOf(" focus") == -1) {
-			e1.className = e1.className + " focus";
-			e2.className = e2.className.replace(" focus", "");
-		}
-	}else{
-		e1.className = e1.className.replace(" focus", "");
-		if(document.getElementById(obj).value == ""){
-			document.getElementById("lb_" + obj).style.display="";
-		}
-
-		e2.className = e2.className.replace(" focus", "");
-		if(document.getElementById(obj2).value == ""){
-			document.getElementById("lb_" + obj2).style.display="";
-		}
-	}
-}
-
-
-	createRsaKey();
-	
-	lua_do('PWInquiry_PC_N' , arguments.callee.name,INFO_CHECK_POINT_SUBMIT, document.fm.token_help.value, true,'');
-	
-	document.fm.action = "/user2/help/pwInquiry?m=actionInputPasswd";
-	document.fm.submit();
-}
-
-
-function toggle(){
-}
-
-function clearDocs(){
-}
-
 
 function getLenChar(texts) {
 	texts = texts + "";
@@ -391,124 +242,6 @@ function checkNumber(){
 
     <input type="hidden" id="__MESSAGE_CODE" value="" />
 
-<script src="/static/js/vendor/vendor.compressed.min.js?231109_47a067d4"></script>
-<script src="/static/js/src/entries/common/_head.entry.browserfied.min.js?231109_47a067d4"></script>
-<script type="text/javascript" src="https://wcs.naver.net/wcslog.js"></script>
-<script src="https://vliveplus.pstatic.net/0/mobile/2020/04/standby/f1.1.0.8.js"></script>
-<script>
-    var title = document.title;
-    document.title = _.unescape(title);
-
-    var entry = require("/entries/common/_head.entry.js");
-    entry.initialize();
-
-    // 부코 진입시, 통합 회원 약관 동의하지 않았으면 약관 페이지로 이동하는 즉시 실행 함수
-    (function connectMemberIntegration() {
-        // 자체 로그인 서비스를 이용 하는 경우(snsCode가 있는 경우)를 제외하고는 통합 회원 전환을 진행함
-        if ("") {  // null, 빈 문자열 호환됨
-            return;
-        }
-
-        var integrationUserId = Number();
-        var integrationAgree = Boolean();
-        var regrSecUserId = Number();
-
-        // 미로그인자 또는 약관에 이미 동의한 사람, 교수자가 직접 등록한 계정은 제외
-        if ((integrationUserId === 0) || integrationAgree || (regrSecUserId > 0)) {
-            return;
-        }
-
-        // 약관 페이지 및 오류 페이지 무한 리다이렉트 방지
-        if ((location.pathname.indexOf("/users/connect-integration") > -1)
-            || (location.pathname.indexOf("/notAuthorized") > -1)
-            || (location.pathname.indexOf("/notExist") > -1)
-            || (location.pathname.indexOf("/internalServerError") > -1)
-            || (location.pathname.indexOf("/readOnlyError") > -1)
-            || (location.pathname.indexOf("/badRequest") > -1)
-            || (location.pathname.indexOf("/methodNotAllowed") > -1)
-            || (location.pathname.indexOf("/neoid/doChainingLogin") > -1)) {
-            return;
-        }
-
-        location.href = ("/users/connect-integration?returnUrl=" + encodeURI(location.href));
-    }());
-
-
-    
-        
-        if(!wcs_add) var wcs_add = {};
-        
-            wcs_add["wa"] = "3d48cd39225150";
-        
-        wcs_do();
-
-        
-        
-    
-
-    
-    function diff_minutes(dt2, dt1) {
-        var diff =(dt2.getTime() - dt1.getTime()) / 1000;
-        diff /= 60;
-        return Math.abs(Math.round(diff));
-    }
-
-    //오늘 하루만 유지되도록 쿠키 Minute 설정
-    function getStandbyCookieTime() {
-        var dt1 = new Date();
-
-        var dt2 = new Date(dt1);
-        dt2.setDate(dt1.getDate() + 1);
-        dt2.setHours(0,0,0,0);
-
-        var diffMinute =  diff_minutes(dt2, dt1);
-        if(diffMinute <= 0) {
-            return 24 * 60
-        } else {
-            return diffMinute;
-        }
-    }
-
-    var htInfo = {
-        serviceId : "edwith_NEXT",
-        seqApi : "https://standby-campaign.naver.com/",
-        heartBeatApi : "https://standby-campaign.naver.com/",
-        homeUrl : "https://edwith.org",
-        cookieTime : getStandbyCookieTime()
-    };
-
-    var oSequenceManager = new SequenceManager({
-        serviceId : htInfo.serviceId,
-        apiHost: htInfo.seqApi,
-        cookieTime: htInfo.cookieTime, //minute 단위
-        successCallback : function(response){
-            //시퀀스 호출이 성공 하였을 경우 heartbeat 요청 시작~
-            oHeartbeat.start();
-        },
-        failCallback : function(response) {
-        },
-        errorCallback : function(error) {
-            //호출 시 오류가 발생 하였을 경우 3초 후 시퀀스 호출
-            setTimeout(oSequenceManager.requestSequence , 3000);
-        }
-    });
-
-    var oHeartbeat = new Heartbeat(oSequenceManager,{
-        serviceId: htInfo.serviceId,
-        apiHost: htInfo.heartBeatApi,
-        soldoutCallback: function(response) {
-        },
-        errorCallback : function(response) {
-            //에러가 발생했을 경우 순번 삭제 후 아무것도 하지 않음
-        },
-        successRun : true //대기열 진입 시에도 계속 heartbeat 호출할 필요가 있을 경우 true(상품 품절 체크 등의 이슈)
-    });
-
-    //dom 로드된 후 아래 코드 호출
-    //oSequenceManager.requestSequence();
-</script>
-
-
     <input type="hidden" id="GA_VIEW_ID" value="UA-93980439-1" />
 
 
@@ -607,9 +340,7 @@ function checkNumber(){
 </div>
 <div id="u_skip">
     
-    
         <a href="/login" ><span>로그인 바로가기</span></a>
-    
     
     <a href="#content" onclick="document.getElementById('content').tabIndex=-1;document.getElementById('content').focus();return false;"><span>본문 바로가기</span></a>
 </div>
@@ -618,7 +349,6 @@ function checkNumber(){
 	
 		<div id="header" class="type2">
 			<div class="layout_in" data-wrap-gnb-menu>
-				
     
     <h1 class="logo">
         <a class="N=a:gnb.edwith" href="/">
@@ -628,57 +358,15 @@ function checkNumber(){
         </a>
     </h1>
 
-
-
 <ul class="gnb ly_type2" id="gnb">
     
-    
-    
-    <!-- #breadcrumb:/common/_loginbox.gsp -->
-
-
 <li>
-    
         <a href="javascript:doLogin()" class="login N=a:gnb.login">로그인 / 회원가입</a>
-    
 </li>
-    <script>
-        function doLogin(){
-            var returnUrl = location.href.substring(location.href.indexOf(location.host)+location.host.length);
-            if(location.pathname == "/login"){
-                location.href = "/login" + location.search;
-            }else {
-                if (returnUrl == "/" || returnUrl == "" || "neoid" == "error" || "neoid" == "neoid") {
-                    returnUrl = "";
-                } else {
-                    returnUrl = "?returnUrl=" + returnUrl;
-                }
-                location.href = "/login" + returnUrl;
-            }
-        }
-    </script>
-
 
 </ul>
 
-
 <input type="hidden" id="__isLogged" value="">
-
-
-    
-
-<script src="/static/js/src/entries/common/_gnbmenu.entry.browserfied.min.js?231109_47a067d4"></script>
-<script>
-    $(document).ready(function() {
-        var entry = require("/entries/common/_gnbmenu.entry.js");
-        entry.initialize({
-            isLogged : $.trim( $("#__isLogged").val() ) === "" ? false : true,
-            isClosedPartner : false,
-            courseId: '',
-            userId: '',
-        });
-    });
-</script>
 			</div><br/><br/><br/><br/><br/><br/><br/><br/>
 			<section class="page error">
     <p class="error_txt">회원가입</p>
@@ -686,10 +374,10 @@ function checkNumber(){
         <br/>
     
     <div>
-		   <button type="submit" id="userJoinBtn" class="btn btn_type1 clr" data-btn-submit style="background-color: #03C75A; color: white;">
+		   <button type="button" id="userJoinBtn" class="btn btn_type1 clr" data-btn-submit style="background-color: #03C75A; color: white;">
     			학생 회원가입
 			</button>
-		   <button type="submit" id="insJoinBtn" class="btn btn_type1 clr" data-btn-submit style="background-color: #03C75A; color: white;">
+		   <button type="button" id="insJoinBtn" class="btn btn_type1 clr" data-btn-submit style="background-color: #03C75A; color: white;">
     			강사 회원가입
 			</button>
         </div>
@@ -700,11 +388,10 @@ function checkNumber(){
 $(function(){
      
      $("#userJoinBtn").click(function(){
-    	 alert("123");
      	window.location.href="userJoin.do";
      });//click
      
-     $("#userInsBtn").click(function(){
+     $("#insJoinBtn").click(function(){
      	window.location.href="insJoin.do";
      });//click
 	
@@ -723,32 +410,5 @@ $(function(){
 <jsp:include page="../user/nav/footer.jsp"></jsp:include>
 <!-- Build 231109.47a067d4 -->
 
-
-
-<!-- lcs file -->
-<script src="/static/lcs-js/lcslog.js?231109_47a067d4"></script>
-<script src="/static/js/src/entries/common/_lcs.entry.browserfied.min.js?231109_47a067d4"></script>
-<script>
-    $(document).ready(function(){
-        var entry = require("/entries/common/_lcs.entry.js");
-        entry.initialize({
-            environment: "PRODUCTION",
-            useSti: false
-        });
-    });
-</script>
-
-
-<script src="/static/js/src/entries/layouts/etc.entry.browserfied.min.js?231109_47a067d4"></script>
-<script>
-$(function(){
-    var entry = require("/entries/layouts/etc.entry.js");
-    entry.initialize({
-		messageCode : $("#__MESSAGE_CODE").val(),
-		popupTitle : $("#__MESSAGE_TITLE").val(),
-		message : $("#__MESSAGE").val()
-	});
-})
-</script>
 
 </html>

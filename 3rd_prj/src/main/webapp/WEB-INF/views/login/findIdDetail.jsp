@@ -550,10 +550,10 @@ function checkNumber(){
         </c:choose></p>
         <div>
 		   <button type="submit" id="submit" class="btn btn_type1 clr" data-btn-submit style="background-color: #03C75A; color: white;">
-    			<a href="http://localhost/3rd_prj2_test/login/login.do" style="color: inherit; text-decoration: none;">로그인하러가기</a>
+    			<a href="login.do" style="color: inherit; text-decoration: none;">로그인하러가기</a>
 			</button>
 		   <button type="submit" id="submit" class="btn btn_type1 clr" data-btn-submit style="background-color: #03C75A; color: white;">
-    			<a href="http://localhost/3rd_prj2_test/login/findPw.do" style="color: inherit; text-decoration: none;">비밀번호 찾기</a>
+    			<a href="findPw.do" style="color: inherit; text-decoration: none;">비밀번호 찾기</a>
 			</button>
         </div>
     

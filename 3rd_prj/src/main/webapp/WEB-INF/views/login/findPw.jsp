@@ -711,7 +711,7 @@ function checkNumber(){
                     <button type="submit" id="submit" class="btn btn_type1 clr" data-btn-submit>비밀번호 찾기</button>
                     <div class="btm">
                         
-                        <a href="http://localhost/3rd_prj2_test/login/selectJoin.do">회원가입</a>
+                        <a href="selectJoin.do">회원가입</a>
                         
                     </div>
                 </div>

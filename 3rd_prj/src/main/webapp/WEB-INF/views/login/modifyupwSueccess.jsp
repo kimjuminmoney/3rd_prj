@@ -510,7 +510,7 @@ body.full #container #content .complete .top_icon i svg rect, body.full #contain
 					</span>
 					    <div>
 					    <button type="submit" id="submit" class="btn btn_type1 clr" data-btn-submit style="background-color: #03C75A; color: white;">
-			    			<a href="http://localhost/3rd_prj2_test/login/login.do" style="color: inherit; text-decoration: none;">로그인하러가기</a>
+			    			<a href="login.do" style="color: inherit; text-decoration: none;">로그인하러가기</a>
 						</button>
 					</div>
 				</div>
