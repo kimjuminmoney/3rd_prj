@@ -686,22 +686,31 @@ function checkNumber(){
         <br/>
     
     <div>
-		   <button type="submit" id="submit" class="btn btn_type1 clr" data-btn-submit style="background-color: #03C75A; color: white;">
-    			<a href="http://localhost/3rd_prj2_test/login/userJoin.do" style="color: inherit; text-decoration: none;">학생 회원가입</a>
+		   <button type="submit" id="userJoinBtn" class="btn btn_type1 clr" data-btn-submit style="background-color: #03C75A; color: white;">
+    			학생 회원가입
 			</button>
-		   <button type="submit" id="submit" class="btn btn_type1 clr" data-btn-submit style="background-color: #03C75A; color: white;">
-    			<a href="http://localhost/3rd_prj2_test/login/insJoin.do" style="color: inherit; text-decoration: none;">강사 회원가입</a>
+		   <button type="submit" id="insJoinBtn" class="btn btn_type1 clr" data-btn-submit style="background-color: #03C75A; color: white;">
+    			강사 회원가입
 			</button>
         </div>
 </section>
 <!-- //error -->
 <script type="text/javascript">
-    $(document).ready(function(){
-        $("[data-back-button]").on("click", function(){
-            window.history.back();
-            return false;
-        });
-    });
+
+$(function(){
+     
+     $("#userJoinBtn").click(function(){
+    	 alert("123");
+     	window.location.href="userJoin.do";
+     });//click
+     
+     $("#userInsBtn").click(function(){
+     	window.location.href="insJoin.do";
+     });//click
+	
+});//ready
+
+    
 </script>
 		</div>
 	            </div>
