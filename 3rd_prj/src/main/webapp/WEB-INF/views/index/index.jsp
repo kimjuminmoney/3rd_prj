@@ -29,6 +29,71 @@
 }
 
 </style>
+     <style>
+        #carouselContainer {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        #carouselItems {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            position: relative; /* 부모 요소에 position: relative; 적용 */
+        }
+
+        .carousel-item {
+            flex: 0 0 100%;
+            width: 800px;
+        }
+        
+        .carousel-item img{
+            flex: 0 0 100%;
+            width: 800px;
+            height: 240px;
+        }
+
+        #prevButton, #nextButton {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            cursor: pointer;
+            color: white; /* 화살표 색상을 흰색으로 변경 */
+        }
+
+        #prevButton {
+            left: 10px;
+        }
+
+        #nextButton {
+            right: 10px;
+        }
+
+        .dot-container {
+            text-align: center;
+            margin-top: 10px;
+            position: absolute;
+            bottom: 10px; /* 동그라미의 위치를 조절 */
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+            cursor: pointer;
+        }
+
+        .dot.on {
+            background-color: #ffffff; /* 활성화된 동그라미 색상을 흰색으로 변경 */
+        }
+    </style>
 </head>
 
 <body class=" main tmp_main win chrome chrome119">
@@ -37,40 +102,77 @@
 <jsp:include page="../index_nav/index_head.jsp"></jsp:include>
                 
 <section class="main_top_section">
-<script src="https://kit.fontawesome.com/d505e57471.js" crossorigin="anonymous"></script>
+<!-- <script src="https://kit.fontawesome.com/d505e57471.js" crossorigin="anonymous"></script> -->
 <div class="main_inner">
-    <!-- KV 배너 & 로그인 정보 영역 -->
-    <div class="kv_login_area">
-	<!-- KV 배너 -->
-	<div class="kv_banner mooc_spot" id="kv_banner"><!-- #breadcrumb: /modules/main/template/keyvisual.html -->
-		
-	<span class="slideshow-container">
-                 <div class="Slidesbackground">
-                 <%-- <c:forEach var="img" items="${BIList } "> --%>
-                   <div class="mySlides fade">
-                  <%--  <img src="${img.bannerImg }"> --%>
-                   <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2369&q=80" class="slideshow-image"> -->
-                    </div>
-                   <div class="mySlides fade">
-                        <img src="https://images.unsplash.com/photo-1581888227599-779811939961?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2148&q=80" class="slideshow-image">
-                    </div>
-                    <div class="mySlides fade">
-                        <img src="https://images.unsplash.com/photo-1534361960057-19889db9621e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80" class="slideshow-image">
-                    </div>
-                    <div class="mySlides fade">
-                        <img src="https://images.unsplash.com/photo-1527526029430-319f10814151?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80" class="slideshow-image">
-                    </div>
-                    <div class="mySlides fade">
-                        <img src="https://images.unsplash.com/photo-1600077029182-92ac8906f9a3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80" class="slideshow-image">
-                    </div>
-                    <div class="mySlides fade">
-                        <img src=https://cdn.cnn.com/cnnnext/dam/assets/201030094143-stock-rhodesian-ridgeback-super-tease.jpg class="slideshow-image">
-                    </div>
-                   <%--  </c:forEach> --%>
-                </div>
-   </span>
-	
-	</div>
+
+
+<!-- KV 배너 & 로그인 정보 영역 -->
+<div class="kv_login_area">
+<!-- KV 배너 -->
+<div class="kv_banner mooc_spot" id="kv_banner" style="width: 800px;"><!-- #breadcrumb: /modules/main/template/keyvisual.html -->
+<div class="slide_wrap NE=a:mkv">
+<!-- 메인 캐러셀 부분 -->
+<div id="carouselContainer">
+    <div id="carouselItems">
+    	<c:forEach items="${ BIList }" var="bi" varStatus="i">
+        <div class="carousel-item">
+            <img src="http://localhost/daitdayoung/courses_data/${ bi.couCode}/${ bi.bannerImg }" alt="Slide ${ i.count }">
+        </div>
+    	</c:forEach>
+    </div>
+
+    <div id="prevButton">&lt;</div>
+    <div id="nextButton">&gt;</div>
+
+    <div class="dot-container">
+    <c:forEach items="${ BIList }" var="bi" varStatus="i">
+        <span class="dot"></span>
+	</c:forEach>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        let currentSlide = 0;
+
+        function goToSlide(slideIndex) {
+            currentSlide = slideIndex;
+            updateCarousel();
+        }
+
+        function updateCarousel() {
+            const totalSlides = $('.carousel-item').length;
+            const translateValue = -currentSlide * 100 + '%';
+
+            $('#carouselItems').css('transform', 'translateX(' + translateValue + ')');
+
+            $('.dot').removeClass('on');
+            $('.dot:eq(' + currentSlide + ')').addClass('on');
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + 5) % 5;
+            updateCarousel();
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % 5;
+            updateCarousel();
+        }
+
+        $('#prevButton').click(prevSlide);
+        $('#nextButton').click(nextSlide);
+        $('.dot').click(function () {
+            const index = $(this).index();
+            goToSlide(index);
+        });
+
+        updateCarousel();  // 초기화
+    });
+</script>
+</div>
+</div>
 
 <!-- 로그인 정보 -->
 <div id="login_box">

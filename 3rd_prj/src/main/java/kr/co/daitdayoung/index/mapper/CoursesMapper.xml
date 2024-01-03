@@ -4,28 +4,55 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.daitdayoung.index">
 
+	<select id="mainCategory" resultType="kr.co.daitdayoung.index.domain.CoursesSideBarDomain">
+	select  MC_CODE, MC_NAME
+	from MAINCATEGORY
+	</select>
+	
+	<select id="subCategory" resultType="kr.co.daitdayoung.index.domain.SubCategoryDomain" parameterType="String">
+	select SC_CODE, SC_NAME 
+	from SUBCATEGORY
+	where MC_CODE = #{mcCode}
+	</select>
+	
+	<select id="categoryCourses" resultType="kr.co.daitdayoung.index.domain.IndexColDomain" parameterType="kr.co.daitdayoung.index.vo.CategoryVO">
+	select 	c.cou_code, cou_name, c.banner_img, c.hits, c.ins_id, c.mc_code
+	from 	courses c
+	<where>
+	<if test='mcCode != null and mcCode != "all"'>
+    MC_CODE = #{mcCode}
+	    <if test='scCode != null'>
+	    AND SC_CODE = #{scCode}
+	    </if>
+    </if>
+	</where>
+	</select>
+	
+	
+	
+
 	<!-- 대분류, 소분류 -->
- 	<select id="leftCategory" resultType= "kr.co.daitdayoung.index.domain.CoursesDomain" >
+ 	<!-- <select id="leftCategory" resultType= "kr.co.daitdayoung.index.domain.CoursesDomain" >
 	select 	distinct mc.mc_name, sc.sc_name
 	from 	maincategory mc
 	join 	subcategory sc on mc.mc_code = sc.mc_code
 	</select>
 
-	<!-- 전체 강좌명, 배너이미지, 교수명, 조회수 -->
+	전체 강좌명, 배너이미지, 교수명, 조회수
 	<select id="CouList" resultType="kr.co.daitdayoung.index.domain.CoursesDomain"> 
 	select 		c.cou_code, cou_name, c.banner_img, c.hits, i.ins_name, c.ins_id, c.mc_code
 	from 		courses c, instructor i
 	where		i.ins_id = c.ins_id
 	</select>
 	
-	<!-- 소분류 골라서 -->
+	소분류 골라서
 	<select id="CouOne" resultType="kr.co.daitdayoung.index.domain.CoursesDomain">
 	select 		c.cou_code, cou_name, c.banner_img, c.hits, i.ins_name, c.ins_id, c.mc_code
 	from 		courses c
 	join 		instructor i on c.ins_id = i.ins_id
 	join 		maincategory m on c.mc_code = m.mc_code
 	where 		c.sc_code = #{scCode}
-	</select>
+	</select> -->
 	
 	<!-- 조회수 -->
 	<!-- <select id="complete" resultType="int" parameterType="String">

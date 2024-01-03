@@ -28,7 +28,7 @@ public class IndexController {
 	public String index(HttpSession session, Model model) {
 		
 		List<IndexDomain> MCList = ins.searchMC();
-		//List<IndexDomain> BIList = ins.searchBI();
+		List<IndexDomain> BIList = ins.searchBI();
 		List<IndexColDomain> tempList = null; 
 		IndexVO iVO = new IndexVO();
 		
@@ -38,18 +38,14 @@ public class IndexController {
 			List<IndexColDomain> icList = ins.searchCouList(iVO);
 			MCList.get(i).setList(icList);
 		}
-		//5555
 		for(int i=0;i<1;i++) {
-//			for(int i=0;i<MCList.get(i).getList().size();i++) {
 			String couCode = MCList.get(3).getList().get(i).getCouCode();
 			int CompletionCnt =	ins.searchCompletionStatus(couCode);
 			MCList.get(3).getList().get(i).setCompletionCnt(CompletionCnt);
 			
 		}
 		
-		//ins.modifyVisitors();
-		
-		//model.addAttribute("BIList", BIList);
+		model.addAttribute("BIList", BIList);
 		model.addAttribute("MCList", MCList);
 		model.addAttribute("tempList",tempList);
 		String usId = (String)(session.getAttribute("usID"));

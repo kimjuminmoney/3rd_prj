@@ -6,8 +6,9 @@
 <head>
 
 <title id="titleJoin">공지사항</title>
-
-<script type="text/javascript" src="https://www.starbucks.co.kr/common/js/esabsbuxkr.js?single"></script> 
+<link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/common1.css" type="text/css">
+<link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.23.10.31.0/css/boostcourse_common.css" type="text/css">
+  
 
 <!-- 220117 수정 -->
 <link href="https://www.starbucks.co.kr/common/css/reset.css" rel="stylesheet">

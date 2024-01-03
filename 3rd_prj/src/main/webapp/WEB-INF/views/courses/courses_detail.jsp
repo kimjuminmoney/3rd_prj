@@ -43,7 +43,27 @@
 
 </script> 
  
-<body>   
+<body class="re_pack boost_course_main_body le_info win chrome chrome119">   
+<header id="header" class="edwith">
+            <div class="layout_in" data-wrap-gnb-menu="">
+    <h1 class="logo">
+        <a class="N=a:gnb.edwith" href="index.do">
+            <img height="80px" width="120px" src="http://localhost/daitdayoung/common/images/logo_1.png">
+        </a>
+    </h1>
+<ul class="lnk">
+        <li><a href="courses.do?mcCode=MC_000001">의무교육</a></li>
+        <li><a href="courses.do?mcCode=MC_000002">자기개발교육</a></li>
+        <li class="ose"><a href="courses.do?mcCode=MC_000003">산업안전교육</a></li>
+</ul>
+<ul class="gnb ly_type2" id="gnb">
+    <!-- #breadcrumb:/common/_loginbox.gsp -->
+<li>
+        <a href="javascript:doLogin()" class="login N=a:gnb.login">로그인 / 회원가입</a>
+</li>
+</ul>
+</div>
+</header>
 <div id="container">
         
 <!-- #breadcrumb:course/index.gsp -->
@@ -100,6 +120,17 @@
 $(function(){
 	$("#btn_request_lecture").click(function(){
 		alert("수강신청");
+		   // ${uiId} 값이 있는지 확인
+        var uiIdValue = "${uiId}";
+
+        if(uiIdValue.trim() === ""){
+            // ${uiId} 값이 없을 경우
+            if(confirm("로그인이 필요합니다. 로그인 페이지로 이동하시겠습니까?")){
+                // 로그인 페이지로 이동
+                window.location.href = "login/login.do";
+            }
+            return; // 로그인이 필요한 경우 ajax 호출을 중단
+        }
 		var registration = $("#registration").val();
 		//재수강			
 		if(registration == 'Y'){
