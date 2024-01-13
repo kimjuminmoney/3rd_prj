@@ -12,6 +12,7 @@ import kr.co.daitdayoung.user.domain.UserAnswerDomain;
 import kr.co.daitdayoung.user.domain.UserCoursesExamDomain;
 import kr.co.daitdayoung.user.domain.UserQuestionsDomain;
 import kr.co.daitdayoung.user.vo.UserAnswerVO;
+import kr.co.daitdayoung.user.vo.UserCoursesVO;
 import kr.co.daitdayoung.user.vo.UserExamScoreVO;
 import kr.co.daitdayoung.user.vo.UserExamVO;
 
@@ -103,11 +104,11 @@ public class UserExamDAO {
 		return cnt;
 	}// insertAnswer
 	
-	public int updateExamScore(UserExamScoreVO uesVO)throws PersistenceException{
+	public int updateExamScore(UserCoursesVO ucVO)throws PersistenceException{
 		int cnt = 0;
 		mbh = MyBatisHandler.getInstance();
 		SqlSession ss = mbh.getMyBatisHandler(false);
-		cnt = ss.update("kr.co.daitdayoung.user.exam.examScoreUpdate", uesVO);
+		cnt = ss.update("kr.co.daitdayoung.user.exam.examScoreUpdate", ucVO);
 		if (cnt == 1) {
 			ss.commit();
 		} // end if
@@ -148,17 +149,5 @@ public class UserExamDAO {
 		return progress;
 	}// selectQuestionList
 	
-	public int updateCompletion(String crgCode) throws PersistenceException {
-		int cnt = 0;
-		mbh = MyBatisHandler.getInstance();
-		SqlSession ss = mbh.getMyBatisHandler(false);
-		cnt = ss.update("kr.co.daitdayoung.user.exam.completionUpdate",crgCode);
-		if (cnt == 1) {
-			ss.commit();
-		} // end if
-		mbh.closeHandler(ss);
-		
-		return cnt;
-	}
 
 }// class

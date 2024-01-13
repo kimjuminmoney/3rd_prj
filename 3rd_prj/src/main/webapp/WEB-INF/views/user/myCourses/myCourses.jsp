@@ -112,9 +112,15 @@
                                     <span class="name"><c:out value="${ courses.insName }"/></span>
                                 </div>
                             </div>
+                            
                             <c:if test="${ courses.completionStatus == 'F' }">
                             <div class="info_btns" style="width: 150px; height: 50px; background-color: #00AB50; font-size: 20px; color: #FFFFFF; border-radius: 10px; line-height: 50px; text-align: center;">
 							    <span class="btn_txt">과 락</span>
+							</div>
+							</c:if>
+                            <c:if test="${ courses.completionStatus == 'Y' }">
+                            <div class="info_btns" style="width: 150px; height: 50px; background-color: #00AB50; font-size: 20px; color: #FFFFFF; border-radius: 10px; line-height: 50px; text-align: center;">
+							    <span class="btn_txt">수 료</span>
 							</div>
 							</c:if>
                             <c:if test="${ courses.crCount > 1 }">

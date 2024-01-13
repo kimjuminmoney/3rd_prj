@@ -15,9 +15,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.daitdayoung.user.domain.UserAnswerDomain;
+import kr.co.daitdayoung.user.domain.UserCoursesDomain;
 import kr.co.daitdayoung.user.domain.UserQuestionsDomain;
+import kr.co.daitdayoung.user.service.UserComplecationService;
 import kr.co.daitdayoung.user.service.UserExamService;
 import kr.co.daitdayoung.user.vo.UserAnswerVO;
+import kr.co.daitdayoung.user.vo.UserCoursesVO;
 import kr.co.daitdayoung.user.vo.UserExamScoreVO;
 import kr.co.daitdayoung.user.vo.UserExamVO;
 
@@ -26,6 +29,9 @@ public class UserExamController {
 
 	@Autowired
 	private UserExamService ues;
+	
+	@Autowired
+	private UserComplecationService ucts;
 
 	@PostMapping("/user/userExam.do")
 	public String userExam(UserExamVO ueVO, HttpSession session, Model model) {
@@ -80,22 +86,22 @@ public class UserExamController {
 		}//end for
 		
 		int score = (int)((curCnt/ queCnt) * 100);
-		UserExamScoreVO uesVO = new UserExamScoreVO();
-		uesVO.setCrgCode(uaVO.getCrgCode());
-		uesVO.setExamScore(score);
-		uesVO.setEpCode(uaVO.getEpCode());
-		uesVO.setExamPass("N");
+		UserCoursesVO ucVO = new UserCoursesVO();
+		ucVO.setCrgCode(uaVO.getCrgCode());
+		ucVO.setExamScore(score);
+		ucVO.setEpCode(uaVO.getEpCode());
+		ucVO.setExamPass("N");
 		int examResults = (Integer)session.getAttribute("examResults");
 		if(examResults <= score) {
-			uesVO.setExamPass("Y");
+			ucVO.setExamPass("Y");
+			int enrollRate = (Integer)session.getAttribute("enrollRate");
+			int lecCnt = (Integer)session.getAttribute("lecCnt");
+			ucVO.setRateCnt((Integer) session.getAttribute("progressRate"));
+			ucVO.setEnrollRate(enrollRate);
+			ucVO.setLecCnt(lecCnt);
+			ucts.modifyCompletionStatus(ucVO);
 		}
-		ues.modifyExamScore(uesVO);
-		int enrollRate = (Integer)session.getAttribute("enrollRate");
-		int lecCnt = (Integer)session.getAttribute("lecCnt");
-		uesVO.setEnrollRate(enrollRate);
-		uesVO.setLecCnt(lecCnt);
-		ues.modifyCompletionStatus(uesVO);
-		System.out.println("성공한듯");
+		ues.modifyExamScore(ucVO);
 		
 		return "user/courses/courses_exam_result";
 	}// userExamProcess

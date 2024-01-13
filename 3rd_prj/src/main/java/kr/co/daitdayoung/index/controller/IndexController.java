@@ -39,9 +39,9 @@ public class IndexController {
 			MCList.get(i).setList(icList);
 		}
 		for(int i=0;i<1;i++) {
-			String couCode = MCList.get(3).getList().get(i).getCouCode();
+			String couCode = MCList.get(i).getList().get(i).getCouCode();
 			int CompletionCnt =	ins.searchCompletionStatus(couCode);
-			MCList.get(3).getList().get(i).setCompletionCnt(CompletionCnt);
+			MCList.get(i).getList().get(i).setCompletionCnt(CompletionCnt);
 			
 		}
 		

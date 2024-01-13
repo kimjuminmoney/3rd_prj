@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
 
 import kr.co.daitdayoung.user.dao.UserCoursesDAO;
 import kr.co.daitdayoung.user.dao.UserExamDAO;
@@ -14,7 +13,6 @@ import kr.co.daitdayoung.user.domain.UserCoursesExamDomain;
 import kr.co.daitdayoung.user.domain.UserCoursesLectureDomain;
 import kr.co.daitdayoung.user.domain.UserCoursesNoticeDomain;
 import kr.co.daitdayoung.user.vo.UserCoursesVO;
-import kr.co.daitdayoung.user.vo.UserExamScoreVO;
 
 @Component
 public class UserCoursesService {
@@ -71,17 +69,6 @@ public class UserCoursesService {
 	
 	public String searchExamPass(String crgCode) {
 		return ucDAO.selectExamPass(crgCode);
-	}
-	
-	public int modifyCompletionStatus(UserCoursesVO ucVO) {
-		int progress = ucVO.getRateCnt();
-		int enrollRate = ucVO.getEnrollRate();
-		int lecCnt = ucVO.getLecCnt();
-		int cnt = 0;
-		if (progress != 0 && (lecCnt / (double) progress) * 100 >= enrollRate) {
-			cnt = ueDAO.updateCompletion(ucVO.getCrgCode());
-		}
-		return cnt;
 	}
 	
 	public void increaseCourseViews(String couCode) {

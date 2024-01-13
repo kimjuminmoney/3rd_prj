@@ -120,6 +120,19 @@ public class UserCoursesDAO {
 		return examPass;
 	}//selectCourseNotice
 	
+	public int updateCompletionStatus(UserCoursesVO ucVO) throws PersistenceException {
+		int cnt = 0;
+		mbh = MyBatisHandler.getInstance();
+		SqlSession ss = mbh.getMyBatisHandler(false);
+		cnt = ss.update("kr.co.daitdayoung.user.courses.hitsUpdate", ucVO);
+		if (cnt == 1) {
+			ss.commit();
+		}
+		mbh.closeHandler(ss);
+		
+		return cnt;
+	}
+	
 	public void updateCourseViews(String couCode) throws PersistenceException {
 		int cnt = 0;
 		mbh = MyBatisHandler.getInstance();

@@ -15,6 +15,7 @@ import kr.co.daitdayoung.user.domain.UserAnswerDomain;
 import kr.co.daitdayoung.user.domain.UserCoursesExamDomain;
 import kr.co.daitdayoung.user.domain.UserQuestionsDomain;
 import kr.co.daitdayoung.user.vo.UserAnswerVO;
+import kr.co.daitdayoung.user.vo.UserCoursesVO;
 import kr.co.daitdayoung.user.vo.UserExamScoreVO;
 import kr.co.daitdayoung.user.vo.UserExamVO;
 
@@ -93,10 +94,10 @@ public class UserExamService {
 		return cnt;
 	}// insertAnswer
 
-	public int modifyExamScore(UserExamScoreVO uesVO) {
+	public int modifyExamScore(UserCoursesVO ucVO) {
 		int cnt = 0;
 
-		cnt = ueDAO.updateExamScore(uesVO);
+		cnt = ueDAO.updateExamScore(ucVO);
 		return cnt;
 	}
 
@@ -117,15 +118,5 @@ public class UserExamService {
 		return json;
 	}// searchQuestion
 
-	public int modifyCompletionStatus(UserExamScoreVO uesVO) {
-		int progress = ueDAO.selectProgress(uesVO.getCrgCode());
-		int enrollRate = uesVO.getEnrollRate();
-		int lecCnt = uesVO.getLecCnt();
-		int cnt = 0;
-		if (progress != 0 && (lecCnt / (double) progress) * 100 >= enrollRate) {
-			cnt = ueDAO.updateCompletion(uesVO.getCrgCode());
-		}
-		return cnt;
-	}
 
 }// class

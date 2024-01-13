@@ -73,12 +73,17 @@ $(function(){
 			},
 			success:function(jsonObj){
 				var flag = jsonObj.flag;
+				var completeFlag = jsonObj.completeFlag;
 				if(!flag){
 					alert(msg);
 				}
 				
 				if(flag){
 					alert("수강 완료하였습니다")
+				}
+				
+				if(completeFlag){
+					alert("현재 강좌를 수료하였습니다")
 				}
 				
 			}//success
@@ -131,7 +136,7 @@ $(function(){
 			<hr>
     		<div class="group_lr">
         		<div class="group_r">
-            		<a href="courses.do?crgCode=${ param.crgCode}&couCode=${ param.couCode }" class="btn btn_type2 bold N=a:lec.list" data-selector="backToListBtn">메인으로</a>
+            		<a href="courses.do?crgCode=${ param.crgCode}&couCode=${ param.couCode }&epCode=${ param.epCode}" class="btn btn_type2 bold N=a:lec.list" data-selector="backToListBtn">메인으로</a>
         		</div>
     		</div>
         </div>

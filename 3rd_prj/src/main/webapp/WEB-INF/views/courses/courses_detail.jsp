@@ -58,9 +58,44 @@
 </ul>
 <ul class="gnb ly_type2" id="gnb">
     <!-- #breadcrumb:/common/_loginbox.gsp -->
-<li>
-        <a href="javascript:doLogin()" class="login N=a:gnb.login">로그인 / 회원가입</a>
-</li>
+    <c:choose>
+    <c:when test="${ not empty uiId }">
+    <!-- 로그인 후 -->
+    <li class="ly_right" data-gnb-menu="join" title="나의 강좌">
+            <a href="user/myCourses.do?type=myCourses" data-markup-gnb=".ly_dropdown" class="ico_gnb_lec_b">
+            <span class="sr_only">나의 강좌</span>
+            </a>
+        </li>
+        <li class="ly_right" data-gnb-menu="myTodo" title="강좌 문의하기">
+            <a href="user/coursesInquiry.do?type=coursesInquiry" data-markup-gnb=".ly_dropdown" class="ico_gnb_todo_b">
+            <span class="sr_only">강좌 문의하기</span>
+            </a>
+        </li>
+        <li class="ly_right" data-gnb-menu="myNews" title="나의 할일">
+            <a href="user/toDoList.do?type=toDoList" data-markup-gnb=".ly_dropdown" class="ico_gnb_news_b">
+            <span class="sr_only">나의 할일</span>
+            </a>
+        </li>
+        <li>
+        <a href="logout.do" class="login N=a:gnb.login">로그아웃</a>
+	</li>
+    <!-- 로그인 후 -->
+    </c:when>
+	<c:when test="${ not empty insId }">
+    <!-- 강사 로그인시 -->
+	<li>
+	    <a href="javascript:doLogin()" class="login N=a:gnb.login">학생 로그인후 수강신청이 가능합니다.</a>
+	</li>
+    <!-- 강사 로그인시 -->
+	</c:when>
+	<c:otherwise>
+    <!-- 로그인 전 -->
+	<li>
+	    <a href="login/login.do" class="login N=a:gnb.login">로그인 / 회원가입</a>
+	</li>
+    <!-- 로그인 전 -->
+	</c:otherwise>
+    </c:choose>
 </ul>
 </div>
 </header>

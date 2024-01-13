@@ -16,28 +16,29 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import kr.co.daitdayoung.index.vo.CoursesRegistrationVO;
 import kr.co.daitdayoung.user.domain.CoursesExamInfoDomain;
 import kr.co.daitdayoung.user.domain.UserCoursesDomain;
 import kr.co.daitdayoung.user.domain.UserCoursesExamDomain;
 import kr.co.daitdayoung.user.domain.UserCoursesLectureDomain;
 import kr.co.daitdayoung.user.domain.UserCoursesNoticeDomain;
+import kr.co.daitdayoung.user.service.UserComplecationService;
 import kr.co.daitdayoung.user.service.UserCoursesService;
 import kr.co.daitdayoung.user.vo.UserCoursesVO;
 
-@SessionAttributes({ "ucDomain", "lectureList", "lecCnt", "rate","enrollRate","examResults" })
+@SessionAttributes({ "ucDomain", "lectureList", "lecCnt", "rate","enrollRate","examResults","progressRate" })
 
 @Controller
 public class UserCoursesController {
 
 	@Autowired
 	private UserCoursesService ucs;
+	
+	@Autowired
+	private UserComplecationService ucts;
 
 	@GetMapping("/user/courses.do")
 	public String userCourses(UserCoursesVO ucVO, HttpSession session, Model model,HttpServletResponse response,HttpServletRequest request) {
-		// couCode = "COU_999999";
 		String uiId = (String) session.getAttribute("uiId");
-		// uiId = "ui_test";
 		ucVO.setUiId(uiId);
 		UserCoursesDomain ucDomain = ucs.searchCoursesInfo(ucVO);
 		List<UserCoursesNoticeDomain> noticeList = ucs.searchCoursesNoticeList(ucVO.getCouCode());
@@ -54,8 +55,16 @@ public class UserCoursesController {
 		model.addAttribute("noticeList", noticeList);
 		model.addAttribute("lectureList", lectureList);
 		model.addAttribute("lecCnt", lectureList.size());
-		model.addAttribute("examResults",ucDomain.getExamResults());
-		model.addAttribute("enrollRate",ucDomain.getEnrollRate());
+		
+		if(ucDomain == null) {
+			ucDomain = (UserCoursesDomain)session.getAttribute("ucDomain");
+			model.addAttribute("examResults",ucDomain.getExamResults());
+			model.addAttribute("enrollRate",ucDomain.getEnrollRate());
+		} else {
+			model.addAttribute("examResults",ucDomain.getExamResults());
+			model.addAttribute("enrollRate",ucDomain.getEnrollRate());
+		}
+		model.addAttribute("progressRate",ucDomain.getProgressRate());
 		return "user/courses/courses";
 	}
 
@@ -110,21 +119,23 @@ public class UserCoursesController {
 		int rateCnt = ucs.modifyCoursesRecode(ucVO);
 
 		JSONObject json = new JSONObject();
+		boolean flag = false;
+		boolean completeFlag = false;
 		String examPass = ucs.searchExamPass(ucVO.getCrgCode());
-		if(examPass.equals("Y"));{
+		if(null != examPass &&examPass.equals("Y")){
 			int enrollRate = (Integer)session.getAttribute("enrollRate");
 			int lecCnt = (Integer)session.getAttribute("lecCnt");
 			ucVO.setEnrollRate(enrollRate);
 			ucVO.setLecCnt(lecCnt);
 			ucVO.setRateCnt(rateCnt);
-			
+			int cnt = ucts.modifyCompletionStatus(ucVO);
+			if(cnt == 1) {
+				completeFlag = true;
+			}
 		}
-		
-		
-		
-		
-		
-
+		flag = true;
+		json.put("flag", flag);
+		json.put("completeFlag", completeFlag);
 		return json.toJSONString();
 	}
 

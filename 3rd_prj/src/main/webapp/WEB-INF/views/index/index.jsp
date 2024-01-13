@@ -52,7 +52,7 @@
             width: 800px;
             height: 240px;
         }
-
+        
         #prevButton, #nextButton {
             position: absolute;
             top: 50%;
@@ -108,6 +108,7 @@
 
 <!-- KV 배너 & 로그인 정보 영역 -->
 <div class="kv_login_area">
+<h2>추천강의</h2>
 <!-- KV 배너 -->
 <div class="kv_banner mooc_spot" id="kv_banner" style="width: 800px;"><!-- #breadcrumb: /modules/main/template/keyvisual.html -->
 <div class="slide_wrap NE=a:mkv">
@@ -116,7 +117,9 @@
     <div id="carouselItems">
     	<c:forEach items="${ BIList }" var="bi" varStatus="i">
         <div class="carousel-item">
+        	<a href="courses_detail.do?couCode=${bi.couCode }">
             <img src="http://localhost/daitdayoung/courses_data/${ bi.couCode}/${ bi.bannerImg }" alt="Slide ${ i.count }">
+            </a>
         </div>
     	</c:forEach>
     </div>
@@ -185,7 +188,7 @@
     <br/>
      <img src="http://localhost/daitdayoung/common/images/login.png">
     </a>
-    <a href="/signup" class="join" data-nclk="log.registry">처음이신가요? 회원가입</a>
+    <a href="login/userJoin.do" class="join" data-nclk="log.registry">처음이신가요? 회원가입</a>
     </c:if>
     <c:if test="${ not empty uiId }">
     <h2 class="login_title"><c:out value="${ uiId }"/>님 환영합니다</h2>

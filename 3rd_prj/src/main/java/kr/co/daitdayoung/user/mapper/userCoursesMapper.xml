@@ -82,9 +82,16 @@
 	</select>
 	
 	<select id="examPass" parameterType="String" resultType="String">
+	select exam_pass
 	from EXAM_PARTICIPATION
 	where crg_code = #{crgCode} and exam_pass = 'Y'
 	</select>
+	
+	<update id="completionStatus">
+	update 	course_registration
+	set 	completiondate = sysdate, completion_status = 'Y'
+	where	crg_code = #{crgCode} and ui_id = #{uiId}
+	</update>
 	
 	
 	<update id="hitsUpdate" parameterType="String">
