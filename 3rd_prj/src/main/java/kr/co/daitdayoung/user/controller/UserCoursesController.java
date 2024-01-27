@@ -55,15 +55,8 @@ public class UserCoursesController {
 		model.addAttribute("noticeList", noticeList);
 		model.addAttribute("lectureList", lectureList);
 		model.addAttribute("lecCnt", lectureList.size());
-		
-		if(ucDomain == null) {
-			ucDomain = (UserCoursesDomain)session.getAttribute("ucDomain");
-			model.addAttribute("examResults",ucDomain.getExamResults());
-			model.addAttribute("enrollRate",ucDomain.getEnrollRate());
-		} else {
-			model.addAttribute("examResults",ucDomain.getExamResults());
-			model.addAttribute("enrollRate",ucDomain.getEnrollRate());
-		}
+		model.addAttribute("examResults",ucDomain.getExamResults());
+		model.addAttribute("enrollRate",ucDomain.getEnrollRate());
 		model.addAttribute("progressRate",ucDomain.getProgressRate());
 		return "user/courses/courses";
 	}

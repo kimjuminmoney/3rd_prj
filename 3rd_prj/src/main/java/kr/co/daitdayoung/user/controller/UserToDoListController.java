@@ -16,6 +16,9 @@ public class UserToDoListController {
 	@Autowired
 	private UserToDoListService utdls;
 	
+	/**
+	 * 내강의실 - 나의 할 일
+	 */
 	@GetMapping("/user/toDoList.do")
 	public String userToDoList(HttpSession session, Model model) {
 		String id = (String)session.getAttribute("uiId");

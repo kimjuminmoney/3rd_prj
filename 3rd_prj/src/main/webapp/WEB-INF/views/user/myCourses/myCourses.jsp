@@ -183,13 +183,6 @@
         window.open(url, '_blank', features);
     }
 
-    document.addEventListener('DOMContentLoaded', function () {
-        var certificateBtn = document.querySelector('.btn_type3[data-btn="certificate"]');
-        certificateBtn.addEventListener('click', function (event) {
-            event.preventDefault();
-            checkAndOpenCertificateWindow('${courses.completionStatus}');
-        });
-    });
 </script>
 
 

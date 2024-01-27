@@ -23,11 +23,11 @@
 	
 	<!-- <context:component-scan base-package="kr.co.index" /> -->
 	<context:component-scan base-package="kr.co.daitdayoung" />
-	<context:component-scan base-package="kr.co.daitdayoung.*" />
+	<!-- <context:component-scan base-package="kr.co.daitdayoung.*" /> -->
 	<interceptors>
 		<interceptor>
-			<mapping path="/daitdayoung/user/**"/>
-			<exclude-mapping path="/daitdayoung/instructor/**"/>
+			<mapping path="/user/**"/>
+			<!-- <exclude-mapping path="/daitdayoung/instructor/**"/> -->
 			<beans:bean id="ti" class="kr.co.daitdayoung.user.interceptor.UserInterceptor"/>
 		</interceptor> 
 	</interceptors>

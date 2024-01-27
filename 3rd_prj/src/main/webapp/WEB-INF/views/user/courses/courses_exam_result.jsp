@@ -103,7 +103,7 @@
                         답안지 확인
                 </th>        
                 <td class="ta_c">
-                	<a href="userExamResult.do?crgcode=${ param.crgCode }&couCode=${ param.couCode}&epCode=${ param.epCode}">
+                	<a href="userExamResult.do?crgCode=${ param.crgCode }&couCode=${ param.couCode}&epCode=${ param.epCode}">
 				    <div style="display: flex; justify-content: center; align-items: center; width: 150px; height: 50px; background-color: #00AB50; font-size: 20px; color: #FFFFFF; border-radius: 10px; text-align: center; margin: auto;">
 				        <span class="btn_txt" style="display: flex; align-items: center;">확인</span>
 				    </div>

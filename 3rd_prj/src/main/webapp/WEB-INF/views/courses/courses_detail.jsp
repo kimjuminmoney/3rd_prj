@@ -154,7 +154,6 @@
 <script type="text/javascript">
 $(function(){
 	$("#btn_request_lecture").click(function(){
-		alert("수강신청");
 		   // ${uiId} 값이 있는지 확인
         var uiIdValue = "${uiId}";
 
@@ -164,7 +163,7 @@ $(function(){
                 // 로그인 페이지로 이동
                 window.location.href = "login/login.do";
             }
-            return; // 로그인이 필요한 경우 ajax 호출을 중단
+            return;
         }
 		var registration = $("#registration").val();
 		//재수강			
@@ -238,7 +237,6 @@ $(function(){
 	            <span data-btn-label="">수강 신청</span>
 	            </button>
 		    	</c:otherwise>
-		    
 		    </c:choose>    
             <!-- // 수강신청 버튼 -->
             <!-- 수강신청 안내 메시지 -->

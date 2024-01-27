@@ -328,7 +328,7 @@ $(document).ready(function () {
     $(document).ready(function () {
 	    //시험제출하기
 	    $("#subBtn").click(function(){
-	    	location.href="courses_exam_result.do?crgcode=${ param.crgCode }&couCode=${ param.couCode}&epCode=${ param.epCode}"
+	    	location.href="courses_exam_result.do?crgCode=${ param.crgCode }&couCode=${ param.couCode}&epCode=${ param.epCode}"
 	    })
     });
     

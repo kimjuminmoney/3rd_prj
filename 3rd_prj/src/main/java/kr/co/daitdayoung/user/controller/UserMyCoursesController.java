@@ -18,10 +18,12 @@ public class UserMyCoursesController {
 	@Autowired
 	private UserMyCoursesService umcs;
 	
+	/**
+	 * 내 강의실 - 나의 강좌
+	 */
 	@GetMapping("/user/myCourses.do")
 	public String userMyCourses(HttpSession session,Model model ) {
 		String id = (String)session.getAttribute("uiId");
-		//String id = "ui_test";
 		List<UserMyCoursesDomain> list = umcs.searchCoursesList(id);
 		
 		list = umcs.searchCoursesExamList(list);
@@ -31,10 +33,11 @@ public class UserMyCoursesController {
 		return "user/myCourses/myCourses";
 	}
 	
+	/**
+	 * 수료증
+	 */
 	@GetMapping("/user/certificate.do")
 	public String userCertiticate(HttpSession session,Model model) {
-		
-		System.out.println("수료증");
 		
 		return "user/myCourses/certificate";
 	}
