@@ -47,7 +47,7 @@ public class CoursesDetailController {
 	} // 강좌
 	
 	
-
+	//수강신청
 	@ResponseBody
 	@PostMapping(value = "/courses_registration.do", produces = "application/text;charset=utf-8")
 	public String userQueProcess(CoursesRegistrationVO crVO, HttpSession session) {

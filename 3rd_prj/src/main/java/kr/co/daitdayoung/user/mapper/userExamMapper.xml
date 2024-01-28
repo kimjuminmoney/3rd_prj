@@ -4,16 +4,41 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.daitdayoung.user.exam">
 
-	<update id="examParticipationUpdate" parameterType="kr.co.daitdayoung.user.vo.UserExamVO">
+	<!-- <update id="examParticipationUpdate" parameterType="kr.co.daitdayoung.user.vo.UserExamVO">
 	update 	EXAM_PARTICIPATION
 	set		exam_status = 'Y', EXAMDATE = sysdate
 	where 	ui_id = #{uiId} and crg_code = #{crgCode}
+	</update> -->
+	<update id="examParticipationUpdate" parameterType="kr.co.daitdayoung.user.vo.UserExamVO">
+    <selectKey keyProperty="examDate" resultType="java.util.Date" order="AFTER">
+        SELECT EXAMDATE 
+        FROM EXAM_PARTICIPATION 
+        WHERE ui_id = #{uiId} and crg_code = #{crgCode}
+    </selectKey>
+    UPDATE EXAM_PARTICIPATION
+    SET exam_status = 'Y', EXAMDATE = sysdate
+    WHERE ui_id = #{uiId} and crg_code = #{crgCode}
 	</update>
 	
-	<insert id="reExamParticipationInsert" parameterType="kr.co.daitdayoung.user.vo.UserExamVO">
+	<!-- <insert id="reExamParticipationInsert" parameterType="kr.co.daitdayoung.user.vo.UserExamVO">
 	insert into EXAM_PARTICIPATION (EP_CODE, CRG_CODE, UI_ID, COU_CODE, INS_ID, EXAMDATE, RE_EXAM, EXAM_STATUS, EXAM_SCORE)
 	values('EP_'||lpad(ep_seq.nextval,6,'0'),#{crgCode}, #{uiId}, #{couCode}, #{insId}, sysdate, 'Y', 'Y', 0)
+	</insert> -->
+	
+	<insert id="reExamParticipationInsert" parameterType="kr.co.daitdayoung.user.vo.UserExamVO">
+    INSERT INTO EXAM_PARTICIPATION (EP_CODE, CRG_CODE, UI_ID, COU_CODE, INS_ID, EXAMDATE, RE_EXAM, EXAM_STATUS, EXAM_SCORE)
+    VALUES('EP_'||lpad(ep_seq.nextval,6,'0'), #{crgCode}, #{uiId}, #{couCode}, #{insId}, sysdate, 'Y', 'Y', 0)
 	</insert>
+	
+	<select id="selectExamDate" resultType="java.util.Date" parameterType="String">
+	select 	EXAMDATE
+	from 	EXAM_PARTICIPATION
+	where 	CRG_CODE = #{crgCode} and RE_EXAM = 'Y'
+	</select>
+
+
+
+	
 	
 	<select id="epCodeSelect" parameterType="kr.co.daitdayoung.user.vo.UserExamVO" resultType="String">
 	select 	EP_CODE

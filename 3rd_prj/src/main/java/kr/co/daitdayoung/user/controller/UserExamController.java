@@ -10,18 +10,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.daitdayoung.user.domain.UserAnswerDomain;
-import kr.co.daitdayoung.user.domain.UserCoursesDomain;
 import kr.co.daitdayoung.user.domain.UserQuestionsDomain;
 import kr.co.daitdayoung.user.service.UserComplecationService;
 import kr.co.daitdayoung.user.service.UserExamService;
 import kr.co.daitdayoung.user.vo.UserAnswerVO;
 import kr.co.daitdayoung.user.vo.UserCoursesVO;
-import kr.co.daitdayoung.user.vo.UserExamScoreVO;
 import kr.co.daitdayoung.user.vo.UserExamVO;
 
 @Controller
@@ -32,29 +28,30 @@ public class UserExamController {
 	
 	@Autowired
 	private UserComplecationService ucts;
+	
+	//시험응시 데이터 입력
+	@ResponseBody
+	@PostMapping(value = "/user/userExamInputProcess.do", produces = "application/text;charset=utf-8")
+	public String userExamInputProcess(UserExamVO ueVO) {
+		
+		String examDateStr = ues.userExamParticipation(ueVO);
+		
+		return examDateStr;
+	}// userExamProcess
+
 
 	@PostMapping("/user/userExam.do")
 	public String userExam(UserExamVO ueVO, HttpSession session, Model model) {
 		String uiId = (String) session.getAttribute("uiId");
 		ueVO.setUiId(uiId);
-		//시험을 본적이 없으면(첫시험응시면)
 		String epCode = "";
-		if("N".equals(ueVO.getExamStatus())) {
-			ues.modifyExamParticipation(ueVO);
-			epCode = ues.searchEpCode(ueVO);
-		}
-		
-		//시험을 본적이 있으면(재응시시험이면)
-		if("Y".equals(ueVO.getExamStatus())) {
-			ues.addReExamParticipation(ueVO);
-			epCode = ues.searchEpCode(ueVO);
-		} 
-		
+		epCode = ues.searchEpCode(ueVO);
 		List<UserQuestionsDomain> uceList = ues.searchQuestionList(ueVO.getCouCode());
 
 		model.addAttribute("uceList", uceList);
 		model.addAttribute("maxSize", uceList.size());
 		model.addAttribute("epCode", epCode);
+		model.addAttribute("examDate", ueVO.getExamDateStr());
 
 		return "user/myExam/userExam";
 	}// userMyExam

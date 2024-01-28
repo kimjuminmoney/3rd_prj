@@ -92,6 +92,8 @@
             		<input type="hidden" value="${ param.couCode }" name="couCode"/>
             		<input type="hidden" value="${ uceDomain.insId }" name="insId"/>
             		<input type="hidden" value="${ userExamInfo.examStatus }" name="examStatus"/>
+            		<input type="hidden" value="" name="examDateStr" id="examDateStr"/>
+            		
             		</form>
         		</div>
     		</div>
@@ -101,7 +103,31 @@
 </section>
 <script type="text/javascript">
 	$("#atag").click(function(){
-		$("#examFrm").submit();
+		var param = { crgCode:"${param.crgCode}",
+						couCode:"${param.couCode}",
+						insId:"${uceDomain.insId}",
+						examStatus:"${userExamInfo.examStatus }",
+						uiId:"${uiId}"}
+		$.ajax({
+			url:"userExamInputProcess.do",
+			type:"POST",
+			data: param,
+			dataType:"text",
+			error:function(xhr){
+				console.log(xhr.status);
+			},
+			success:function(examDate){
+				alert(examDate);
+				$("#examDateStr").val(examDate);
+				alert($("#examDateStr").val());
+				$("#examFrm").submit();
+			}
+		})
+		
+		
+		
+		
+		
 	})
 </script>
 

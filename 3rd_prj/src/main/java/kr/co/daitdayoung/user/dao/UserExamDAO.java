@@ -1,5 +1,6 @@
 package kr.co.daitdayoung.user.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.exceptions.PersistenceException;
@@ -13,7 +14,6 @@ import kr.co.daitdayoung.user.domain.UserCoursesExamDomain;
 import kr.co.daitdayoung.user.domain.UserQuestionsDomain;
 import kr.co.daitdayoung.user.vo.UserAnswerVO;
 import kr.co.daitdayoung.user.vo.UserCoursesVO;
-import kr.co.daitdayoung.user.vo.UserExamScoreVO;
 import kr.co.daitdayoung.user.vo.UserExamVO;
 
 @Component
@@ -23,7 +23,7 @@ public class UserExamDAO {
 	private MyBatisHandler mbh;
 	
 	//첫번째 시험 시험여부 업데이트
-	public int updateExamParticipation(UserExamVO ueVO) throws PersistenceException {
+	public Date updateExamParticipation(UserExamVO ueVO) throws PersistenceException {
 		int cnt = 0;
 		mbh = MyBatisHandler.getInstance();
 		SqlSession ss = mbh.getMyBatisHandler(false);
@@ -33,7 +33,7 @@ public class UserExamDAO {
 		} // end if
 		mbh.closeHandler(ss);
 		
-		return cnt;
+		return ueVO.getExamDate();
 	}
 	
 	//두번째 시험 insert
@@ -48,6 +48,15 @@ public class UserExamDAO {
 		mbh.closeHandler(ss);
 		
 		return cnt;
+	}
+	
+	public Date selectExamDate(String crgCode) throws PersistenceException {
+		mbh = MyBatisHandler.getInstance();
+		SqlSession ss = mbh.getMyBatisHandler(false);
+		Date examDate = ss.selectOne("kr.co.daitdayoung.user.exam.selectExamDate", crgCode);
+		mbh.closeHandler(ss);
+		
+		return examDate;
 	}
 	
 	//시험코드 조회

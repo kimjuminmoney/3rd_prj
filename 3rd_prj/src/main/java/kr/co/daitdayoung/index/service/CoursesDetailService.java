@@ -2,8 +2,6 @@ package kr.co.daitdayoung.index.service;
 
 import java.util.List;
 
-import org.apache.ibatis.exceptions.PersistenceException;
-import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

@@ -102,6 +102,7 @@
     <input type="hidden" name="examCode" value="${ ucDomain.examCode }"/>
     <input type="hidden" name="examStatus" value="${ ucDomain.examStatus }"/>
     <input type="hidden" name="reExam" value="${ ucDomain.reExam }"/>
+    <input type="hidden" name="examDate" value="${ examDate }"/>
     
     <table id="customers" class="forum_list_new bdnone table">
     <thead>
@@ -130,7 +131,7 @@
 <div id="content">
             
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 function startTimer(duration, display) {
   var timer = duration, minutes, seconds;
   var interval = setInterval(function () {
@@ -163,7 +164,53 @@ window.onload = function () {
   startTimer(fiveMinutes, display);
 };
 
+</script> -->
+<script type="text/javascript">
+function startTimer(duration, display) {
+  var timer = duration, minutes, seconds;
+  var interval = setInterval(function () {
+    minutes = parseInt(timer / 60, 10)
+    seconds = parseInt(timer % 60, 10);
+
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+    display.text(minutes + ":" + seconds);
+
+    if (--timer < 0) {
+      timer = duration;
+    }
+    if(timer === 0) {
+      clearInterval(interval);
+      display.text("시험 종료");
+      alert("시험시간이 종료되었습니다. \n 답안지는 자동으로 제출되었습니다.");
+      $("#answerFrm").submit();
+    }
+  }, 1000);
+}
+
+$(document).ready(function () {
+  var examDateStr = "${ examDate }"; // yyyy-MM-dd HH:mm:ss
+  var examTimelimit = parseInt("${ ucDomain.examTimelimit }"); // 분 단위
+alert(examDateStr)
+  // examDateStr을 Date 객체로 변환
+  var examDate = new Date(examDateStr);
+
+  // 종료 시간 계산
+  examDate.setMinutes(examDate.getMinutes() + examTimelimit);
+
+  // 현재 시간
+  var now = new Date();
+
+  // 남은 시간을 초 단위로 계산
+  var remainingSeconds = Math.floor((examDate - now) / 1000);
+
+  var display = $('#MyTimer');
+  startTimer(remainingSeconds, display);
+});
 </script>
+
+
 
 <!-- 시험문제구간 -->
 <section class="page quiz" id="_wrap_quiz_area">
